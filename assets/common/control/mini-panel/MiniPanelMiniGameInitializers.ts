@@ -1,5 +1,6 @@
 import * as configs from "../../../configs/Configs";
-import { GameIds, GameInfos } from "../../../configs/SabaConfigs";
+import { GameInfos } from "../../../configs/SabaConfigs";
+import GameBase from "../../../games/_base/GameBase";
 import { lazyInject } from "../../../manager/Application";
 import SocketIOController from "../../../manager/SocketIOController";
 import { buildServerUrl, getProxyRoute } from "../../helper/UrlHelper";
@@ -14,10 +15,10 @@ export default class MiniPanelMiniGameInitializers {
 
     showGame(node: cc.Node) {
         if (node) {
-            node.active = true;
-            this.main.miniGames && this.main.miniGames.insertChild(node, this.main.miniGames.children.length - 1);
-
-            this.main.loading.node.active = false;
+            if (this.main.miniGames) {
+                this.main.miniGames.children.forEach((child) => (child.active = child === node));
+            }
+            this.main.showLoading(false);
         }
     }
 
@@ -26,12 +27,11 @@ export default class MiniPanelMiniGameInitializers {
     }
 
     openMiniGame(gameId) {
-        const prefabPath = `games/minigame/${this.getGameName(gameId)}`;
-
         const gameBase = this.main.getGameMini(gameId);
         const isAlreadyOpened = gameBase !== undefined;
 
         if (!isAlreadyOpened) {
+            const prefabPath = `games/${this.getGameName(gameId)}`;
             this.main.loading.setDefaultPercent();
             cc.loader.loadRes(
                 prefabPath,
@@ -43,18 +43,17 @@ export default class MiniPanelMiniGameInitializers {
                         return;
                     }
                     if (err || prefab === null) {
-                        this.main.loading.node.active = false;
+                        this.main.showLoading(false);
                         this.main.onForceReload();
                         return;
                     }
 
                     const node = cc.instantiate(prefab);
-                    const componentName = gameId === GameIds.KenoProViet ? "KenoProViet" : "GameBase";
-                    const gameComponent = node.getComponent(componentName);
+                    const gameComponent = node.getComponent(GameBase);
                     gameComponent.initMiniPanel(this.main);
                     this.main.addMiniGame(gameComponent, gameId);
                     gameComponent.openGame();
-                    this.main.loading.node.active = false;
+                    this.showGame(node);
                 }
             );
         } else {
@@ -62,21 +61,8 @@ export default class MiniPanelMiniGameInitializers {
         }
     }
 
-    openGame(id) {
-        if (!cc.GameManager.isConnected) {
-            const gameName = GameUtils.getGameNameString(id);
-            this.main.onConnectSocketFailed(gameName, false);
-            return;
-        }
-
-        this.main.loading.node.active = true;
-
-        id = parseInt(id);
-        this.openMiniGame(id);
-    }
-
     openNewSocket(gameId) {
-        this.main.loading.node.active = true;
+        this.main.showLoading(true);
         const currentSocket: SocketIOClient.Socket = this.socketIOController.gameSockets[gameId];
 
         if (currentSocket && currentSocket.connected) {

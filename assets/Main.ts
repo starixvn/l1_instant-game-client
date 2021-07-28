@@ -1,4 +1,4 @@
-import MiniPanel from "./common/control/mini-panel/MiniPanel";
+import MiniPanel from "./common/control/mini-panel/MiniPanel.js";
 import { sentryLogger } from "./common/logger.js";
 import NameGenerator from "./common/name-generator/NameGenerator";
 import { GameIds } from "./configs/SabaConfigs";
@@ -25,13 +25,15 @@ export default class Main extends cc.Component {
     @property(cc.Node)
     content: cc.Node = null;
 
-    @property(MiniPanel)
-    miniPanel: MiniPanel = null;
+    @property(cc.Node)
+    miniPanelNode: cc.Node = null;
 
     generateNameCount = 0;
+    miniPanel: MiniPanel;
 
     onLoad() {
         cc.GameManager = GameManager.Instance;
+        this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
         this.splash.active = true;
         this.checkSSO();
     }
@@ -94,5 +96,10 @@ export default class Main extends cc.Component {
         }
 
         this.splash.active = false;
+        this.openGame(gameId);
+    }
+
+    openGame(gameId: number) {
+        this.miniPanel.openNewSocketMiniGame(gameId);
     }
 }

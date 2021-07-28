@@ -96,7 +96,7 @@ export default class MiniPanelDataHandlers {
     }
 
     handleNoticeData(notice: any) {
-        this.main.loading.node.active = false;
+        this.main.showLoading(false);
         const errorCode = notice.errorCode;
         const gameName = GameUtils.getGameNameString(notice.gameTypeId);
         const { minBet, maxBet, gameRoundId } = notice;

@@ -14,7 +14,7 @@ export interface IGameBaseTimeHandler extends DataHandler {
 }
 
 export default class GameBaseTimeHandler implements IGameBaseTimeHandler {
-    playTimeInterval: number;
+    playTimeInterval: any;
 
     constructor(protected readonly main: GameBase) {}
 

@@ -19,7 +19,7 @@ export default class MiniPanelSocketIOGameInitializers {
             return;
         }
 
-        this.main.loading.node.active = true;
+        this.main.showLoading(true);
         cc.GameManager.inGame.outRoomGame().then(() => {
             removeInRoomGameId();
             this.openNewSocket(gameId);
@@ -47,7 +47,7 @@ export default class MiniPanelSocketIOGameInitializers {
                 if (!this.main.isAlive()) {
                     return;
                 }
-                this.main.loading.node.active = false;
+                this.main.showLoading(false);
                 this.main.onGeneralData(data);
             });
 

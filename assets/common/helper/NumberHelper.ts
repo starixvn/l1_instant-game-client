@@ -41,7 +41,7 @@ const getOnlyNumberInString = (t: string) => {
     return e ? e.join("") : "";
 };
 
-const numberPad = (number: number, length: number) => {
+const numberPad = (number: any, length: number) => {
     let str = `${number}`;
 
     while (str.length < length) {

@@ -10,7 +10,6 @@ import Loading from "../Loading";
 import Notice, { NoticeData } from "../notice/Notice";
 import MiniPanelDataHandlers from "./MiniPanelDataHandlers";
 import MiniPanelMiniGameInitializers from "./MiniPanelMiniGameInitializers";
-import MiniPanelSocketIOGameInitializers from "./MiniPanelSocketIOGameInitializers";
 
 const { ccclass, property } = cc._decorator;
 @ccclass
@@ -24,29 +23,23 @@ export default class MiniPanel extends BaseComponent {
     @property(cc.Prefab)
     noticePrefab: cc.Prefab = null;
 
-    @property(cc.Prefab)
-    loadingPrefab: cc.Prefab = null;
+    @property(Loading)
+    loading: Loading = null;
 
     @property(cc.Node)
     noticeContainer: cc.Node = null;
 
-    public loading: Loading;
     public dataHandlers: MiniPanelDataHandlers;
     public currentGameRoomId: number;
     public skipShowApiErrorGameIds: number[] = [];
     private gameMiniInitializers: MiniPanelMiniGameInitializers;
-    private socketIOGameInitializers: MiniPanelSocketIOGameInitializers;
     private miniGamesCache = {};
 
     onLoad() {
-        const loadingNode = cc.instantiate(this.loadingPrefab);
-        this.loading = loadingNode.getComponent(Loading);
-        loadingNode.active = false;
-        this.node.addChild(loadingNode);
+        this.showLoading(false);
 
         this.dataHandlers = new MiniPanelDataHandlers(this);
         this.gameMiniInitializers = new MiniPanelMiniGameInitializers(this);
-        this.socketIOGameInitializers = new MiniPanelSocketIOGameInitializers(this);
     }
 
     onGeneralData(data: any) {
@@ -62,8 +55,12 @@ export default class MiniPanel extends BaseComponent {
         }
     }
 
+    showLoading(show: boolean) {
+        this.loading.node.active = show;
+    }
+
     handleUmMessage(data) {
-        this.loading.node.active = false;
+        this.showLoading(false);
         const text = NoticeUtil.getMessageByLocale(data);
         if (text) {
             const noticeData = {
@@ -140,16 +137,8 @@ export default class MiniPanel extends BaseComponent {
         cc.GameManager.playUnClick();
     }
 
-    openGame(e, id) {
-        this.gameMiniInitializers.openGame(id);
-    }
-
-    openNewSocketMiniGame(e, id) {
+    openNewSocketMiniGame(id) {
         this.gameMiniInitializers.openNewSocket(id);
-    }
-
-    openNewGameSocket(event, gameId) {
-        this.socketIOGameInitializers.openGame(gameId);
     }
 
     loadGameRoom(name) {
@@ -162,7 +151,7 @@ export default class MiniPanel extends BaseComponent {
             },
             (error) => {
                 if (error) {
-                    this.loading.node.active = false;
+                    this.showLoading(false);
                     this.onForceReload();
                 } else {
                     cc.director.loadScene(name);
@@ -218,7 +207,7 @@ export default class MiniPanel extends BaseComponent {
             handleCloseNotice,
             handleCloseNotice
         );
-        this.loading.node.active = false;
+        this.showLoading(false);
     }
 
     redirectToLobby() {

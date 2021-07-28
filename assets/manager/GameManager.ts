@@ -3,7 +3,7 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class GameManager extends cc.Component {
     @property(cc.BitmapFont)
-    winBetfont: cc.BitmapFont = null;
+    winBetFont: cc.BitmapFont = null;
 
     @property(cc.BitmapFont)
     acceptedBetfont: cc.BitmapFont = null;
