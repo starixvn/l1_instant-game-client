@@ -65,15 +65,15 @@ export default class WebSocketTableGameBase extends GameBase {
 
     onLoad() {
         super.onLoad();
-        cc.RedT.inGame = this;
+        cc.GameManager.inGame = this;
         this.loadMiniPanel();
-        this.loadUserData(cc.RedT.user);
+        this.loadUserData(cc.GameManager.user);
         this.players.forEach((player) => (player.node.active = false));
     }
 
     onDestroy() {
         super.onDestroy();
-        cc.RedT.inGame = null;
+        cc.GameManager.inGame = null;
     }
 
     setMiniPanelScale(miniPanelScale: number) {
@@ -87,7 +87,7 @@ export default class WebSocketTableGameBase extends GameBase {
     }
 
     start() {
-        cc.RedT.send({ scene: this.gameName, g: { [this.gameName]: { ingame: true } } });
+        cc.GameManager.sendToMainSocket({ scene: this.gameName, g: { [this.gameName]: { ingame: true } } });
     }
 
     onDisconnected() {
@@ -117,7 +117,7 @@ export default class WebSocketTableGameBase extends GameBase {
     updateUserStakeLevel(data): boolean {
         let updated = false;
         if (data.maxBet && data.maxBet > 0) {
-            cc.RedT.userStakeLevelData(data);
+            cc.GameManager.userStakeLevelData(data);
             if (this.betChips) {
                 const comp = this.betChips.getComponent(HandleUserStakeLevel);
                 if (comp) {
@@ -214,7 +214,7 @@ export default class WebSocketTableGameBase extends GameBase {
     protected onDataGameRoomGeneral(data: any) {
         if (data.user) {
             this.loadUserData(data.user);
-            cc.RedT.userData(data.user);
+            cc.GameManager.userData(data.user);
         }
 
         if (data.kickedOut || data.apiError) {
@@ -230,8 +230,8 @@ export default class WebSocketTableGameBase extends GameBase {
 
         if (data.userStakeLevel) {
             if (
-                data.userStakeLevel.minBet !== cc.RedT.userStakeLevel.minBet ||
-                data.userStakeLevel.maxBet !== cc.RedT.userStakeLevel.maxBet
+                data.userStakeLevel.minBet !== cc.GameManager.userStakeLevel.minBet ||
+                data.userStakeLevel.maxBet !== cc.GameManager.userStakeLevel.maxBet
             ) {
                 if (this.updateUserStakeLevel(data.userStakeLevel)) {
                     this.showMiniWarningLimitBetChanged();
@@ -275,7 +275,7 @@ export default class WebSocketTableGameBase extends GameBase {
         if (void 0 !== user.avatarId) {
             cc.loader.loadRes("profile-picture", cc.SpriteAtlas, (err, atlas) => {
                 if (this && this.userAvatar) {
-                    const avatarId = cc.RedT.user.avatarId;
+                    const avatarId = cc.GameManager.user.avatarId;
                     const frame = atlas.getSpriteFrame(avatarId === 0 ? 1 : avatarId);
                     this.userAvatar.spriteFrame = frame;
                     this.userAvatar.node.parent.active = true;

@@ -85,7 +85,7 @@ export default abstract class BalancedBettingPoolGameBase extends SocketIOMiniGa
         this.node.addChild(node);
         node.active = false;
 
-        this.presetBetSettingKey = `presetBet_${this.gameName}_${cc.RedT.user.UID}`;
+        this.presetBetSettingKey = `presetBet_${this.gameName}_${cc.GameManager.user.UID}`;
         this.presetBetValue = parseFloat(cc.sys.localStorage.getItem(this.presetBetSettingKey)) || 0;
     }
 
@@ -174,7 +174,7 @@ export default abstract class BalancedBettingPoolGameBase extends SocketIOMiniGa
     }
 
     openPresetBetDialog() {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
         this.presetBet.toggle();
     }
 

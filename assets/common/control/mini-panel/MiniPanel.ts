@@ -6,34 +6,20 @@ import { numberWithCommas } from "../../helper/NumberHelper";
 import GameUtils from "../../utils/GameUtils";
 import NoticeUtil from "../../utils/NoticeUtil";
 import BaseComponent from "../BaseComponent";
-import GameIconMenu from "../game-menu/GameIconMenu";
 import Loading from "../Loading";
 import Notice, { NoticeData } from "../notice/Notice";
 import MiniPanelDataHandlers from "./MiniPanelDataHandlers";
 import MiniPanelMiniGameInitializers from "./MiniPanelMiniGameInitializers";
 import MiniPanelSocketIOGameInitializers from "./MiniPanelSocketIOGameInitializers";
-import PopupMinigames from "./PopupMinigames";
 
 const { ccclass, property } = cc._decorator;
 @ccclass
 export default class MiniPanel extends BaseComponent {
-    @property(cc.BitmapFont)
-    fontCong: cc.BitmapFont = null;
-
-    @property(cc.BitmapFont)
-    fontTru: cc.BitmapFont = null;
-
     @property(cc.Node)
     miniGames: cc.Node = null;
 
     @property(cc.Node)
-    miniMenu: cc.Node = null;
-
-    @property(cc.Node)
     dialog: cc.Node = null;
-
-    @property(cc.Node)
-    effectNode: cc.Node = null;
 
     @property(cc.Prefab)
     noticePrefab: cc.Prefab = null;
@@ -41,16 +27,9 @@ export default class MiniPanel extends BaseComponent {
     @property(cc.Prefab)
     loadingPrefab: cc.Prefab = null;
 
-    @property(GameIconMenu)
-    gameMenu: GameIconMenu = null;
-
     @property(cc.Node)
     noticeContainer: cc.Node = null;
 
-    @property(cc.Node)
-    guideContainer: cc.Node = null;
-
-    public popupMiniGame: any;
     public loading: Loading;
     public dataHandlers: MiniPanelDataHandlers;
     public currentGameRoomId: number;
@@ -60,21 +39,14 @@ export default class MiniPanel extends BaseComponent {
     private miniGamesCache = {};
 
     onLoad() {
-        if (void 0 === cc.RedT.util.fontCong) {
-            cc.RedT.util.fontCong = this.fontCong;
-            cc.RedT.util.fontTru = this.fontTru;
-        }
-
         const loadingNode = cc.instantiate(this.loadingPrefab);
-        this.loading = loadingNode.getComponent("Loading") as Loading;
+        this.loading = loadingNode.getComponent(Loading);
         loadingNode.active = false;
         this.node.addChild(loadingNode);
 
-        this.popupMiniGame = this.miniMenu.getComponent(PopupMinigames);
         this.dataHandlers = new MiniPanelDataHandlers(this);
         this.gameMiniInitializers = new MiniPanelMiniGameInitializers(this);
         this.socketIOGameInitializers = new MiniPanelSocketIOGameInitializers(this);
-        this.gameMenu.miniPanel = this;
     }
 
     onGeneralData(data: any) {
@@ -103,12 +75,12 @@ export default class MiniPanel extends BaseComponent {
     }
 
     redirectToResultPage(redirectUrl) {
-        cc.RedT.resultPage = window.open(redirectUrl, "", "width=700,height=500");
-        if (cc.RedT.resultPage) {
-            cc.RedT.resultPage.focus();
+        cc.GameManager.resultPage = window.open(redirectUrl, "", "width=700,height=500");
+        if (cc.GameManager.resultPage) {
+            cc.GameManager.resultPage.focus();
 
             window.onbeforeunload = function () {
-                cc.RedT.resultPage.close();
+                cc.GameManager.resultPage.close();
             };
         }
     }
@@ -118,7 +90,7 @@ export default class MiniPanel extends BaseComponent {
         if (gameId) {
             data["gameId"] = gameId;
         }
-        cc.RedT.send({ gameResult: data });
+        cc.GameManager.sendToMainSocket({ gameResult: data });
     }
 
     addMiniGame(game: any, gameId: number) {
@@ -156,16 +128,16 @@ export default class MiniPanel extends BaseComponent {
     }
 
     forceKickedOut() {
-        cc.RedT.forceKickedOut();
+        cc.GameManager.forceKickedOut();
         authManager.signOut();
     }
 
     playClick() {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
     }
 
     playUnClick() {
-        cc.RedT.audio.playUnClick();
+        cc.GameManager.playUnClick();
     }
 
     openGame(e, id) {
@@ -188,7 +160,7 @@ export default class MiniPanel extends BaseComponent {
             (completedCount, total, item) => {
                 this.loading && this.loading.onProgress(completedCount, total, item);
             },
-            (error, assets) => {
+            (error) => {
                 if (error) {
                     this.loading.node.active = false;
                     this.onForceReload();
@@ -213,10 +185,6 @@ export default class MiniPanel extends BaseComponent {
         this.noticeContainer.addChild(noticePrefab);
 
         return notice;
-    }
-
-    showGuide(guide: cc.Node) {
-        this.guideContainer.addChild(guide);
     }
 
     showNotice(noticeData: NoticeData, handleClickButton: () => void = null, handleClose: () => void = null) {

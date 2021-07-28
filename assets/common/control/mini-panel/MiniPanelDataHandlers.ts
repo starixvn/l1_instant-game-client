@@ -7,12 +7,6 @@ import NoticeUtil from "../../utils/NoticeUtil";
 import { NoticeData } from "../notice/Notice";
 import MiniPanel from "./MiniPanel";
 
-declare global {
-    interface Window {
-        umInfo: any;
-    }
-}
-
 export default class MiniPanelDataHandlers {
     constructor(private readonly main: MiniPanel) {}
 
@@ -46,7 +40,7 @@ export default class MiniPanelDataHandlers {
         }
 
         if (data.Authorized) {
-            cc.RedT.IS_LOGIN = true;
+            cc.GameManager.IS_LOGIN = true;
             this.main.onSignIn();
         }
 
@@ -60,7 +54,7 @@ export default class MiniPanelDataHandlers {
         }
 
         if (data.userStakeLevel) {
-            cc.RedT.userStakeLevelData(data.userStakeLevel);
+            cc.GameManager.userStakeLevelData(data.userStakeLevel);
         }
     }
 
@@ -68,7 +62,7 @@ export default class MiniPanelDataHandlers {
         removeSession();
 
         if (data.umInfo) {
-            cc.RedT.forceKickedOut();
+            cc.GameManager.forceKickedOut();
             window.umInfo = data.umInfo;
             cc.director.loadScene("um");
         } else {
@@ -95,7 +89,7 @@ export default class MiniPanelDataHandlers {
         }
 
         if (error.maxBet && error.maxBet > 0) {
-            cc.RedT.userStakeLevelData(error);
+            cc.GameManager.userStakeLevelData(error);
         }
 
         this.main.showErrorNotice(error);

@@ -21,14 +21,14 @@ export default class PopupMinigames extends cc.Component {
     private toggleRuning = false;
 
     onLoad() {
-        cc.RedT.setting.popupMini = cc.RedT.setting.popupMini || {};
+        cc.GameManager.setting.popupMini = cc.GameManager.setting.popupMini || {};
         this.background.active = false;
         this.background.opacity = 0;
         this.list.active = false;
         this.list.scale = 0;
 
-        if (void 0 !== cc.RedT.setting.popupMini.position) {
-            this.node.position = cc.RedT.setting.popupMini.position;
+        if (void 0 !== cc.GameManager.setting.popupMini.position) {
+            this.node.position = cc.GameManager.setting.popupMini.position;
         }
         this.schedule(this.moveToEdge, 0.1, cc.macro.REPEAT_FOREVER);
 
@@ -103,7 +103,7 @@ export default class PopupMinigames extends cc.Component {
         posY = Math.min(maxY - fixTopPadding, posY);
 
         this.node.runAction(cc.moveTo(0.1, posX, posY).easing(cc.easeSineOut()));
-        cc.RedT.setting.popupMini.position = cc.v2(posX, posY);
+        cc.GameManager.setting.popupMini.position = cc.v2(posX, posY);
     }
 
     eventEnd(e) {
@@ -116,7 +116,7 @@ export default class PopupMinigames extends cc.Component {
     }
 
     toggle() {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
         if (!this.toggleRuning) {
             this.toggleRuning = true;
             const menuAnimation = this.menuIcon.getComponent(cc.Animation);
@@ -134,7 +134,7 @@ export default class PopupMinigames extends cc.Component {
     showListGame() {
         this.background.active = true;
         this.background.runAction(cc.fadeTo(0.1, 224));
-        cc.RedT.setting.popupMini.open = true;
+        cc.GameManager.setting.popupMini.open = true;
         this.list.scale = 1;
 
         cc.tween(this.node)
@@ -151,7 +151,7 @@ export default class PopupMinigames extends cc.Component {
     }
 
     hideListGame() {
-        cc.RedT.setting.popupMini.open = false;
+        cc.GameManager.setting.popupMini.open = false;
 
         cc.tween(this.node)
             .to(0.2, { scale: 0, opacity: 0 }, { easing: "sineIn" })

@@ -39,7 +39,7 @@ export default class SocketIOTableGameBase extends WebSocketTableGameBase {
     }
 
     start() {
-        cc.RedT.send({ scene: this.gameName });
+        cc.GameManager.sendToMainSocket({ scene: this.gameName });
         this.socket && this.socket.connected && this.socket.emit("inGame");
     }
 
@@ -79,7 +79,7 @@ export default class SocketIOTableGameBase extends WebSocketTableGameBase {
             const betData = {
                 amount: this.currentBet,
                 betChoice: event.target.name,
-                username: cc.RedT.user.name
+                username: cc.GameManager.user.name
             };
             this.socket && this.socket.connected && this.socket.emit("bet", betData);
         }

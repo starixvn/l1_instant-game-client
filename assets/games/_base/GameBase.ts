@@ -215,7 +215,7 @@ export default class GameBase extends BaseComponent {
     }
 
     closeGame() {
-        cc.RedT.audio.playUnClick();
+        cc.GameManager.playUnClick();
         this.node.active = false;
     }
 
@@ -250,7 +250,7 @@ export default class GameBase extends BaseComponent {
     }
 
     sendData(payload: any) {
-        cc.RedT.send({
+        cc.GameManager.sendToMainSocket({
             g: {
                 [this.gameName]: payload
             }
@@ -446,7 +446,7 @@ export default class GameBase extends BaseComponent {
     }
 
     public updateUserBalance() {
-        cc.RedT.send({
+        cc.GameManager.sendToMainSocket({
             user: {
                 updateCoin: true
             }
@@ -482,7 +482,7 @@ export default class GameBase extends BaseComponent {
         const { minbet, maxbet } = this.gameConfigs;
         return {
             minBet: minbet,
-            maxBet: Math.min(cc.RedT.userStakeLevel.maxBet, maxbet)
+            maxBet: Math.min(cc.GameManager.userStakeLevel.maxBet, maxbet)
         };
     }
 }

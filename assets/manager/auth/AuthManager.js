@@ -145,7 +145,7 @@ export function auth() {
         };
 
         autoTriggerSignInTimeout = setTimeout(() => {
-            cc.RedT.send({ authentication });
+            cc.GameManager.sendToMainSocket({ authentication });
         }, 500);
     }
 }
@@ -191,17 +191,17 @@ export function reCheckIn() {
                                 const noticeData = {
                                     text: i18n.t("messages.accountClosed")
                                 };
-                                cc.RedT.inGame && cc.RedT.inGame.showNotice(noticeData, signOut, signOut);
+                                cc.GameManager.inGame && cc.GameManager.inGame.showNotice(noticeData, signOut, signOut);
                             } else {
                                 const errorCode = response.apiError.errorCode;
                                 const message = NoticeUtil.getLocalizedErrorMessage(errorCode, { errorCode });
                                 const noticeData = { text: message };
-                                cc.RedT.inGame && cc.RedT.inGame.showNotice(noticeData);
+                                cc.GameManager.inGame && cc.GameManager.inGame.showNotice(noticeData);
                             }
                         } else {
-                            if (cc.RedT.user) {
-                                cc.RedT.user.red = response.balance;
-                                cc.RedT.inGame && cc.RedT.inGame.loadUserData(cc.RedT.user);
+                            if (cc.GameManager.user) {
+                                cc.GameManager.user.red = response.balance;
+                                cc.GameManager.inGame && cc.GameManager.inGame.loadUserData(cc.GameManager.user);
                             }
                         }
                     } else {

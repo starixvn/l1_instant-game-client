@@ -26,7 +26,7 @@ export default class SedieTimeHandler extends GameBaseTimeHandler {
 
     handleInLockBetTime() {
         super.handleInLockBetTime();
-        this.main.betItems.forEach(item => item.setHighlight(false));
+        this.main.betItems.forEach((item) => item.setHighlight(false));
     }
 
     handleInRoundTime() {
@@ -57,7 +57,7 @@ export default class SedieTimeHandler extends GameBaseTimeHandler {
             .call(() => this.main.closePlate())
             .delay(0.5)
             .call(() => {
-                cc.RedT.isSoundGame() && this.main.shakeThePlateAudio.play();
+                cc.GameManager.isSoundGame() && this.main.shakeThePlateAudio.play();
                 this.main.shakeThePlateAnimation.play();
             })
             .start();

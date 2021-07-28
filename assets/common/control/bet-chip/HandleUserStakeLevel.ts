@@ -16,12 +16,12 @@ export default class HandleUserStakeLevel extends cc.Component {
     }
 
     handle() {
-        if (!this.gameConfig || !cc.RedT.userStakeLevel) {
+        if (!this.gameConfig || !cc.GameManager.userStakeLevel) {
             return;
         }
 
         const maxValueDisplay =
-            Math.min(this.gameConfig.maxbet, cc.RedT.userStakeLevel.maxBet) >= this.maxBet5k ? this.maxBet5k : this.maxBet3k;
+            Math.min(this.gameConfig.maxbet, cc.GameManager.userStakeLevel.maxBet) >= this.maxBet5k ? this.maxBet5k : this.maxBet3k;
 
         this.betChips.updateLastChip(maxValueDisplay);
         this.betChips.updateSelectedChipValue();

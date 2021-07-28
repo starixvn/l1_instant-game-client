@@ -26,7 +26,6 @@ export default class MiniPanelMiniGameInitializers {
     }
 
     openMiniGame(gameId) {
-        this.main.popupMiniGame.hideListGame();
         const prefabPath = `games/minigame/${this.getGameName(gameId)}`;
 
         const gameBase = this.main.getGameMini(gameId);
@@ -64,7 +63,7 @@ export default class MiniPanelMiniGameInitializers {
     }
 
     openGame(id) {
-        if (!cc.RedT.isConnected) {
+        if (!cc.GameManager.isConnected) {
             const gameName = GameUtils.getGameNameString(id);
             this.main.onConnectSocketFailed(gameName, false);
             return;

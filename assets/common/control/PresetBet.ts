@@ -48,13 +48,13 @@ export default class PresetBet extends cc.Component {
     }
 
     public clearBet() {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
         this.betAmount = 0;
         this.updateBetAmount();
     }
 
     public onClose() {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
         this.close();
     }
 
@@ -80,7 +80,7 @@ export default class PresetBet extends cc.Component {
     }
 
     public onItemBetClicked(e) {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
         const amount = +e.target.name;
         this.betAmount = this.betAmount + amount;
         this.updateBetAmount();

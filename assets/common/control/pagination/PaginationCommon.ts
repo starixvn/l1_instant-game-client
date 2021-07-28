@@ -154,14 +154,14 @@ export default class PaginationCommon extends cc.Component {
         this.control.get_data();
         this.pageNumberCurrent = 1;
 
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
     }
 
     onClickLast() {
         this.control.get_data(Math.ceil(this.totalPage));
         this.pageNumberCurrent = this.totalPage;
 
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
     }
 
     onClickPrevious() {
@@ -169,7 +169,7 @@ export default class PaginationCommon extends cc.Component {
         this.page > 0 && this.control.get_data(this.page);
         this.pageNumberCurrent = this.page;
 
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
     }
 
     onClickNext() {
@@ -177,13 +177,13 @@ export default class PaginationCommon extends cc.Component {
         pageNext <= this.totalPage && this.control.get_data(pageNext);
         this.pageNumberCurrent = pageNext;
 
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
     }
 
     onClickPage(event: any) {
         this.control.get_data(event.target.page);
         this.pageNumberCurrent = event.target.page;
 
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
     }
 }

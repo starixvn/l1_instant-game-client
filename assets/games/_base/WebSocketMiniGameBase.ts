@@ -9,7 +9,7 @@ export default class WebSocketMiniGameBase extends GameBase {
 
     onEnable() {
         super.onEnable();
-        cc.RedT.addDataObserver(this.gameName, this.receivedData.bind(this));
+        cc.GameManager.addDataObserver(this.gameName, this.receivedData.bind(this));
     }
 
     receivedData(data) {
@@ -20,7 +20,7 @@ export default class WebSocketMiniGameBase extends GameBase {
 
     onDisable() {
         super.onDisable();
-        cc.RedT.removeDataObserver(this.gameName);
+        cc.GameManager.removeDataObserver(this.gameName);
     }
 
     onSignIn() {

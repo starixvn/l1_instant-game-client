@@ -2,7 +2,6 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class GameAudios extends cc.Component {
-
     @property(cc.AudioSource)
     startGame: cc.AudioSource = null;
 
@@ -15,21 +14,20 @@ export default class GameAudios extends cc.Component {
     @property(cc.AudioSource)
     showResult: cc.AudioSource = null;
 
-
     playStartGameAudio() {
-        cc.RedT.isSoundGame() && this.startGame.play();
+        cc.GameManager.isSoundGame() && this.startGame.play();
     }
 
     playEndGameAudio() {
-        cc.RedT.isSoundGame() && this.endGame.play();
+        cc.GameManager.isSoundGame() && this.endGame.play();
     }
 
     playClockTickAudio() {
-        cc.RedT.isSoundGame() && this.clockTick.play();
+        cc.GameManager.isSoundGame() && this.clockTick.play();
     }
 
     playShowResultAudio() {
-        cc.RedT.isSoundGame() && this.showResult.play();
+        cc.GameManager.isSoundGame() && this.showResult.play();
     }
 
     stopAllAudio() {

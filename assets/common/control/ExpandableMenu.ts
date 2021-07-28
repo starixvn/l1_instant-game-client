@@ -47,7 +47,7 @@ export default class ExpandableMenu extends cc.Component {
     }
 
     onMenuClick() {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
         this.expanded = !this.expanded;
         this.expanded ? this.expandMenu() : this.collapseMenu();
     }

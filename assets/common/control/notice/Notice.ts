@@ -1,4 +1,5 @@
 import * as i18n from "i18n/runtime-scripts/LanguageData";
+
 const { ccclass, property } = cc._decorator;
 
 export interface NoticeData {
@@ -53,7 +54,7 @@ export default class Notice extends cc.Component {
     public init(data: NoticeData) {
         this.node.active = true;
 
-        cc.RedT.inGame.loading.active = false;
+        cc.GameManager.inGame.loading.active = false;
 
         this.setTitle(data.title);
         this.setMessage(data.text);
@@ -62,7 +63,7 @@ export default class Notice extends cc.Component {
     }
 
     public onClickButton() {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
 
         if (this.handleClickButton) {
             this.handleClickButton();

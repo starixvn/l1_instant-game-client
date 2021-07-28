@@ -4,6 +4,7 @@ import NameGenerator from "./common/name-generator/NameGenerator";
 import { GameIds } from "./configs/SabaConfigs";
 import * as authManager from "./manager/auth/AuthManager";
 import UserService from "./manager/auth/UserService";
+import GameManager from "./manager/GameManager";
 
 const { ccclass, property } = cc._decorator;
 
@@ -30,6 +31,7 @@ export default class Main extends cc.Component {
     generateNameCount = 0;
 
     onLoad() {
+        cc.GameManager = GameManager.Instance;
         this.splash.active = true;
         this.checkSSO();
     }

@@ -27,7 +27,7 @@ export default class GameHistoryBase extends cc.Component {
     }
 
     addDataObserver(gameName: string) {
-        cc.RedT.addDataObserver(`${gameName}History`, this.receivedData.bind(this));
+        cc.GameManager.addDataObserver(`${gameName}History`, this.receivedData.bind(this));
     }
 
     onDisable() {
@@ -37,7 +37,7 @@ export default class GameHistoryBase extends cc.Component {
     }
 
     removeDataObserver(gameName: string) {
-        cc.RedT.removeDataObserver(`${gameName}History`);
+        cc.GameManager.removeDataObserver(`${gameName}History`);
     }
 
     receivedData(data) {
@@ -47,7 +47,7 @@ export default class GameHistoryBase extends cc.Component {
     }
 
     get_data(page = 1) {
-        cc.RedT.send({ g: { [this.gameName]: { getHistory: { page: page } } } });
+        cc.GameManager.sendToMainSocket({ g: { [this.gameName]: { getHistory: { page: page } } } });
     }
 
     onData(data) {}

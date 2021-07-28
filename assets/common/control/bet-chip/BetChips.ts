@@ -135,13 +135,13 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
     }
 
     public onPrevious() {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
         this.selectedIndex -= this.movingStep;
         this.scrollToSelectedIndex();
     }
 
     public onNext() {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
         this.selectedIndex += this.movingStep;
         this.scrollToSelectedIndex();
     }
@@ -330,7 +330,7 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
     public playMultiChipsSound() {}
 
     public playSingleChipsSound() {
-        cc.RedT.isSoundGame() && this.singleChipAudio.play();
+        cc.GameManager.isSoundGame() && this.singleChipAudio.play();
     }
 
     private startMoveChip(chip: cc.Node, destBoxInChipBoxSpacePosition: cc.Vec2, flyTime: number = this.chipFlyingTime) {

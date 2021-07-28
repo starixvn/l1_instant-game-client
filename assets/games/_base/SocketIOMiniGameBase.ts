@@ -54,8 +54,8 @@ export default abstract class SocketIOMiniGameBase extends GameBase {
         super.onData(data);
 
         if (data.user) {
-            cc.RedT.inGame.loadUserData(data.user);
-            cc.RedT.userData(data.user);
+            cc.GameManager.inGame.loadUserData(data.user);
+            cc.GameManager.userData(data.user);
         }
 
         !data.notice && this.currentMiniPanel.onGeneralData(data);
@@ -74,7 +74,7 @@ export default abstract class SocketIOMiniGameBase extends GameBase {
     }
 
     public onBetItemClick(e) {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
         if (!this.isReadyBet()) {
             return;
         }
@@ -85,7 +85,7 @@ export default abstract class SocketIOMiniGameBase extends GameBase {
             const betData = {
                 amount: this.currentBet,
                 betChoice: e.target.name,
-                username: cc.RedT.user.name
+                username: cc.GameManager.user.name
             };
 
             this.socket && this.socket.connected && this.socket.emit("bet", betData);

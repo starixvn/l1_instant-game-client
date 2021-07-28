@@ -32,7 +32,7 @@ export class GameBaseStatusHandler implements IGameBaseStatusHandler {
             return;
         }
 
-        if (!cc.RedT.GAME_IS_SHOWED) {
+        if (!cc.GameManager.GAME_IS_SHOWED) {
             return;
         }
 
@@ -42,7 +42,7 @@ export class GameBaseStatusHandler implements IGameBaseStatusHandler {
     }
 
     showStatus(win: boolean, bet: number) {
-        if (!cc.RedT.GAME_IS_SHOWED) {
+        if (!cc.GameManager.GAME_IS_SHOWED) {
             return;
         }
         if (win) {

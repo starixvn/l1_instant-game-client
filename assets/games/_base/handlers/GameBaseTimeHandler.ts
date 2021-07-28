@@ -135,13 +135,13 @@ export default class GameBaseTimeHandler implements IGameBaseTimeHandler {
     handleStartingNewGameRoundOptions(context: any) {
         context.highlightLastResult();
 
-        if (cc.RedT.GAME_IS_SHOWED) {
+        if (cc.GameManager.GAME_IS_SHOWED) {
             context.finishShakeThePlate = false;
             context.shakeAnimation.node.active = true;
             context.shakeAnimation.play();
             cc.tween(context)
                 .delay(0.3)
-                .call(() => cc.RedT.isSoundGame() && context.shakeAudio.play())
+                .call(() => cc.GameManager.isSoundGame() && context.shakeAudio.play())
                 .start();
 
             context.finishShakeThePlate = true;

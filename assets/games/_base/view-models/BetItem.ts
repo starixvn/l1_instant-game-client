@@ -45,7 +45,7 @@ export default class BetItem extends cc.Component {
     }
 
     public onBetClick(e) {
-        cc.RedT.audio.playClick();
+        cc.GameManager.playClick();
         this.betCallback(e);
     }
 
