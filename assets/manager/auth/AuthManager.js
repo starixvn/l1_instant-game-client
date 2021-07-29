@@ -68,8 +68,9 @@ export function checkSSO(labelMessage, onSuccessFunc) {
     const authData = sessionManager.getSession();
 
     if (urlParams.has("token")) {
+        const systemType = 3;
         UserService.getInstance()
-            .auth.sso(urlParams.get("token"))
+            .auth.sso(urlParams.get("token"), systemType)
             .then((response) => {
                 if (response.isAuthenticated) {
                     window.authData = response;

@@ -89,7 +89,7 @@ export default class Main extends cc.Component {
     }
 
     openGameSSO() {
-        let gameId = GameIds.SeDie;
+        let gameId = GameIds.MiniSedie;
         if (window.openGameId) {
             gameId = parseInt(window.openGameId);
             window.openGameId = null;
