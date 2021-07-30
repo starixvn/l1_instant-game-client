@@ -8,7 +8,6 @@ export default class MiniSedieLogsHandler extends GameBaseLogsHandler {
 
     buildLogs(dataLogs) {
         this.main.updateRoundHistory();
-        this.main.showRoundHistory(true);
         this.main.highlightLastResult();
     }
 }

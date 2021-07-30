@@ -18,6 +18,8 @@ export default class CustomDisplayToggle extends cc.Toggle {
 
     _updateState() {
         super._updateState();
-        this.disabledDisplayNode.active = !this.interactable;
+        if (this.disabledDisplayNode) {
+            this.disabledDisplayNode.active = !this.interactable;
+        }
     }
 }

@@ -20,7 +20,7 @@ export default class MiniPanelSocketIOGameInitializers {
         }
 
         this.main.showLoading(true);
-        cc.GameManager.inGame.outRoomGame().then(() => {
+        cc.GameManager.currentScene.outRoomGame().then(() => {
             removeInRoomGameId();
             this.openNewSocket(gameId);
         });

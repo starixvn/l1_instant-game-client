@@ -192,17 +192,17 @@ export function reCheckIn() {
                                 const noticeData = {
                                     text: i18n.t("messages.accountClosed")
                                 };
-                                cc.GameManager.inGame && cc.GameManager.inGame.showNotice(noticeData, signOut, signOut);
+                                cc.GameManager.currentScene && cc.GameManager.currentScene.showNotice(noticeData, signOut, signOut);
                             } else {
                                 const errorCode = response.apiError.errorCode;
                                 const message = NoticeUtil.getLocalizedErrorMessage(errorCode, { errorCode });
                                 const noticeData = { text: message };
-                                cc.GameManager.inGame && cc.GameManager.inGame.showNotice(noticeData);
+                                cc.GameManager.currentScene && cc.GameManager.currentScene.showNotice(noticeData);
                             }
                         } else {
                             if (cc.GameManager.user) {
                                 cc.GameManager.user.red = response.balance;
-                                cc.GameManager.inGame && cc.GameManager.inGame.loadUserData(cc.GameManager.user);
+                                cc.GameManager.loadUserData(cc.GameManager.user);
                             }
                         }
                     } else {

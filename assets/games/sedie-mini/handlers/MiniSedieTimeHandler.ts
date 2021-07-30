@@ -12,7 +12,7 @@ export default class MiniSedieTimeHandler extends GameBaseTimeHandler {
     }
 
     playTime(): void {
-        if (!cc.RedT.GAME_IS_SHOWED) {
+        if (!cc.GameManager.GAME_IS_SHOWED) {
             return;
         }
         this.main.gameState = GameState.Started;

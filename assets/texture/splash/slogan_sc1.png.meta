@@ -12,7 +12,7 @@
   "height": 15,
   "platformSettings": {},
   "subMetas": {
-    "slogan": {
+    "slogan_sc1": {
       "ver": "1.0.6",
       "uuid": "6c2d7432-9886-48a8-ba04-c15bb1503240",
       "importer": "sprite-frame",
@@ -24,9 +24,9 @@
       "offsetY": 0,
       "trimX": 0,
       "trimY": 0,
-      "width": 246,
+      "width": 255,
       "height": 15,
-      "rawWidth": 246,
+      "rawWidth": 255,
       "rawHeight": 15,
       "borderTop": 0,
       "borderBottom": 0,

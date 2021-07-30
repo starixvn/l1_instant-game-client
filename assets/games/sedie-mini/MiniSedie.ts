@@ -1,8 +1,8 @@
 import MiniPanel from "../../common/control/mini-panel/MiniPanel";
+import MiniRoundHistory from "../../common/control/mini-round-history/MiniRoundHistory";
 import { GameIds } from "../../configs/SabaConfigs";
 import SocketIOMiniGameBase from "../_base/SocketIOMiniGameBase";
 import SedieMiniRoundHistory from "../sedie/view-models/SedieMiniRoundHistory";
-import SedieRoundHistory from "../sedie/view-models/SedieRoundHistory";
 import MiniSedieFinishHandler from "./handlers/MiniSedieFinishHandler";
 import MiniSedieLogsHandler from "./handlers/MiniSedieLogsHandler";
 import MiniSedieTimeHandler from "./handlers/MiniSedieTimeHandler";
@@ -25,40 +25,22 @@ export default class MiniSedie extends SocketIOMiniGameBase {
     animation: cc.Animation = null;
 
     @property(cc.Prefab)
-    roundHistoryPrefab: cc.Prefab = null;
-
-    @property(cc.Node)
-    roundHistoryContainer: cc.Node = null;
-
-    @property(cc.Prefab)
     miniRoundHistoryPrefab: cc.Prefab = null;
 
     @property(cc.Node)
     miniRoundHistoryContainer: cc.Node = null;
 
-    @property(cc.Prefab)
-    historyPrefab: cc.Prefab = null;
-
     @property(cc.Node)
     dishNode: cc.Node = null;
 
-    public roundHistory: SedieRoundHistory = null;
     public miniRoundHistory: SedieMiniRoundHistory = null;
-    private showLogs = true;
     public resultAnimating = false;
 
     onLoad() {
-        if (!cc.sys.isMobile) {
-            this.node.scale = 0.8;
-        }
         super.onLoad();
-        const node = cc.instantiate(this.roundHistoryPrefab);
-        this.roundHistory = node.getComponent(SedieRoundHistory);
-        this.roundHistory.init(this);
-        this.roundHistoryContainer.addChild(node);
 
         const mini = cc.instantiate(this.miniRoundHistoryPrefab);
-        this.miniRoundHistory = mini.getComponent(SedieMiniRoundHistory);
+        this.miniRoundHistory = mini.getComponent(MiniRoundHistory);
         this.miniRoundHistoryContainer.addChild(mini);
         this.animatedTime.setAnimatedY(30, -5);
     }
@@ -76,14 +58,11 @@ export default class MiniSedie extends SocketIOMiniGameBase {
 
     onDestroy() {
         super.onDestroy();
-        this.roundHistoryContainer.isValid && this.roundHistoryContainer.destroyAllChildren();
         this.miniRoundHistoryContainer.isValid && this.miniRoundHistoryContainer.destroyAllChildren();
     }
 
     onEnable() {
         super.onEnable();
-        this.showLogs = true;
-        this.showRoundHistory(this.showLogs);
     }
 
     initHandlers() {
@@ -137,16 +116,6 @@ export default class MiniSedie extends SocketIOMiniGameBase {
                 red: count
             };
         });
-        this.roundHistory.setData(miniHistoryData.map((d) => d.red));
         this.miniRoundHistory.setData(miniHistoryData);
-    }
-
-    public onToggleShowRoundResult() {
-        this.showLogs = !this.showLogs;
-        this.showRoundHistory(this.showLogs);
-    }
-
-    public showRoundHistory(show: boolean) {
-        this.roundHistoryContainer.active = show;
     }
 }

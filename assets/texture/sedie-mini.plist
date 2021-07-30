@@ -34,6 +34,21 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
+            <key>dot_highlight.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,22}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,22}</string>
+                <key>textureRect</key>
+                <string>{{83,201},{22,22}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>dot_red.png</key>
             <dict>
                 <key>aliases</key>
@@ -45,7 +60,7 @@
                 <key>spriteSourceSize</key>
                 <string>{20,20}</string>
                 <key>textureRect</key>
-                <string>{{83,201},{20,20}}</string>
+                <string>{{83,225},{20,20}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,7 +75,7 @@
                 <key>spriteSourceSize</key>
                 <string>{20,20}</string>
                 <key>textureRect</key>
-                <string>{{83,223},{20,20}}</string>
+                <string>{{105,225},{20,20}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -184,6 +199,21 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>single_white.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{4,4}</string>
+                <key>spriteSourceSize</key>
+                <string>{4,4}</string>
+                <key>textureRect</key>
+                <string>{{100,151},{4,4}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
         </dict>
         <key>metadata</key>
         <dict>
@@ -198,7 +228,7 @@
             <key>size</key>
             <string>{256,256}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:a30f492e0401b95e6d6fd77c9d6520b6:18080e6a048004fc18c53d2d409eea67:a7f0c8bdc77ee160d8a9efe093b1ae34$</string>
+            <string>$TexturePacker:SmartUpdate:c816b4aab5934bc3a51b14a9ead6df81:046ddc106b2cf5a653183fc661b12880:a7f0c8bdc77ee160d8a9efe093b1ae34$</string>
             <key>textureFileName</key>
             <string>sedie-mini.png</string>
         </dict>

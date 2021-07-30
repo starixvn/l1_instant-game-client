@@ -1,3 +1,5 @@
+import MiniPanel from "../common/control/mini-panel/MiniPanel";
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -15,13 +17,34 @@ export default class GameManager extends cc.Component {
     unClickAudioClip: cc.AudioClip = null;
 
     public static Instance: GameManager;
+    MiniPanel: MiniPanel;
 
+    GAME_IS_SHOWED = false;
+    IS_LOGIN = false;
     dataObservers = {};
     soundObservers = {};
     userStakeLevel = {};
+    sleepTime: number;
 
     onLoad() {
         GameManager.Instance = this;
+        cc.game.on(cc.game.EVENT_HIDE, () => {
+            this.GAME_IS_SHOWED = false;
+            this.sleepTime = Date.now();
+        });
+
+        cc.game.on(cc.game.EVENT_SHOW, () => {
+            this.GAME_IS_SHOWED = true;
+            this.IS_LOGIN && this.sendToMainSocket({ user: { updateCoin: true } });
+
+            if (cc.sys.isMobile) {
+                const sleepSecond = (Date.now() - this.sleepTime) / 1000;
+
+                if (sleepSecond > 300) {
+                    this.MiniPanel.onForceReload(false);
+                }
+            }
+        });
     }
 
     sendToMainSocket(data: any) {
@@ -42,8 +65,8 @@ export default class GameManager extends cc.Component {
     setSoundGame(bool: boolean) {
         cc.sys.localStorage.setItem("SOUND_GAME", bool);
 
-        Object.keys(cc.RedT.soundObservers).forEach((key) => {
-            var observer = cc.RedT.soundObservers[key];
+        Object.keys(this.soundObservers).forEach((key) => {
+            var observer = this.soundObservers[key];
             observer && observer(bool);
         });
     }
@@ -51,6 +74,7 @@ export default class GameManager extends cc.Component {
     addSoundObserver(key, observer) {
         this.soundObservers[key] = observer;
     }
+
     removeSoundObserver(key) {
         delete this.soundObservers[key];
     }

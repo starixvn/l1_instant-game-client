@@ -1,4 +1,3 @@
-import DraggableItem from "../../common/control/draggable/DraggableItem";
 import SabaConfigs = require("../../configs/SabaConfigs");
 import { lazyInject } from "../../manager/Application";
 import SocketIOController from "../../manager/SocketIOController";
@@ -16,11 +15,6 @@ export default abstract class SocketIOMiniGameBase extends GameBase {
         if (!cc.sys.isMobile) {
             this.node.scale = SabaConfigs.desktopMiniGameScale;
         }
-
-        const draggableItem = this.getComponent(DraggableItem);
-        draggableItem.touchCallback.start = (node) => {
-            this.node.parent.insertChild(this.node, this.node.parent.childrenCount - 1);
-        };
     }
 
     startGame() {
@@ -54,8 +48,7 @@ export default abstract class SocketIOMiniGameBase extends GameBase {
         super.onData(data);
 
         if (data.user) {
-            cc.GameManager.inGame.loadUserData(data.user);
-            cc.GameManager.userData(data.user);
+            cc.GameManager.loadUserData(data.user);
         }
 
         !data.notice && this.currentMiniPanel.onGeneralData(data);

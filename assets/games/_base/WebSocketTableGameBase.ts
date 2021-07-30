@@ -65,7 +65,7 @@ export default class WebSocketTableGameBase extends GameBase {
 
     onLoad() {
         super.onLoad();
-        cc.GameManager.inGame = this;
+        cc.GameManager.currentScene = this;
         this.loadMiniPanel();
         this.loadUserData(cc.GameManager.user);
         this.players.forEach((player) => (player.node.active = false));
@@ -73,7 +73,7 @@ export default class WebSocketTableGameBase extends GameBase {
 
     onDestroy() {
         super.onDestroy();
-        cc.GameManager.inGame = null;
+        cc.GameManager.currentScene = null;
     }
 
     setMiniPanelScale(miniPanelScale: number) {

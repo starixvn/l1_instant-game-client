@@ -78,10 +78,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 17
+        "__id__": 19
       },
       {
-        "__id__": 18
+        "__id__": 20
       }
     ],
     "_prefab": null,
@@ -252,12 +252,15 @@
       },
       {
         "__id__": 14
+      },
+      {
+        "__id__": 16
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 16
+        "__id__": 18
       }
     ],
     "_prefab": null,
@@ -272,7 +275,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 200,
-      "height": 180
+      "height": 230
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -346,7 +349,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        70,
+        95,
         0,
         0,
         0,
@@ -430,7 +433,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 408.57,
+      "width": 554.29,
       "height": 40
     },
     "_anchorPoint": {
@@ -443,7 +446,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        30,
+        55,
         0,
         0,
         0,
@@ -482,8 +485,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "0,123456789asdfghjk",
-    "_N$string": "0,123456789asdfghjk",
+    "_string": "0,123456789asdfghjkddd đ Đ",
+    "_N$string": "0,123456789asdfghjkddd đ Đ",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -527,7 +530,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 226.67,
+      "width": 290,
       "height": 40
     },
     "_anchorPoint": {
@@ -540,7 +543,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -10,
+        15,
         0,
         0,
         0,
@@ -579,8 +582,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "0,123456789",
-    "_N$string": "0,123456789",
+    "_string": "0,123456789 Đ đ",
+    "_N$string": "0,123456789 Đ đ",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -637,7 +640,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -40,
+        -15,
         0,
         0,
         0,
@@ -734,7 +737,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -70,
+        -45,
         0,
         0,
         0,
@@ -794,6 +797,103 @@
     "_id": "b1SNZtv7RKH7yH1q1Mscv5"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "fnt_timer",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 5
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 17
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 32,
+      "height": 50
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        -90,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "ddeb2LvAhH9YYOgyobDKjX"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 16
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_string": "8",
+    "_N$string": "8",
+    "_fontSize": 50,
+    "_lineHeight": 50,
+    "_enableWrapText": true,
+    "_N$file": {
+      "__uuid__": "3e2f3b06-802f-4bf2-8241-8722f3bc2e07"
+    },
+    "_isSystemFontUsed": false,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 0,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": "849pT0wQJPOqf32t+cbqhN"
+  },
+  {
     "__type__": "cc.Layout",
     "_name": "",
     "_objFlags": 0,
@@ -804,7 +904,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 200,
-      "height": 180
+      "height": 230
     },
     "_resize": 1,
     "_N$layoutType": 2,

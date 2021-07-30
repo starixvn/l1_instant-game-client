@@ -54,7 +54,7 @@ export default class Notice extends cc.Component {
     public init(data: NoticeData) {
         this.node.active = true;
 
-        cc.GameManager.inGame.loading.active = false;
+        cc.GameManager.currentScene.loading.active = false;
 
         this.setTitle(data.title);
         this.setMessage(data.text);

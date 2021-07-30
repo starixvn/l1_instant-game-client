@@ -12,13 +12,13 @@ export default class MiniSedieFinishHandler extends GameBaseFinishHandler {
         this.main.currentDataLogs.length > 100 && this.main.currentDataLogs.pop();
         this.main.timeHandler.resetTime();
 
-        if (cc.RedT.GAME_IS_SHOWED) {
+        if (cc.GameManager.GAME_IS_SHOWED) {
             this.playResultAnimation(onFinishHanlingData);
         }
     }
 
     playResultAnimation(onFinishHanlingData: () => void) {
-        if (cc.RedT.GAME_IS_SHOWED) {
+        if (cc.GameManager.GAME_IS_SHOWED) {
             const dataLog = this.main.currentDataLogs[0];
             this.main.setDots(dataLog.result);
             this.main.resultAnimating = true;

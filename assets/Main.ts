@@ -3,6 +3,7 @@ import { sentryLogger } from "./common/logger.js";
 import NameGenerator from "./common/name-generator/NameGenerator";
 import { GameIds } from "./configs/SabaConfigs";
 import * as authManager from "./manager/auth/AuthManager";
+import { getCacheLanguage, setLanguage } from "./manager/auth/SessionManager.js";
 import UserService from "./manager/auth/UserService";
 import GameManager from "./manager/GameManager";
 
@@ -32,10 +33,21 @@ export default class Main extends cc.Component {
     miniPanel: MiniPanel;
 
     onLoad() {
+        this.initLanguage();
         cc.GameManager = GameManager.Instance;
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
         this.splash.active = true;
         this.checkSSO();
+    }
+
+    initLanguage() {
+        let language = getCacheLanguage();
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has("lang")) {
+            const lang = urlParams.get("lang");
+            language = lang === "vi-VN" ? "vi" : "en";
+        }
+        setLanguage(language);
     }
 
     checkSSO() {
