@@ -25,6 +25,7 @@ export default class GameManager extends cc.Component {
     soundObservers = {};
     userStakeLevel = {};
     sleepTime: number;
+    user: any;
 
     onLoad() {
         GameManager.Instance = this;
@@ -45,6 +46,11 @@ export default class GameManager extends cc.Component {
                 }
             }
         });
+    }
+
+    loadUserData(data: any) {
+        console.log("user data loaded ", data);
+        this.user = { ...data };
     }
 
     sendToMainSocket(data: any) {

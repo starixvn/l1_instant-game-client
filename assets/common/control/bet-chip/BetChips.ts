@@ -397,6 +397,10 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
     }
 
     private updateSelectedBet(targetName: string) {
+        const highlight = {
+            scale: 1.05, //1.15,
+            offsetY: 3 //,
+        };
         this.chips.children.forEach((chip) => {
             chip.stopAllActions();
             if (chip.name === targetName) {
@@ -404,8 +408,8 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
                 chip.zIndex = 2;
                 cc.tween(chip)
                     .to(0.2, {
-                        scale: 1.15,
-                        position: cc.v2(chip.position.x, 12)
+                        scale: highlight.scale,
+                        position: cc.v2(chip.position.x, highlight.offsetY)
                     })
                     .start();
             } else {

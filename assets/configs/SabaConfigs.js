@@ -1,4 +1,5 @@
 const configs = {
+    desktopMiniGameScale: 1,
     GameIds: {
         Lobby: 0,
         BigSmall: 1,
@@ -114,8 +115,7 @@ const configs = {
         35: {
             key: "ThreeCards"
         }
-    },
-    desktopMiniGameScale: 0.8
+    }
 };
 
 module.exports = configs;

@@ -101,10 +101,14 @@ export default class Main extends cc.Component {
     }
 
     openGameSSO() {
-        let gameId = GameIds.MiniSedie;
+        let gameId = 0;
         if (window.openGameId) {
             gameId = parseInt(window.openGameId);
             window.openGameId = null;
+        }
+
+        if (gameId === 0) {
+            gameId = GameIds.MiniSedie;
         }
 
         this.splash.active = false;
@@ -112,6 +116,7 @@ export default class Main extends cc.Component {
     }
 
     openGame(gameId: number) {
+        console.log("open game id " + gameId);
         this.miniPanel.openNewSocketMiniGame(gameId);
     }
 }
