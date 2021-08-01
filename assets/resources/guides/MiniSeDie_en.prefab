@@ -571,7 +571,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 342,
-      "height": 316.03999999999996
+      "height": 352.04
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -684,7 +684,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "Xóc Đĩa Mini có luật chơi đơn giản, gồm 4 xu với 2 mặt đỏ và trắng. Thắng thua sẽ phụ thuộc vào số mặt đỏ hoặc trắng có trong kết quả sau khi xóc. \n",
+    "_N$string": "Mini Se Die is played with 4 colored buttons, each has two sides colored in red and white. The objective of this game is to predict the outcome of 4 buttons. \n",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 14,
     "_N$font": null,
@@ -730,7 +730,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "16r0g/hj1JKYiclo5BsfYA",
     "sync": false
@@ -766,7 +766,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 342,
-      "height": 112.67999999999999
+      "height": 148.68
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -778,7 +778,7 @@
       "ctor": "Float64Array",
       "array": [
         0.5586435690361213,
-        -133.01999999999998,
+        -151.01999999999998,
         0,
         0,
         0,
@@ -812,7 +812,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "Điều kiện thắng\n+ <b>Lẻ</b>: Tổng xu đỏ hoặc trắng có trong kết quả là số lẻ.\n+ <b>Chẵn</b>: Tổng xu đỏ hoặc trắng có trong kết quả là số chẵn.\n+ Các cửa phụ <b>4 Đỏ</b> (<img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>), <b>4 Trắng</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/>), <b>3 Đỏ</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>), <b>1 Đỏ</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/>): thắng nếu kết quả trùng với lựa chọn.",
+    "_N$string": "Winning Conditions\n+ <b>EVEN</b>: if the total red or white buttons having in the result is an Even number.\n+ <b>ODD</b>:  if the total red or white buttons having in the result is an Odd number.\n+ Other bet options as <b>4 Red </b> (<img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>), <b>4 White</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/>), <b>3 Red </b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>), <b>1 Red </b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/>): if the outcome matches the player’s bet, the player wins.",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 12,
     "_N$font": null,
@@ -858,7 +858,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "09VjjCNZhG25hRJofGRQAa",
     "sync": false
@@ -906,7 +906,7 @@
       "ctor": "Float64Array",
       "array": [
         0.5586435690361213,
-        -209.7,
+        -245.7,
         0,
         0,
         0,
@@ -940,7 +940,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "Hạn mức cược\nTổng tiền cược tối đa cho 1 phiên là _maxBetMain",
+    "_N$string": "Bet Limit\nThe maximum total stake per round is  _maxBetMain",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 12,
     "_N$font": null,
@@ -986,7 +986,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "fdXVA2R9JIWrd7A3L5hhwD",
     "sync": false
@@ -1041,7 +1041,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -238.04,
+        -274.03999999999996,
         0,
         0,
         0,
@@ -1144,8 +1144,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Lựa Chọn",
-    "_N$string": "Lựa Chọn",
+    "_string": "Options",
+    "_N$string": "Options",
     "_fontSize": 14,
     "_lineHeight": 16,
     "_enableWrapText": true,
@@ -1168,7 +1168,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "90Kwszj1lO7IdOrG1KN21W",
     "sync": false
@@ -1252,8 +1252,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Hạn Mức Cược",
-    "_N$string": "Hạn Mức Cược",
+    "_string": "Bet Limit",
+    "_N$string": "Bet Limit",
     "_fontSize": 14,
     "_lineHeight": 16,
     "_enableWrapText": true,
@@ -1276,7 +1276,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "cds4VAd6FHzqSxX5/vWxcH",
     "sync": false
@@ -1353,7 +1353,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "1bndc/IoVLS7+HxjXHagx2",
     "sync": false
@@ -1408,7 +1408,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -257.03999999999996,
+        -293.03999999999996,
         0,
         0,
         0,
@@ -1511,8 +1511,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Chẵn/Lẻ",
-    "_N$string": "Chẵn/Lẻ",
+    "_string": "Odd/Even",
+    "_N$string": "Odd/Even",
     "_fontSize": 14,
     "_lineHeight": 16,
     "_enableWrapText": true,
@@ -1535,7 +1535,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "0bLqglDT1IXInmrErh4piC",
     "sync": false
@@ -1643,7 +1643,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "d1PapYZTZAv4biEIvIGXaN",
     "sync": false
@@ -1720,7 +1720,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "92hXC4f+ZL+Jmt18bn0ISa",
     "sync": false
@@ -1775,7 +1775,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -280.03999999999996,
+        -316.03999999999996,
         0,
         0,
         0,
@@ -1892,7 +1892,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "4fx9uL6E5Fuar4q6zC8j5Y",
     "sync": false
@@ -2000,7 +2000,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "daRTP00f9HzK47HldufoEB",
     "sync": false
@@ -2077,7 +2077,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "85kM81n6hDYZoVDTOI9esx",
     "sync": false
@@ -2132,7 +2132,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -304.03999999999996,
+        -340.03999999999996,
         0,
         0,
         0,
@@ -2249,7 +2249,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "3bBvqW0sxMmq43ZASkFkSP",
     "sync": false
@@ -2357,7 +2357,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "94BhfZQqRJE5kBk+0fIznw",
     "sync": false
@@ -2434,7 +2434,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "3aOlpX2KdGlYF30bWXtY7b",
     "sync": false
@@ -2477,7 +2477,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 342,
-      "height": 316.03999999999996
+      "height": 352.04
     },
     "_resize": 1,
     "_N$layoutType": 2,
@@ -2504,7 +2504,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "04Gwd4CWBPzpv1Q41bbv68",
     "sync": false
@@ -2562,7 +2562,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "bb9praHmtJcrH7CvXi1Tnl",
     "sync": false
@@ -2624,7 +2624,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "935iicc85ONYzhX6y7hdjH",
     "sync": false
@@ -2690,7 +2690,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "eeCmvaVDZKa5M6RwfysC7P",
     "sync": false
@@ -2701,7 +2701,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "97ekh/O7BDLrrQHY+zsw6C",
     "sync": false
@@ -2827,7 +2827,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "08E/7Z3oxAHbDXMs/qYSlI",
     "sync": false
@@ -2902,7 +2902,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "94b5f981-9928-4377-9ce2-3040f63691de"
+      "__uuid__": "aacf9ac4-e93b-4438-a016-12d4b29c1681"
     },
     "fileId": "",
     "sync": false
