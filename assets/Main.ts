@@ -1,4 +1,4 @@
-import MiniPanel from "./common/control/mini-panel/MiniPanel.js";
+import MiniPanel from "./common/control/mini-panel/MiniPanel";
 import { sentryLogger } from "./common/logger.js";
 import NameGenerator from "./common/name-generator/NameGenerator";
 import { GameIds } from "./configs/SabaConfigs";
