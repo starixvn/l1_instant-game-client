@@ -3,7 +3,7 @@ import { sentryLogger } from "./common/logger.js";
 import NameGenerator from "./common/name-generator/NameGenerator";
 import { GameIds } from "./configs/SabaConfigs";
 import * as authManager from "./manager/auth/AuthManager";
-import { getCacheLanguage, setLanguage } from "./manager/auth/SessionManager.js";
+import { getCacheLanguage, setLanguage } from "./manager/auth/SessionManager";
 import UserService from "./manager/auth/UserService";
 import GameManager from "./manager/GameManager";
 
