@@ -1,8 +1,8 @@
 const { ccclass, property } = cc._decorator;
 @ccclass
 export default abstract class GameGuideBase extends cc.Component {
-    @property({ type: cc.Label })
-    replaceNodes: cc.Label[] = [];
+    @property({ type: cc.Component })
+    textComponents: cc.Component[] = [];
 
     @property(cc.Node)
     mainFrame: cc.Node = null;
@@ -17,7 +17,7 @@ export default abstract class GameGuideBase extends cc.Component {
     init(configs) {
         const replaceData = this.createReplaceData(configs);
 
-        this.replaceNodes.forEach((label) => {
+        this.textComponents.forEach((label: any) => {
             Object.keys(replaceData).forEach((key) => {
                 const reg = new RegExp(key, "g");
                 label.string = label.string.replace(reg, replaceData[key]);

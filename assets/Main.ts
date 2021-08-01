@@ -119,4 +119,9 @@ export default class Main extends cc.Component {
         console.log("open game id " + gameId);
         this.miniPanel.openNewSocketMiniGame(gameId);
     }
+
+    onGuideClick() {
+        cc.GameManager.playClick();
+        this.miniPanel.openGuide();
+    }
 }

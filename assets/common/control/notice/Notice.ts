@@ -81,11 +81,11 @@ export default class Notice extends cc.Component {
     }
 
     public setBackground(isInfo: boolean) {
-        if (isInfo) {
-            this.popupNode.spriteFrame = this.infoBackground;
-        } else {
-            this.popupNode.spriteFrame = this.errorBackground;
-        }
+        // if (isInfo) {
+        //     this.popupNode.spriteFrame = this.infoBackground;
+        // } else {
+        //     this.popupNode.spriteFrame = this.errorBackground;
+        // }
     }
 
     public setTitle(title: string) {

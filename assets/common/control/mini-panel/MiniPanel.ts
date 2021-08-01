@@ -1,5 +1,6 @@
 import * as i18n from "i18n/runtime-scripts/LanguageData";
 
+import GameBase from "../../../games/_base/GameBase";
 import * as authManager from "../../../manager/auth/AuthManager";
 import * as sessionManager from "../../../manager/auth/SessionManager";
 import { numberWithCommas } from "../../helper/NumberHelper";
@@ -34,6 +35,7 @@ export default class MiniPanel extends BaseComponent {
     public skipShowApiErrorGameIds: number[] = [];
     private gameMiniInitializers: MiniPanelMiniGameInitializers;
     private miniGamesCache = {};
+    private currentGame: GameBase;
 
     onLoad() {
         this.showLoading(false);
@@ -90,9 +92,16 @@ export default class MiniPanel extends BaseComponent {
         cc.GameManager.sendToMainSocket({ gameResult: data });
     }
 
+    openGuide() {
+        if (this.currentGame) {
+            this.currentGame.openGuide();
+        }
+    }
+
     addMiniGame(game: any, gameId: number) {
         this.miniGames && this.miniGames.addChild(game.node);
         this.miniGamesCache[gameId] = game;
+        this.currentGame = game;
     }
 
     getGameMini(gameId): any {

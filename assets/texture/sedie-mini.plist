@@ -45,7 +45,7 @@
                 <key>spriteSourceSize</key>
                 <string>{22,22}</string>
                 <key>textureRect</key>
-                <string>{{83,201},{22,22}}</string>
+                <string>{{107,211},{22,22}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,7 +60,7 @@
                 <key>spriteSourceSize</key>
                 <string>{20,20}</string>
                 <key>textureRect</key>
-                <string>{{83,225},{20,20}}</string>
+                <string>{{130,148},{20,20}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -75,7 +75,7 @@
                 <key>spriteSourceSize</key>
                 <string>{20,20}</string>
                 <key>textureRect</key>
-                <string>{{105,225},{20,20}}</string>
+                <string>{{145,117},{20,20}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -93,6 +93,21 @@
                 <string>{{41,119},{73,30}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>even_en.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-4}</string>
+                <key>spriteSize</key>
+                <string>{63,22}</string>
+                <key>spriteSourceSize</key>
+                <string>{65,30}</string>
+                <key>textureRect</key>
+                <string>{{83,170},{63,22}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
             <key>item_main_highlight.png</key>
             <dict>
@@ -180,7 +195,22 @@
                 <key>spriteSourceSize</key>
                 <string>{29,27}</string>
                 <key>textureRect</key>
-                <string>{{83,170},{29,27}}</string>
+                <string>{{116,117},{29,27}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>odd_en.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-3}</string>
+                <key>spriteSize</key>
+                <string>{58,21}</string>
+                <key>spriteSourceSize</key>
+                <string>{58,27}</string>
+                <key>textureRect</key>
+                <string>{{107,151},{58,21}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -228,7 +258,7 @@
             <key>size</key>
             <string>{256,256}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c816b4aab5934bc3a51b14a9ead6df81:046ddc106b2cf5a653183fc661b12880:a7f0c8bdc77ee160d8a9efe093b1ae34$</string>
+            <string>$TexturePacker:SmartUpdate:ce2e263150b68a5c6a188dc50c802cfa:790af66add9b511b88cff9a4729d232c:a7f0c8bdc77ee160d8a9efe093b1ae34$</string>
             <key>textureFileName</key>
             <string>sedie-mini.png</string>
         </dict>

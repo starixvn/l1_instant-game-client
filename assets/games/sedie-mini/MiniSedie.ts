@@ -1,12 +1,15 @@
 import MiniPanel from "../../common/control/mini-panel/MiniPanel";
 import MiniRoundHistory from "../../common/control/mini-round-history/MiniRoundHistory";
-import { GameIds } from "../../configs/SabaConfigs";
+import GameUtils from "../../common/utils/GameUtils";
+import NoticeUtil from "../../common/utils/NoticeUtil";
+import { GameIds, GameInfos } from "../../configs/SabaConfigs";
 import SocketIOMiniGameBase from "../_base/SocketIOMiniGameBase";
 import SedieMiniRoundHistory from "../sedie/view-models/SedieMiniRoundHistory";
 import MiniSedieFinishHandler from "./handlers/MiniSedieFinishHandler";
 import MiniSedieLogsHandler from "./handlers/MiniSedieLogsHandler";
 import MiniSedieTimeHandler from "./handlers/MiniSedieTimeHandler";
 import { MiniSedieConfigs } from "./MiniSedieConfigs";
+import MiniSedieGuide from "./MiniSedieGuide";
 
 const { ccclass, property } = cc._decorator;
 
@@ -42,7 +45,7 @@ export default class MiniSedie extends SocketIOMiniGameBase {
         const mini = cc.instantiate(this.miniRoundHistoryPrefab);
         this.miniRoundHistory = mini.getComponent(MiniRoundHistory);
         this.miniRoundHistoryContainer.addChild(mini);
-        this.animatedTime.setAnimatedY(30, -5);
+        this.animatedTime.setAnimatedY(15, -5);
     }
 
     initMiniPanel(miniPanel: MiniPanel) {
@@ -117,5 +120,20 @@ export default class MiniSedie extends SocketIOMiniGameBase {
             };
         });
         this.miniRoundHistory.setData(miniHistoryData);
+    }
+
+    showAcceptedBet(bet: number) {
+        GameUtils.addFlyingText(this.betChipsContainer, false, bet, 1);
+    }
+
+    openGuide() {
+        const lang = NoticeUtil.getCurrentLanguage();
+        const gameName = GameInfos[this.gameId].key;
+        GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {
+            const node = cc.instantiate(prefab);
+            const guide = node.getComponent(MiniSedieGuide);
+            guide.init(this.gameConfigs);
+            this.currentMiniPanel.addDialog(node);
+        });
     }
 }

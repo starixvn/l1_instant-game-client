@@ -6,9 +6,9 @@ export default class GameUtils {
     public static addFlyingText(parent: cc.Node, win: boolean, value: number, duration = 1, startY = 0, destY = 100) {
         const temp = new cc.Node().addComponent(cc.Label);
         temp.string = (win ? "+" : "-") + numberWithCommas(value);
-        temp.font = win ? cc.GameManager.winBetfont : cc.GameManager.acceptedBetfont;
+        temp.font = win ? cc.GameManager.winBetFont : cc.GameManager.acceptedBetfont;
         temp.lineHeight = 130;
-        temp.fontSize = 30;
+        temp.fontSize = 16;
         temp.node.position = cc.v3(0, startY, 0);
         parent.addChild(temp.node);
         temp.node.runAction(

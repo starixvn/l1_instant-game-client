@@ -19,7 +19,7 @@ export default class GameManager extends cc.Component {
     public static Instance: GameManager;
     MiniPanel: MiniPanel;
 
-    GAME_IS_SHOWED = false;
+    GAME_IS_SHOWED = true;
     IS_LOGIN = false;
     dataObservers = {};
     soundObservers = {};
