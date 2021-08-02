@@ -36,6 +36,7 @@ export default class Main extends cc.Component {
         this.initLanguage();
         cc.GameManager = GameManager.Instance;
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
+        GameManager.Instance.miniPanel = this.miniPanel;
         this.splash.active = true;
         this.checkSSO();
     }
