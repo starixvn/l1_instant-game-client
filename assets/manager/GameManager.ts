@@ -17,7 +17,7 @@ export default class GameManager extends cc.Component {
     unClickAudioClip: cc.AudioClip = null;
 
     public static Instance: GameManager;
-    MiniPanel: MiniPanel;
+    miniPanel: MiniPanel;
 
     GAME_IS_SHOWED = true;
     IS_LOGIN = false;
@@ -42,7 +42,7 @@ export default class GameManager extends cc.Component {
                 const sleepSecond = (Date.now() - this.sleepTime) / 1000;
 
                 if (sleepSecond > 300) {
-                    this.MiniPanel.onForceReload(false);
+                    this.miniPanel.onForceReload(false);
                 }
             }
         });

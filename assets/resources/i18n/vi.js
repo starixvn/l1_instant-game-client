@@ -34,20 +34,15 @@ window.i18n.languages.vi = {
         35: "3 Lá Đỏ Đen"
     },
     messages: {
-        accountBlacklisted: "Tài khoản đã bị đóng. Vui lòng liên hệ bộ phận CSKH để biết chi tiết.(%{errorCode})",
-        accountBlacklistedPlaceBet:
-            "Game %{gameName} (#%{gameRoundId})\r\n\r\nTài khoản đã bị đóng. Vui lòng liên hệ bộ phận CSKH để biết chi tiết. Đặt cược thất bại!(%{errorCode})",
-        accountClosed:
-            "Tài khoản đã bị đóng. Phiên đăng nhập sẽ hết hạn sau 10 giây. Vui lòng liên hệ với cấp trên để biết thêm chi tiết.(%{errorCode})",
+        accountBlacklisted: "Tài khoản đã bị đóng. Vui lòng liên hệ bộ phận CSKH.(%{errorCode})",
+        accountBlacklistedPlaceBet: "Tài khoản đã bị đóng. Vui lòng liên hệ bộ phận CSKH.(%{errorCode})",
+        accountClosed: "Tài khoản đã bị đóng. Phiên đăng nhập sẽ hết hạn sau 10 giây. Vui lòng liên hệ với cấp trên.(%{errorCode})",
         accountLocked: "Tài khoản đã bị đóng. Vui lòng liên hệ với cấp trên để biết chi tiết, cảm ơn bạn.",
-        accountLockedPlaceBet:
-            "Game %{gameName} (#%{gameRoundId})\r\n\r\nTài khoản đã bị đóng. Vui lòng liên hệ với cấp trên để biết chi tiết, cảm ơn bạn. Đặt cược thất bại!",
-        accountNotExist: "Đã xảy ra lỗi. Vui lòng liên hệ bộ phận CSKH để biết chi tiết, cảm ơn bạn. (%{errorCode})",
-        accountNotExistPlaceBet:
-            "Game %{gameName} (#%{gameRoundId})\r\n\r\nĐã xảy ra lỗi. Vui lòng liên hệ bộ phận CSKH để biết chi tiết, cảm ơn bạn. Đặt cược thất bại!(%{errorCode})",
+        accountLockedPlaceBet: "Tài khoản đã bị đóng. Vui lòng liên hệ với cấp trên.",
+        accountNotExist: "Đã xảy ra lỗi. Vui lòng liên hệ bộ phận CSKH.(%{errorCode})",
+        accountNotExistPlaceBet: "Đã xảy ra lỗi. Vui lòng liên hệ bộ phận CSKH.(%{errorCode})",
         accountSignOut: "Tài khoản bị đăng xuất do có người khác đăng nhập vào tài khoản này.",
-        accountSuspended:
-            "Game %{gameName} (#%{gameRoundId})\n\nTài khoản đã bị treo. Vui lòng liên hệ với cấp trên để biết chi tiết, cảm ơn bạn. Đặt cược thất bại!(%{errorCode})",
+        accountSuspended: "Tài khoản đã bị treo. Vui lòng liên hệ với cấp trên.(%{errorCode})",
         askConfirmBet: "Bạn có muốn xác nhận cược?",
         balanceBetting: "Nhà cái cân cửa.",
         betAmountOfAnyChoiceIncorrect: "Tiền cược của một trong các cửa không hợp lệ.",
@@ -64,16 +59,13 @@ window.i18n.languages.vi = {
         disabledGame: "Game đang được bảo trì, vui lòng quay lại sau 10 phút.",
         disableTurboMode: "Tắt chế độ Siêu Tốc.",
         enableTurboMode: "Bật chế độ Siêu Tốc.",
-        endGameFailed:
-            "Game %{gameName} (#%{gameRoundId})\n\nPhiên chơi bị lỗi. Vui lòng liên hệ bộ phận CSKH để được hỗ trợ.(%{errorCode})",
-        enterPortalFailed: "Đã xảy ra lỗi. Vui lòng liên hệ bộ phận CSKH để đươc hỗ trợ.(%{errorCode})",
-        errorOccurred: "Đã xảy ra lỗi. Vui lòng liên hệ với bộ phận CSKH để được hỗ trợ.(%{errorCode})",
-        errorOccurredFull:
-            "Game %{gameName} (#%{gameRoundId})\n\nĐã xảy ra lỗi. Vui lòng liên hệ với bộ phận CSKH để được hỗ trợ.(%{errorCode})",
-        errorOccurredPlaceBet:
-            "Game %{gameName} (#%{gameRoundId})\r\n\r\nĐã xảy ra lỗi. Vui lòng liên hệ với bộ phận CSKH để được hỗ trợ.(%{errorCode})",
+        endGameFailed: "Phiên chơi bị lỗi. Vui lòng liên hệ bộ phận CSKH.(%{errorCode})",
+        enterPortalFailed: "Đã xảy ra lỗi. Vui lòng liên hệ bộ phận CSKH.(%{errorCode})",
+        errorOccurred: "Đã xảy ra lỗi. Vui lòng liên hệ với bộ phận CSKH.(%{errorCode})",
+        errorOccurredFull: "Đã xảy ra lỗi. Vui lòng liên hệ với bộ phận CSKH.(%{errorCode})",
+        errorOccurredPlaceBet: "Đã xảy ra lỗi. Vui lòng liên hệ với bộ phận CSKH.(%{errorCode})",
         existNickName: "Tên nhân vật đã tồn tại.",
-        gameExcluded: "%{gameName}\n\nTài khoản của bạn hiện đang bị giới hạn, vui lòng thử các trò chơi khác.",
+        gameExcluded: "Tài khoản của bạn hiện đang bị giới hạn, vui lòng thử các trò chơi khác.",
         getBalanceFailed: "Không thể cập nhật số tiền trong tài khoản.(%{errorCode})",
         handAlreadySplit: "Tay bài này đã được tách bài.",
         handIsStand: "Tay bài đã dừng",
@@ -90,20 +82,16 @@ window.i18n.languages.vi = {
         invalidPosition: "Vị trí tay bài không đúng",
         invalidStakeLevel: "Mức cược không hợp lệ.",
         ipRestricted: "Địa chỉ IP này bị chặn.(%{errorCode})",
-        ipRestrictedPlaceBet: "Game %{gameName} (#%{gameRoundId})\r\n\r\nĐịa chỉ IP này bị chặn. Đặt cược thất bại!(%{errorCode})",
+        ipRestrictedPlaceBet: "Địa chỉ IP này bị chặn. Đặt cược thất bại!(%{errorCode})",
         jackpotProcessing: "Dữ liệu đang được xử lý, giải thưởng Nổ Hũ sẽ được cập nhật vào tài khoản của bạn sau ít phút.",
         limitBetChanged: "Hạn mức cược của bạn vừa được cập nhật.",
-        limitBetExceeded:
-            "Game %{gameName} (#%{gameRoundId})\n\nKhoản tiền cược của bạn đã vượt quá cài đặt giới hạn cược, vui lòng thử lại. Đặt cược thất bại!(%{errorCode})",
-        limitBetNotDefined:
-            "Game %{gameName} (#%{gameRoundId})\n\nHạn mức cược của bạn cho trò chơi này chưa được thiết lập. Vui lòng liên hệ với cấp trên. Đặt cược thất bại!(%{errorCode})",
-        limitBetUpdated:
-            "Game %{gameName} (#%{gameRoundId})\n\nHạn mức cược của bạn đã được cập nhật. vui lòng thử lại. Đặt cược thất bại!(%{errorCode})",
+        limitBetExceeded: "Khoản tiền cược của bạn đã vượt quá cài đặt giới hạn cược, vui lòng thử lại.(%{errorCode})",
+        limitBetNotDefined: "Hạn mức cược của bạn cho trò chơi này chưa được thiết lập. Vui lòng liên hệ với cấp trên.(%{errorCode})",
+        limitBetUpdated: "Hạn mức cược của bạn đã được cập nhật. Vui lòng thử lại.(%{errorCode})",
         loginFailed: "Tài khoản hoặc mật khẩu đăng nhập không đúng.",
-        loginFailedPlaceBet: "Game %{gameName} (#%{gameRoundId})\r\n\r\nTài khoản hoặc mật khẩu đăng nhập không đúng. Đặt cược thất bại!",
-        loseLimitHit:
-            "Game %{gameName} (#%{gameRoundId})\n\nĐã đạt giới hạn thua cược! Vui lòng liên hệ với cấp trên, cảm ơn bạn. Đặt cược thất bại!(%{errorCode})",
-        lostGameConnection: "%{gameName}\n\nMất kết nối hoặc kết nối không ổn định. Vui lòng kiểm tra và thử lại.",
+        loginFailedPlaceBet: "Tài khoản hoặc mật khẩu đăng nhập không đúng. Đặt cược thất bại!",
+        loseLimitHit: "Đã đạt giới hạn thua cược. Vui lòng liên hệ với cấp trên.(%{errorCode})",
+        lostGameConnection: "Kết nối không ổn định. Vui lòng thử lại.",
         maxBetForChoiceNotice: "Tiền cược tối đa ở cửa này là %{maxBet}",
         maxBetNotice: "Tổng tiền cược tối đa ở phiên này là %{maxBet}",
         maxBetOfAnyChoiceReached: "Tiền cược của một trong các cửa vượt mức quy định.",
@@ -111,7 +99,7 @@ window.i18n.languages.vi = {
         minBetHand: "Tiền cược tối thiểu của tay bài này là %{minBet}",
         minBetNotice: "Tiền cược tối thiểu là %{minBet}",
         networkError: "Lỗi kết nối mạng.(%{errorCode})",
-        networkErrorPlaceBet: "Game %{gameName} (#%{gameRoundId})\r\n\r\nLỗi kết nối mạng. Đặt cược thất bại!(%{errorCode})",
+        networkErrorPlaceBet: "Lỗi kết nối mạng. Đặt cược thất bại!(%{errorCode})",
         newRoundNotice: "Bắt đầu phiên mới.",
         newUpdateAvailable: "Vui lòng tải lại trang để cập nhật phiên bản mới.",
         nickDifferentUserName: "Tên nhân vật không được trùng với tên đăng nhập.",
@@ -124,29 +112,25 @@ window.i18n.languages.vi = {
         noticeTitle: "THÔNG BÁO",
         oneChoiceAllowed: "Chỉ được cược 1 bên.",
         openedBonus: "Bonus thưởng không hợp lệ.",
-        placeBetFailed: "Game %{gameName} (#%{gameRoundId})\n\nĐặt cược không thành công. Đặt cược thất bại!(%{errorCode})",
+        placeBetFailed: "Đặt cược không thành công.(%{errorCode})",
         placeBetNextRound: "Vui lòng đặt cược ở phiên sau.",
-        playerNotPermittedPlay:
-            "Game %{gameName} (#%{gameRoundId})\n\nTrò chơi bị vô hiệu hóa. Vui lòng liên hệ với cấp trên để biết chi tiết, cảm ơn bạn.(%{errorCode})",
+        playerNotPermittedPlay: "Trò chơi bị vô hiệu hóa. Vui lòng liên hệ với cấp trên.(%{errorCode})",
         playOnOtherDevice: "Bạn hoặc ai đó đang chơi [game] bằng tài khoản này.",
         pleaseRotateDevice: "Vui lòng xoay màn hình của bạn.",
         processingAction: "Đang xử lý, vui lòng đợi trong giây lát.",
         serverError: "Máy chủ gặp sự cố.",
         serverNotFound: "Không tìm thấy máy chủ.",
         sessionExpired: "Phiên đăng nhập đã hết hạn, bạn vui lòng đăng nhập lại.",
-        sessionTimeout: "Phiên đăng nhập của bạn đã hết hạn, hoặc bạn chưa có đăng nhập. Vui lòng đóng cửa sổ game và thử đăng nhập lại.",
-        sessionTimeoutPlaceBet:
-            "Game %{gameName} (#%{gameRoundId})\r\n\r\nPhiên đăng nhập của bạn đã hết hạn, hoặc bạn chưa có đăng nhập. Vui lòng đóng cửa sổ game và thử đăng nhập lại. Đặt cược thất bại!",
+        sessionTimeout: "Đã hết phiên đăng nhập. Vui lòng tải lại game.",
+        sessionTimeoutPlaceBet: "Đã hết phiên đăng nhập. Vui lòng tải lại game.",
         sysMaintenance: "Hệ thống đang được bảo trì.",
-        sysMaintenancePlaceBet: "Game %{gameName} (#%{gameRoundId})\r\n\r\nHệ thống đang được bảo trì.",
+        sysMaintenancePlaceBet: "Hệ thống đang được bảo trì.",
         unauthorized: "Không được phép.",
-        unavailableGame:
-            "Game %{gameName} (#%{gameRoundId})\n\nTrò chơi không khả dụng vào thời điểm này. Vui lòng liên hệ với bộ phận CSKH để biết chi tiết, cảm ơn bạn.(%{errorCode})",
+        unavailableGame: "Trò chơi không khả dụng vào thời điểm này. Vui lòng liên hệ với bộ phận CSKH.(%{errorCode})",
         userInsufficientFund: "Tài khoản của bạn thiếu tiền.(%{errorCode})",
         userNotFound: "Không tìm thấy người chơi này.(%{errorCode})",
-        userNotFoundPlaceBet: "Game %{gameName} (#%{gameRoundId})\r\n\r\nKhông tìm thấy người chơi này. Đặt cược thất bại!(%{errorCode})",
-        winLimitHit:
-            "Game %{gameName} (#%{gameRoundId})\n\nĐã đạt giới hạn thắng cược! Vui lòng liên hệ với cấp trên, cảm ơn bạn. Đặt cược thất bại!(%{errorCode})"
+        userNotFoundPlaceBet: "Không tìm thấy người chơi này. Đặt cược thất bại!(%{errorCode})",
+        winLimitHit: "Đã đạt giới hạn thắng cược. Vui lòng liên hệ với cấp trên.(%{errorCode})"
     },
     ui: {
         all: "Tất Cả",
@@ -235,7 +219,6 @@ window.i18n.languages.vi = {
         hand_id: "Tay Bài",
         head: "Đầu",
         history: "Lịch Sử",
-        round_history: "Lịch Sử Phiên",
         hit: "Rút Bài",
         honor: "Vinh Danh",
         hot_number: "Số Hay Trúng",
@@ -291,6 +274,7 @@ window.i18n.languages.vi = {
         result_dragon_tiger: "Kết Quả (Rồng | Hổ)",
         result_player_banker: "Kết Quả\n(Nhà Con | Nhà Cái)",
         round: "Phiên",
+        round_history: "Lịch Sử Phiên",
         score_result: "Điểm Số",
         single: "Đơn",
         spin: "Quay",

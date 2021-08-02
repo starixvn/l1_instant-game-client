@@ -1,6 +1,5 @@
 import * as configs from "../../../configs/Configs";
 import { lazyInject } from "../../../manager/Application";
-import { removeInRoomGameId } from "../../../manager/auth/SessionManager";
 import SocketIOController from "../../../manager/SocketIOController";
 import { buildServerUrl, getProxyRoute } from "../../helper/UrlHelper";
 import GameUtils from "../../utils/GameUtils";
@@ -20,10 +19,10 @@ export default class MiniPanelSocketIOGameInitializers {
         }
 
         this.main.showLoading(true);
-        cc.GameManager.currentScene.outRoomGame().then(() => {
-            removeInRoomGameId();
-            this.openNewSocket(gameId);
-        });
+        // cc.GameManager.currentScene.outRoomGame().then(() => {
+        //     removeInRoomGameId();
+        //     this.openNewSocket(gameId);
+        // });
     }
 
     private openNewSocket(gameId) {
