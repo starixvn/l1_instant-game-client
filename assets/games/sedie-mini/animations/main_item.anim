@@ -1,150 +1,150 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "ocuocchinh",
+  "_name": "o lon",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 1,
+  "_duration": 1.3333333333333333,
   "sample": 60,
   "speed": 1,
   "wrapMode": 2,
   "curveData": {
     "paths": {
-      "Round 1/trai": {
-        "props": {
-          "scaleY": [
-            {
-              "frame": 0,
-              "value": 0
-            },
-            {
-              "frame": 0.5,
-              "value": 3.7
-            }
-          ]
-        }
-      },
-      "Round 1/phai": {
-        "props": {
-          "scaleY": [
-            {
-              "frame": 0,
-              "value": 0
-            },
-            {
-              "frame": 0.5,
-              "value": 3.7
-            }
-          ]
-        }
-      },
-      "Round 1/tren": {
-        "props": {
-          "scaleX": [
-            {
-              "frame": 0,
-              "value": 7.1
-            },
-            {
-              "frame": 0.5,
-              "value": 0
-            }
-          ]
-        }
-      },
-      "Round 1/duoi": {
-        "props": {
-          "scaleX": [
-            {
-              "frame": 0,
-              "value": 7.1
-            },
-            {
-              "frame": 0.5,
-              "value": 0
-            }
-          ]
-        }
-      },
-      "Round 1": {
+      "luot 1": {
         "props": {
           "opacity": [
             {
-              "frame": 0.48333333333333334,
+              "frame": 0.65,
               "value": 255
             },
             {
-              "frame": 0.5,
+              "frame": 0.6666666666666666,
               "value": 0
             }
           ]
         }
       },
-      "Round 2": {
+      "luot 2": {
         "props": {
           "opacity": [
             {
-              "frame": 0.48333333333333334,
+              "frame": 0.65,
               "value": 0
             },
             {
-              "frame": 0.5,
+              "frame": 0.6666666666666666,
               "value": 255
             }
           ]
         }
       },
-      "Round 2/trai": {
+      "luot 1/trai ": {
         "props": {
           "scaleY": [
             {
-              "frame": 0.5,
-              "value": 3.7
+              "frame": 0,
+              "value": 0
             },
             {
-              "frame": 1,
-              "value": 0
+              "frame": 0.6666666666666666,
+              "value": 2.92
             }
           ]
         }
       },
-      "Round 2/phai": {
+      "luot 1/phai": {
         "props": {
           "scaleY": [
             {
-              "frame": 0.5,
-              "value": 3.7
+              "frame": 0,
+              "value": 0
             },
             {
-              "frame": 1,
+              "frame": 0.6666666666666666,
+              "value": 2.92
+            }
+          ]
+        }
+      },
+      "luot 1/tren": {
+        "props": {
+          "scaleX": [
+            {
+              "frame": 0,
+              "value": 5.28
+            },
+            {
+              "frame": 0.6666666666666666,
               "value": 0
             }
           ]
         }
       },
-      "Round 2/tren": {
+      "luot 1/duoi": {
         "props": {
           "scaleX": [
             {
-              "frame": 0.5,
-              "value": 0
+              "frame": 0,
+              "value": 5.28
             },
             {
-              "frame": 1,
-              "value": 7.1
+              "frame": 0.6666666666666666,
+              "value": 0
             }
           ]
         }
       },
-      "Round 2/duoi": {
+      "luot 2/trai ": {
+        "props": {
+          "scaleY": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 2.92
+            },
+            {
+              "frame": 1.3333333333333333,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "luot 2/phai": {
+        "props": {
+          "scaleY": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 2.92
+            },
+            {
+              "frame": 1.3333333333333333,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "luot 2/tren": {
         "props": {
           "scaleX": [
             {
-              "frame": 0.5,
+              "frame": 0.6666666666666666,
               "value": 0
             },
             {
-              "frame": 1,
-              "value": 7.1
+              "frame": 1.3333333333333333,
+              "value": 5.28
+            }
+          ]
+        }
+      },
+      "luot 2/duoi": {
+        "props": {
+          "scaleX": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            },
+            {
+              "frame": 1.3333333333333333,
+              "value": 5.28
             }
           ]
         }

@@ -46,8 +46,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 45,
-      "height": 47
+      "width": 90,
+      "height": 92
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -58,8 +58,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        42.5,
-        0,
+        55,
+        -8.846,
         0,
         0,
         0,
@@ -110,8 +110,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17,
-      "height": 21
+      "width": 22,
+      "height": 38
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -123,7 +123,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        0,
+        4,
         0,
         0,
         0,
@@ -164,8 +164,8 @@
     "_dstBlendFactor": 771,
     "_string": "5",
     "_N$string": "5",
-    "_fontSize": 21,
-    "_lineHeight": 21,
+    "_fontSize": 38,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "25f17413-ca57-4543-af3d-052f99a6ceea"
@@ -195,13 +195,13 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "chip_active",
+    "_name": "New Node",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 6
@@ -223,13 +223,13 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 68,
-      "height": 68
+      "width": 122,
+      "height": 117
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.51,
+      "y": 0.46
     },
     "_trs": {
       "__type__": "TypedArray",
@@ -242,9 +242,9 @@
         0,
         0,
         1,
-        0.85,
-        0.85,
-        1
+        1,
+        1,
+        0.9
       ]
     },
     "_eulerAngles": {
@@ -258,6 +258,17 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "09b295EGW5AJagKBRkFmqLZ",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 5
+    },
+    "_enabled": true,
+    "degreePerSecond": 360,
     "_id": ""
   },
   {
@@ -295,17 +306,6 @@
     "_id": ""
   },
   {
-    "__type__": "09b295EGW5AJagKBRkFmqLZ",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 5
-    },
-    "_enabled": true,
-    "degreePerSecond": 360,
-    "_id": ""
-  },
-  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -313,7 +313,7 @@
     "asset": {
       "__uuid__": "6562b7ed-bd92-46a1-a728-0ee00a0c3a35"
     },
-    "fileId": "35qXJD1mpDmKKqMf8cJhG5",
+    "fileId": "b4xMmfmYBMUITswS/q0dw0",
     "sync": false
   },
   {
