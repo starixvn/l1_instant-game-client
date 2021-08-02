@@ -2368,7 +2368,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 83,
+      "width": 75,
       "height": 12
     },
     "_anchorPoint": {
@@ -2420,8 +2420,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "GAMENAMES.9",
-    "_N$string": "GAMENAMES.9",
+    "_string": "XÓC ĐĨA MINI",
+    "_N$string": "XÓC ĐĨA MINI",
     "_fontSize": 12,
     "_lineHeight": 12,
     "_enableWrapText": true,
@@ -2881,7 +2881,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 81,
+      "width": 42,
       "height": 12
     },
     "_anchorPoint": {
@@ -2933,8 +2933,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "GAMENAMES.1",
-    "_N$string": "GAMENAMES.1",
+    "_string": "TÀI XỈU",
+    "_N$string": "TÀI XỈU",
     "_fontSize": 12,
     "_lineHeight": 12,
     "_enableWrapText": true,
