@@ -270,6 +270,7 @@ window.i18n.languages.en = {
         prize_third: "Third",
         rebet: "Rebet",
         refund: "Refund",
+        reload: "Reload",
         result: "Result",
         result_dragon_tiger: "RESULT (DRAGON | TIGER)",
         result_player_banker: "RESULT\n(PLAYER | BANKER)",

@@ -270,6 +270,7 @@ window.i18n.languages.vi = {
         prize_third: "Ba",
         rebet: "Cược Lại",
         refund: "Trả Lại",
+        reload: "Tải Lại",
         result: "Kết Quả",
         result_dragon_tiger: "Kết Quả (Rồng | Hổ)",
         result_player_banker: "Kết Quả\n(Nhà Con | Nhà Cái)",

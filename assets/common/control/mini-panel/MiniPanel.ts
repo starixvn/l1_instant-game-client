@@ -24,6 +24,9 @@ export default class MiniPanel extends BaseComponent {
     @property(cc.Prefab)
     noticePrefab: cc.Prefab = null;
 
+    @property(cc.Prefab)
+    connectionLostPrefab: cc.Prefab = null;
+
     @property(Loading)
     loading: Loading = null;
 
@@ -102,6 +105,10 @@ export default class MiniPanel extends BaseComponent {
         this.miniGames && this.miniGames.addChild(game.node);
         this.miniGamesCache[gameId] = game;
         this.currentGame = game;
+    }
+
+    removeGame(gameId: number) {
+        this.miniGames.destroyAllChildren();
     }
 
     getGameMini(gameId): any {
@@ -187,7 +194,7 @@ export default class MiniPanel extends BaseComponent {
 
     showNotice(noticeData: NoticeData, handleClickButton: () => void = null, handleClose: () => void = null) {
         const noticePrefab = cc.instantiate(this.noticePrefab);
-        const notice = noticePrefab.getComponent("Notice") as Notice;
+        const notice = noticePrefab.getComponent(Notice);
 
         noticeData.button = { text: "OK" };
         notice.init(noticeData);
@@ -203,25 +210,40 @@ export default class MiniPanel extends BaseComponent {
         this.noticeContainer.addChild(noticePrefab);
     }
 
+    showLostConnection(noticeData: NoticeData, handleClickButton: () => void) {
+        const node = cc.instantiate(this.connectionLostPrefab);
+        const notice = node.getComponent(Notice);
+
+        noticeData.button = { text: i18n.t("ui.reload") };
+        notice.init(noticeData);
+
+        if (handleClickButton) {
+            notice.handleClickButton = handleClickButton;
+            notice.handleClose = handleClickButton;
+        }
+
+        this.noticeContainer.addChild(node);
+    }
+
     onConnectSocketFailed(gameName, isGameRoom = true) {
         if (!this.isAlive()) {
             return;
         }
-        const handleCloseNotice = () => isGameRoom && this.redirectToLobby();
 
-        this.showNotice(
+        this.showLostConnection(
             {
+                title: gameName,
                 text: i18n.t("messages.lostGameConnection", { gameName: gameName })
             } as NoticeData,
-            handleCloseNotice,
-            handleCloseNotice
+            () => this.reloadCurrentGame()
         );
         this.showLoading(false);
     }
 
-    redirectToLobby() {
-        // const currentSceneName = cc.director.getScene().name;
-        // currentSceneName !== "MainGame" && cc.director.loadScene("MainGame");
+    reloadCurrentGame() {
+        const currentGameId = this.currentGame.gameId;
+        this.removeGame(currentGameId);
+        this.openNewSocketMiniGame(currentGameId);
     }
 
     addDialog(dialogNode: cc.Node) {

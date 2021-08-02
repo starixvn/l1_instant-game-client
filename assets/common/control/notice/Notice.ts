@@ -15,8 +15,8 @@ export interface NoticeButton {
 
 @ccclass
 export default class Notice extends cc.Component {
-    @property(cc.Sprite)
-    popupNode: cc.Sprite = null;
+    @property(cc.Node)
+    popupNode: cc.Node = null;
 
     @property(cc.Label)
     title: cc.Label = null;
@@ -30,20 +30,14 @@ export default class Notice extends cc.Component {
     @property(cc.Label)
     buttonLabel: cc.Label = null;
 
-    @property(cc.SpriteFrame)
-    errorBackground: cc.SpriteFrame = null;
-
-    @property(cc.SpriteFrame)
-    infoBackground: cc.SpriteFrame = null;
-
     public handleClickButton: () => void;
 
     public handleClose: () => void;
 
     onEnable() {
-        this.popupNode.node.opacity = 0;
-        this.popupNode.node.scale = 0;
-        this.popupNode.node.runAction(cc.spawn(cc.scaleTo(0.5, 1).easing(cc.easeBackOut()), cc.fadeTo(0.5, 255)));
+        this.popupNode.opacity = 0;
+        this.popupNode.scale = 0;
+        this.popupNode.runAction(cc.spawn(cc.scaleTo(0.5, 1).easing(cc.easeBackOut()), cc.fadeTo(0.5, 255)));
     }
 
     onDisable() {
