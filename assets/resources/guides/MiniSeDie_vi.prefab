@@ -583,7 +583,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 616,
-      "height": 461.46
+      "height": 513.1
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -647,7 +647,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 616,
-      "height": 84.75999999999999
+      "height": 97.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -659,7 +659,7 @@
       "ctor": "Float64Array",
       "array": [
         1.0062118085562588,
-        -42.08,
+        -48.6,
         0,
         0,
         0,
@@ -699,7 +699,7 @@
     "_N$font": null,
     "_N$cacheMode": 2,
     "_N$maxWidth": 616,
-    "_N$lineHeight": 26,
+    "_N$lineHeight": 30,
     "_N$imageAtlas": {
       "__uuid__": "ee0967e4-8a9c-4d24-9ae4-a5ee93be004b"
     },
@@ -748,7 +748,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 616,
-      "height": 162.76
+      "height": 187.79999999999998
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -760,7 +760,7 @@
       "ctor": "Float64Array",
       "array": [
         1.0062118085562588,
-        -165.83999999999997,
+        -191.39999999999998,
         0,
         0,
         0,
@@ -794,13 +794,13 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "Điều kiện thắng\n+ <b>Lẻ</b>: Tổng xu đỏ hoặc trắng có trong kết quả là số lẻ.\n+ <b>Chẵn</b>: Tổng xu đỏ hoặc trắng có trong kết quả là số chẵn.\n+ Các cửa phụ <b>4 Đỏ</b> (<img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>), <b>4 Trắng</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/>),               <b>3 Đỏ</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>), <b>1 Đỏ</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/>): thắng nếu kết quả trùng với lựa chọn.",
+    "_N$string": "<color=#F3D603>Điều kiện thắng</color>\n+ <b>Lẻ</b>: Tổng xu đỏ hoặc trắng có trong kết quả là số lẻ.\n+ <b>Chẵn</b>: Tổng xu đỏ hoặc trắng có trong kết quả là số chẵn.\n+ Các cửa phụ <b>4 Đỏ</b> (<img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>), <b>4 Trắng</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/>),\n<b>3 Đỏ</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>), <b>1 Đỏ</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/>): thắng nếu kết quả trùng với lựa chọn.",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 22,
     "_N$font": null,
     "_N$cacheMode": 2,
     "_N$maxWidth": 616,
-    "_N$lineHeight": 26,
+    "_N$lineHeight": 30,
     "_N$imageAtlas": {
       "__uuid__": "ee0967e4-8a9c-4d24-9ae4-a5ee93be004b"
     },
@@ -876,7 +876,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 616,
-      "height": 54.239999999999995
+      "height": 67.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -888,7 +888,7 @@
       "ctor": "Float64Array",
       "array": [
         1.0062118085562588,
-        -274.34,
+        -319.19999999999993,
         0,
         0,
         0,
@@ -922,13 +922,13 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "Hạn mức cược\nTổng tiền cược tối đa cho 1 phiên là _maxBetMain",
+    "_N$string": "<color=#F3D603>Hạn mức cược</>\n+ Tổng tiền cược tối đa cho 1 phiên là _maxBetMain",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 22,
     "_N$font": null,
     "_N$cacheMode": 2,
     "_N$maxWidth": 616,
-    "_N$lineHeight": 24,
+    "_N$lineHeight": 30,
     "_N$imageAtlas": {
       "__uuid__": "ee0967e4-8a9c-4d24-9ae4-a5ee93be004b"
     },
@@ -1009,7 +1009,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -306.46,
+        -358.0999999999999,
         0,
         0,
         0,
@@ -1097,7 +1097,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -328.46,
+        -380.0999999999999,
         0,
         0,
         0,
@@ -1606,7 +1606,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -360.46,
+        -412.0999999999999,
         0,
         0,
         0,
@@ -2102,7 +2102,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -376.46,
+        -428.0999999999999,
         0,
         0,
         0,
@@ -2224,7 +2224,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -392.46,
+        -444.0999999999999,
         0,
         0,
         0,
@@ -2275,7 +2275,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200,
+      "width": 135.43638297872343,
       "height": 20.16
     },
     "_anchorPoint": {
@@ -2710,7 +2710,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -408.46,
+        -460.0999999999999,
         0,
         0,
         0,
@@ -2832,7 +2832,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -424.46,
+        -476.0999999999999,
         0,
         0,
         0,
@@ -2883,7 +2883,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200,
+      "width": 135.43638297872343,
       "height": 20.16
     },
     "_anchorPoint": {
@@ -3318,7 +3318,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -440.46,
+        -492.0999999999999,
         0,
         0,
         0,
@@ -3425,7 +3425,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 616,
-      "height": 461.46
+      "height": 513.1
     },
     "_resize": 1,
     "_N$layoutType": 2,
@@ -3684,7 +3684,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 166,
+      "width": 204,
       "height": 28
     },
     "_anchorPoint": {
@@ -3736,8 +3736,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "HƯỚNG DẪN",
-    "_N$string": "HƯỚNG DẪN",
+    "_string": "UI.GAMERULES",
+    "_N$string": "UI.GAMERULES",
     "_fontSize": 28,
     "_lineHeight": 28,
     "_enableWrapText": true,
