@@ -36,10 +36,10 @@ export default class SocketIOController {
             console.log(error);
             sentryLogger.logError(error);
             socket.disconnect();
-            onConnectFailed(gameName, isGameRoom);
         });
 
         socket.on("disconnect", (reason) => {
+            onConnectFailed(gameName, isGameRoom);
             // sentryLogger.log(`${gameName} socket disconnect: ${reason}`);
         });
 
