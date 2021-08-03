@@ -52,18 +52,18 @@ export default class Main extends cc.Component {
     }
 
     checkSSO() {
-        authManager.preChecking(() => {
-            authManager.checkSSO(this.splashMessage, () => {
-                if (window.reCheckInId) {
-                    clearInterval(window.reCheckInId);
-                }
-                window.reCheckInId = setInterval(() => {
-                    authManager.reCheckIn();
-                }, 60 * 1000);
+        // authManager.preChecking(() => {
+        authManager.checkSSO(this.splashMessage, () => {
+            if (window.reCheckInId) {
+                clearInterval(window.reCheckInId);
+            }
+            window.reCheckInId = setInterval(() => {
+                authManager.reCheckIn();
+            }, 60 * 1000);
 
-                this.signIn();
-            });
+            this.signIn();
         });
+        // });
     }
 
     signIn() {
