@@ -35,9 +35,9 @@ export default class Notice extends cc.Component {
     public handleClose: () => void;
 
     onEnable() {
-        this.popupNode.opacity = 0;
-        this.popupNode.scale = 0;
-        this.popupNode.runAction(cc.spawn(cc.scaleTo(0.5, 1).easing(cc.easeBackOut()), cc.fadeTo(0.5, 255)));
+        // this.popupNode.opacity = 0;
+        // this.popupNode.scale = 0;
+        // this.pop1upNode.runAction(cc.spawn(cc.scaleTo(0.5, 1).easing(cc.easeBackOut()), cc.fadeTo(0.5, 255)));
     }
 
     onDisable() {
