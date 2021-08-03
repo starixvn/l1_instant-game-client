@@ -583,7 +583,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 616,
-      "height": 513.1
+      "height": 483.09999999999997
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -748,7 +748,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 616,
-      "height": 187.79999999999998
+      "height": 157.79999999999998
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -760,7 +760,7 @@
       "ctor": "Float64Array",
       "array": [
         1.0062118085562588,
-        -191.39999999999998,
+        -176.39999999999998,
         0,
         0,
         0,
@@ -794,7 +794,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "<color=#F3D603>Điều kiện thắng</color>\n+ <b>Lẻ</b>: Tổng xu đỏ hoặc trắng có trong kết quả là số lẻ.\n+ <b>Chẵn</b>: Tổng xu đỏ hoặc trắng có trong kết quả là số chẵn.\n+ Các cửa phụ <b>4 Đỏ</b> (<img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>), <b>4 Trắng</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/>),\n<b>3 Đỏ</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>), <b>1 Đỏ</b>(<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/>): thắng nếu kết quả trùng với lựa chọn.",
+    "_N$string": "<color=#F3D603>Điều kiện thắng</color>\n+ <b>Lẻ</b>: tổng xu đỏ hoặc trắng có trong kết quả là số lẻ.\n+ <b>Chẵn</b>: tổng xu đỏ hoặc trắng có trong kết quả là số chẵn.\n+ Cửa cược <img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>,<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/>,<img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>,<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/> thắng nếu kết quả trùng với lựa chọn.",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 22,
     "_N$font": null,
@@ -888,7 +888,7 @@
       "ctor": "Float64Array",
       "array": [
         1.0062118085562588,
-        -319.19999999999993,
+        -289.19999999999993,
         0,
         0,
         0,
@@ -1009,7 +1009,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -358.0999999999999,
+        -328.0999999999999,
         0,
         0,
         0,
@@ -1097,7 +1097,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -380.0999999999999,
+        -350.0999999999999,
         0,
         0,
         0,
@@ -1606,7 +1606,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -412.0999999999999,
+        -382.0999999999999,
         0,
         0,
         0,
@@ -2102,7 +2102,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -428.0999999999999,
+        -398.0999999999999,
         0,
         0,
         0,
@@ -2224,7 +2224,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -444.0999999999999,
+        -414.0999999999999,
         0,
         0,
         0,
@@ -2710,7 +2710,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -460.0999999999999,
+        -430.0999999999999,
         0,
         0,
         0,
@@ -2832,7 +2832,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -476.0999999999999,
+        -446.0999999999999,
         0,
         0,
         0,
@@ -3318,7 +3318,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -492.0999999999999,
+        -462.0999999999999,
         0,
         0,
         0,
@@ -3425,7 +3425,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 616,
-      "height": 513.1
+      "height": 483.09999999999997
     },
     "_resize": 1,
     "_N$layoutType": 2,
