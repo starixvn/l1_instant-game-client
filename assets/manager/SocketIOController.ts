@@ -29,7 +29,7 @@ export default class SocketIOController {
 
         socket.on("connect_failed", () => {
             socket.disconnect();
-            onConnectFailed(gameName, isGameRoom);
+            // onConnectFailed(gameName, isGameRoom);
         });
 
         socket.on("connect_error", (error) => {
@@ -49,6 +49,10 @@ export default class SocketIOController {
     async closeSocket(gameId) {
         const socket: SocketIOClient.Socket = this.gameSockets[gameId];
         socket && socket.disconnect();
+        this.removeSocket(gameId);
+    }
+
+    removeSocket(gameId) {
         delete this.gameSockets[gameId];
     }
 

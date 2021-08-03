@@ -63,7 +63,7 @@ export default class Notice extends cc.Component {
             this.handleClickButton();
         }
 
-        this.close();
+        this.node.active = false;
     }
 
     public close() {
