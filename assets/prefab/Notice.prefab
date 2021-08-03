@@ -34,10 +34,13 @@
       },
       {
         "__id__": 27
+      },
+      {
+        "__id__": 28
       }
     ],
     "_prefab": {
-      "__id__": 28
+      "__id__": 29
     },
     "_opacity": 255,
     "_color": {
@@ -1063,6 +1066,20 @@
     "buttonLabel": {
       "__id__": 20
     },
+    "_id": ""
+  },
+  {
+    "__type__": "caea4d57VpP8ZzwdgE0ujLP",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "notice": {
+      "__id__": 27
+    },
+    "duration": 3,
     "_id": ""
   },
   {
