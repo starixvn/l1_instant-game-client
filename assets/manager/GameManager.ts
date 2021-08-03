@@ -23,7 +23,7 @@ export default class GameManager extends cc.Component {
     IS_LOGIN = false;
     dataObservers = {};
     soundObservers = {};
-    userStakeLevel = {};
+    userStakeLevel: any = {};
     sleepTime: number;
     user: any;
 
@@ -46,6 +46,11 @@ export default class GameManager extends cc.Component {
                 }
             }
         });
+    }
+
+    userStakeLevelData(data) {
+        this.userStakeLevel.minBet = data.minBet;
+        this.userStakeLevel.maxBet = data.maxBet;
     }
 
     loadUserData(data: any) {
