@@ -39,14 +39,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 30
+        "__id__": 31
       },
       {
-        "__id__": 31
+        "__id__": 32
       }
     ],
     "_prefab": {
-      "__id__": 32
+      "__id__": 33
     },
     "_opacity": 255,
     "_color": {
@@ -59,7 +59,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 812,
-      "height": 410
+      "height": 456
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -70,8 +70,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        406,
+        228,
         0,
         0,
         0,
@@ -118,7 +118,7 @@
     "_prefab": {
       "__id__": 6
     },
-    "_opacity": 200,
+    "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -129,7 +129,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 812,
-      "height": 410
+      "height": 456
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -726,7 +726,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 29
+      "__id__": 30
     },
     "_opacity": 255,
     "_color": {
@@ -1040,7 +1040,11 @@
     "_grayMaterial": null,
     "duration": 0.1,
     "zoomScale": 1.1,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 29
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 3,
@@ -1095,6 +1099,16 @@
     "_N$disabledSprite": null,
     "_N$target": null,
     "_id": ""
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 1
+    },
+    "component": "",
+    "_componentId": "a47a6ZaxBpL36lz6nGi8mdD",
+    "handler": "onClickButton",
+    "customEventData": ""
   },
   {
     "__type__": "cc.PrefabInfo",
