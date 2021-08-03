@@ -406,6 +406,7 @@ export default class GameBase extends BaseComponent {
         }
         const gameAudiosNode = cc.instantiate(this.gameAudiosPrefab);
         this.gameAudios = gameAudiosNode.getComponent(GameAudios);
+        this.node.addChild(gameAudiosNode);
     }
 
     protected initHandlers() {
