@@ -87,6 +87,7 @@ export default class MiniPanelMiniGameInitializers {
             });
 
             socket.on("forceDisconnect", () => {
+                console.log(`${gameName} socket forceDisconnect`);
                 socket.disconnect();
             });
 

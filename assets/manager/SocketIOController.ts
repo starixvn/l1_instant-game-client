@@ -23,22 +23,25 @@ export default class SocketIOController {
         });
 
         socket.on("reconnect", () => {
+            console.log(`${gameName} socket reconnect`);
             // sentryLogger.logError(`${gameName} socket reconnect`);
             socket.sendBuffer = [];
         });
 
         socket.on("connect_failed", () => {
+            console.log(`${gameName} socket connect failed`);
             socket.disconnect();
             // onConnectFailed(gameName, isGameRoom);
         });
 
         socket.on("connect_error", (error) => {
-            console.log(error);
+            console.log(`${gameName} socket error: ${error}`);
             sentryLogger.logError(error);
             socket.disconnect();
         });
 
         socket.on("disconnect", (reason) => {
+            console.log(`${gameName} socket disconnect: ${reason}`);
             onConnectFailed(gameName, isGameRoom);
             // sentryLogger.log(`${gameName} socket disconnect: ${reason}`);
         });
