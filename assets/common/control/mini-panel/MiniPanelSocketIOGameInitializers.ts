@@ -51,7 +51,7 @@ export default class MiniPanelSocketIOGameInitializers {
             });
 
             socket.on("forceDisconnect", () => {
-                socket.disconnect();
+                socket.close();
             });
 
             this.socketIOController.gameSockets[gameId] = socket;

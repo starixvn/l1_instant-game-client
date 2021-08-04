@@ -30,14 +30,14 @@ export default class SocketIOController {
 
         socket.on("connect_failed", () => {
             console.log(`${gameName} socket connect failed`);
-            socket.disconnect();
+            socket.close();
             // onConnectFailed(gameName, isGameRoom);
         });
 
         socket.on("connect_error", (error) => {
             console.log(`${gameName} socket error: ${error}`);
             sentryLogger.logError(error);
-            socket.disconnect();
+            socket.close();
         });
 
         socket.on("disconnect", (reason) => {
@@ -51,7 +51,7 @@ export default class SocketIOController {
 
     async closeSocket(gameId) {
         const socket: SocketIOClient.Socket = this.gameSockets[gameId];
-        socket && socket.disconnect();
+        socket && socket.close();
         this.removeSocket(gameId);
     }
 
