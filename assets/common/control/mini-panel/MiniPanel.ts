@@ -216,7 +216,7 @@ export default class MiniPanel extends BaseComponent {
         const node = cc.instantiate(this.connectionLostPrefab);
         const notice = node.getComponent(Notice);
 
-        noticeData.button = { text: i18n.t("ui.reload") };
+        noticeData.button = { text: i18n.t("ui.reconnect") };
         notice.init(noticeData);
 
         if (handleClickButton) {
