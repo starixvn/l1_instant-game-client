@@ -794,7 +794,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "<color=#F3D603>Điều kiện thắng</color>\n+ <b>Lẻ</b>: tổng xu đỏ hoặc trắng có trong kết quả là số lẻ.\n+ <b>Chẵn</b>: tổng xu đỏ hoặc trắng có trong kết quả là số chẵn.\n+ Cửa cược <img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>,<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/>,<img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>,<img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/> thắng nếu kết quả trùng với lựa chọn.",
+    "_N$string": "<color=#F3D603>Điều kiện thắng</color>\n+ <b>Lẻ</b>: tổng xu đỏ hoặc trắng có trong kết quả là số lẻ.\n+ <b>Chẵn</b>: tổng xu đỏ hoặc trắng có trong kết quả là số chẵn.\n+ Cửa cược <img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>, <img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/>, <img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>, <img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/> thắng nếu kết quả trùng với lựa chọn.",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 22,
     "_N$font": null,
@@ -3684,7 +3684,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 204,
+      "width": 166,
       "height": 28
     },
     "_anchorPoint": {
@@ -3736,8 +3736,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "UI.GAMERULES",
-    "_N$string": "UI.GAMERULES",
+    "_string": "HƯỚNG DẪN",
+    "_N$string": "HƯỚNG DẪN",
     "_fontSize": 28,
     "_lineHeight": 28,
     "_enableWrapText": true,
