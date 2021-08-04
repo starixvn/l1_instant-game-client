@@ -9,7 +9,7 @@
   "genMipmaps": false,
   "packable": true,
   "width": 812,
-  "height": 410,
+  "height": 456,
   "platformSettings": {},
   "subMetas": {
     "timeout_bg": {
@@ -25,9 +25,9 @@
       "trimX": 0,
       "trimY": 0,
       "width": 812,
-      "height": 410,
+      "height": 456,
       "rawWidth": 812,
-      "rawHeight": 410,
+      "rawHeight": 456,
       "borderTop": 0,
       "borderBottom": 0,
       "borderLeft": 0,
