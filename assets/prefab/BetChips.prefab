@@ -736,7 +736,7 @@
     "vertical": false,
     "inertia": true,
     "brake": 0.8,
-    "elastic": true,
+    "elastic": false,
     "bounceDuration": 1,
     "scrollEvents": [
       {
