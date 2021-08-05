@@ -723,7 +723,7 @@
       "__id__": 9
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 18
@@ -2137,7 +2137,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 155,
+      "width": 151.09,
       "height": 24
     },
     "_anchorPoint": {
@@ -2650,7 +2650,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 154,
+      "width": 147.82,
       "height": 24
     },
     "_anchorPoint": {

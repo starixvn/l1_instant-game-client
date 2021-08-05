@@ -53,6 +53,7 @@ export default class Main extends cc.Component {
 
     checkSSO() {
         // authManager.preChecking(() => {
+        this.splashMessage.string = "";
         authManager.checkSSO(this.splashMessage, () => {
             if (window.reCheckInId) {
                 clearInterval(window.reCheckInId);
