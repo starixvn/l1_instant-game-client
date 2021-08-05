@@ -143,7 +143,6 @@ export default class MiniPanel extends BaseComponent {
     }
 
     forceKickedOut() {
-        cc.GameManager.forceKickedOut();
         authManager.signOut();
     }
 
