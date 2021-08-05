@@ -17,7 +17,7 @@ export default class SocketIOController {
         isGameRoom = true
     ): SocketIOClient.Socket => {
         const socket = socketIo(socketUri, {
-            reconnection: false,
+            // reconnection: false,
             forceNew: true,
             transports: ["websocket"],
             upgrade: false,
@@ -35,6 +35,7 @@ export default class SocketIOController {
 
         socket.on("connect_failed", () => {
             console.log(`${gameName} socket connect failed`);
+            onConnectFailed(gameName, isGameRoom);
             socket.close();
         });
 
@@ -49,7 +50,10 @@ export default class SocketIOController {
 
         socket.on("disconnect", (reason) => {
             console.log(`${gameName} socket disconnect: ${reason}`);
-            onConnectFailed(gameName, isGameRoom);
+            if (reason === "io server disconnect") {
+                // the disconnection was initiated by the server, you need to reconnect manually
+                socket.connect();
+            }
         });
 
         return socket;
