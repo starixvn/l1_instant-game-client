@@ -5,6 +5,7 @@ import { ComponentSystem, ICashSystem, ICreditSystem } from "../../../manager/Sy
 import { nFormatter } from "../../helper/NumberHelper";
 import GameUtils from "../../utils/GameUtils";
 import SnappedScrollView from "../SnappedScrollView";
+import BetChipItem from "./BetChipItem";
 import ChipConfig from "./ChipConfig";
 
 const { ccclass, property } = cc._decorator;
@@ -111,12 +112,10 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
     }
 
     updateChipItem(node: cc.Node, value: number) {
-        const sprite = node.getComponent(cc.Sprite);
-        sprite.spriteFrame = this.chipAltas.getSpriteFrame(this.chipConfig.getBigChipSpriteName(value));
+        const chip = node.getComponent(BetChipItem);
+        chip.sprite.spriteFrame = this.chipAltas.getSpriteFrame(this.chipConfig.getBigChipSpriteName(value));
+        chip.label.string = nFormatter(value, 0);
         node.name = `${value}`;
-
-        const label = node.children[0].getComponent(cc.Label);
-        label.string = nFormatter(value, 0);
     }
 
     updateLastChip(value: number) {
@@ -402,9 +401,10 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
             offsetY: 3 //,
         };
         this.chips.children.forEach((chip) => {
+            const chipItem = chip.getComponent(BetChipItem);
             chip.stopAllActions();
             if (chip.name === targetName) {
-                chip.children[1].active = true;
+                chipItem.highlight.active = true;
                 chip.zIndex = 2;
                 cc.tween(chip)
                     .to(0.2, {
@@ -413,7 +413,7 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
                     })
                     .start();
             } else {
-                chip.children[1].active = false;
+                chipItem.highlight.active = false;
                 chip.zIndex = 1;
                 cc.tween(chip)
                     .to(0.2, {
