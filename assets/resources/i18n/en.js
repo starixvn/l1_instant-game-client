@@ -130,7 +130,8 @@ window.i18n.languages.en = {
         accountBlacklistedPlaceBet: "Account has been closed. Please contact CSD for details.(%{errorCode})",
         userNotFoundPlaceBet: "Failed to place bet! User was not found.(%{errorCode})",
         sysMaintenancePlaceBet: "The game is under maintenance.",
-        networkErrorPlaceBet: "Failed to place bet! Network error.(%{errorCode})"
+        networkErrorPlaceBet: "Failed to place bet! Network error.(%{errorCode})",
+        login_failed: "Failed to load game. Please try again."
     },
     ui: {
         all: "All",

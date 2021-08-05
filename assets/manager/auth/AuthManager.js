@@ -81,7 +81,7 @@ export function checkSSO(labelMessage, onSuccessFunc) {
                     clearTokenOnUrl();
                     onSuccessFunc();
                 } else {
-                    labelMessage.string = i18n.t("ui.login_failed");
+                    labelMessage.string = i18n.t("messages.login_failed");
                 }
             })
             .catch((error) => {
