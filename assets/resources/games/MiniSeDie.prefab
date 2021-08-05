@@ -17052,7 +17052,7 @@
     "_string": "Game đang được bảo trì, vui lòng quay lại sau 10 phút.",
     "_N$string": "Game đang được bảo trì, vui lòng quay lại sau 10 phút.",
     "_fontSize": 22,
-    "_lineHeight": 22,
+    "_lineHeight": 26,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
