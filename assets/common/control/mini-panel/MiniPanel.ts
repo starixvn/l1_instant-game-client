@@ -39,6 +39,7 @@ export default class MiniPanel extends BaseComponent {
     private gameMiniInitializers: MiniPanelMiniGameInitializers;
     private miniGamesCache = {};
     private currentGame: GameBase;
+    public currentGameId: number;
 
     onLoad() {
         this.showLoading(false);
@@ -155,6 +156,7 @@ export default class MiniPanel extends BaseComponent {
     }
 
     openNewSocketMiniGame(id) {
+        this.currentGameId = id;
         this.gameMiniInitializers.openNewSocket(id);
     }
 
@@ -242,7 +244,7 @@ export default class MiniPanel extends BaseComponent {
     }
 
     reloadCurrentGame() {
-        const currentGameId = this.currentGame.gameId;
+        const currentGameId = this.currentGameId;
         this.removeGame(currentGameId);
         this.openNewSocketMiniGame(currentGameId);
     }
