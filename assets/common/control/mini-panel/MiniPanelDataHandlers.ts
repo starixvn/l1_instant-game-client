@@ -67,16 +67,17 @@ export default class MiniPanelDataHandlers {
             cc.director.loadScene("um");
         } else {
             if (data.isDisabledAccount) {
+                const autoClearDuration = 10;
                 setTimeout(() => {
                     this.main.forceKickedOut();
-                }, 10000);
+                }, autoClearDuration * 1000);
+                const errorCode = data.errorCode;
+                const text = NoticeUtil.getLocalizedErrorMessage(errorCode, { errorCode });
+                const noticeData = { text: text, autoClearDuration } as NoticeData;
+                this.main.showNotice(noticeData, this.main.forceKickedOut, this.main.forceKickedOut);
             } else {
                 this.main.forceKickedOut();
             }
-            const errorCode = data.errorCode;
-            const text = NoticeUtil.getLocalizedErrorMessage(errorCode, { errorCode });
-            const noticeData = { text: text } as NoticeData;
-            this.main.showNotice(noticeData, this.main.forceKickedOut, this.main.forceKickedOut);
         }
     }
 

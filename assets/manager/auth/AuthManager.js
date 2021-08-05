@@ -188,9 +188,11 @@ export function reCheckIn() {
 
                         if (response.apiError) {
                             if (response.isDisableAccount) {
-                                setTimeout(signOut, 10000);
+                                const autoClearDuration = 10;
+                                setTimeout(signOut, autoClearDuration * 1000);
                                 const noticeData = {
-                                    text: i18n.t("messages.accountClosed")
+                                    text: i18n.t("messages.accountClosed"),
+                                    autoClearDuration
                                 };
                                 cc.GameManager.miniPanel && cc.GameManager.miniPanel.showNotice(noticeData, signOut, signOut);
                             } else {

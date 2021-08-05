@@ -1,5 +1,7 @@
 import * as i18n from "i18n/runtime-scripts/LanguageData";
 
+import AutoClearNotice from "./AutoClearNotice";
+
 const { ccclass, property } = cc._decorator;
 
 export interface NoticeData {
@@ -7,6 +9,7 @@ export interface NoticeData {
     text: string;
     button: NoticeButton;
     isInfo: boolean;
+    autoClearDuration: number;
 }
 
 export interface NoticeButton {
@@ -46,6 +49,9 @@ export default class Notice extends cc.Component {
     }
 
     public init(data: NoticeData) {
+        if (data.autoClearDuration) {
+            this.updateAutoClearDuration(data.autoClearDuration);
+        }
         this.node.active = true;
 
         cc.GameManager.miniPanel.showLoading(false);
@@ -54,6 +60,13 @@ export default class Notice extends cc.Component {
         this.setMessage(data.text);
         this.setButton(data.button);
         this.setBackground(data.isInfo);
+    }
+
+    private updateAutoClearDuration(duration: number) {
+        const autoClear = this.node.getComponent(AutoClearNotice);
+        if (autoClear) {
+            autoClear.duration = duration;
+        }
     }
 
     public onClickButton() {
