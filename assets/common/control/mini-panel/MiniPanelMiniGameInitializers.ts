@@ -16,7 +16,15 @@ export default class MiniPanelMiniGameInitializers {
     showGame(node: cc.Node) {
         if (node) {
             if (this.main.miniGames) {
-                this.main.miniGames.children.forEach((child) => (child.active = child === node));
+                const miniGameNode = this.main.miniGames.children.find((child) => child === node);
+                if (miniGameNode) {
+                    if (miniGameNode.active) {
+                        const game = miniGameNode.getComponent(GameBase);
+                        game.onGameShow();
+                    } else {
+                        miniGameNode.active = true;
+                    }
+                }
             }
             this.main.showLoading(false);
         }

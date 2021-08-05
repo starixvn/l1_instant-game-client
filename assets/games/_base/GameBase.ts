@@ -367,7 +367,7 @@ export default class GameBase extends BaseComponent {
         this.stopGame();
     }
 
-    protected onGameShow() {
+    public onGameShow() {
         this.startGame();
         this.registerViewGame();
     }
