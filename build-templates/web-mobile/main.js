@@ -9,7 +9,7 @@ window.boot = function () {
 
     var onStart = function () {
         cc.view.enableRetina(true);
-        cc.view.resizeWithBrowserSize(false);
+        cc.view.resizeWithBrowserSize(true);
 
         cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
         cc.view.enableAutoFullScreen(false);
