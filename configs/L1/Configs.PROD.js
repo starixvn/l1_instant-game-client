@@ -2,10 +2,10 @@ const configs = {
     systemType: "SC1",
     ssl: true,
     serverDomainMapper: {
-        "www.sabagame.com": "sabagame.com",
-        "sabagame.com": "sabagame.com",
-        "www.gamesaba.com": "gamesaba.com",
-        "gamesaba.com": "gamesaba.com"
+        "www.mini.sabagame.com": "sabagame.com",
+        "mini.sabagame.com": "sabagame.com",
+        "www.mini.gamesaba.com": "gamesaba.com",
+        "mini.gamesaba.com": "gamesaba.com"
     },
     subDomain: "proxy",
     env: "",
