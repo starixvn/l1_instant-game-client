@@ -204,7 +204,7 @@ window.i18n.languages.en = {
         cold_number: "Cold Numbers",
         column_number: "Column %{num}",
         confirm: "Confirm",
-        connection_lost: "The connection is unstable, please check. ",
+        connection_lost: "The connection is unstable, please check.",
         create_nickname: "Create Your Nickname",
         current_scoin: "Remaining Scoin",
         current_wheel_spin: "Number of Spins",
