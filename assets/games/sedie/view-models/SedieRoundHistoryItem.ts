@@ -8,6 +8,9 @@ export default class SedieRoundHistoryItem extends cc.Component {
     @property(cc.SpriteAtlas)
     atlas: cc.SpriteAtlas = null;
 
+    @property(cc.Sprite)
+    numSprite: cc.Sprite = null;
+
     @property
     prefix = "";
 
@@ -22,5 +25,8 @@ export default class SedieRoundHistoryItem extends cc.Component {
         }
 
         this.sprite.spriteFrame = this.atlas.getSpriteFrame(spriteName);
+        if (this.numSprite) {
+            this.numSprite.spriteFrame = this.atlas.getSpriteFrame(`num_${value}`);
+        }
     }
 }
