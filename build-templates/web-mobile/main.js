@@ -11,7 +11,7 @@ window.boot = function () {
         cc.view.enableRetina(true);
         cc.view.resizeWithBrowserSize(true);
 
-        cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
+        cc.view.setOrientation(cc.macro.ORIENTATION_LANDSCAPE);
         cc.view.enableAutoFullScreen(false);
 
         // Limit downloading max concurrent task to 2,

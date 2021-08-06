@@ -385,7 +385,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 501.43,
+      "width": 298.29,
       "height": 24
     },
     "_anchorPoint": {
@@ -437,8 +437,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Đã hết phiên đăng nhập. Vui lòng tải lại game.",
-    "_N$string": "Đã hết phiên đăng nhập. Vui lòng tải lại game.",
+    "_string": "messages.sessionTimeout",
+    "_N$string": "messages.sessionTimeout",
     "_fontSize": 24,
     "_lineHeight": 24,
     "_enableWrapText": true,
@@ -483,8 +483,8 @@
       "width": 812,
       "height": 456
     },
-    "_fitWidth": true,
-    "_fitHeight": false,
+    "_fitWidth": false,
+    "_fitHeight": true,
     "_id": "59Cd0ovbdF4byw5sbjJDx7"
   },
   {
