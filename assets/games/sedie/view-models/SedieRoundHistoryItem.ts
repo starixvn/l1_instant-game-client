@@ -8,14 +8,17 @@ export default class SedieRoundHistoryItem extends cc.Component {
     @property(cc.SpriteAtlas)
     atlas: cc.SpriteAtlas = null;
 
+    @property
+    prefix = "";
+
     public setValue(value: number) {
         if (!this.sprite || !this.atlas) {
             return;
         }
 
-        let spriteName = `chip_trang_${value}`;
+        let spriteName = `${this.prefix}_white`;
         if (value % 2) {
-            spriteName = `chip_do_${value}`;
+            spriteName = `${this.prefix}_red`;
         }
 
         this.sprite.spriteFrame = this.atlas.getSpriteFrame(spriteName);

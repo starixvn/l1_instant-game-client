@@ -5,6 +5,7 @@ import NoticeUtil from "../../common/utils/NoticeUtil";
 import { GameIds, GameInfos } from "../../configs/SabaConfigs";
 import SocketIOMiniGameBase from "../_base/SocketIOMiniGameBase";
 import SedieMiniRoundHistory from "../sedie/view-models/SedieMiniRoundHistory";
+import SedieRoundHistory from "../sedie/view-models/SedieRoundHistory";
 import MiniSedieFinishHandler from "./handlers/MiniSedieFinishHandler";
 import MiniSedieLogsHandler from "./handlers/MiniSedieLogsHandler";
 import MiniSedieTimeHandler from "./handlers/MiniSedieTimeHandler";
@@ -36,7 +37,11 @@ export default class MiniSedie extends SocketIOMiniGameBase {
     @property(cc.Node)
     dishNode: cc.Node = null;
 
+    @property(cc.Prefab)
+    roundHistoryPrefab: cc.Prefab = null;
+
     public miniRoundHistory: SedieMiniRoundHistory = null;
+    public roundHistory: SedieRoundHistory = null;
     public resultAnimating = false;
 
     onLoad() {
@@ -120,6 +125,9 @@ export default class MiniSedie extends SocketIOMiniGameBase {
             };
         });
         this.miniRoundHistory.setData(miniHistoryData);
+        if (this.roundHistory && this.roundHistory.isAlive()) {
+            this.roundHistory.setData(miniHistoryData.map((d) => d.red));
+        }
     }
 
     showAcceptedBet(bet: number) {
@@ -135,5 +143,15 @@ export default class MiniSedie extends SocketIOMiniGameBase {
             guide.init(this.gameConfigs);
             this.currentMiniPanel.addDialog(node);
         });
+    }
+
+    openScoreBoard() {
+        cc.GameManager.playClick();
+
+        const node = cc.instantiate(this.roundHistoryPrefab);
+        this.roundHistory = node.getComponent(SedieRoundHistory);
+        this.roundHistory.init(this);
+        this.currentMiniPanel.addDialog(node);
+        this.updateRoundHistory();
     }
 }
