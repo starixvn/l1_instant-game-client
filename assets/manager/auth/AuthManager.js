@@ -128,12 +128,12 @@ export function triggerSignIn(main) {
             })
             .catch((e) => {
                 sentryLogger.logError(e);
-                // const session = sessionManager.getSession();
-                // const isSessionExpired = verifySession(session);
+                const session = sessionManager.getSession();
+                const isSessionExpired = verifySession(session);
 
-                // if (!isSessionExpired) {
-                //     main.loadLobbyMenuFromStorage();
-                // }
+                if (!isSessionExpired) {
+                    main.serviceAuthorized(true);
+                }
             });
     }
 }
