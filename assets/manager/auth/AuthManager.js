@@ -133,6 +133,8 @@ export function triggerSignIn(main) {
 
                 if (!isSessionExpired) {
                     main.serviceAuthorized(true);
+                } else {
+                    signOut();
                 }
             });
     }
