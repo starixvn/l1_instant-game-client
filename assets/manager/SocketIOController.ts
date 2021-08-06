@@ -50,10 +50,10 @@ export default class SocketIOController {
 
         socket.on("disconnect", (reason) => {
             console.log(`${gameName} socket disconnect: ${reason}`);
-            // if (reason === "io server disconnect") {
-            //     // the disconnection was initiated by the server, you need to reconnect manually
-            //     socket.connect();
-            // }
+            if (reason === "io server disconnect") {
+                // the disconnection was initiated by the server, you need to reconnect manually
+                onConnectFailed(gameName, isGameRoom);
+            }
         });
 
         return socket;
