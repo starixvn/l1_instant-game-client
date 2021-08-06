@@ -1206,7 +1206,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 702.7818181818182,
+      "width": 713.1818181818181,
       "height": 255
     },
     "_anchorPoint": {
@@ -1218,7 +1218,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        5.199999999999989,
+        0,
         -16.5,
         0,
         0,
@@ -1277,7 +1277,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 702.7818181818182,
+      "width": 713.1818181818181,
       "height": 260
     },
     "_anchorPoint": {
@@ -1351,7 +1351,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 778,
+      "width": 798,
       "height": 255
     },
     "_anchorPoint": {
@@ -1431,7 +1431,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -771,
+        -781,
         -10,
         0,
         0,
@@ -1891,7 +1891,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 778,
+      "width": 798,
       "height": 255
     },
     "_resize": 1,
@@ -1902,8 +1902,8 @@
       "height": 40
     },
     "_N$startAxis": 0,
-    "_N$paddingLeft": 7,
-    "_N$paddingRight": 7,
+    "_N$paddingLeft": 17,
+    "_N$paddingRight": 17,
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
     "_N$spacingX": 0,
@@ -2657,7 +2657,7 @@
     "elastic": true,
     "bounceDuration": 1,
     "scrollEvents": [],
-    "cancelInnerEvents": true,
+    "cancelInnerEvents": false,
     "_N$content": {
       "__id__": 32
     },
@@ -2954,7 +2954,7 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": 12.899999999999977,
+    "_left": 2.5,
     "_right": 2.5,
     "_top": 0,
     "_bottom": 0,
