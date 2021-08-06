@@ -834,7 +834,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "<color=#F3D603>Winning Conditions</color>\n+ <b>ODD</b>: if the total red or white buttons having in the result is an Odd number.\n+ <b>EVEN</b>: if the total red or white buttons having in the result is an Even number.\n+ Other bet options as <img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>, <img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/>, <img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>, <img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/>: if the outcome matches the player’s bet, the player wins. ",
+    "_N$string": "<color=#F3D603>Winning Conditions</color>\n+ <b>ODD</b>: if the total red or white buttons having in the result is an Odd number.\n+ <b>EVEN</b>: if the total red or white buttons having in the result is an Even number.\n+ Other bet options as <img src=\"red4\" offset=-3/>, <img src=\"white4\" offset=-3/>, <img src=\"red3\" offset=-3/>, <img src=\"white3\" offset=-3/>: if the outcome matches the player’s bet, the player wins. ",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 22,
     "_N$font": null,

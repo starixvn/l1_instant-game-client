@@ -864,7 +864,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "<color=#F3D603>Điều kiện thắng</color>\n+ <b>Chẵn</b>: tổng xu đỏ hoặc trắng có trong kết quả là số chẵn.\n+ <b>Lẻ</b>: tổng xu đỏ hoặc trắng có trong kết quả là số lẻ.\n+ Cửa cược <img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>, <img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/>, <img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/>, <img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/> thắng nếu kết quả trùng với lựa chọn.",
+    "_N$string": "<color=#F3D603>Điều kiện thắng</color>\n+ <b>Chẵn</b>: tổng xu đỏ hoặc trắng có trong kết quả là số chẵn.\n+ <b>Lẻ</b>: tổng xu đỏ hoặc trắng có trong kết quả là số lẻ.\n+ Cửa cược <img src=\"red4\" offset=-3/>, <img src=\"white4\" offset=-3/>, <img src=\"red3\" offset=-3/>, <img src=\"white3\" offset=-3/> thắng nếu kết quả trùng với lựa chọn.",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 22,
     "_N$font": null,
