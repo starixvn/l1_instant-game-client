@@ -98,6 +98,9 @@ export function checkSSO(labelMessage, onSuccessFunc) {
         onSuccessFunc();
     }
 
+    if (!isSuccess) {
+        labelMessage.string = i18n.t("messages.login_failed");
+    }
     return isSuccess;
 }
 
