@@ -232,7 +232,7 @@ export default class MiniPanel extends BaseComponent {
         if (!this.isAlive()) {
             return;
         }
-
+        this.removeAllDialogs();
         this.showLostConnection(
             {
                 title: gameName,
@@ -251,5 +251,9 @@ export default class MiniPanel extends BaseComponent {
 
     addDialog(dialogNode: cc.Node) {
         this.dialog.addChild(dialogNode);
+    }
+
+    removeAllDialogs() {
+        this.dialog.destroyAllChildren();
     }
 }
