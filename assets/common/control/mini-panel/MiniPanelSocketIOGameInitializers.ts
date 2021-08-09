@@ -36,15 +36,17 @@ export default class MiniPanelSocketIOGameInitializers {
                 proxyRoute,
                 this.main.onConnectSocketFailed.bind(this.main)
             );
+
             socket.on("message", (data) => {
+                if (!this.main.isAlive()) {
+                    return;
+                }
+
                 if (data.um) {
                     this.socketIOController.closeSocket(gameId);
                     if (data.um_message) {
                         this.main.handleUmMessage(data.um_message);
                     }
-                }
-                if (!this.main.isAlive()) {
-                    return;
                 }
                 this.main.showLoading(false);
                 this.main.onGeneralData(data);

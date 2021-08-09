@@ -50,7 +50,7 @@ export default class MiniPanelDataHandlers {
             const gameId = data.gameId;
             const gameName = GameUtils.getGameNameString(gameId);
             const message = i18n.t("messages.gameExcluded", { gameName: gameName });
-            this.main.onForceReload(true, message);
+            this.main.handleNotPermittedToPlay(message);
         }
 
         if (data.userStakeLevel) {

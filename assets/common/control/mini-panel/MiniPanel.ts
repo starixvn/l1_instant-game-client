@@ -143,6 +143,18 @@ export default class MiniPanel extends BaseComponent {
         }
     }
 
+    handleNotPermittedToPlay(message: string) {
+        const canNotClose = true;
+        const noticeData = {
+            text: message,
+            isInfo: true,
+            canNotClose
+        } as NoticeData;
+        this.showNotice(noticeData, this.switchToDefaultGames, this.switchToDefaultGames);
+    }
+
+    switchToDefaultGames() {}
+
     forceKickedOut() {
         authManager.signOut();
     }

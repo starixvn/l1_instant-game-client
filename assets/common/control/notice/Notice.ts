@@ -10,6 +10,7 @@ export interface NoticeData {
     button: NoticeButton;
     isInfo: boolean;
     autoClearDuration: number;
+    canNotClose: boolean;
 }
 
 export interface NoticeButton {
@@ -34,8 +35,8 @@ export default class Notice extends cc.Component {
     buttonLabel: cc.Label = null;
 
     public handleClickButton: () => void;
-
     public handleClose: () => void;
+    private canNotClose = false;
 
     onEnable() {
         // this.popupNode.opacity = 0;
@@ -51,6 +52,9 @@ export default class Notice extends cc.Component {
     public init(data: NoticeData) {
         if (data.autoClearDuration) {
             this.updateAutoClearDuration(data.autoClearDuration);
+        }
+        if (data.canNotClose) {
+            this.canNotClose = data.canNotClose;
         }
         this.node.active = true;
 
@@ -70,6 +74,9 @@ export default class Notice extends cc.Component {
     }
 
     public onClickButton() {
+        if (this.canNotClose) {
+            return;
+        }
         cc.GameManager.playClick();
 
         if (this.handleClickButton) {
@@ -80,6 +87,9 @@ export default class Notice extends cc.Component {
     }
 
     public close() {
+        if (this.canNotClose) {
+            return;
+        }
         if (this.handleClose) {
             this.handleClose();
         }
