@@ -2120,7 +2120,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -49.071,
+        -51,
         0,
         0,
         0,
@@ -2217,7 +2217,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.14,
+      "width": 78.83,
       "height": 22
     },
     "_anchorPoint": {
@@ -2230,7 +2230,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        50.425,
+        54,
         0,
         0,
         0,
@@ -2275,7 +2275,7 @@
     "_lineHeight": 22,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -4155,7 +4155,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -49.071,
+        -51,
         0,
         0,
         0,
@@ -4252,7 +4252,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.14,
+      "width": 78.83,
       "height": 22
     },
     "_anchorPoint": {
@@ -4265,7 +4265,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        50.425,
+        54,
         0,
         0,
         0,
@@ -4310,7 +4310,7 @@
     "_lineHeight": 22,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -6769,7 +6769,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -36,
+        -38,
         0,
         0,
         0,
@@ -6869,7 +6869,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.14,
+      "width": 78.83,
       "height": 22
     },
     "_anchorPoint": {
@@ -6882,7 +6882,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        37,
+        41,
         0,
         0,
         0,
@@ -6927,7 +6927,7 @@
     "_lineHeight": 22,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -9289,7 +9289,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -36,
+        -38,
         0,
         0,
         0,
@@ -9386,7 +9386,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.14,
+      "width": 78.83,
       "height": 24
     },
     "_anchorPoint": {
@@ -9399,7 +9399,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        37,
+        41,
         0,
         0,
         0,
@@ -9444,7 +9444,7 @@
     "_lineHeight": 24,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -11783,7 +11783,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -36,
+        -38,
         0,
         0,
         0,
@@ -11883,7 +11883,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.14,
+      "width": 78.83,
       "height": 22
     },
     "_anchorPoint": {
@@ -11896,7 +11896,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        37,
+        41,
         0,
         0,
         0,
@@ -11941,7 +11941,7 @@
     "_lineHeight": 22,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -14303,7 +14303,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -36,
+        -38,
         0,
         0,
         0,
@@ -14403,7 +14403,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.14,
+      "width": 78.83,
       "height": 22
     },
     "_anchorPoint": {
@@ -14416,7 +14416,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        37,
+        41,
         0,
         0,
         0,
@@ -14461,7 +14461,7 @@
     "_lineHeight": 22,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
