@@ -64,7 +64,7 @@ export default class BetItem extends cc.Component {
 
     public setOdd(value: string) {
         if (this.odds) {
-            this.odds.string = `${value}`;
+            this.odds.string = `1:${value}`;
         }
     }
 
