@@ -7,6 +7,7 @@ import GameBaseFinishHandler from "../../_base/handlers/GameBaseFinishHandler";
 import BalancedBettingPoolGameBase from "./BalancedBettingPoolGameBase";
 import { BigSmallConfigs } from "./BigSmallConfigs";
 import BigSmallGuide from "./BigSmallGuide";
+import BigSmallRoundHistory from "./BigSmallRoundHistory";
 import BigSmallBetHandler from "./handlers/BigSmallBetHandler";
 import BigSmallFinishHandler from "./handlers/BigSmallFinishHandler";
 import BigSmallLogsHandler from "./handlers/BigSmallLogsHandler";
@@ -44,9 +45,13 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     @property(cc.Label)
     resultLabel: cc.Label = null;
 
-    dices: cc.Sprite[] = [];
-    protected miniRoundHistory: MiniRoundHistory;
-    diceAnimationDuration: number;
+    @property(cc.Prefab)
+    roundHistoryPrefab: cc.Prefab = null;
+
+    private dices: cc.Sprite[] = [];
+    private miniRoundHistory: MiniRoundHistory;
+    private roundHistory: BigSmallRoundHistory;
+    private diceAnimationDuration: number;
 
     readonly choices = ["small", "big"];
 
@@ -99,6 +104,12 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
 
     updateRoundHistory() {
         this.miniRoundHistory.setData(this.currentDataLogs);
+        if (this.roundHistory && this.roundHistory.isAlive()) {
+            const settlementResult = this.currentDataLogs.map((log) => {
+                return log.settlementResult.small ? 0 : 1;
+            });
+            this.roundHistory.setData(settlementResult);
+        }
     }
 
     setDices(result) {
@@ -169,5 +180,15 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
             guide.init(this.gameConfigs);
             this.currentMiniPanel.addDialog(node);
         });
+    }
+
+    openScoreBoard() {
+        cc.GameManager.playClick();
+
+        const node = cc.instantiate(this.roundHistoryPrefab);
+        this.roundHistory = node.getComponent(BigSmallRoundHistory);
+        this.roundHistory.init(this);
+        this.currentMiniPanel.addDialog(node);
+        this.updateRoundHistory();
     }
 }

@@ -5938,7 +5938,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "d5054b88-9bf9-40cf-902a-d4debbdcf1b9"
+      "__uuid__": "7769d363-864f-4053-abcd-d8dd7d5adaea"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -5952,7 +5952,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": {
-      "__uuid__": "ee0967e4-8a9c-4d24-9ae4-a5ee93be004b"
+      "__uuid__": "38df132a-9255-4a7d-abc4-90d262248008"
     },
     "_id": ""
   },
@@ -7022,7 +7022,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "4f14fiF59tKfbk9c2rRQHrB",
+    "_componentId": "b54b2I8HzlJ8LHx0EFnwGfl",
     "handler": "openScoreBoard",
     "customEventData": ""
   },
@@ -8007,6 +8007,9 @@
     },
     "resultLabel": {
       "__id__": 166
+    },
+    "roundHistoryPrefab": {
+      "__uuid__": "86b44cd9-47f8-49e8-9899-79c12430a483"
     },
     "_id": ""
   },
