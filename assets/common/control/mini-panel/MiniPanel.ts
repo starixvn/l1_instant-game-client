@@ -168,7 +168,13 @@ export default class MiniPanel extends BaseComponent {
     }
 
     openNewSocketMiniGame(id) {
+        if (this.currentGame) {
+            this.currentGame.closeGame();
+        }
+        this.removeGame(this.currentGameId);
+
         this.currentGameId = id;
+        this.currentGame = null;
         this.gameMiniInitializers.openNewSocket(id);
     }
 

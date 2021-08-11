@@ -166,7 +166,7 @@ export default class GameBase extends BaseComponent {
         this.setGameRound(0);
         this.resetDataAndUI();
         cc.game.on(cc.game.EVENT_HIDE, this.onGameHide, this);
-        cc.game.on(cc.game.EVENT_SHOW, this.onGameShow, this);
+        cc.game.on(cc.game.EVENT_SHOW, this.connectGameService, this);
     }
 
     setUpHandlers() {
@@ -186,13 +186,13 @@ export default class GameBase extends BaseComponent {
 
     onDestroy() {
         cc.game.off(cc.game.EVENT_HIDE, this.onGameHide, this);
-        cc.game.off(cc.game.EVENT_SHOW, this.onGameShow, this);
+        cc.game.off(cc.game.EVENT_SHOW, this.connectGameService, this);
     }
 
-    onEnable() {
-        this.startGame();
-        this.registerViewGame();
-    }
+    // onEnable() {
+    //     this.startGame();
+    //     this.registerViewGame();
+    // }
 
     onDisable() {
         this.stopGame();
@@ -367,7 +367,7 @@ export default class GameBase extends BaseComponent {
         this.stopGame();
     }
 
-    public onGameShow() {
+    public connectGameService() {
         this.startGame();
         this.registerViewGame();
     }

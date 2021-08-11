@@ -72,7 +72,7 @@ export default class Main extends cc.Component {
     }
 
     handleUserData(user) {
-        console.log("user ", user);
+        // console.log("user ", user);
     }
 
     serviceAuthorized(authorized: boolean) {

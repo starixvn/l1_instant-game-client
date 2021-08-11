@@ -13,16 +13,14 @@ export default class MiniPanelMiniGameInitializers {
 
     constructor(private readonly main: MiniPanel) {}
 
-    showGame(node: cc.Node) {
+    showGame(node: cc.Node, connect: boolean) {
         if (node) {
             if (this.main.miniGames) {
                 const miniGameNode = this.main.miniGames.children.find((child) => child === node);
                 if (miniGameNode) {
-                    if (miniGameNode.active) {
-                        const game = miniGameNode.getComponent(GameBase);
-                        game.onGameShow();
-                    } else {
-                        miniGameNode.active = true;
+                    const game = miniGameNode.getComponent(GameBase);
+                    if (connect) {
+                        game.connectGameService();
                     }
                 }
             }
@@ -34,7 +32,7 @@ export default class MiniPanelMiniGameInitializers {
         return GameInfos[id].key;
     }
 
-    openMiniGame(gameId) {
+    openMiniGame(gameId, connect) {
         const gameBase = this.main.getGameMini(gameId);
         const isAlreadyOpened = gameBase !== undefined;
 
@@ -60,12 +58,11 @@ export default class MiniPanelMiniGameInitializers {
                     const gameComponent = node.getComponent(GameBase);
                     gameComponent.initMiniPanel(this.main);
                     this.main.addMiniGame(gameComponent, gameId);
-                    gameComponent.openGame();
-                    this.showGame(node);
+                    this.showGame(node, connect);
                 }
             );
         } else {
-            this.showGame(gameBase.node);
+            this.showGame(gameBase.node, connect);
         }
     }
 
@@ -74,7 +71,7 @@ export default class MiniPanelMiniGameInitializers {
         const currentSocket: SocketIOClient.Socket = this.socketIOController.gameSockets[gameId];
 
         if (currentSocket && currentSocket.connected) {
-            this.openMiniGame(gameId);
+            this.openMiniGame(gameId, true);
         } else {
             const gameName = GameUtils.getGameNameString(gameId);
             const proxyRoute = getProxyRoute(gameId);
@@ -91,7 +88,10 @@ export default class MiniPanelMiniGameInitializers {
                 if (!this.main.isAlive()) {
                     return;
                 }
-                // this.openMiniGame(gameId);
+                if (data.um || data.notPermittedToPlay) {
+                    this.openMiniGame(gameId, false);
+                }
+
                 if (data.um) {
                     this.socketIOController.closeSocket(gameId);
                     if (data.um_message) {
@@ -107,7 +107,7 @@ export default class MiniPanelMiniGameInitializers {
                 if (!this.main.isAlive()) {
                     return;
                 }
-                this.openMiniGame(gameId);
+                this.openMiniGame(gameId, true);
             });
 
             socket.on("forceDisconnect", () => {
