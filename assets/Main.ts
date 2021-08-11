@@ -126,4 +126,11 @@ export default class Main extends cc.Component {
         cc.GameManager.playClick();
         this.miniPanel.openGuide();
     }
+
+    onGameChanged(toggle: cc.Toggle, param: string) {
+        if (toggle.isChecked) {
+            const gameId = +param;
+            this.openGame(gameId);
+        }
+    }
 }
