@@ -172,6 +172,9 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     }
 
     openGuide() {
+        if (!this.gameConfigs) {
+            return;
+        }
         const lang = NoticeUtil.getCurrentLanguage();
         const gameName = GameInfos[this.gameId].key;
         GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {

@@ -153,6 +153,9 @@ export default class MiniSedie extends SocketIOMiniGameBase {
     }
 
     openGuide() {
+        if (!this.gameConfigs) {
+            return;
+        }
         const lang = NoticeUtil.getCurrentLanguage();
         const gameName = GameInfos[this.gameId].key;
         GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {
