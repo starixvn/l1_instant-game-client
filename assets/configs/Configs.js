@@ -4,7 +4,8 @@ const configs = {
     serverDomainMapper: {
         localhost: "lumigame.com",
         "10.5.10.14": "lumigame.com",
-        "games.lumigame.com": "lumigame.com"
+        "games.lumigame.com": "lumigame.com",
+        "l1-mini.lumigame.com": "lumigame.com"
     },
     subDomain: "l1-proxy",
     env: "",

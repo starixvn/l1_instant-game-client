@@ -1,3 +1,5 @@
+import BaseComponent from "../../../common/control/BaseComponent";
+import CommonDialog from "../../../common/control/CommonDialog";
 import GameBase from "../../_base/GameBase";
 import GameBaseFinishHandler from "../../_base/handlers/GameBaseFinishHandler";
 import GameLogControlBase from "../../_base/view-models/GameLogControlBase";
@@ -6,7 +8,10 @@ import SedieRoundHistoryItem from "./SedieRoundHistoryItem";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class SedieRoundHistory extends cc.Component {
+export default class SedieRoundHistory extends BaseComponent {
+    @property(CommonDialog)
+    dialog: CommonDialog = null;
+
     @property(GameLogControlBase)
     logControl: GameLogControlBase = null;
 
@@ -29,6 +34,12 @@ export default class SedieRoundHistory extends cc.Component {
     white4: cc.Label = null;
 
     protected suffix = "%";
+
+    onLoad() {
+        this.dialog.onDidHide = () => {
+            this.node.destroy();
+        };
+    }
 
     public setData(redData: any) {
         this.updateHistory(redData);
@@ -109,9 +120,11 @@ export default class SedieRoundHistory extends cc.Component {
     protected updateStatisticLabels({ oddValue, evenValue, red2Value, red3Value, red4Value, white3Value, white4Value, total }) {
         this.odd.string = `${oddValue}${this.suffix}`;
         this.even.string = `${evenValue}${this.suffix}`;
-        this.red3.string = `${red3Value}${this.suffix}`;
-        this.red4.string = `${red4Value}${this.suffix}`;
-        this.white3.string = `${white3Value}${this.suffix}`;
-        this.white4.string = `${white4Value}${this.suffix}`;
+        if (this.red3 && this.red4 && this.white3 && this.white4) {
+            this.red3.string = `${red3Value}${this.suffix}`;
+            this.red4.string = `${red4Value}${this.suffix}`;
+            this.white3.string = `${white3Value}${this.suffix}`;
+            this.white4.string = `${white4Value}${this.suffix}`;
+        }
     }
 }

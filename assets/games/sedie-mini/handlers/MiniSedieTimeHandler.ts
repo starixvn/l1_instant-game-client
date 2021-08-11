@@ -24,6 +24,10 @@ export default class MiniSedieTimeHandler extends GameBaseTimeHandler {
             if (isInWaitTime) {
                 this.handleWaitTime();
             } else {
+                if (this.main.currentTimeRemaining === this.main.config.minBetTime) {
+                    this.main.clearAllNotices();
+                }
+
                 const isInRoundTime = this.main.currentTimeRemaining >= this.main.config.minBetTime;
                 if (isInRoundTime) {
                     this.handleInRoundTime();
@@ -77,7 +81,7 @@ export default class MiniSedieTimeHandler extends GameBaseTimeHandler {
                 this.main.dishNode.active = true;
                 this.main.dishNode.runAction(
                     cc.sequence(
-                        cc.moveTo(0.3, cc.v2(0, 0)),
+                        cc.moveTo(0.3, this.main.originalDishPosition),
                         cc.callFunc(() => {
                             this.main.animation.play();
                             this.handleStartingNewGameRound();
@@ -98,7 +102,7 @@ export default class MiniSedieTimeHandler extends GameBaseTimeHandler {
         super.handleInRoundTime();
         this.main.animation.node.active = true;
         this.main.betItems.forEach((item) => item.resetHighlight());
-        this.main.dishNode.position = cc.v3(0, 0);
+        this.main.dishNode.position = cc.v3(this.main.originalDishPosition);
         this.main.dishNode.active = true;
     }
 }

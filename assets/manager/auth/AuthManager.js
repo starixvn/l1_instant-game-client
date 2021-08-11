@@ -81,7 +81,7 @@ export function checkSSO(labelMessage, onSuccessFunc) {
                     clearTokenOnUrl();
                     onSuccessFunc();
                 } else {
-                    labelMessage.string = i18n.t("ui.login_failed");
+                    labelMessage.string = i18n.t("messages.login_failed");
                 }
             })
             .catch((error) => {
@@ -98,6 +98,9 @@ export function checkSSO(labelMessage, onSuccessFunc) {
         onSuccessFunc();
     }
 
+    if (!isSuccess) {
+        labelMessage.string = i18n.t("messages.login_failed");
+    }
     return isSuccess;
 }
 
@@ -128,12 +131,14 @@ export function triggerSignIn(main) {
             })
             .catch((e) => {
                 sentryLogger.logError(e);
-                // const session = sessionManager.getSession();
-                // const isSessionExpired = verifySession(session);
+                const session = sessionManager.getSession();
+                const isSessionExpired = verifySession(session);
 
-                // if (!isSessionExpired) {
-                //     main.loadLobbyMenuFromStorage();
-                // }
+                if (!isSessionExpired) {
+                    main.serviceAuthorized(true);
+                } else {
+                    signOut();
+                }
             });
     }
 }
@@ -188,16 +193,18 @@ export function reCheckIn() {
 
                         if (response.apiError) {
                             if (response.isDisableAccount) {
-                                setTimeout(signOut, 10000);
+                                const autoClearDuration = 10;
+                                setTimeout(signOut, autoClearDuration * 1000);
                                 const noticeData = {
-                                    text: i18n.t("messages.accountClosed")
+                                    text: i18n.t("messages.accountClosed"),
+                                    autoClearDuration
                                 };
-                                cc.GameManager.currentScene && cc.GameManager.currentScene.showNotice(noticeData, signOut, signOut);
+                                cc.GameManager.miniPanel && cc.GameManager.miniPanel.showNotice(noticeData, signOut, signOut);
                             } else {
                                 const errorCode = response.apiError.errorCode;
                                 const message = NoticeUtil.getLocalizedErrorMessage(errorCode, { errorCode });
                                 const noticeData = { text: message };
-                                cc.GameManager.currentScene && cc.GameManager.currentScene.showNotice(noticeData);
+                                cc.GameManager.miniPanel && cc.GameManager.miniPanel.showNotice(noticeData);
                             }
                         } else {
                             if (cc.GameManager.user) {

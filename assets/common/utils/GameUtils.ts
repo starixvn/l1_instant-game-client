@@ -8,7 +8,7 @@ export default class GameUtils {
         temp.string = (win ? "+" : "-") + numberWithCommas(value);
         temp.font = win ? cc.GameManager.winBetFont : cc.GameManager.acceptedBetfont;
         temp.lineHeight = 130;
-        temp.fontSize = 16;
+        temp.fontSize = 40;
         temp.node.position = cc.v3(0, startY, 0);
         parent.addChild(temp.node);
         temp.node.runAction(

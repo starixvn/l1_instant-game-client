@@ -36,6 +36,7 @@ export default class Main extends cc.Component {
         this.initLanguage();
         cc.GameManager = GameManager.Instance;
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
+        GameManager.Instance.miniPanel = this.miniPanel;
         this.splash.active = true;
         this.checkSSO();
     }
@@ -51,18 +52,19 @@ export default class Main extends cc.Component {
     }
 
     checkSSO() {
-        authManager.preChecking(() => {
-            authManager.checkSSO(this.splashMessage, () => {
-                if (window.reCheckInId) {
-                    clearInterval(window.reCheckInId);
-                }
-                window.reCheckInId = setInterval(() => {
-                    authManager.reCheckIn();
-                }, 60 * 1000);
+        // authManager.preChecking(() => {
+        this.splashMessage.string = "";
+        authManager.checkSSO(this.splashMessage, () => {
+            if (window.reCheckInId) {
+                clearInterval(window.reCheckInId);
+            }
+            window.reCheckInId = setInterval(() => {
+                authManager.reCheckIn();
+            }, 60 * 1000);
 
-                this.signIn();
-            });
+            this.signIn();
         });
+        // });
     }
 
     signIn() {

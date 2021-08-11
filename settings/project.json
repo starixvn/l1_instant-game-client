@@ -8,11 +8,20 @@
     ]
   ],
   "excluded-modules": [
-    "3D Physics/Builtin"
+    "Dynamic Atlas",
+    "DragonBones",
+    "MotionStreak",
+    "TiledMap",
+    "VideoPlayer",
+    "3D",
+    "3D Primitive",
+    "3D Physics/cannon.js",
+    "3D Physics/Builtin",
+    "3D Particle"
   ],
   "preview-port": 7456,
-  "design-resolution-width": 406,
-  "design-resolution-height": 228,
+  "design-resolution-width": 812,
+  "design-resolution-height": 456,
   "fit-width": false,
   "fit-height": true,
   "use-project-simulator-setting": false,

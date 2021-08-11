@@ -17,13 +17,13 @@ export default class GameManager extends cc.Component {
     unClickAudioClip: cc.AudioClip = null;
 
     public static Instance: GameManager;
-    MiniPanel: MiniPanel;
+    miniPanel: MiniPanel;
 
     GAME_IS_SHOWED = true;
     IS_LOGIN = false;
     dataObservers = {};
     soundObservers = {};
-    userStakeLevel = {};
+    userStakeLevel: any = {};
     sleepTime: number;
     user: any;
 
@@ -42,10 +42,15 @@ export default class GameManager extends cc.Component {
                 const sleepSecond = (Date.now() - this.sleepTime) / 1000;
 
                 if (sleepSecond > 300) {
-                    this.MiniPanel.onForceReload(false);
+                    this.miniPanel.onForceReload(false);
                 }
             }
         });
+    }
+
+    userStakeLevelData(data) {
+        this.userStakeLevel.minBet = data.minBet;
+        this.userStakeLevel.maxBet = data.maxBet;
     }
 
     loadUserData(data: any) {

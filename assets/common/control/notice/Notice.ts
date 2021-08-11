@@ -1,5 +1,7 @@
 import * as i18n from "i18n/runtime-scripts/LanguageData";
 
+import AutoClearNotice from "./AutoClearNotice";
+
 const { ccclass, property } = cc._decorator;
 
 export interface NoticeData {
@@ -7,6 +9,8 @@ export interface NoticeData {
     text: string;
     button: NoticeButton;
     isInfo: boolean;
+    autoClearDuration: number;
+    canNotClose: boolean;
 }
 
 export interface NoticeButton {
@@ -15,8 +19,8 @@ export interface NoticeButton {
 
 @ccclass
 export default class Notice extends cc.Component {
-    @property(cc.Sprite)
-    popupNode: cc.Sprite = null;
+    @property(cc.Node)
+    popupNode: cc.Node = null;
 
     @property(cc.Label)
     title: cc.Label = null;
@@ -30,20 +34,14 @@ export default class Notice extends cc.Component {
     @property(cc.Label)
     buttonLabel: cc.Label = null;
 
-    @property(cc.SpriteFrame)
-    errorBackground: cc.SpriteFrame = null;
-
-    @property(cc.SpriteFrame)
-    infoBackground: cc.SpriteFrame = null;
-
     public handleClickButton: () => void;
-
     public handleClose: () => void;
+    private canNotClose = false;
 
     onEnable() {
-        this.popupNode.node.opacity = 0;
-        this.popupNode.node.scale = 0;
-        this.popupNode.node.runAction(cc.spawn(cc.scaleTo(0.5, 1).easing(cc.easeBackOut()), cc.fadeTo(0.5, 255)));
+        // this.popupNode.opacity = 0;
+        // this.popupNode.scale = 0;
+        // this.pop1upNode.runAction(cc.spawn(cc.scaleTo(0.5, 1).easing(cc.easeBackOut()), cc.fadeTo(0.5, 255)));
     }
 
     onDisable() {
@@ -52,9 +50,15 @@ export default class Notice extends cc.Component {
     }
 
     public init(data: NoticeData) {
+        if (data.autoClearDuration) {
+            this.updateAutoClearDuration(data.autoClearDuration);
+        }
+        if (data.canNotClose) {
+            this.canNotClose = data.canNotClose;
+        }
         this.node.active = true;
 
-        cc.GameManager.currentScene.loading.active = false;
+        cc.GameManager.miniPanel.showLoading(false);
 
         this.setTitle(data.title);
         this.setMessage(data.text);
@@ -62,17 +66,30 @@ export default class Notice extends cc.Component {
         this.setBackground(data.isInfo);
     }
 
+    private updateAutoClearDuration(duration: number) {
+        const autoClear = this.node.getComponent(AutoClearNotice);
+        if (autoClear) {
+            autoClear.duration = duration;
+        }
+    }
+
     public onClickButton() {
+        if (this.canNotClose) {
+            return;
+        }
         cc.GameManager.playClick();
 
         if (this.handleClickButton) {
             this.handleClickButton();
         }
 
-        this.close();
+        this.node.active = false;
     }
 
     public close() {
+        if (this.canNotClose) {
+            return;
+        }
         if (this.handleClose) {
             this.handleClose();
         }

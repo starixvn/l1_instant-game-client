@@ -16,31 +16,44 @@ export default class SocketIOController {
         onConnectFailed: (gameName, isGameRoom) => void,
         isGameRoom = true
     ): SocketIOClient.Socket => {
-        const socket = socketIo(socketUri, { forceNew: true, transports: ["websocket"], upgrade: false, path: proxyRoute });
+        const socket = socketIo(socketUri, {
+            // reconnection: false,
+            forceNew: true,
+            transports: ["websocket"],
+            upgrade: false,
+            path: proxyRoute
+        });
 
         socket.on("connect", () => {
             socket.emit("signin", getSession());
         });
 
         socket.on("reconnect", () => {
-            // sentryLogger.logError(`${gameName} socket reconnect`);
+            console.log(`${gameName} socket reconnect`);
             socket.sendBuffer = [];
         });
 
         socket.on("connect_failed", () => {
-            socket.disconnect();
+            console.log(`${gameName} socket connect failed`);
             onConnectFailed(gameName, isGameRoom);
+            socket.close();
         });
 
         socket.on("connect_error", (error) => {
-            console.log(error);
+            console.log(`${gameName} socket error: ${error}`);
             sentryLogger.logError(error);
-            socket.disconnect();
-            onConnectFailed(gameName, isGameRoom);
+            if (!socket.connected) {
+                onConnectFailed(gameName, isGameRoom);
+            }
+            socket.close();
         });
 
         socket.on("disconnect", (reason) => {
-            // sentryLogger.log(`${gameName} socket disconnect: ${reason}`);
+            console.log(`${gameName} socket disconnect: ${reason}`);
+            if (reason === "io server disconnect") {
+                // the disconnection was initiated by the server, you need to reconnect manually
+                onConnectFailed(gameName, isGameRoom);
+            }
         });
 
         return socket;
@@ -48,7 +61,11 @@ export default class SocketIOController {
 
     async closeSocket(gameId) {
         const socket: SocketIOClient.Socket = this.gameSockets[gameId];
-        socket && socket.disconnect();
+        socket && socket.close();
+        this.removeSocket(gameId);
+    }
+
+    removeSocket(gameId) {
         delete this.gameSockets[gameId];
     }
 

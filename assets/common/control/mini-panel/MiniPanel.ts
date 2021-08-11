@@ -24,6 +24,9 @@ export default class MiniPanel extends BaseComponent {
     @property(cc.Prefab)
     noticePrefab: cc.Prefab = null;
 
+    @property(cc.Prefab)
+    connectionLostPrefab: cc.Prefab = null;
+
     @property(Loading)
     loading: Loading = null;
 
@@ -36,6 +39,7 @@ export default class MiniPanel extends BaseComponent {
     private gameMiniInitializers: MiniPanelMiniGameInitializers;
     private miniGamesCache = {};
     private currentGame: GameBase;
+    public currentGameId: number;
 
     onLoad() {
         this.showLoading(false);
@@ -104,6 +108,12 @@ export default class MiniPanel extends BaseComponent {
         this.currentGame = game;
     }
 
+    removeGame(gameId: number) {
+        delete this.miniGamesCache[gameId];
+        this.miniGames.destroyAllChildren();
+        this.gameMiniInitializers.removeSocket(gameId);
+    }
+
     getGameMini(gameId): any {
         return this.miniGamesCache[gameId];
     }
@@ -133,8 +143,19 @@ export default class MiniPanel extends BaseComponent {
         }
     }
 
+    handleNotPermittedToPlay(message: string) {
+        const canNotClose = true;
+        const noticeData = {
+            text: message,
+            isInfo: true,
+            canNotClose
+        } as NoticeData;
+        this.showNotice(noticeData, this.switchToDefaultGames, this.switchToDefaultGames);
+    }
+
+    switchToDefaultGames() {}
+
     forceKickedOut() {
-        cc.GameManager.forceKickedOut();
         authManager.signOut();
     }
 
@@ -147,6 +168,7 @@ export default class MiniPanel extends BaseComponent {
     }
 
     openNewSocketMiniGame(id) {
+        this.currentGameId = id;
         this.gameMiniInitializers.openNewSocket(id);
     }
 
@@ -187,7 +209,7 @@ export default class MiniPanel extends BaseComponent {
 
     showNotice(noticeData: NoticeData, handleClickButton: () => void = null, handleClose: () => void = null) {
         const noticePrefab = cc.instantiate(this.noticePrefab);
-        const notice = noticePrefab.getComponent("Notice") as Notice;
+        const notice = noticePrefab.getComponent(Notice);
 
         noticeData.button = { text: "OK" };
         notice.init(noticeData);
@@ -203,29 +225,47 @@ export default class MiniPanel extends BaseComponent {
         this.noticeContainer.addChild(noticePrefab);
     }
 
+    showLostConnection(noticeData: NoticeData, handleClickButton: () => void) {
+        const node = cc.instantiate(this.connectionLostPrefab);
+        const notice = node.getComponent(Notice);
+
+        noticeData.button = { text: i18n.t("ui.reconnect") };
+        notice.init(noticeData);
+
+        if (handleClickButton) {
+            notice.handleClickButton = handleClickButton;
+            notice.handleClose = handleClickButton;
+        }
+
+        this.noticeContainer.addChild(node);
+    }
+
     onConnectSocketFailed(gameName, isGameRoom = true) {
         if (!this.isAlive()) {
             return;
         }
-        const handleCloseNotice = () => isGameRoom && this.redirectToLobby();
-
-        this.showNotice(
+        this.removeAllDialogs();
+        this.showLostConnection(
             {
+                title: gameName,
                 text: i18n.t("messages.lostGameConnection", { gameName: gameName })
             } as NoticeData,
-            handleCloseNotice,
-            handleCloseNotice
+            () => this.reloadCurrentGame()
         );
         this.showLoading(false);
     }
 
-    redirectToLobby() {
-        const currentSceneName = cc.director.getScene().name;
-
-        currentSceneName !== "MainGame" && cc.director.loadScene("MainGame");
+    reloadCurrentGame() {
+        const currentGameId = this.currentGameId;
+        this.removeGame(currentGameId);
+        this.openNewSocketMiniGame(currentGameId);
     }
 
     addDialog(dialogNode: cc.Node) {
         this.dialog.addChild(dialogNode);
+    }
+
+    removeAllDialogs() {
+        this.dialog.destroyAllChildren();
     }
 }

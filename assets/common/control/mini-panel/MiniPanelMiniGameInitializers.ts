@@ -16,7 +16,15 @@ export default class MiniPanelMiniGameInitializers {
     showGame(node: cc.Node) {
         if (node) {
             if (this.main.miniGames) {
-                this.main.miniGames.children.forEach((child) => (child.active = child === node));
+                const miniGameNode = this.main.miniGames.children.find((child) => child === node);
+                if (miniGameNode) {
+                    if (miniGameNode.active) {
+                        const game = miniGameNode.getComponent(GameBase);
+                        game.onGameShow();
+                    } else {
+                        miniGameNode.active = true;
+                    }
+                }
             }
             this.main.showLoading(false);
         }
@@ -79,6 +87,22 @@ export default class MiniPanelMiniGameInitializers {
                 false
             );
 
+            socket.on("message", (data) => {
+                if (!this.main.isAlive()) {
+                    return;
+                }
+                // this.openMiniGame(gameId);
+                if (data.um) {
+                    this.socketIOController.closeSocket(gameId);
+                    if (data.um_message) {
+                        this.main.handleUmMessage(data.um_message);
+                    }
+                }
+
+                this.main.showLoading(false);
+                this.main.onGeneralData(data);
+            });
+
             socket.on("signedIn", () => {
                 if (!this.main.isAlive()) {
                     return;
@@ -87,10 +111,15 @@ export default class MiniPanelMiniGameInitializers {
             });
 
             socket.on("forceDisconnect", () => {
-                socket.disconnect();
+                console.log(`${gameName} socket forceDisconnect`);
+                socket.close();
             });
 
             this.socketIOController.gameSockets[gameId] = socket;
         }
+    }
+
+    removeSocket(gameId: number) {
+        this.socketIOController.removeSocket(gameId);
     }
 }
