@@ -1,5 +1,5 @@
-import { numberWithCommas } from '../../../common/helpers/NumberHelper';
-import GameGuideBase from '../../_base/view-models/GameGuideBase';
+import { numberWithCommas } from "../../../common/helper/NumberHelper";
+import GameGuideBase from "../../_base/view-models/GameGuideBase";
 
 const { ccclass, property } = cc._decorator;
 
@@ -7,10 +7,9 @@ const { ccclass, property } = cc._decorator;
 export default class BigSmallGuide extends GameGuideBase {
     createReplaceData(configs) {
         return {
-            _maxBetRound: numberWithCommas(configs.maxbet),
+            _chipMax: numberWithCommas(2000),
             _minBet: configs.minbet,
-            _maxBet: numberWithCommas(configs.maxbet),
-            _oddEven: configs.odds.big
+            _maxBet: numberWithCommas(configs.maxbet)
         };
     }
 }
