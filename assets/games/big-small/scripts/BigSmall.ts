@@ -1,9 +1,12 @@
 import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
 import MiniRoundHistory from "../../../common/control/mini-round-history/MiniRoundHistory";
-import { GameIds } from "../../../configs/SabaConfigs";
+import GameUtils from "../../../common/utils/GameUtils";
+import NoticeUtil from "../../../common/utils/NoticeUtil";
+import { GameIds, GameInfos } from "../../../configs/SabaConfigs";
 import GameBaseFinishHandler from "../../_base/handlers/GameBaseFinishHandler";
 import BalancedBettingPoolGameBase from "./BalancedBettingPoolGameBase";
 import { BigSmallConfigs } from "./BigSmallConfigs";
+import BigSmallGuide from "./BigSmallGuide";
 import BigSmallBetHandler from "./handlers/BigSmallBetHandler";
 import BigSmallFinishHandler from "./handlers/BigSmallFinishHandler";
 import BigSmallLogsHandler from "./handlers/BigSmallLogsHandler";
@@ -154,6 +157,17 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
         this.node.stopAllActions();
         this.betItems.forEach((betItem) => {
             betItem.ownBet.string = "0";
+        });
+    }
+
+    openGuide() {
+        const lang = NoticeUtil.getCurrentLanguage();
+        const gameName = GameInfos[this.gameId].key;
+        GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {
+            const node = cc.instantiate(prefab);
+            const guide = node.getComponent(BigSmallGuide);
+            guide.init(this.gameConfigs);
+            this.currentMiniPanel.addDialog(node);
         });
     }
 }

@@ -1,5 +1,5 @@
-import GameBaseLogsHandler from '../../../_base/handlers/GameBaseLogsHandler';
-import BigSmall from '../BigSmall';
+import GameBaseLogsHandler from "../../../_base/handlers/GameBaseLogsHandler";
+import BigSmall from "../BigSmall";
 
 export default class BigSmallLogsHandler extends GameBaseLogsHandler {
     constructor(protected readonly main: BigSmall) {
@@ -11,5 +11,6 @@ export default class BigSmallLogsHandler extends GameBaseLogsHandler {
             this.main.setDices(dataLogs[0].result);
         }
         this.main.updateRoundHistory();
+        this.main.highlightLastResult();
     }
 }

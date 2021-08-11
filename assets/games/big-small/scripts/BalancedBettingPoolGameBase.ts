@@ -1,6 +1,5 @@
 import * as _ from "lodash";
 
-import { BetInfo } from "../../../common/control/ber-board/BetBoard";
 import SocketIOMiniGameBase from "../../_base/SocketIOMiniGameBase";
 import BalancedBettingPoolBetItem from "../../_base/view-models/BalancedBettingPoolBetItem";
 
@@ -17,38 +16,6 @@ export default abstract class BalancedBettingPoolGameBase extends SocketIOMiniGa
     protected betPercentages: { [choice: string]: cc.Label };
 
     public totalBets: { [choice: string]: number };
-
-    onAcceptedBet(info: BetInfo) {
-        const { choice, bet } = info;
-
-        if (!this.validateBet()) {
-            return;
-        }
-
-        this.sendBetRequest(choice, bet);
-    }
-
-    validateBet() {
-        if (!this.isReadyBet()) {
-            return false;
-        }
-
-        if (this.waitingProcessing) {
-            this.showProcessingWarning(true);
-            return false;
-        } else {
-            this.lockBet();
-            return true;
-        }
-    }
-
-    sendBetRequest(choice: string, amount: number) {
-        const betData = {
-            amount: amount,
-            betChoice: choice
-        };
-        this.socket && this.socket.connected && this.socket.emit("bet", betData);
-    }
 
     showBetPercentage(choice: string, percent: number) {
         const label = this.betPercentages[choice];
@@ -78,5 +45,19 @@ export default abstract class BalancedBettingPoolGameBase extends SocketIOMiniGa
 
     hideBalanceBetNotice() {
         this.balanceBetNoticeContainer.destroyAllChildren();
+    }
+
+    public highlightLastResult() {
+        if (this.currentTimeRemaining <= this.config.stopBetTime) {
+            return;
+        }
+        const dataLog = this.currentDataLogs[0];
+        dataLog && this.highlightWonItems(dataLog.settlementResult, false);
+    }
+
+    private highlightWonItems(settlementResult: any, isAnimated = true) {
+        this.betItems.forEach((betItem) => {
+            betItem.setHighlight(settlementResult[betItem.node.name], isAnimated);
+        });
     }
 }
