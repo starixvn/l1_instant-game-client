@@ -43,6 +43,7 @@ export default class MiniSedie extends SocketIOMiniGameBase {
     public miniRoundHistory: SedieMiniRoundHistory = null;
     public roundHistory: SedieRoundHistory = null;
     public resultAnimating = false;
+    public originalDishPosition = cc.v2(0, 6);
 
     onLoad() {
         super.onLoad();
