@@ -26,11 +26,8 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     @property(cc.Node)
     diceContainer: cc.Node = null;
 
-    @property({ type: cc.Sprite })
-    dices: cc.Sprite[] = [];
-
-    @property({ type: cc.SpriteFrame })
-    diceFrames: cc.SpriteFrame[] = [];
+    @property(cc.SpriteAtlas)
+    diceAtlas: cc.SpriteAtlas = null;
 
     @property(cc.Label)
     betPercentageLeft: cc.Label = null;
@@ -44,9 +41,7 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     @property(cc.Label)
     resultLabel: cc.Label = null;
 
-    @property(cc.Label)
-    odds: cc.Label = null;
-
+    dices: cc.Sprite[] = [];
     protected miniRoundHistory: MiniRoundHistory;
     diceAnimationDuration: number;
 
@@ -60,6 +55,8 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
 
     onLoad() {
         super.onLoad();
+        this.animatedTime.setAnimatedY(40, 0);
+        this.diceContainer.children.forEach((child) => this.dices.push(child.getComponent(cc.Sprite)));
         this.diceAnimationDuration = this.diceAnimation.defaultClip.duration / this.diceAnimation.defaultClip.speed;
         this.setValueBetAmount();
         this.initRoundHistory();
@@ -103,7 +100,7 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
 
     setDices(result) {
         Object.keys(result).forEach((key, index) => {
-            this.dices[index].spriteFrame = this.diceFrames[result[key] - 1];
+            this.dices[index].spriteFrame = this.diceAtlas.getSpriteFrame(`p-${result[key]}`);
         });
     }
 
@@ -158,11 +155,5 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
         this.betItems.forEach((betItem) => {
             betItem.ownBet.string = "0";
         });
-    }
-
-    public updateOddsFromConfigs() {
-        if (this.gameConfigs.odds) {
-            this.odds.string = `1:${this.gameConfigs.odds[this.choices[0]]}`;
-        }
     }
 }

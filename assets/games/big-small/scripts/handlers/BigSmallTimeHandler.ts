@@ -22,7 +22,6 @@ export default class BigSmallTimeHandler extends GameBaseTimeHandler {
             this.main.currentTimeRemaining--;
         } else {
             this.main.hideBalanceBetNotice();
-            this.main.enableHistoryButton();
 
             if (this.isDisplayResultTime) {
                 cc.GameManager.GAME_IS_SHOWED && this.main.showResult();
