@@ -49,17 +49,15 @@ export default class BetItem extends cc.Component {
         this.betCallback(e);
     }
 
-    public setData(data: any) {
-        if (data.totalBets) {
-            const totalBetsKeys = getLowercaseObjectKeys(data.totalBets);
-            this.setTotalBet(data.totalBets[totalBetsKeys[this.node.name.toLowerCase()]]);
-        }
+    public setTotalBetsData(data: any) {
+        const totalBetsKeys = getLowercaseObjectKeys(data);
+        this.setTotalBet(data[totalBetsKeys[this.node.name.toLowerCase()]]);
+    }
 
-        if (data.ownBets) {
-            const ownBetsKeys = getLowercaseObjectKeys(data.ownBets);
-            const ownBet = data.ownBets[ownBetsKeys[this.node.name.toLowerCase()]];
-            ownBet && this.setOwnBet(ownBet);
-        }
+    public setOwnBetsData(data: any) {
+        const ownBetsKeys = getLowercaseObjectKeys(data);
+        const ownBet = data[ownBetsKeys[this.node.name.toLowerCase()]];
+        ownBet && this.setOwnBet(ownBet);
     }
 
     public setOdd(value: string) {
@@ -68,7 +66,14 @@ export default class BetItem extends cc.Component {
         }
     }
 
+    public clearChips() {
+        this.chipNode.destroyAllChildren();
+    }
+
     public clearBet() {
+        if (this.chipNode) {
+            this.clearChips();
+        }
         this.setOwnBet(0);
         this.setTotalBet(0);
     }

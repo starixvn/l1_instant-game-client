@@ -191,6 +191,7 @@ export default class GameBase extends BaseComponent {
 
     onEnable() {
         this.startGame();
+        console.log("onEnable");
         this.registerViewGame();
     }
 
@@ -369,6 +370,7 @@ export default class GameBase extends BaseComponent {
 
     public onGameShow() {
         this.startGame();
+        console.log("onGameShow");
         this.registerViewGame();
     }
 
