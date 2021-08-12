@@ -1,6 +1,6 @@
 {
   "ver": "2.3.7",
-  "uuid": "efc4e4f5-e952-4eb7-8340-2e465bdc8b58",
+  "uuid": "c520a39c-534a-4ec3-a300-05d81d85baf4",
   "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -12,11 +12,11 @@
   "height": 456,
   "platformSettings": {},
   "subMetas": {
-    "rongho_fix": {
+    "photo_2021-08-12_09-16-33": {
       "ver": "1.0.6",
-      "uuid": "c5a13c60-be39-4a8d-83f7-389301348100",
+      "uuid": "7a3acbb4-53e4-4d03-bd6c-2076e6b35dcd",
       "importer": "sprite-frame",
-      "rawTextureUuid": "efc4e4f5-e952-4eb7-8340-2e465bdc8b58",
+      "rawTextureUuid": "c520a39c-534a-4ec3-a300-05d81d85baf4",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
