@@ -24,15 +24,22 @@ export default class Main extends cc.Component {
     main: cc.Node = null;
 
     @property(cc.Node)
-    content: cc.Node = null;
+    headerContainer: cc.Node = null;
 
     @property(cc.Node)
     miniPanelNode: cc.Node = null;
 
-    generateNameCount = 0;
-    miniPanel: MiniPanel;
+    private generateNameCount = 0;
+    private miniPanel: MiniPanel;
+    private gameHeaders: cc.Toggle[] = [];
 
     onLoad() {
+        this.headerContainer.children.forEach((child) => {
+            const toggle = child.getComponent(cc.Toggle);
+            if (toggle) {
+                this.gameHeaders.push(toggle);
+            }
+        });
         this.initLanguage();
         cc.GameManager = GameManager.Instance;
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
@@ -112,9 +119,17 @@ export default class Main extends cc.Component {
         if (gameId === 0) {
             gameId = GameIds.MiniSedie;
         }
-
+        this.updateSelectedHeader(gameId);
         this.splash.active = false;
         this.openGame(gameId);
+    }
+
+    updateSelectedHeader(gameId: number) {
+        const name = gameId.toString();
+        const toggle = this.gameHeaders.find((toggle) => toggle.node.name === name);
+        if (toggle) {
+            toggle.isChecked = true;
+        }
     }
 
     openGame(gameId: number) {

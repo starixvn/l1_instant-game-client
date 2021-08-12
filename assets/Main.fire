@@ -411,7 +411,9 @@
     "main": {
       "__id__": 33
     },
-    "content": null,
+    "headerContainer": {
+      "__id__": 41
+    },
     "miniPanelNode": {
       "__id__": 96
     },
@@ -1742,7 +1744,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "layout",
+    "_name": "headerContainer",
     "_objFlags": 0,
     "_parent": {
       "__id__": 37
@@ -1820,7 +1822,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "sedie_mini",
+    "_name": "9",
     "_objFlags": 0,
     "_parent": {
       "__id__": 41
@@ -2347,7 +2349,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bigsmall",
+    "_name": "1",
     "_objFlags": 0,
     "_parent": {
       "__id__": 41
@@ -2874,7 +2876,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "dragon_tiger",
+    "_name": "7",
     "_objFlags": 0,
     "_parent": {
       "__id__": 41
