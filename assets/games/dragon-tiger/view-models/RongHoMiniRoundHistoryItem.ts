@@ -7,16 +7,24 @@ export default class RongHoMiniRoundHistoryItem extends MiniRoundHistoryItem {
     @property(cc.Sprite)
     icon: cc.Sprite = null;
 
-    @property(cc.SpriteFrame)
-    whiteDot: cc.SpriteFrame = null;
-
-    @property(cc.SpriteFrame)
-    blackDot: cc.SpriteFrame = null;
+    @property({ type: cc.SpriteFrame })
+    itemSprites: cc.SpriteFrame[] = [];
 
     protected readonly betTypes = ["dragon", "tiger", "tie"];
 
+    public getWinItem(settlementResult: any): number {
+        const dict = ["dragon", "tiger", "tie"];
+        for (let i = 0; i < this.betTypes.length; i++) {
+            if (settlementResult[dict[i]]) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public setData(data: any) {
         this.data = data;
-        this.icon.spriteFrame = data.settlementResult[this.betTypes[0]] ? this.blackDot : this.whiteDot;
+        const winChoice = this.getWinItem(data.settlementResult);
+        this.icon.spriteFrame = this.itemSprites[winChoice];
     }
 }
