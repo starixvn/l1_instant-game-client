@@ -27,14 +27,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 125
+        "__id__": 126
       },
       {
-        "__id__": 126
+        "__id__": 127
       }
     ],
     "_prefab": {
-      "__id__": 127
+      "__id__": 128
     },
     "_opacity": 255,
     "_color": {
@@ -3681,20 +3681,20 @@
         "__id__": 110
       },
       {
-        "__id__": 117
+        "__id__": 118
       },
       {
-        "__id__": 120
+        "__id__": 121
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
-        "__id__": 123
+        "__id__": 124
       }
     ],
     "_prefab": {
-      "__id__": 124
+      "__id__": 125
     },
     "_opacity": 255,
     "_color": {
@@ -3762,10 +3762,13 @@
       },
       {
         "__id__": 115
+      },
+      {
+        "__id__": 116
       }
     ],
     "_prefab": {
-      "__id__": 116
+      "__id__": 117
     },
     "_opacity": 255,
     "_color": {
@@ -3777,8 +3780,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 129.43,
-      "height": 50
+      "width": 155.36,
+      "height": 55.7
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3790,7 +3793,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        0,
+        2.8000000000000007,
         0,
         0,
         0,
@@ -3841,7 +3844,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 119.43,
+      "width": 145.36,
       "height": 30
     },
     "_anchorPoint": {
@@ -3893,8 +3896,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "CHẴN 1-2-5",
-    "_N$string": "CHẴN 1-2-5",
+    "_string": "SMALL (4-2-1)",
+    "_N$string": "SMALL (4-2-1)",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -3968,8 +3971,8 @@
     "_enabled": false,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 129.43,
-      "height": 50
+      "width": 155.36,
+      "height": 55.7
     },
     "_resize": 1,
     "_N$layoutType": 1,
@@ -3988,6 +3991,33 @@
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
     "_N$affectedByScale": false,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 110
+    },
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 4,
+    "_left": 0,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": -23.05,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 0,
+    "_originalHeight": 0,
     "_id": ""
   },
   {
@@ -4012,11 +4042,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 118
+        "__id__": 119
       }
     ],
     "_prefab": {
-      "__id__": 119
+      "__id__": 120
     },
     "_opacity": 255,
     "_color": {
@@ -4070,7 +4100,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 117
+      "__id__": 118
     },
     "_enabled": true,
     "_materials": [
@@ -4121,11 +4151,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 121
+        "__id__": 122
       }
     ],
     "_prefab": {
-      "__id__": 122
+      "__id__": 123
     },
     "_opacity": 255,
     "_color": {
@@ -4150,7 +4180,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        12.16,
+        15,
         0,
         0,
         0,
@@ -4179,7 +4209,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 120
+      "__id__": 121
     },
     "_enabled": true,
     "_materials": [
@@ -4232,7 +4262,7 @@
       "__id__": 112
     },
     "roundId": {
-      "__id__": 121
+      "__id__": 122
     },
     "_id": ""
   },
@@ -4259,7 +4289,7 @@
       "__id__": 2
     },
     "tip": {
-      "__id__": 123
+      "__id__": 124
     },
     "nodeNext": null,
     "_id": ""
