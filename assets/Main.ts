@@ -1,7 +1,6 @@
 import MiniPanel from "./common/control/mini-panel/MiniPanel";
 import { sentryLogger } from "./common/logger.js";
 import NameGenerator from "./common/name-generator/NameGenerator";
-import { GameIds } from "./configs/SabaConfigs";
 import * as authManager from "./manager/auth/AuthManager";
 import { getCacheLanguage, setLanguage } from "./manager/auth/SessionManager";
 import UserService from "./manager/auth/UserService";
@@ -34,15 +33,18 @@ export default class Main extends cc.Component {
     private gameHeaders: cc.Toggle[] = [];
 
     onLoad() {
+        cc.GameManager = GameManager.Instance;
         this.headerContainer.children.forEach((child) => {
             const toggle = child.getComponent(cc.Toggle);
             if (toggle) {
                 this.gameHeaders.push(toggle);
             }
+
+            cc.GameManager.supportGames.push(+child.name);
         });
         this.initLanguage();
-        cc.GameManager = GameManager.Instance;
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
+        this.miniPanel.updateOfferGameHeaders = () => this.updateOfferGameHeaders();
         GameManager.Instance.miniPanel = this.miniPanel;
         this.splash.active = true;
         this.checkSSO();
@@ -79,7 +81,7 @@ export default class Main extends cc.Component {
     }
 
     handleUserData(user) {
-        // console.log("user ", user);
+        cc.GameManager.loadUserData(user);
     }
 
     serviceAuthorized(authorized: boolean) {
@@ -111,22 +113,42 @@ export default class Main extends cc.Component {
 
     openGameSSO() {
         let gameId = 0;
+        let ssoGameId = 0;
+        let isGameExcluded = false;
         if (window.openGameId) {
             gameId = parseInt(window.openGameId);
+            ssoGameId = gameId;
             window.openGameId = null;
+            if (gameId) {
+                isGameExcluded = cc.GameManager.isGameExcluded(gameId);
+            }
         }
 
-        if (gameId === 0) {
-            gameId = GameIds.MiniSedie;
+        if (gameId === 0 || isGameExcluded) {
+            gameId = cc.GameManager.getFirstOfferGame();
         }
-        this.updateSelectedHeader(gameId);
+
         this.splash.active = false;
-        this.openGame(gameId);
+        this.updateOfferGameHeaders();
+        if (gameId) {
+            this.updateSelectedHeader(gameId);
+            this.openGame(gameId);
+        }
+        if (isGameExcluded) {
+            this.miniPanel.handleNotPermittedToPlay(ssoGameId, ssoGameId === gameId);
+        }
+    }
+
+    updateOfferGameHeaders() {
+        const offerGames = cc.GameManager.user.offerGames;
+        this.gameHeaders.forEach((toggle) => {
+            toggle.node.active = offerGames.includes(+toggle.node.name);
+        });
     }
 
     updateSelectedHeader(gameId: number) {
         const name = gameId.toString();
-        const toggle = this.gameHeaders.find((toggle) => toggle.node.name === name);
+        const toggle = this.gameHeaders.find((comp) => comp.node.name === name);
         if (toggle) {
             toggle.isChecked = true;
         }

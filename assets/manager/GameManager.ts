@@ -25,7 +25,8 @@ export default class GameManager extends cc.Component {
     soundObservers = {};
     userStakeLevel: any = {};
     sleepTime: number;
-    user: any;
+    user: any = {};
+    supportGames: number[] = [];
 
     onLoad() {
         GameManager.Instance = this;
@@ -54,8 +55,9 @@ export default class GameManager extends cc.Component {
     }
 
     loadUserData(data: any) {
-        // console.log("user data loaded ", data);
-        this.user = { ...data };
+        console.log("user data before ", this.user);
+        this.user = { ...this.user, ...data };
+        console.log("user data loaded ", this.user);
     }
 
     sendToMainSocket(data: any) {
@@ -102,5 +104,19 @@ export default class GameManager extends cc.Component {
 
     playUnClick() {
         this._playSFX(this.unClickAudioClip);
+    }
+
+    isNoGameOffer(): boolean {
+        let result = true;
+        result = !this.supportGames.some((id) => this.user.offerGames.includes(id));
+        return result;
+    }
+
+    isGameExcluded(gameId: number): boolean {
+        return !this.supportGames.includes(gameId) || !this.user.offerGames.includes(gameId);
+    }
+
+    getFirstOfferGame(): number {
+        return this.supportGames.find((game) => this.user.offerGames.includes(game));
     }
 }

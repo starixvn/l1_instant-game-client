@@ -40,6 +40,7 @@ export default class MiniPanel extends BaseComponent {
     private miniGamesCache = {};
     private currentGame: GameBase;
     public currentGameId: number;
+    public updateOfferGameHeaders: () => void;
 
     onLoad() {
         this.showLoading(false);
@@ -143,17 +144,30 @@ export default class MiniPanel extends BaseComponent {
         }
     }
 
-    handleNotPermittedToPlay(message: string) {
-        const canNotClose = true;
+    handleNotPermittedToPlay(gameId: number, switchGame: boolean) {
+        const gameName = GameUtils.getGameNameString(gameId);
+        const message = i18n.t("messages.gameExcluded", { gameName: gameName });
+        const canNotClose = cc.GameManager.isNoGameOffer();
         const noticeData = {
             text: message,
             isInfo: true,
             canNotClose
         } as NoticeData;
-        this.showNotice(noticeData, this.switchToDefaultGames, this.switchToDefaultGames);
+        const callback = () => {
+            if (switchGame) {
+                this.switchToFirstOfferGame();
+            }
+            if (this.updateOfferGameHeaders) {
+                this.updateOfferGameHeaders();
+            }
+        };
+        this.showNotice(noticeData, callback, callback);
     }
 
-    switchToDefaultGames() {}
+    switchToFirstOfferGame() {
+        const gameId = cc.GameManager.getFirstOfferGame();
+        this.openNewSocketMiniGame(gameId);
+    }
 
     forceKickedOut() {
         authManager.signOut();

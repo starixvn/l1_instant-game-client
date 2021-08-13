@@ -1,5 +1,3 @@
-import * as i18n from "i18n/runtime-scripts/LanguageData";
-
 import { removeInRoomGameId, removeSession } from "../../../manager/auth/SessionManager";
 import { numberWithCommas } from "../../helper/NumberHelper";
 import GameUtils from "../../utils/GameUtils";
@@ -46,11 +44,7 @@ export default class MiniPanelDataHandlers {
 
         if (data.notPermittedToPlay) {
             removeInRoomGameId();
-
-            const gameId = data.gameId;
-            const gameName = GameUtils.getGameNameString(gameId);
-            const message = i18n.t("messages.gameExcluded", { gameName: gameName });
-            this.main.handleNotPermittedToPlay(message);
+            this.main.handleNotPermittedToPlay(data.gameId, true);
         }
 
         if (data.userStakeLevel) {
