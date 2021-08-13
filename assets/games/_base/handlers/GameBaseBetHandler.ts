@@ -15,8 +15,25 @@ export default class GameBaseBetHandler implements DataHandler {
             return true;
         }
 
-        if (data.totalBets || data.ownBets) {
-            this.main.betItems.forEach((item) => item.setData(data));
+        if (data.totalBets) {
+            const totalBets = data.totalBets;
+            this.main.betItems.forEach((item) => {
+                item.setTotalBetsData(totalBets);
+            });
+        }
+
+        if (data.ownBets) {
+            const ownBets = data.ownBets;
+            const isIngame = data.gameConfigs !== undefined;
+            this.main.betItems.forEach((item) => {
+                item.setOwnBetsData(ownBets);
+
+                if (isIngame && item.chipNode) {
+                    const choice = item.node.name;
+                    const betValue = ownBets[choice];
+                    this.main.betChips.showChipOwnBet(item, betValue);
+                }
+            });
         }
 
         this.handleEndBet(data);
@@ -28,7 +45,12 @@ export default class GameBaseBetHandler implements DataHandler {
 
     handleEndBet(data) {
         if (data.endBet) {
-            data.endBet !== -1 && this.main.showAcceptedBet(data.endBet); //endCuoc -1 is error
+            if (data.endBet !== -1) {
+                this.main.showAcceptedBet(data.endBet);
+                if (this.main.betChips) {
+                    this.placeOwnChipByEndBet(data);
+                }
+            }
             this.main.showProcessingWarning(false);
         }
     }
@@ -70,12 +92,19 @@ export default class GameBaseBetHandler implements DataHandler {
         );
     }
 
-    placeOwnChip(data: any) {
-        const betOption = data.box.toLowerCase();
-        const bet = data.bet;
-        const betItem = _.find(this.main.betItems, (item) => item.node.name.toLowerCase() === betOption);
-
+    private placeChipToBetItem(bet: number, betChoice: string) {
+        const betItem = _.find(this.main.betItems, (item) => item.node.name.toLowerCase() === betChoice);
         this.main.betChips.placeChipBet(bet, betItem.chipNode);
+    }
+
+    placeOwnChip(data: any) {
+        const betChoice = data.box.toLowerCase();
+        const bet = data.bet;
+        this.placeChipToBetItem(bet, betChoice);
+    }
+
+    placeOwnChipByEndBet({ endBet, betChoice }) {
+        this.placeChipToBetItem(endBet, betChoice);
     }
 
     placePlayerChip(data: any) {

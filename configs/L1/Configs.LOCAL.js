@@ -9,7 +9,7 @@ const configs = {
     env: "",
     sentry: {
         url: "https://2af29bdacdbf4d9ba2db6600b450541f@sentry.lumigame.com/28",
-        env: "LOCAL"
+        env: "INSTANT_LOCAL"
     },
     gameAnalytics: {
         clientId: "093146669bf12df12eeedd2d57ddb469",

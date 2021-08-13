@@ -11,7 +11,7 @@ const configs = {
     env: "",
     sentry: {
         url: "https://19b3909c434341f0b13eb3a8529e5862@sentry.sabagame.com/9",
-        env: "PRO"
+        env: "INSTANT_PRO"
     },
     gameAnalytics: {
         clientId: "093146669bf12df12eeedd2d57ddb469",

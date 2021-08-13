@@ -8,7 +8,7 @@ const configs = {
     env: "uat",
     sentry: {
         url: "https://08d902b128ea45b6a11639833224f481@sentryuat.sabagame.com/25",
-        env: "UAT"
+        env: "INSTANT_UAT"
     },
     gameAnalytics: {
         clientId: "093146669bf12df12eeedd2d57ddb469",

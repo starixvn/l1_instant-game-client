@@ -40,6 +40,18 @@ export default class MiniSedie extends SocketIOMiniGameBase {
     @property(cc.Prefab)
     roundHistoryPrefab: cc.Prefab = null;
 
+    @property(cc.Node)
+    chipContainer: cc.Node = null;
+
+    @property(cc.Node)
+    totalBetContainer: cc.Node = null;
+
+    @property(cc.Node)
+    ownBetContainer: cc.Node = null;
+
+    @property(cc.Node)
+    tipContainer: cc.Node = null;
+
     public miniRoundHistory: SedieMiniRoundHistory = null;
     public roundHistory: SedieRoundHistory = null;
     public resultAnimating = false;
@@ -47,11 +59,20 @@ export default class MiniSedie extends SocketIOMiniGameBase {
 
     onLoad() {
         super.onLoad();
-
+        this.relocationChipNode();
         const mini = cc.instantiate(this.miniRoundHistoryPrefab);
         this.miniRoundHistory = mini.getComponent(MiniRoundHistory);
         this.miniRoundHistoryContainer.addChild(mini);
+        GameUtils.moveToOtherNode(this.miniRoundHistory.tip.node, this.tipContainer);
         this.animatedTime.setAnimatedY(15, -5);
+    }
+
+    relocationChipNode() {
+        this.betItems.forEach((item) => {
+            GameUtils.moveToOtherNode(item.chipNode, this.chipContainer);
+            GameUtils.moveToOtherNode(item.totalBet.node, this.totalBetContainer);
+            GameUtils.moveToOtherNode(item.ownBet.node, this.ownBetContainer);
+        });
     }
 
     initMiniPanel(miniPanel: MiniPanel) {

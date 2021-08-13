@@ -1,5 +1,6 @@
 import * as _ from "lodash";
 
+import BetItem from "../../../games/_base/view-models/BetItem";
 import { lazyInject } from "../../../manager/Application";
 import { ComponentSystem, ICashSystem, ICreditSystem } from "../../../manager/System";
 import { nFormatter } from "../../helper/NumberHelper";
@@ -193,7 +194,7 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
         const destBoxInChipBoxSpacePosition = chipsBox.convertToNodeSpaceAR(destBoxPosition);
 
         _.forEach(chipsBox.children, (chip) => {
-            this.startMoveChip(chip, destBoxInChipBoxSpacePosition);
+            this.startMoveChip(chip, cc.v2(destBoxInChipBoxSpacePosition.x, destBoxInChipBoxSpacePosition.y));
         });
     }
 
@@ -212,7 +213,7 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
             if (chip) {
                 const cloneChip = cc.instantiate(chip);
                 cloneChipsBox.addChild(cloneChip);
-                this.startMoveChip(cloneChip, destBoxInChipBoxSpacePosition, flyTime);
+                this.startMoveChip(cloneChip, cc.v2(destBoxInChipBoxSpacePosition), flyTime);
             }
         }
 
@@ -239,7 +240,7 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
     }
 
     public placeChipBet(bet: number, destNode: cc.Node, startNode: cc.Node = null, onComplete = () => {}) {
-        let chipPosition: cc.Vec2;
+        let chipPosition: cc.Vec3;
         const isLoginUserPlaceBet = startNode == null;
 
         if (startNode) {
@@ -258,7 +259,6 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
         if (isLoginUserPlaceBet) {
             this.playSingleChipsSound();
         }
-
         chipNode.runAction(
             cc.sequence(
                 this.moveChipTo(randomPosition, isLoginUserPlaceBet ? this.loginUserChipFlyingTime : this.chipFlyingTime),
@@ -274,7 +274,7 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
     }
 
     public moveChipWithCallback({ chipNode, bet, destNode, startNode, onComplete, delayDestroy, duration, fadeDuration = 1 }) {
-        let chipPosition: cc.Vec2;
+        let chipPosition: cc.Vec3;
         const isLoginUserPlaceBet = startNode == null;
         if (startNode) {
             chipPosition = startNode.parent.convertToWorldSpaceAR(startNode.position);
@@ -320,7 +320,7 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
             for (let i = 0; i < chipCountOfBet; i++) {
                 const chip = this.createChip(+chipBet);
                 const randomPosition = this.getRandomPositionChip(chip, chipsBox);
-                chip.position = randomPosition;
+                chip.position = cc.v3(randomPosition);
                 chipsBox.addChild(chip);
             }
         });
@@ -342,8 +342,8 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
     }
 
     private getRandomPositionChip(chip: cc.Node, box: cc.Node): cc.Vec2 {
-        const xDest = _.random(Math.floor(chip.width / 4), Math.floor(box.width - chip.width / 2) + 1);
-        const yDest = _.random(Math.floor(chip.height / 4), Math.floor(box.height - chip.height / 2) + 1);
+        const xDest = _.random(Math.floor(chip.width / 2), Math.floor(box.width - chip.width / 2) + 1);
+        const yDest = _.random(Math.floor(chip.height / 2), Math.floor(box.height - chip.height / 2) + 1);
         return cc.v2(xDest, yDest);
     }
 
@@ -371,11 +371,38 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
         return node;
     }
 
+    public showChipOwnBet(item: BetItem, bet: number) {
+        item.clearChips();
+        const nodes = this.createChipNodes(bet);
+        nodes.forEach((node) => {
+            const randomPosition = this.getRandomPositionChip(node, item.chipNode);
+            node.position = cc.v3(randomPosition);
+            item.chipNode.addChild(node);
+        });
+    }
+
+    private createChipNodes(bet: number): cc.Node[] {
+        const nodes = [];
+        const options = [...this.chipValues].reverse();
+        const values = GameUtils.getChipValues(bet, options);
+        const keys = Object.keys(values).sort((a, b) => +b - +a);
+        keys.forEach((chip) => {
+            const count = values[chip];
+            for (let i = 0; i < count; i++) {
+                const chipNode = this.createChip(+chip);
+                nodes.push(chipNode);
+            }
+        });
+
+        return nodes;
+    }
+
     public createChip(bet: number): cc.Node {
         const chip = new cc.Node();
-        chip.group = "Chip";
+        // chip.group = "Chip";
         const chipSprite = chip.addComponent(cc.Sprite);
         const name = this.chipConfig.getSmallChipSpriteName(bet);
+
         chipSprite.spriteFrame = this.chipAltas.getSpriteFrame(name);
         return chip;
     }
