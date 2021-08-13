@@ -75,9 +75,9 @@
                 <key>spriteSourceSize</key>
                 <string>{15,8}</string>
                 <key>textureRect</key>
-                <string>{{483,254},{15,8}}</string>
+                <string>{{246,302},{15,8}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>box_inactive.png</key>
             <dict>
@@ -180,7 +180,7 @@
                 <key>spriteSourceSize</key>
                 <string>{19,20}</string>
                 <key>textureRect</key>
-                <string>{{241,371},{19,18}}</string>
+                <string>{{241,385},{19,18}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -214,6 +214,81 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>character_ho.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{14,16}</string>
+                <key>spriteSourceSize</key>
+                <string>{14,16}</string>
+                <key>textureRect</key>
+                <string>{{242,369},{14,16}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>character_ho_en.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{14,16}</string>
+                <key>spriteSourceSize</key>
+                <string>{14,16}</string>
+                <key>textureRect</key>
+                <string>{{241,406},{14,16}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>character_hoa.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{11,17}</string>
+                <key>spriteSourceSize</key>
+                <string>{11,17}</string>
+                <key>textureRect</key>
+                <string>{{207,89},{11,17}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>character_rong.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{13,16}</string>
+                <key>spriteSourceSize</key>
+                <string>{13,16}</string>
+                <key>textureRect</key>
+                <string>{{246,266},{13,16}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>character_rong_en.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{13,16}</string>
+                <key>spriteSourceSize</key>
+                <string>{13,16}</string>
+                <key>textureRect</key>
+                <string>{{246,284},{13,16}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>check_hoa.png</key>
             <dict>
                 <key>aliases</key>
@@ -225,7 +300,7 @@
                 <key>spriteSourceSize</key>
                 <string>{19,19}</string>
                 <key>textureRect</key>
-                <string>{{207,89},{11,11}}</string>
+                <string>{{483,254},{11,11}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -873,7 +948,7 @@
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:83d3210f4208f72d3ac53770932fcab0:bfde16d9e352232188d41cf920507633:4641f319c4adfdd951ad56c42e1d5476$</string>
+            <string>$TexturePacker:SmartUpdate:317838525b6fc0ce93635d0916d9e25e:4ee19903e5cd039e5ab2c0c9f86e8809:4641f319c4adfdd951ad56c42e1d5476$</string>
             <key>textureFileName</key>
             <string>rong-ho.png</string>
         </dict>

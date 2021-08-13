@@ -166,7 +166,10 @@ export default class DragonTiger extends SocketIOMiniGameBase {
         this.miniRoundHistory.setData(this.currentDataLogs);
 
         if (this.roundHistory && this.roundHistory.isAlive()) {
-            this.roundHistory.setData(this.currentDataLogs);
+            const settlementResult = this.currentDataLogs.map((log) => {
+                return this.getWinItem(log.settlementResult);
+            });
+            this.roundHistory.setData(settlementResult);
         }
     }
 

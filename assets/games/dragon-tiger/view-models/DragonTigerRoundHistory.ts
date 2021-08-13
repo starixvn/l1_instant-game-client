@@ -53,25 +53,24 @@ export default class DragonTigerRoundHistory extends BaseComponent {
 
     private updateHistory(dragonTigerData: any) {
         const data = [...dragonTigerData];
+        this.updateStatistic(data);
+        data.reverse();
+        this.logControl.setData(data);
+    }
 
-        const total = data.length;
+    private updateStatistic(dragonTigerData) {
+        const total = dragonTigerData.length;
 
         if (total === 0) {
-            this.updateStatistic(0, 0, 0);
+            this.updateStatisticLabels(0, 0, 0);
             return;
         }
 
         let dragonCount = 0,
             drawCount = 0;
-        const logControlData = [];
-        const result = [];
 
-        data.forEach((log) => {
-            const settlementResult = log.settlementResult;
-            const winItem = this.mainGame.getWinItem(settlementResult);
-            result.push(winItem);
-
-            switch (winItem) {
+        dragonTigerData.forEach((log) => {
+            switch (log) {
                 case 0:
                     dragonCount++;
                     break;
@@ -81,41 +80,16 @@ export default class DragonTigerRoundHistory extends BaseComponent {
             }
         });
 
-        let count = 0;
-        for (let i = 0; i < result.length; ) {
-            if (result[i] === 2) {
-                //draw
-                count++;
-                if (i === result.length - 1) {
-                    // show special last item
-                    logControlData.push({ item: 2, draw: count });
-                }
-            } else {
-                logControlData.push({
-                    item: result[i],
-                    draw: count
-                });
-                count = 0;
-            }
-            i++;
-        }
-
-        logControlData.reverse();
-        this.logControl.setData(logControlData.map((d) => d.item));
-
-        const items = this.logControl.content.getComponentsInChildren(DragonTigerRoundResultItem);
-        items.forEach((item, index) => item.setValue(logControlData[index].draw));
-
-        this.updateStatistic(dragonCount, drawCount, total);
-    }
-
-    private updateStatistic(dragonCount, drawCount, total) {
         const dragonStats = Math.floor((dragonCount * 100) / total);
         const drawStats = Math.floor((drawCount * 100) / total);
         const tigerStats = 100 - (dragonStats + drawStats);
 
-        this.dragonLabel.string = `${dragonStats}${this.suffix}`;
-        this.tigerLabel.string = `${tigerStats}${this.suffix}`;
-        this.tieLabel.string = `${drawStats}${this.suffix}`;
+        this.updateStatisticLabels(dragonStats, tigerStats, drawStats);
+    }
+
+    protected updateStatisticLabels(dragon, tiger, tie) {
+        this.dragonLabel.string = `${dragon}${this.suffix}`;
+        this.tigerLabel.string = `${tiger}${this.suffix}`;
+        this.tieLabel.string = `${tie}${this.suffix}`;
     }
 }
