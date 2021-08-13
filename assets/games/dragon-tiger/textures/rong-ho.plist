@@ -339,7 +339,7 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-1,1}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
                 <string>{30,30}</string>
                 <key>spriteSourceSize</key>
@@ -369,7 +369,7 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-1,1}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
                 <string>{30,30}</string>
                 <key>spriteSourceSize</key>
@@ -384,7 +384,7 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-1,1}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
                 <string>{30,30}</string>
                 <key>spriteSourceSize</key>
@@ -948,7 +948,7 @@
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:317838525b6fc0ce93635d0916d9e25e:4ee19903e5cd039e5ab2c0c9f86e8809:4641f319c4adfdd951ad56c42e1d5476$</string>
+            <string>$TexturePacker:SmartUpdate:20f74eb3aecc69c2f2c2edae93aef3e0:789d493da8a5b6271cae69732d184625:4641f319c4adfdd951ad56c42e1d5476$</string>
             <key>textureFileName</key>
             <string>rong-ho.png</string>
         </dict>
