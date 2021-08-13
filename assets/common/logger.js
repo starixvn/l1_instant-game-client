@@ -12,7 +12,7 @@ export const sentryLogger = {
                 dsn: configs.sentry.url,
                 environment: configs.sentry.env,
                 maxValueLength: 5000,
-                ignoreErrors: ["fullscreen error", "exitFullscreen", "start the audio device"]
+                ignoreErrors: ["fullscreen error", "exitFullscreen", "start the audio device", "Network Error", "zaloJSV2"]
             });
             sentryLogger.loaded = true;
         }
