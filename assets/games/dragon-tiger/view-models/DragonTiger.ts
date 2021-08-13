@@ -51,6 +51,7 @@ export default class DragonTiger extends SocketIOMiniGameBase {
     private roundHistory: DragonTigerRoundHistory;
     public resultAnimating = false;
     private frontCards: NewCard[] = [];
+    protected readonly betTypes = ["dragon", "tiger", "tie"];
 
     initMiniPanel(miniPanel: MiniPanel) {
         super.initMiniPanel(miniPanel);
@@ -141,9 +142,8 @@ export default class DragonTiger extends SocketIOMiniGameBase {
     }
 
     public getWinItem(settlementResult: any): number {
-        const dict = ["dragon", "tiger", "tie"];
-        for (let i = 0; i < dict.length; i++) {
-            if (settlementResult[dict[i]]) {
+        for (let i = 0; i < this.betTypes.length; i++) {
+            if (settlementResult[this.betTypes[i]]) {
                 return i;
             }
         }
@@ -166,9 +166,6 @@ export default class DragonTiger extends SocketIOMiniGameBase {
         this.miniRoundHistory.setData(this.currentDataLogs);
 
         if (this.roundHistory && this.roundHistory.isAlive()) {
-            // const settlementResult = this.currentDataLogs.map((log) => {
-            //     return this.getWinItem(log.settlementResult);
-            // });
             this.roundHistory.setData(this.currentDataLogs);
         }
     }
@@ -178,9 +175,8 @@ export default class DragonTiger extends SocketIOMiniGameBase {
             this.updateRoundHistory();
             this.showResultCards(true);
 
-            const betChoice = ["dragon", "tiger", "tie"];
             const choiceWin = this.getWinItem(this.currentDataLogs[0].settlementResult);
-            const winItem = betChoice[choiceWin];
+            const winItem = this.betTypes[choiceWin];
             if (winItem !== "") {
                 this.gameAudios.playShowResultAudio();
                 this.resultFrame.active = true;

@@ -53,19 +53,11 @@ export default class DragonTigerRoundHistory extends BaseComponent {
 
     private updateHistory(dragonTigerData: any) {
         const data = [...dragonTigerData];
-        this.updateStatistic(data);
-        // data.reverse();
-        // const settlementResult = data.map((log) => {
-        //     return this.mainGame.getWinItem(log.settlementResult);
-        // });
-        // this.logControl.setData(settlementResult);
-    }
 
-    private updateStatistic(dragonTigerData) {
-        const total = dragonTigerData.length;
+        const total = data.length;
 
         if (total === 0) {
-            this.updateStatisticLabels(0, 0, 0);
+            this.updateStatistic(0, 0, 0);
             return;
         }
 
@@ -74,7 +66,7 @@ export default class DragonTigerRoundHistory extends BaseComponent {
         const logControlData = [];
         const result = [];
 
-        dragonTigerData.forEach((log) => {
+        data.forEach((log) => {
             const settlementResult = log.settlementResult;
             const winItem = this.mainGame.getWinItem(settlementResult);
             result.push(winItem);
@@ -107,21 +99,23 @@ export default class DragonTigerRoundHistory extends BaseComponent {
             }
             i++;
         }
+
         logControlData.reverse();
         this.logControl.setData(logControlData.map((d) => d.item));
+
         const items = this.logControl.content.getComponentsInChildren(DragonTigerRoundResultItem);
         items.forEach((item, index) => item.setValue(logControlData[index].draw));
 
+        this.updateStatistic(dragonCount, drawCount, total);
+    }
+
+    private updateStatistic(dragonCount, drawCount, total) {
         const dragonStats = Math.floor((dragonCount * 100) / total);
         const drawStats = Math.floor((drawCount * 100) / total);
         const tigerStats = 100 - (dragonStats + drawStats);
 
-        this.updateStatisticLabels(dragonStats, tigerStats, drawStats);
-    }
-
-    protected updateStatisticLabels(dragon, tiger, tie) {
-        this.dragonLabel.string = `${dragon}${this.suffix}`;
-        this.tigerLabel.string = `${tiger}${this.suffix}`;
-        this.tieLabel.string = `${tie}${this.suffix}`;
+        this.dragonLabel.string = `${dragonStats}${this.suffix}`;
+        this.tigerLabel.string = `${tigerStats}${this.suffix}`;
+        this.tieLabel.string = `${drawStats}${this.suffix}`;
     }
 }
