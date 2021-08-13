@@ -49,6 +49,9 @@ export default class MiniSedie extends SocketIOMiniGameBase {
     @property(cc.Node)
     ownBetContainer: cc.Node = null;
 
+    @property(cc.Node)
+    tipContainer: cc.Node = null;
+
     public miniRoundHistory: SedieMiniRoundHistory = null;
     public roundHistory: SedieRoundHistory = null;
     public resultAnimating = false;
@@ -60,6 +63,7 @@ export default class MiniSedie extends SocketIOMiniGameBase {
         const mini = cc.instantiate(this.miniRoundHistoryPrefab);
         this.miniRoundHistory = mini.getComponent(MiniRoundHistory);
         this.miniRoundHistoryContainer.addChild(mini);
+        GameUtils.moveToOtherNode(this.miniRoundHistory.tip.node, this.tipContainer);
         this.animatedTime.setAnimatedY(15, -5);
     }
 
