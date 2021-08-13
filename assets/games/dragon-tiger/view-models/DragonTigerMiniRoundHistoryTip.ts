@@ -4,7 +4,7 @@ import { getNameCard } from "../../../common/helper/CardHelper";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class RongHoMiniRoundHistoryTip extends MiniRoundHistoryTip {
+export default class DragonTigerMiniRoundHistoryTip extends MiniRoundHistoryTip {
     @property(cc.Label)
     dragon: cc.Label = null;
 

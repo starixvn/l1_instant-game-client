@@ -1,9 +1,9 @@
-import BetItem from '../../_base/view-models/BetItem';
+import BetItem from "../../_base/view-models/BetItem";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class RongHoBetItem extends BetItem {
+export default class DragonTigerBetItem extends BetItem {
     @property(cc.Node)
     inActive: cc.Node = null;
 

@@ -1,17 +1,21 @@
 import MiniRoundHistory from "../../../common/control/mini-round-history/MiniRoundHistory";
 import NewCard from "../../../common/control/new-card/view-models/NewCard";
-import { GameIds } from "../../../configs/SabaConfigs";
+import { GameIds, GameInfos } from "../../../configs/SabaConfigs";
 import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
 import SocketIOMiniGameBase from "../../_base/SocketIOMiniGameBase";
 import RHFinishDataHandler from "./handlers/RHFinishDataHandler";
 import RHGameTimeHandler from "./handlers/RHGameTimeHandler";
 import RHLogsDataHandler from "./handlers/RHLogsDataHandler";
-import { RongHoConfigs } from "./RongHoConfigs";
+import { DragonTigerConfigs } from "./DragonTigerConfigs";
+import NoticeUtil from "../../../common/utils/NoticeUtil";
+import GameUtils from "../../../common/utils/GameUtils";
+import DragonTigerGuide from "./DragonTigerGuide";
+import DragonTigerRoundHistory from "./DragonTigerRoundHistory";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class RongHo extends SocketIOMiniGameBase {
+export default class DragonTiger extends SocketIOMiniGameBase {
     @property(cc.Animation)
     resultAnimation: cc.Animation = null;
 
@@ -39,15 +43,19 @@ export default class RongHo extends SocketIOMiniGameBase {
     @property(cc.Node)
     miniRoundHistoryContainer: cc.Node = null;
 
+    @property(cc.Prefab)
+    roundHistoryPrefab: cc.Prefab = null;
+
     public resultCards = [];
     public miniRoundHistory: MiniRoundHistory = null;
+    private roundHistory: DragonTigerRoundHistory;
     public resultAnimating = false;
     private frontCards: NewCard[] = [];
 
     initMiniPanel(miniPanel: MiniPanel) {
         super.initMiniPanel(miniPanel);
         this.gameId = GameIds.DragonTiger;
-        this.setConfig(new RongHoConfigs());
+        this.setConfig(new DragonTigerConfigs());
     }
 
     protected onChangedBetChip(bet) {
@@ -132,7 +140,7 @@ export default class RongHo extends SocketIOMiniGameBase {
         });
     }
 
-    public static getWinItem(settlementResult: any): number {
+    public getWinItem(settlementResult: any): number {
         const dict = ["dragon", "tiger", "tie"];
         for (let i = 0; i < dict.length; i++) {
             if (settlementResult[dict[i]]) {
@@ -154,17 +162,24 @@ export default class RongHo extends SocketIOMiniGameBase {
         }
     }
 
-    public updateLogs() {
+    public updateRoundHistory() {
         this.miniRoundHistory.setData(this.currentDataLogs);
+
+        if (this.roundHistory && this.roundHistory.isAlive()) {
+            // const settlementResult = this.currentDataLogs.map((log) => {
+            //     return this.getWinItem(log.settlementResult);
+            // });
+            this.roundHistory.setData(this.currentDataLogs);
+        }
     }
 
     public showResult(show: boolean) {
         if (show) {
-            this.updateLogs();
+            this.updateRoundHistory();
             this.showResultCards(true);
 
             const betChoice = ["dragon", "tiger", "tie"];
-            const choiceWin = RongHo.getWinItem(this.currentDataLogs[0].settlementResult);
+            const choiceWin = this.getWinItem(this.currentDataLogs[0].settlementResult);
             const winItem = betChoice[choiceWin];
             if (winItem !== "") {
                 this.gameAudios.playShowResultAudio();
@@ -203,5 +218,29 @@ export default class RongHo extends SocketIOMiniGameBase {
                 this.audioDrawCard.stop();
             })
             .start();
+    }
+
+    openGuide() {
+        if (!this.gameConfigs) {
+            return;
+        }
+        const lang = NoticeUtil.getCurrentLanguage();
+        const gameName = GameInfos[this.gameId].key;
+        GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {
+            const node = cc.instantiate(prefab);
+            const guide = node.getComponent(DragonTigerGuide);
+            guide.init(this.gameConfigs);
+            this.currentMiniPanel.addDialog(node);
+        });
+    }
+
+    openScoreBoard() {
+        cc.GameManager.playClick();
+
+        const node = cc.instantiate(this.roundHistoryPrefab);
+        this.roundHistory = node.getComponent(DragonTigerRoundHistory);
+        this.roundHistory.init(this);
+        this.currentMiniPanel.addDialog(node);
+        this.updateRoundHistory();
     }
 }

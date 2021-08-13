@@ -3,7 +3,7 @@ import MiniRoundHistoryItem from "../../../common/control/mini-round-history/Min
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class RongHoMiniRoundHistoryItem extends MiniRoundHistoryItem {
+export default class DragonTigerMiniRoundHistoryItem extends MiniRoundHistoryItem {
     @property(cc.Sprite)
     icon: cc.Sprite = null;
 
