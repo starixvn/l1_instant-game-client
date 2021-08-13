@@ -5,10 +5,10 @@ const configs = {
         "minisit.sgamesuat.com": "sabagame.com"
     },
     subDomain: "uatproxy",
-    env: "sit",
+    env: "INSTANT_Sit",
     sentry: {
         url: "https://08d902b128ea45b6a11639833224f481@sentryuat.sabagame.com/25",
-        env: "SIT"
+        env: "INSTANT_SIT"
     },
     gameAnalytics: {
         clientId: "093146669bf12df12eeedd2d57ddb469",

@@ -9,7 +9,7 @@ const configs = {
     env: "",
     sentry: {
         url: "https://b015ef787273452c8fce4af733e62d59@sentry.lumigame.com/29",
-        env: "LOCAL"
+        env: "INSTANT_LOCAL"
     },
     guideDomain: "https://l2-guide.lumigame.com",
     userServiceUrl: "https://l2-proxy.lumigame.com/user"
