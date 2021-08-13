@@ -5,7 +5,7 @@ const configs = {
         "minisit.sgamesuat.com": "sabagame.com"
     },
     subDomain: "uatproxy",
-    env: "INSTANT_Sit",
+    env: "sit",
     sentry: {
         url: "https://08d902b128ea45b6a11639833224f481@sentryuat.sabagame.com/25",
         env: "INSTANT_SIT"
