@@ -342,8 +342,8 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
     }
 
     private getRandomPositionChip(chip: cc.Node, box: cc.Node): cc.Vec2 {
-        const xDest = _.random(Math.floor(chip.width / 4), Math.floor(box.width - chip.width / 2) + 1);
-        const yDest = _.random(Math.floor(chip.height / 4), Math.floor(box.height - chip.height / 2) + 1);
+        const xDest = _.random(Math.floor(chip.width / 2), Math.floor(box.width - chip.width / 2) + 1);
+        const yDest = _.random(Math.floor(chip.height / 2), Math.floor(box.height - chip.height / 2) + 1);
         return cc.v2(xDest, yDest);
     }
 
