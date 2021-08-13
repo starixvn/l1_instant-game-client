@@ -1147,8 +1147,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        2,
+        2,
         1
       ]
     },
@@ -1184,7 +1184,7 @@
       "__uuid__": "54cdaa95-d1de-4aa3-b75e-2a2025d0b880"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 2,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -1193,7 +1193,7 @@
     },
     "_fillStart": 0,
     "_fillRange": 0,
-    "_isTrimmedMode": true,
+    "_isTrimmedMode": false,
     "_atlas": {
       "__uuid__": "38df132a-9255-4a7d-abc4-90d262248008"
     },
@@ -1289,8 +1289,8 @@
     "_dstBlendFactor": 771,
     "_string": "%",
     "_N$string": "%",
-    "_fontSize": 12,
-    "_lineHeight": 12,
+    "_fontSize": 28,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
@@ -4045,7 +4045,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "a23235d1-15db-4b95-8439-a2e005bfff91"
+      "__uuid__": "b0b4f30d-702a-4b4b-aab3-b4a727519d16"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -4058,7 +4058,9 @@
     "_fillStart": 0,
     "_fillRange": 0,
     "_isTrimmedMode": true,
-    "_atlas": null,
+    "_atlas": {
+      "__uuid__": "38df132a-9255-4a7d-abc4-90d262248008"
+    },
     "_id": "737Wz8CmNEtrLAQ4YyhTn8"
   },
   {
@@ -4135,8 +4137,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        2,
+        2,
         1
       ]
     },
@@ -4172,7 +4174,7 @@
       "__uuid__": "54cdaa95-d1de-4aa3-b75e-2a2025d0b880"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 2,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -4181,7 +4183,7 @@
     },
     "_fillStart": 0,
     "_fillRange": 0,
-    "_isTrimmedMode": true,
+    "_isTrimmedMode": false,
     "_atlas": {
       "__uuid__": "38df132a-9255-4a7d-abc4-90d262248008"
     },
@@ -4223,8 +4225,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 9.43,
-      "height": 12
+      "width": 22,
+      "height": 28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4277,8 +4279,8 @@
     "_dstBlendFactor": 771,
     "_string": "%",
     "_N$string": "%",
-    "_fontSize": 12,
-    "_lineHeight": 12,
+    "_fontSize": 28,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
