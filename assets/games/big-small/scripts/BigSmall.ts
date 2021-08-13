@@ -48,6 +48,18 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     @property(cc.Prefab)
     roundHistoryPrefab: cc.Prefab = null;
 
+    @property(cc.Node)
+    chipContainer: cc.Node = null;
+
+    @property(cc.Node)
+    totalBetContainer: cc.Node = null;
+
+    @property(cc.Node)
+    ownBetContainer: cc.Node = null;
+
+    @property(cc.Node)
+    tipContainer: cc.Node = null;
+
     private dices: cc.Sprite[] = [];
     private miniRoundHistory: MiniRoundHistory;
     private roundHistory: BigSmallRoundHistory;
@@ -68,6 +80,12 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
         this.diceAnimationDuration = this.diceAnimation.defaultClip.duration / this.diceAnimation.defaultClip.speed;
         this.setValueBetAmount();
         this.initRoundHistory();
+
+        this.betItems.forEach((item) => {
+            GameUtils.moveToOtherNode(item.chipNode, this.chipContainer);
+            GameUtils.moveToOtherNode(item.totalBet.node, this.totalBetContainer);
+            GameUtils.moveToOtherNode(item.ownBet.node, this.ownBetContainer);
+        });
     }
 
     onDestroy() {
@@ -100,6 +118,7 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
         const mini = cc.instantiate(this.miniRoundHistoryPrefab);
         this.miniRoundHistory = mini.getComponent(MiniRoundHistory);
         this.miniRoundHistoryContainer.addChild(mini);
+        GameUtils.moveToOtherNode(this.miniRoundHistory.tip.node, this.tipContainer);
     }
 
     updateRoundHistory() {
