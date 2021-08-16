@@ -175,9 +175,9 @@ export default class Main extends cc.Component {
     }
 
     onGameChanged(toggle: cc.Toggle, param: string) {
+        this.miniPanel.removeAllNotices();
         if(this.showingNoticeNotPermitToPlay){
             this.showingNoticeNotPermitToPlay = false;
-            this.miniPanel.removeAllNotices();
             this.updateOfferGameHeaders();
         }
         if (toggle.isChecked) {
