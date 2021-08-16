@@ -24,7 +24,7 @@ export default class GameManager extends cc.Component {
     dataObservers = {};
     soundObservers = {};
     userStakeLevel: any = {};
-    sleepTime: number;
+    // sleepTime: number;
     user: any = {};
     supportGames: number[] = [];
 
@@ -32,20 +32,20 @@ export default class GameManager extends cc.Component {
         GameManager.Instance = this;
         cc.game.on(cc.game.EVENT_HIDE, () => {
             this.GAME_IS_SHOWED = false;
-            this.sleepTime = Date.now();
+            // this.sleepTime = Date.now();
         });
 
         cc.game.on(cc.game.EVENT_SHOW, () => {
             this.GAME_IS_SHOWED = true;
             this.IS_LOGIN && this.sendToMainSocket({ user: { updateCoin: true } });
 
-            if (cc.sys.isMobile) {
-                const sleepSecond = (Date.now() - this.sleepTime) / 1000;
+            // if (cc.sys.isMobile) {
+            //     const sleepSecond = (Date.now() - this.sleepTime) / 1000;
 
-                if (sleepSecond > 300) {
-                    this.miniPanel.onForceReload(false);
-                }
-            }
+            //     if (sleepSecond > 300) {
+            //         this.miniPanel.onForceReload(false);
+            //     }
+            // }
         });
     }
 
