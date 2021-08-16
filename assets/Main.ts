@@ -123,7 +123,7 @@ export default class Main extends cc.Component {
     }
 
     openGameSSO() {
-        let gameId = 0;
+        let gameId = -1;
         let ssoGameId = 0;
         if (window.openGameId) {
             gameId = parseInt(window.openGameId);
@@ -132,7 +132,11 @@ export default class Main extends cc.Component {
         }
 
         if (gameId === 0) {
-            gameId = this.getGameDefaultOrCache();
+            gameId = GameIds.MiniSedie;
+        }
+
+        if (gameId === -1) {
+            gameId = this.getCacheCurrentGameId();
         }
 
         this.splash.active = false;
@@ -140,10 +144,6 @@ export default class Main extends cc.Component {
             this.updateSelectedHeader(gameId);
             this.openGame(gameId);
         }
-    }
-
-    getGameDefaultOrCache(): number {
-        return GameIds.MiniSedie;
     }
 
     updateOfferGameHeaders() {
@@ -164,6 +164,15 @@ export default class Main extends cc.Component {
     openGame(gameId: number) {
         console.log("open game id " + gameId);
         this.miniPanel.openNewSocketMiniGame(gameId);
+    }
+
+    saveCacheCurrrentGameId(gameId: number) {
+        cc.sys.localStorage.setItem("instant_current_game", gameId);
+    }
+
+    getCacheCurrentGameId(): number {
+        const cacheId = cc.sys.localStorage.getItem("instant_current_game");
+        return cacheId ? +cacheId : GameIds.MiniSedie;
     }
 
     onGuideClick() {
