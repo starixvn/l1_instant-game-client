@@ -21,7 +21,7 @@
         "__id__": 2
       },
       {
-        "__id__": 59
+        "__id__": 63
       },
       {
         "__id__": 7
@@ -30,17 +30,17 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 63
+        "__id__": 67
       },
       {
-        "__id__": 64
+        "__id__": 68
       },
       {
-        "__id__": 65
+        "__id__": 69
       }
     ],
     "_prefab": {
-      "__id__": 66
+      "__id__": 70
     },
     "_opacity": 255,
     "_color": {
@@ -110,7 +110,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 58
+      "__id__": 62
     },
     "_opacity": 210,
     "_color": {
@@ -317,23 +317,23 @@
         "__id__": 12
       },
       {
-        "__id__": 48
+        "__id__": 52
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 54
+        "__id__": 58
       },
       {
-        "__id__": 55
+        "__id__": 59
       },
       {
-        "__id__": 56
+        "__id__": 60
       }
     ],
     "_prefab": {
-      "__id__": 57
+      "__id__": 61
     },
     "_opacity": 255,
     "_color": {
@@ -465,7 +465,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "73737411-7113-4b3f-8bb3-100b868b1ef1"
+      "__uuid__": "12924186-50ed-455f-9f4f-da3f462e8a32"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -479,7 +479,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": {
-      "__uuid__": "ee0967e4-8a9c-4d24-9ae4-a5ee93be004b"
+      "__uuid__": "38df132a-9255-4a7d-abc4-90d262248008"
     },
     "_id": ""
   },
@@ -536,14 +536,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 45
+        "__id__": 49
       },
       {
-        "__id__": 46
+        "__id__": 50
       }
     ],
     "_prefab": {
-      "__id__": 47
+      "__id__": 51
     },
     "_opacity": 255,
     "_color": {
@@ -607,14 +607,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 42
+        "__id__": 46
       },
       {
-        "__id__": 43
+        "__id__": 47
       }
     ],
     "_prefab": {
-      "__id__": 44
+      "__id__": 48
     },
     "_opacity": 255,
     "_color": {
@@ -688,19 +688,22 @@
       },
       {
         "__id__": 35
+      },
+      {
+        "__id__": 39
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 39
+        "__id__": 43
       },
       {
-        "__id__": 40
+        "__id__": 44
       }
     ],
     "_prefab": {
-      "__id__": 41
+      "__id__": 45
     },
     "_opacity": 255,
     "_color": {
@@ -713,7 +716,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 443
+      "height": 596
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -792,7 +795,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -48,
+        -51,
         0,
         0,
         0,
@@ -930,7 +933,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -108,
+        -116,
         0,
         0,
         0,
@@ -1068,7 +1071,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -183,
+        -196,
         0,
         0,
         0,
@@ -1107,8 +1110,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "+   Trong một phiên cược, người chơi chỉ được chọn 1 cửa duy nhất Tài hoặc Xỉu \n     - Tài: tổng điểm 3 viên xúc xắc >= 11  \n     - Xỉu: tổng điểm 3 viên xúc xắc <= 10",
-    "_N$string": "+   Trong một phiên cược, người chơi chỉ được chọn 1 cửa duy nhất Tài hoặc Xỉu \n     - Tài: tổng điểm 3 viên xúc xắc >= 11  \n     - Xỉu: tổng điểm 3 viên xúc xắc <= 10",
+    "_string": "-  Trong một phiên cược, người chơi chỉ được chọn 1 cửa duy nhất Tài hoặc Xỉu \n    + Tài: tổng điểm 3 viên xúc xắc >= 11  \n    + Xỉu: tổng điểm 3 viên xúc xắc <= 10",
+    "_N$string": "-  Trong một phiên cược, người chơi chỉ được chọn 1 cửa duy nhất Tài hoặc Xỉu \n    + Tài: tổng điểm 3 viên xúc xắc >= 11  \n    + Xỉu: tổng điểm 3 viên xúc xắc <= 10",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1206,7 +1209,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -288,
+        -306,
         0,
         0,
         0,
@@ -1245,8 +1248,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "+   Nhà cái cân cửa: khi lượng tiền đặt cược giữa 2 cửa chênh lệch nhau, số tiền chênh lệch sẽ được hoàn trả vào tài khoản người chơi đặt cược sau.",
-    "_N$string": "+   Nhà cái cân cửa: khi lượng tiền đặt cược giữa 2 cửa chênh lệch nhau, số tiền chênh lệch sẽ được hoàn trả vào tài khoản người chơi đặt cược sau.",
+    "_string": "-  Nhà cái cân cửa: khi lượng tiền đặt cược giữa 2 cửa chênh lệch nhau, số tiền chênh lệch sẽ được hoàn trả vào tài khoản người chơi đặt cược sau.",
+    "_N$string": "-  Nhà cái cân cửa: khi lượng tiền đặt cược giữa 2 cửa chênh lệch nhau, số tiền chênh lệch sẽ được hoàn trả vào tài khoản người chơi đặt cược sau.",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1303,7 +1306,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "title",
+    "_name": "New Label copy",
     "_objFlags": 0,
     "_parent": {
       "__id__": 14
@@ -1324,15 +1327,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 246,
-      "g": 193,
-      "b": 8,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 30
+      "height": 120
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1344,7 +1347,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -348,
+        -416,
         0,
         0,
         0,
@@ -1383,8 +1386,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Hạn mức cược",
-    "_N$string": "Hạn mức cược",
+    "_string": "Ví dụ: Người chơi A đặt 100 vào Tài, người chơi B đặt 40 vào Xỉu và C đặt 80 vào Xỉu. Sau khi nhà cái cân cửa, số tiền cược chênh lệch sẽ được hoàn trả cho C (người chơi đặt cược sau) 20",
+    "_N$string": "Ví dụ: Người chơi A đặt 100 vào Tài, người chơi B đặt 40 vào Xỉu và C đặt 80 vào Xỉu. Sau khi nhà cái cân cửa, số tiền cược chênh lệch sẽ được hoàn trả cho C (người chơi đặt cược sau) 20",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1436,12 +1439,12 @@
     "asset": {
       "__uuid__": "63f6fa54-946a-43b0-b215-d174cfa35159"
     },
-    "fileId": "72Nh8ScwRAqYmN5eIecnJ/",
+    "fileId": "01RwPcXxpF8LqbTK/S6GpG",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "remote",
+    "_name": "title",
     "_objFlags": 0,
     "_parent": {
       "__id__": 14
@@ -1462,15 +1465,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 246,
+      "g": 193,
+      "b": 8,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 60
+      "height": 30
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1482,7 +1485,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -393,
+        -496,
         0,
         0,
         0,
@@ -1521,8 +1524,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "+   Hạn mức cược từ 1 đến _chipMax cho một lần đặt cược và tổng tiền cược tối đa cho _minBet phiên là _maxBet.",
-    "_N$string": "+   Hạn mức cược từ 1 đến _chipMax cho một lần đặt cược và tổng tiền cược tối đa cho _minBet phiên là _maxBet.",
+    "_string": "Hạn mức cược",
+    "_N$string": "Hạn mức cược",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1545,6 +1548,144 @@
     "_objFlags": 0,
     "node": {
       "__id__": 35
+    },
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 40,
+    "_left": 0,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 2882.75,
+    "_originalHeight": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "63f6fa54-946a-43b0-b215-d174cfa35159"
+    },
+    "fileId": "72Nh8ScwRAqYmN5eIecnJ/",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "remote",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 14
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 40
+      },
+      {
+        "__id__": 41
+      }
+    ],
+    "_prefab": {
+      "__id__": 42
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 610,
+      "height": 60
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        -546,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 39
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_string": "-  Hạn mức cược từ 1 đến _chipMax cho một lần đặt cược và tổng tiền cược tối đa cho _minBet phiên là _maxBet.",
+    "_N$string": "-  Hạn mức cược từ 1 đến _chipMax cho một lần đặt cược và tổng tiền cược tối đa cho _minBet phiên là _maxBet.",
+    "_fontSize": 22,
+    "_lineHeight": 30,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 0,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 3,
+    "_N$cacheMode": 2,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 39
     },
     "_enabled": true,
     "alignMode": 1,
@@ -1615,7 +1756,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 443
+      "height": 596
     },
     "_resize": 1,
     "_N$layoutType": 2,
@@ -1627,10 +1768,10 @@
     "_N$startAxis": 0,
     "_N$paddingLeft": 0,
     "_N$paddingRight": 0,
-    "_N$paddingTop": 3,
+    "_N$paddingTop": 6,
     "_N$paddingBottom": 20,
     "_N$spacingX": 0,
-    "_N$spacingY": 0,
+    "_N$spacingY": 5,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
     "_N$affectedByScale": false,
@@ -1778,17 +1919,17 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 49
+        "__id__": 53
       },
       {
-        "__id__": 50
+        "__id__": 54
       },
       {
-        "__id__": 51
+        "__id__": 55
       }
     ],
     "_prefab": {
-      "__id__": 53
+      "__id__": 57
     },
     "_opacity": 255,
     "_color": {
@@ -1842,7 +1983,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 48
+      "__id__": 52
     },
     "_enabled": true,
     "_materials": [
@@ -1876,7 +2017,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 48
+      "__id__": 52
     },
     "_enabled": true,
     "alignMode": 1,
@@ -1903,7 +2044,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 48
+      "__id__": 52
     },
     "_enabled": true,
     "_normalMaterial": null,
@@ -1912,7 +2053,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 52
+        "__id__": 56
       }
     ],
     "_N$interactable": true,
@@ -2007,7 +2148,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "8ae1baba-d193-4f9e-af02-46ddad001822"
+      "__uuid__": "67879ccd-160a-48f2-a927-a1756062ee15"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -2021,7 +2162,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": {
-      "__uuid__": "ee0967e4-8a9c-4d24-9ae4-a5ee93be004b"
+      "__uuid__": "38df132a-9255-4a7d-abc4-90d262248008"
     },
     "_id": ""
   },
@@ -2079,14 +2220,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 60
+        "__id__": 64
       },
       {
-        "__id__": 61
+        "__id__": 65
       }
     ],
     "_prefab": {
-      "__id__": 62
+      "__id__": 66
     },
     "_opacity": 255,
     "_color": {
@@ -2140,7 +2281,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 59
+      "__id__": 63
     },
     "_enabled": true,
     "_materials": [
@@ -2175,7 +2316,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 59
+      "__id__": 63
     },
     "_enabled": true,
     "_dataId": "ui.gameRules",
@@ -2241,7 +2382,7 @@
     "_enabled": true,
     "textComponents": [
       {
-        "__id__": 36
+        "__id__": 40
       }
     ],
     "mainFrame": {

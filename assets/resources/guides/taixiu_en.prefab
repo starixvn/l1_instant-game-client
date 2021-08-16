@@ -465,7 +465,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "73737411-7113-4b3f-8bb3-100b868b1ef1"
+      "__uuid__": "12924186-50ed-455f-9f4f-da3f462e8a32"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -479,7 +479,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": {
-      "__uuid__": "ee0967e4-8a9c-4d24-9ae4-a5ee93be004b"
+      "__uuid__": "38df132a-9255-4a7d-abc4-90d262248008"
     },
     "_id": ""
   },
@@ -713,7 +713,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 593
+      "height": 621
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -792,7 +792,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -48,
+        -51,
         0,
         0,
         0,
@@ -930,7 +930,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -108,
+        -116,
         0,
         0,
         0,
@@ -1056,7 +1056,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 180
+      "height": 150
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1068,7 +1068,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -213,
+        -211,
         0,
         0,
         0,
@@ -1107,8 +1107,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "+   The players can bet on either BIG or SMALL, but not on both. \n     - BIG: the player will win if the total points of three dice >= 11.\n     - SMALL: the player will win if the total points of the three dice <= 10.",
-    "_N$string": "+   The players can bet on either BIG or SMALL, but not on both. \n     - BIG: the player will win if the total points of three dice >= 11.\n     - SMALL: the player will win if the total points of the three dice <= 10.",
+    "_string": "-  The players can bet on either BIG or SMALL, but not on both. \n    + BIG:  the player wins if the total points of three dice >= 11\n    + SMALL: the player wins if the total points of the three dice <= 10",
+    "_N$string": "-  The players can bet on either BIG or SMALL, but not on both. \n    + BIG:  the player wins if the total points of three dice >= 11\n    + SMALL: the player wins if the total points of the three dice <= 10",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1194,7 +1194,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 180
+      "height": 210
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1206,7 +1206,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -393,
+        -396,
         0,
         0,
         0,
@@ -1245,8 +1245,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "+   Balanced Betting Pool: if the total amounts bet on BIG and SMALL are different then the gap amount will be refunded to the players who have the latest bet ticket.\n      Example: Player A bets 100 on BIG, B bets 40 on SMALL, and C bets 80 on SMALL. To balance the total amounts bet on BIG and SMALL, the system will refund 20 to player C.",
-    "_N$string": "+   Balanced Betting Pool: if the total amounts bet on BIG and SMALL are different then the gap amount will be refunded to the players who have the latest bet ticket.\n      Example: Player A bets 100 on BIG, B bets 40 on SMALL, and C bets 80 on SMALL. To balance the total amounts bet on BIG and SMALL, the system will refund 20 to player C.",
+    "_string": "-  Balanced Betting Pool: if the total amounts bet on BIG and SMALL are different then the gap amount will be refunded to the players who have the latest bet ticket.\n   Example: Player A bets 100 on BIG, player B bets 40 on SMALL, and C bets 80 on SMALL. To balance the total amounts bet on BIG and SMALL, the system will refund 20 to player C.",
+    "_N$string": "-  Balanced Betting Pool: if the total amounts bet on BIG and SMALL are different then the gap amount will be refunded to the players who have the latest bet ticket.\n   Example: Player A bets 100 on BIG, player B bets 40 on SMALL, and C bets 80 on SMALL. To balance the total amounts bet on BIG and SMALL, the system will refund 20 to player C.",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1344,7 +1344,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -498,
+        -521,
         0,
         0,
         0,
@@ -1482,7 +1482,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -543,
+        -571,
         0,
         0,
         0,
@@ -1615,7 +1615,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 593
+      "height": 621
     },
     "_resize": 1,
     "_N$layoutType": 2,
@@ -1627,10 +1627,10 @@
     "_N$startAxis": 0,
     "_N$paddingLeft": 0,
     "_N$paddingRight": 0,
-    "_N$paddingTop": 3,
+    "_N$paddingTop": 6,
     "_N$paddingBottom": 20,
     "_N$spacingX": 0,
-    "_N$spacingY": 0,
+    "_N$spacingY": 5,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
     "_N$affectedByScale": false,
@@ -2007,7 +2007,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "8ae1baba-d193-4f9e-af02-46ddad001822"
+      "__uuid__": "67879ccd-160a-48f2-a927-a1756062ee15"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -2021,7 +2021,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": {
-      "__uuid__": "ee0967e4-8a9c-4d24-9ae4-a5ee93be004b"
+      "__uuid__": "38df132a-9255-4a7d-abc4-90d262248008"
     },
     "_id": ""
   },
