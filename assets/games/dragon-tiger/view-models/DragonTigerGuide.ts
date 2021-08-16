@@ -11,9 +11,7 @@ export default class DragonTigerGuide extends GameGuideBase {
             _maxBetDragon: numberWithCommas(configs.choices_maxbet.dragon),
             _maxBetTie: numberWithCommas(configs.choices_maxbet.tie),
             _minBet: configs.minbet,
-            _maxBet: numberWithCommas(configs.maxbet),
-            _oddDragon: configs.odds.dragon,
-            _oddTie: configs.odds.tie
+            _maxBet: numberWithCommas(configs.maxbet)
         };
     }
 }
