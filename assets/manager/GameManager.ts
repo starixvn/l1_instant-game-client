@@ -119,4 +119,13 @@ export default class GameManager extends cc.Component {
     getFirstOfferGame(): number {
         return this.supportGames.find((game) => this.user.offerGames.includes(game));
     }
+
+    removeGameOffer(gameId: number) {
+        if (this.user && this.user.offerGames) {
+            const index = this.user.offerGames.findIndex((id) => id === gameId);
+            if (index > -1) {
+                this.user.offerGames.splice(index, 1);
+            }
+        }
+    }
 }

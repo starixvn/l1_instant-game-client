@@ -31,6 +31,7 @@ export default class Main extends cc.Component {
     private generateNameCount = 0;
     private miniPanel: MiniPanel;
     private gameHeaders: cc.Toggle[] = [];
+    private showingNoticeNotPermitToPlay = false;
 
     onLoad() {
         cc.GameManager = GameManager.Instance;
@@ -44,7 +45,16 @@ export default class Main extends cc.Component {
         });
         this.initLanguage();
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
-        this.miniPanel.updateOfferGameHeaders = () => this.updateOfferGameHeaders();
+        this.miniPanel.mainCallback = {
+            showNoticeNotPermitToPlay: (){
+                this.showingNoticeNotPermitToPlay = true;
+            },
+            updateOfferGameHeaders: () => this.updateOfferGameHeaders(),
+            selecAndOpenGame: (gameId) => {
+                this.updateSelectedHeader(gameId);
+                this.openGame(gameId);
+            }
+        };
         GameManager.Instance.miniPanel = this.miniPanel;
         this.splash.active = true;
         this.checkSSO();
@@ -165,6 +175,11 @@ export default class Main extends cc.Component {
     }
 
     onGameChanged(toggle: cc.Toggle, param: string) {
+        if(this.showingNoticeNotPermitToPlay){
+            this.showingNoticeNotPermitToPlay = false;
+            this.miniPanel.removeAllNotices();
+            this.updateOfferGameHeaders();
+        }
         if (toggle.isChecked) {
             const gameId = +param;
             this.openGame(gameId);

@@ -40,7 +40,11 @@ export default class MiniPanel extends BaseComponent {
     private miniGamesCache = {};
     private currentGame: GameBase;
     public currentGameId: number;
-    public updateOfferGameHeaders: () => void;
+    public mainCallback: {
+        showNoticeNotPermitToPlay: () => void;
+        updateOfferGameHeaders: () => void;
+        selecAndOpenGame: (gameId: number) => void;
+    };
 
     onLoad() {
         this.showLoading(false);
@@ -145,6 +149,8 @@ export default class MiniPanel extends BaseComponent {
     }
 
     handleNotPermittedToPlay(gameId: number, switchGame: boolean) {
+        cc.GameManager.removeGameOffer(gameId);
+        this.mainCallback.showNoticeNotPermitToPlay();
         const gameName = GameUtils.getGameNameString(gameId);
         const message = i18n.t("messages.gameExcluded", { gameName: gameName });
         const canNotClose = cc.GameManager.isNoGameOffer();
@@ -154,19 +160,15 @@ export default class MiniPanel extends BaseComponent {
             canNotClose
         } as NoticeData;
         const callback = () => {
-            if (switchGame) {
-                this.switchToFirstOfferGame();
+            if (this.mainCallback.updateOfferGameHeaders) {
+                this.mainCallback.updateOfferGameHeaders();
             }
-            if (this.updateOfferGameHeaders) {
-                this.updateOfferGameHeaders();
+            if (switchGame) {
+                const firstGameId = cc.GameManager.getFirstOfferGame();
+                this.mainCallback.selecAndOpenGame(firstGameId);
             }
         };
         this.showNotice(noticeData, callback, callback);
-    }
-
-    switchToFirstOfferGame() {
-        const gameId = cc.GameManager.getFirstOfferGame();
-        this.openNewSocketMiniGame(gameId);
     }
 
     forceKickedOut() {
@@ -287,5 +289,9 @@ export default class MiniPanel extends BaseComponent {
 
     removeAllDialogs() {
         this.dialog.destroyAllChildren();
+    }
+
+    removeAllNotices() {
+        this.noticeContainer.destroyAllChildren();
     }
 }
