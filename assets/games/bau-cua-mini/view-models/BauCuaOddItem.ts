@@ -1,6 +1,11 @@
-import VipFishPrawnCrabOddItem from "../../vip-fish-prawn-crab/view-models/VipFishPrawnCrabOddItem";
-
-const { ccclass } = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class BauCuaOddItem extends VipFishPrawnCrabOddItem {}
+export default class BauCuaOddItem extends cc.Component {
+    @property(cc.Label)
+    value: cc.Label = null;
+
+    setValue(value: string) {
+        this.value.string = `1:${value}`;
+    }
+}
