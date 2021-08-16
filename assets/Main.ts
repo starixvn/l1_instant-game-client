@@ -47,7 +47,7 @@ export default class Main extends cc.Component {
         this.initLanguage();
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
         this.miniPanel.mainCallback = {
-            showNoticeNotPermitToPlay: (){
+            showNoticeNotPermitToPlay: () => {
                 this.showingNoticeNotPermitToPlay = true;
             },
             updateOfferGameHeaders: () => this.updateOfferGameHeaders(),
@@ -129,11 +129,10 @@ export default class Main extends cc.Component {
             gameId = parseInt(window.openGameId);
             ssoGameId = gameId;
             window.openGameId = null;
-            
         }
 
-        if (gameId === 0 ) {
-            gameId = this.getGameDefaultOrCache() ;
+        if (gameId === 0) {
+            gameId = this.getGameDefaultOrCache();
         }
 
         this.splash.active = false;
@@ -143,7 +142,7 @@ export default class Main extends cc.Component {
         }
     }
 
-    getGameDefaultOrCache():number{
+    getGameDefaultOrCache(): number {
         return GameIds.MiniSedie;
     }
 
@@ -174,7 +173,7 @@ export default class Main extends cc.Component {
 
     onGameChanged(toggle: cc.Toggle, param: string) {
         this.miniPanel.removeAllNotices();
-        if(this.showingNoticeNotPermitToPlay){
+        if (this.showingNoticeNotPermitToPlay) {
             this.showingNoticeNotPermitToPlay = false;
             this.updateOfferGameHeaders();
         }
