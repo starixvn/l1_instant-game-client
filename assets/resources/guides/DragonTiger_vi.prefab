@@ -696,7 +696,7 @@
         "__id__": 43
       },
       {
-        "__id__": 108
+        "__id__": 47
       }
     ],
     "_active": true,
@@ -722,7 +722,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 801
+      "height": 771
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1064,7 +1064,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 610,
+      "width": 606,
       "height": 120
     },
     "_anchorPoint": {
@@ -1076,7 +1076,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        -2,
         -206,
         0,
         0,
@@ -1145,8 +1145,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": 0,
-    "_right": 0,
+    "_left": 1.021405182655144e-14,
+    "_right": 3.999999999999985,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -1203,7 +1203,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 615,
-      "height": 150
+      "height": 120
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1215,7 +1215,7 @@
       "ctor": "Float64Array",
       "array": [
         2.5,
-        -351,
+        -336,
         0,
         0,
         0,
@@ -1254,8 +1254,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "-  Điểm số các lá bài trong Rồng Hổ (không so sánh chất của lá bài)\n    + Các lá bài từ 2 đến 10 có giá trị tùy theo số trên mỗi lá bài.\n    + Lá A được tính là 1 điểm; lá J là 11 điểm, lá Q là 12 điểm và K là 13.",
-    "_N$string": "-  Điểm số các lá bài trong Rồng Hổ (không so sánh chất của lá bài)\n    + Các lá bài từ 2 đến 10 có giá trị tùy theo số trên mỗi lá bài.\n    + Lá A được tính là 1 điểm; lá J là 11 điểm, lá Q là 12 điểm và K là 13.",
+    "_string": "-  Điểm số các lá bài trong Rồng Hổ (không so chất của lá bài).\n    + Các lá bài từ 2 đến 10 có giá trị tùy theo số trên mỗi lá bài.\n    + Lá A được tính là 1 điểm; lá J là 11 điểm, lá Q là 12 điểm và K là 13.",
+    "_N$string": "-  Điểm số các lá bài trong Rồng Hổ (không so chất của lá bài).\n    + Các lá bài từ 2 đến 10 có giá trị tùy theo số trên mỗi lá bài.\n    + Lá A được tính là 1 điểm; lá J là 11 điểm, lá Q là 12 điểm và K là 13.",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1353,7 +1353,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -451,
+        -421,
         0,
         0,
         0,
@@ -1491,7 +1491,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -491,
+        -461,
         0,
         0,
         0,
@@ -1629,7 +1629,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -531,
+        -501,
         0,
         0,
         0,
@@ -1668,8 +1668,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "- Tổng tiền cược tối đa cho 1 phiên là _maxBetRound.",
-    "_N$string": "- Tổng tiền cược tối đa cho 1 phiên là _maxBetRound.",
+    "_string": "- Tổng tiền cược tối đa cho 1 phiên là _maxBetRound",
+    "_N$string": "- Tổng tiền cược tối đa cho 1 phiên là _maxBetRound",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1726,6 +1726,144 @@
   },
   {
     "__type__": "cc.Node",
+    "_name": "remote copy",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 14
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 44
+      },
+      {
+        "__id__": 45
+      }
+    ],
+    "_prefab": {
+      "__id__": 46
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 610,
+      "height": 60
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        -556,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 43
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_string": "- Người chơi sẽ mất 50% số tiền cược đặt vào 2 cửa Rồng, Hổ nếu kết quả Hòa.",
+    "_N$string": "- Người chơi sẽ mất 50% số tiền cược đặt vào 2 cửa Rồng, Hổ nếu kết quả Hòa.",
+    "_fontSize": 22,
+    "_lineHeight": 30,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 0,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 3,
+    "_N$cacheMode": 2,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 43
+    },
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 40,
+    "_left": 0,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 2882.75,
+    "_originalHeight": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "383e18e0-2c01-455d-9e12-c87da7d81294"
+    },
+    "fileId": "05LZUm9M5Iho3cMnlsd2G4",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
     "_name": "table",
     "_objFlags": 0,
     "_parent": {
@@ -1733,13 +1871,10 @@
     },
     "_children": [
       {
-        "__id__": 44
+        "__id__": 48
       },
       {
-        "__id__": 54
-      },
-      {
-        "__id__": 90
+        "__id__": 58
       },
       {
         "__id__": 94
@@ -1749,16 +1884,19 @@
       },
       {
         "__id__": 102
+      },
+      {
+        "__id__": 106
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 106
+        "__id__": 110
       }
     ],
     "_prefab": {
-      "__id__": 107
+      "__id__": 111
     },
     "_opacity": 255,
     "_color": {
@@ -1783,7 +1921,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -711,
+        -751,
         0,
         0,
         0,
@@ -1812,27 +1950,27 @@
     "_name": "header",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 43
+      "__id__": 47
     },
     "_children": [
       {
-        "__id__": 45
-      },
-      {
-        "__id__": 48
-      }
-    ],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 51
+        "__id__": 49
       },
       {
         "__id__": 52
       }
     ],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 55
+      },
+      {
+        "__id__": 56
+      }
+    ],
     "_prefab": {
-      "__id__": 53
+      "__id__": 57
     },
     "_opacity": 255,
     "_color": {
@@ -1886,17 +2024,17 @@
     "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 44
+      "__id__": 48
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 46
+        "__id__": 50
       }
     ],
     "_prefab": {
-      "__id__": 47
+      "__id__": 51
     },
     "_opacity": 255,
     "_color": {
@@ -1950,7 +2088,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 45
+      "__id__": 49
     },
     "_enabled": true,
     "_materials": [
@@ -1994,17 +2132,17 @@
     "_name": "New Label copy",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 44
+      "__id__": 48
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 49
+        "__id__": 53
       }
     ],
     "_prefab": {
-      "__id__": 50
+      "__id__": 54
     },
     "_opacity": 255,
     "_color": {
@@ -2058,7 +2196,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 48
+      "__id__": 52
     },
     "_enabled": true,
     "_materials": [
@@ -2068,8 +2206,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": " Hạn Mức  Cược ",
-    "_N$string": " Hạn Mức  Cược ",
+    "_string": " Hạn Mức Cược ",
+    "_N$string": " Hạn Mức Cược ",
     "_fontSize": 24,
     "_lineHeight": 16,
     "_enableWrapText": true,
@@ -2102,7 +2240,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 44
+      "__id__": 48
     },
     "_enabled": true,
     "_materials": [
@@ -2136,7 +2274,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 44
+      "__id__": 48
     },
     "_enabled": true,
     "alignMode": 1,
@@ -2174,30 +2312,30 @@
     "_name": "body",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 43
+      "__id__": 47
     },
     "_children": [
       {
-        "__id__": 55
+        "__id__": 59
       },
       {
-        "__id__": 68
+        "__id__": 72
       },
       {
-        "__id__": 78
+        "__id__": 82
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 87
+        "__id__": 91
       },
       {
-        "__id__": 88
+        "__id__": 92
       }
     ],
     "_prefab": {
-      "__id__": 89
+      "__id__": 93
     },
     "_opacity": 255,
     "_color": {
@@ -2251,27 +2389,27 @@
     "_name": "row",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 54
+      "__id__": 58
     },
     "_children": [
       {
-        "__id__": 56
+        "__id__": 60
       },
       {
-        "__id__": 59
+        "__id__": 63
       },
       {
-        "__id__": 62
+        "__id__": 66
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 66
+        "__id__": 70
       }
     ],
     "_prefab": {
-      "__id__": 67
+      "__id__": 71
     },
     "_opacity": 255,
     "_color": {
@@ -2325,17 +2463,17 @@
     "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 55
+      "__id__": 59
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 57
+        "__id__": 61
       }
     ],
     "_prefab": {
-      "__id__": 58
+      "__id__": 62
     },
     "_opacity": 255,
     "_color": {
@@ -2389,7 +2527,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 56
+      "__id__": 60
     },
     "_enabled": true,
     "_materials": [
@@ -2433,17 +2571,17 @@
     "_name": "max-bet-rong",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 55
+      "__id__": 59
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 60
+        "__id__": 64
       }
     ],
     "_prefab": {
-      "__id__": 61
+      "__id__": 65
     },
     "_opacity": 255,
     "_color": {
@@ -2497,7 +2635,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 59
+      "__id__": 63
     },
     "_enabled": true,
     "_materials": [
@@ -2541,20 +2679,20 @@
     "_name": "line copy",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 55
+      "__id__": 59
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 63
+        "__id__": 67
       },
       {
-        "__id__": 64
+        "__id__": 68
       }
     ],
     "_prefab": {
-      "__id__": 65
+      "__id__": 69
     },
     "_opacity": 255,
     "_color": {
@@ -2608,7 +2746,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 62
+      "__id__": 66
     },
     "_enabled": true,
     "_materials": [
@@ -2642,7 +2780,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 62
+      "__id__": 66
     },
     "_enabled": true,
     "alignMode": 1,
@@ -2680,7 +2818,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 55
+      "__id__": 59
     },
     "_enabled": true,
     "alignMode": 1,
@@ -2718,24 +2856,24 @@
     "_name": "row copy",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 54
+      "__id__": 58
     },
     "_children": [
       {
-        "__id__": 69
+        "__id__": 73
       },
       {
-        "__id__": 72
+        "__id__": 76
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 76
+        "__id__": 80
       }
     ],
     "_prefab": {
-      "__id__": 77
+      "__id__": 81
     },
     "_opacity": 255,
     "_color": {
@@ -2789,17 +2927,17 @@
     "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 68
+      "__id__": 72
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 70
+        "__id__": 74
       }
     ],
     "_prefab": {
-      "__id__": 71
+      "__id__": 75
     },
     "_opacity": 255,
     "_color": {
@@ -2853,7 +2991,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 69
+      "__id__": 73
     },
     "_enabled": true,
     "_materials": [
@@ -2897,20 +3035,20 @@
     "_name": "line copy",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 68
+      "__id__": 72
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 73
+        "__id__": 77
       },
       {
-        "__id__": 74
+        "__id__": 78
       }
     ],
     "_prefab": {
-      "__id__": 75
+      "__id__": 79
     },
     "_opacity": 255,
     "_color": {
@@ -2964,7 +3102,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 72
+      "__id__": 76
     },
     "_enabled": true,
     "_materials": [
@@ -2998,7 +3136,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 72
+      "__id__": 76
     },
     "_enabled": true,
     "alignMode": 1,
@@ -3036,7 +3174,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 68
+      "__id__": 72
     },
     "_enabled": true,
     "alignMode": 1,
@@ -3074,24 +3212,24 @@
     "_name": "row copy",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 54
+      "__id__": 58
     },
     "_children": [
       {
-        "__id__": 79
+        "__id__": 83
       },
       {
-        "__id__": 82
+        "__id__": 86
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 85
+        "__id__": 89
       }
     ],
     "_prefab": {
-      "__id__": 86
+      "__id__": 90
     },
     "_opacity": 255,
     "_color": {
@@ -3145,17 +3283,17 @@
     "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 78
+      "__id__": 82
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 80
+        "__id__": 84
       }
     ],
     "_prefab": {
-      "__id__": 81
+      "__id__": 85
     },
     "_opacity": 255,
     "_color": {
@@ -3209,7 +3347,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 79
+      "__id__": 83
     },
     "_enabled": true,
     "_materials": [
@@ -3253,17 +3391,17 @@
     "_name": "max-bet-hoa",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 78
+      "__id__": 82
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 83
+        "__id__": 87
       }
     ],
     "_prefab": {
-      "__id__": 84
+      "__id__": 88
     },
     "_opacity": 255,
     "_color": {
@@ -3317,7 +3455,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 82
+      "__id__": 86
     },
     "_enabled": true,
     "_materials": [
@@ -3361,7 +3499,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 78
+      "__id__": 82
     },
     "_enabled": true,
     "alignMode": 1,
@@ -3399,7 +3537,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 54
+      "__id__": 58
     },
     "_enabled": true,
     "_layoutSize": {
@@ -3431,7 +3569,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 54
+      "__id__": 58
     },
     "_enabled": true,
     "alignMode": 1,
@@ -3469,20 +3607,20 @@
     "_name": "line copy",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 43
+      "__id__": 47
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 91
+        "__id__": 95
       },
       {
-        "__id__": 92
+        "__id__": 96
       }
     ],
     "_prefab": {
-      "__id__": 93
+      "__id__": 97
     },
     "_opacity": 255,
     "_color": {
@@ -3536,7 +3674,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 90
+      "__id__": 94
     },
     "_enabled": true,
     "_materials": [
@@ -3570,7 +3708,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 90
+      "__id__": 94
     },
     "_enabled": true,
     "alignMode": 1,
@@ -3608,20 +3746,20 @@
     "_name": "line copy",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 43
+      "__id__": 47
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 95
+        "__id__": 99
       },
       {
-        "__id__": 96
+        "__id__": 100
       }
     ],
     "_prefab": {
-      "__id__": 97
+      "__id__": 101
     },
     "_opacity": 255,
     "_color": {
@@ -3675,7 +3813,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 94
+      "__id__": 98
     },
     "_enabled": true,
     "_materials": [
@@ -3709,7 +3847,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 94
+      "__id__": 98
     },
     "_enabled": true,
     "alignMode": 1,
@@ -3747,20 +3885,20 @@
     "_name": "line copy",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 43
+      "__id__": 47
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 99
+        "__id__": 103
       },
       {
-        "__id__": 100
+        "__id__": 104
       }
     ],
     "_prefab": {
-      "__id__": 101
+      "__id__": 105
     },
     "_opacity": 255,
     "_color": {
@@ -3814,7 +3952,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 98
+      "__id__": 102
     },
     "_enabled": true,
     "_materials": [
@@ -3848,7 +3986,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 98
+      "__id__": 102
     },
     "_enabled": true,
     "alignMode": 1,
@@ -3886,20 +4024,20 @@
     "_name": "line copy",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 43
+      "__id__": 47
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 103
+        "__id__": 107
       },
       {
-        "__id__": 104
+        "__id__": 108
       }
     ],
     "_prefab": {
-      "__id__": 105
+      "__id__": 109
     },
     "_opacity": 255,
     "_color": {
@@ -3953,7 +4091,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 102
+      "__id__": 106
     },
     "_enabled": true,
     "_materials": [
@@ -3987,7 +4125,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 102
+      "__id__": 106
     },
     "_enabled": true,
     "alignMode": 1,
@@ -4025,7 +4163,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 43
+      "__id__": 47
     },
     "_enabled": true,
     "_materials": [
@@ -4066,144 +4204,6 @@
     "sync": false
   },
   {
-    "__type__": "cc.Node",
-    "_name": "remote copy",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 14
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 109
-      },
-      {
-        "__id__": 110
-      }
-    ],
-    "_prefab": {
-      "__id__": 111
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 610,
-      "height": 60
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        0,
-        -751,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 108
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_string": "- Người chơi sẽ mất 50% số tiền cược đặt vào 2 cửa Rồng, Hổ nếu kết quả Hòa",
-    "_N$string": "- Người chơi sẽ mất 50% số tiền cược đặt vào 2 cửa Rồng, Hổ nếu kết quả Hòa",
-    "_fontSize": 22,
-    "_lineHeight": 30,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_styleFlags": 0,
-    "_underlineHeight": 0,
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 0,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 3,
-    "_N$cacheMode": 2,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Widget",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 108
-    },
-    "_enabled": true,
-    "alignMode": 1,
-    "_target": null,
-    "_alignFlags": 40,
-    "_left": 0,
-    "_right": 0,
-    "_top": 0,
-    "_bottom": 0,
-    "_verticalCenter": 0,
-    "_horizontalCenter": 0,
-    "_isAbsLeft": true,
-    "_isAbsRight": true,
-    "_isAbsTop": true,
-    "_isAbsBottom": true,
-    "_isAbsHorizontalCenter": true,
-    "_isAbsVerticalCenter": true,
-    "_originalWidth": 2882.75,
-    "_originalHeight": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "383e18e0-2c01-455d-9e12-c87da7d81294"
-    },
-    "fileId": "05LZUm9M5Iho3cMnlsd2G4",
-    "sync": false
-  },
-  {
     "__type__": "cc.Widget",
     "_name": "",
     "_objFlags": 0,
@@ -4241,7 +4241,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 801
+      "height": 771
     },
     "_resize": 1,
     "_N$layoutType": 2,
@@ -4870,10 +4870,10 @@
         "__id__": 40
       },
       {
-        "__id__": 60
+        "__id__": 64
       },
       {
-        "__id__": 83
+        "__id__": 87
       }
     ],
     "mainFrame": {
