@@ -1,6 +1,7 @@
 import MiniPanel from "./common/control/mini-panel/MiniPanel";
 import { sentryLogger } from "./common/logger.js";
 import NameGenerator from "./common/name-generator/NameGenerator";
+import { GameIds } from "./configs/SabaConfigs";
 import * as authManager from "./manager/auth/AuthManager";
 import { getCacheLanguage, setLanguage } from "./manager/auth/SessionManager";
 import UserService from "./manager/auth/UserService";
@@ -124,29 +125,26 @@ export default class Main extends cc.Component {
     openGameSSO() {
         let gameId = 0;
         let ssoGameId = 0;
-        let isGameExcluded = false;
         if (window.openGameId) {
             gameId = parseInt(window.openGameId);
             ssoGameId = gameId;
             window.openGameId = null;
-            if (gameId) {
-                isGameExcluded = cc.GameManager.isGameExcluded(gameId);
-            }
+            
         }
 
-        if (gameId === 0 || isGameExcluded) {
-            gameId = cc.GameManager.getFirstOfferGame();
+        if (gameId === 0 ) {
+            gameId = this.getGameDefaultOrCache() ;
         }
 
         this.splash.active = false;
-        this.updateOfferGameHeaders();
         if (gameId) {
             this.updateSelectedHeader(gameId);
             this.openGame(gameId);
         }
-        if (isGameExcluded) {
-            this.miniPanel.handleNotPermittedToPlay(ssoGameId, ssoGameId === gameId);
-        }
+    }
+
+    getGameDefaultOrCache():number{
+        return GameIds.MiniSedie;
     }
 
     updateOfferGameHeaders() {
