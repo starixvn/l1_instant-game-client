@@ -483,7 +483,7 @@
       "width": 812,
       "height": 456
     },
-    "_fitWidth": false,
+    "_fitWidth": true,
     "_fitHeight": true,
     "_id": "59Cd0ovbdF4byw5sbjJDx7"
   },
@@ -497,11 +497,11 @@
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
-    "_alignFlags": 41,
+    "_alignFlags": 45,
     "_left": 0,
     "_right": 0,
     "_top": 0,
-    "_bottom": 114,
+    "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,
@@ -511,7 +511,7 @@
     "_isAbsHorizontalCenter": true,
     "_isAbsVerticalCenter": true,
     "_originalWidth": 0,
-    "_originalHeight": 0,
+    "_originalHeight": 456,
     "_id": "29zXboiXFBKoIV4PQ2liTe"
   }
 ]
