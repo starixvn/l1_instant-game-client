@@ -1,8 +1,8 @@
-import GameBaseTimeHandler from '../../../_base/handlers/GameBaseTimeHandler';
-import RongHo from '../RongHo';
+import GameBaseTimeHandler from "../../../_base/handlers/GameBaseTimeHandler";
+import DragonTiger from "../DragonTiger";
 
 export default class RHGameTimeHandler extends GameBaseTimeHandler {
-    constructor(protected readonly main: RongHo) {
+    constructor(protected readonly main: DragonTiger) {
         super(main);
     }
 
