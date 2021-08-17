@@ -33,8 +33,6 @@ export default class BauCua extends SocketIOMiniGameBase {
     @property({ type: cc.Prefab, override: true })
     betChipsPrefab: cc.Prefab = null;
 
-    private readonly limitLog = 30;
-
     onLoad() {
         super.onLoad();
     }
