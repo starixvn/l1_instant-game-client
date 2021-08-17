@@ -12,14 +12,14 @@ export default class BauCuaFinishHandler extends GameBaseFinishHandler {
         this.main.currentDataLogs.length > 100 && this.main.currentDataLogs.pop();
         this.main.setDiceResult();
 
-        if (cc.RedT.GAME_IS_SHOWED) {
+        if (cc.GameManager.GAME_IS_SHOWED) {
             cc.tween(this.main.node)
                 .call(this.handleAnimation.bind(this))
                 .delay(this.playResultAnimationTime)
                 .call(() => {
                     onFinishHandlingData();
                     this.main.highlightWinningBetItems(true);
-                    this.main.addLogs();
+                    // this.main.addLogs();
                 })
                 .start();
         }

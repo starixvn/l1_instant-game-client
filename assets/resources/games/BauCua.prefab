@@ -158,8 +158,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -397.088,
-        218.884,
+        -398.51,
+        208.96,
         0,
         0,
         0,
@@ -231,7 +231,7 @@
     "_alignFlags": 1,
     "_left": 0,
     "_right": 0,
-    "_top": -1.8839999999999861,
+    "_top": 8.039999999999992,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -312,7 +312,7 @@
       "ctor": "Float64Array",
       "array": [
         -255.115,
-        65.118,
+        59.3,
         0,
         0,
         0,
@@ -1271,7 +1271,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -137.081,
+        -92.824,
         0,
         0,
         0,
@@ -2089,7 +2089,7 @@
       "ctor": "Float64Array",
       "array": [
         157.4,
-        69.927,
+        54.714,
         0,
         0,
         0,
@@ -5732,7 +5732,7 @@
       "ctor": "Float64Array",
       "array": [
         -170.8,
-        -96,
+        -91,
         0,
         0,
         0,
@@ -6877,7 +6877,7 @@
       "ctor": "Float64Array",
       "array": [
         -20.80000000000001,
-        -96,
+        -91,
         0,
         0,
         0,
@@ -8022,7 +8022,7 @@
       "ctor": "Float64Array",
       "array": [
         129.2,
-        -96,
+        -91,
         0,
         0,
         0,
@@ -9122,7 +9122,7 @@
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
     "_N$spacingX": 20,
-    "_N$spacingY": 40,
+    "_N$spacingY": 35,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
     "_N$affectedByScale": true,
@@ -9181,15 +9181,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 0.5,
       "y": 0.5
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        96.413,
-        217.214,
+        -249.136,
+        -78.292,
         0,
         0,
         0,
@@ -9259,7 +9259,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        34.18,
+        -97.91499999999996,
         0,
         0,
         0,
@@ -9433,7 +9433,9 @@
     "_fontSize": 16,
     "_lineHeight": 45,
     "_enableWrapText": true,
-    "_N$file": null,
+    "_N$file": {
+      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
+    },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
@@ -9474,7 +9476,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 0,
-      "height": 56.7
+      "height": 45
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -9621,7 +9623,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        135.66,
+        3.5650000000000333,
         0,
         0,
         0,
@@ -9795,7 +9797,9 @@
     "_fontSize": 16,
     "_lineHeight": 45,
     "_enableWrapText": true,
-    "_N$file": null,
+    "_N$file": {
+      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
+    },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
@@ -9836,7 +9840,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 0,
-      "height": 56.7
+      "height": 45
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -9983,7 +9987,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        233.575,
+        101.48000000000003,
         0,
         0,
         0,
@@ -10157,7 +10161,9 @@
     "_fontSize": 16,
     "_lineHeight": 45,
     "_enableWrapText": true,
-    "_N$file": null,
+    "_N$file": {
+      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
+    },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
@@ -10198,7 +10204,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 0,
-      "height": 56.7
+      "height": 45
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -10917,8 +10923,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        364.182,
-        -113.773,
+        375.018,
+        -120.395,
         0,
         0,
         0,
@@ -12050,11 +12056,9 @@
         "__id__": 23
       }
     ],
-    "waitedTime": null,
     "animationNode": {
       "__id__": 30
     },
-    "center": null,
     "oddItems": [
       {
         "__id__": 246

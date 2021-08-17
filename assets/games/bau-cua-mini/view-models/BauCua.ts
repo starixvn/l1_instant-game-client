@@ -53,7 +53,7 @@ export default class BauCua extends SocketIOMiniGameBase {
     }
 
     pressedShowScoreBoard() {
-        cc.RedT.audio.playClick();
+        cc.GameManager.audio.playClick();
     }
 
     updateOddsFromConfigs() {
