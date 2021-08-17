@@ -10,6 +10,7 @@ import BauCuaOddItem from "./BauCuaOddItem";
 import BauCuaFinishHandler from "./handlers/BauCuaFinishHandler";
 import BauCuaLogsHandler from "./handlers/BauCuaLogsHandler";
 import BauCuaTimeHandler from "./handlers/BauCuaTimeHandler";
+import GameUtils from "../../../common/utils/GameUtils";
 
 const { ccclass, property } = cc._decorator;
 
@@ -33,8 +34,18 @@ export default class BauCua extends SocketIOMiniGameBase {
     @property({ type: cc.Prefab, override: true })
     betChipsPrefab: cc.Prefab = null;
 
+    @property(cc.Node)
+    chipContainer: cc.Node = null;
+
+    @property(cc.Node)
+    totalBetContainer: cc.Node = null;
+
+    @property(cc.Node)
+    ownBetContainer: cc.Node = null;
+
     onLoad() {
         super.onLoad();
+        this.relocationChipNode();
     }
 
     initMiniPanel(miniPanel: MiniPanel) {
@@ -48,6 +59,14 @@ export default class BauCua extends SocketIOMiniGameBase {
         this.finishHandler = new BauCuaFinishHandler(this);
         this.logsHandler = new BauCuaLogsHandler(this);
         this.timeHandler = new BauCuaTimeHandler(this);
+    }
+
+    relocationChipNode() {
+        this.betItems.forEach((item) => {
+            GameUtils.moveToOtherNode(item.chipNode, this.chipContainer);
+            GameUtils.moveToOtherNode(item.totalBet.node, this.totalBetContainer);
+            GameUtils.moveToOtherNode(item.ownBet.node, this.ownBetContainer);
+        });
     }
 
     pressedShowScoreBoard() {
