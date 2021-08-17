@@ -45,9 +45,6 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     @property(cc.Label)
     resultLabel: cc.Label = null;
 
-    @property(cc.Prefab)
-    roundHistoryPrefab: cc.Prefab = null;
-
     @property(cc.Node)
     chipContainer: cc.Node = null;
 
@@ -62,7 +59,6 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
 
     private dices: cc.Sprite[] = [];
     private miniRoundHistory: MiniRoundHistory;
-    private roundHistory: BigSmallRoundHistory;
     private diceAnimationDuration: number;
 
     readonly choices = ["small", "big"];
@@ -188,29 +184,5 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
         this.betItems.forEach((betItem) => {
             betItem.ownBet.string = "0";
         });
-    }
-
-    openGuide() {
-        if (!this.gameConfigs) {
-            return;
-        }
-        const lang = NoticeUtil.getCurrentLanguage();
-        const gameName = GameInfos[this.gameId].key;
-        GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {
-            const node = cc.instantiate(prefab);
-            const guide = node.getComponent(BigSmallGuide);
-            guide.init(this.gameConfigs);
-            this.currentMiniPanel.addDialog(node);
-        });
-    }
-
-    openScoreBoard() {
-        cc.GameManager.playClick();
-
-        const node = cc.instantiate(this.roundHistoryPrefab);
-        this.roundHistory = node.getComponent(BigSmallRoundHistory);
-        this.roundHistory.init(this);
-        this.currentMiniPanel.addDialog(node);
-        this.updateRoundHistory();
     }
 }

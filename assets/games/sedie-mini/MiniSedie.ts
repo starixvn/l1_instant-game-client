@@ -10,7 +10,6 @@ import MiniSedieFinishHandler from "./handlers/MiniSedieFinishHandler";
 import MiniSedieLogsHandler from "./handlers/MiniSedieLogsHandler";
 import MiniSedieTimeHandler from "./handlers/MiniSedieTimeHandler";
 import { MiniSedieConfigs } from "./MiniSedieConfigs";
-import MiniSedieGuide from "./MiniSedieGuide";
 
 const { ccclass, property } = cc._decorator;
 
@@ -37,9 +36,6 @@ export default class MiniSedie extends SocketIOMiniGameBase {
     @property(cc.Node)
     dishNode: cc.Node = null;
 
-    @property(cc.Prefab)
-    roundHistoryPrefab: cc.Prefab = null;
-
     @property(cc.Node)
     chipContainer: cc.Node = null;
 
@@ -53,7 +49,6 @@ export default class MiniSedie extends SocketIOMiniGameBase {
     tipContainer: cc.Node = null;
 
     public miniRoundHistory: SedieMiniRoundHistory = null;
-    public roundHistory: SedieRoundHistory = null;
     public resultAnimating = false;
     public originalDishPosition = cc.v2(0, 6);
 
@@ -150,29 +145,5 @@ export default class MiniSedie extends SocketIOMiniGameBase {
 
     showAcceptedBet(bet: number) {
         GameUtils.addFlyingText(this.betChipsContainer, false, bet, 1);
-    }
-
-    openGuide() {
-        if (!this.gameConfigs) {
-            return;
-        }
-        const lang = NoticeUtil.getCurrentLanguage();
-        const gameName = GameInfos[this.gameId].key;
-        GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {
-            const node = cc.instantiate(prefab);
-            const guide = node.getComponent(MiniSedieGuide);
-            guide.init(this.gameConfigs);
-            this.currentMiniPanel.addDialog(node);
-        });
-    }
-
-    openScoreBoard() {
-        cc.GameManager.playClick();
-
-        const node = cc.instantiate(this.roundHistoryPrefab);
-        this.roundHistory = node.getComponent(SedieRoundHistory);
-        this.roundHistory.init(this);
-        this.currentMiniPanel.addDialog(node);
-        this.updateRoundHistory();
     }
 }

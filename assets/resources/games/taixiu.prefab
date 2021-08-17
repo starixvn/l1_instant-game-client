@@ -2033,7 +2033,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 86.79,
+      "width": 0,
       "height": 30
     },
     "_anchorPoint": {
@@ -4073,7 +4073,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 86.79,
+      "width": 0,
       "height": 30
     },
     "_anchorPoint": {
@@ -8515,6 +8515,9 @@
     "gameRound": {
       "__id__": 145
     },
+    "roundHistoryPrefab": {
+      "__uuid__": "86b44cd9-47f8-49e8-9899-79c12430a483"
+    },
     "enableChips": true,
     "betChipsContainer": {
       "__id__": 196
@@ -8560,9 +8563,6 @@
     },
     "resultLabel": {
       "__id__": 170
-    },
-    "roundHistoryPrefab": {
-      "__uuid__": "86b44cd9-47f8-49e8-9899-79c12430a483"
     },
     "chipContainer": {
       "__id__": 192

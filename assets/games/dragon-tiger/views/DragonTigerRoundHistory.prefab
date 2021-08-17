@@ -4102,15 +4102,17 @@
     "logControl": {
       "__id__": 100
     },
-    "dragonLabel": {
-      "__id__": 19
-    },
-    "tigerLabel": {
-      "__id__": 29
-    },
-    "tieLabel": {
-      "__id__": 39
-    },
+    "statisticLabels": [
+      {
+        "__id__": 19
+      },
+      {
+        "__id__": 29
+      },
+      {
+        "__id__": 39
+      }
+    ],
     "_id": ""
   },
   {

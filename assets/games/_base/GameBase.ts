@@ -23,6 +23,9 @@ import GameBaseUmDataHandler from "./handlers/GameBaseUmDataHandler";
 import BetItem from "./view-models/BetItem";
 import GameAudios from "./view-models/GameAudios";
 import { GameConfigBase } from "./view-models/GameConfigBase";
+import GameGuideBase from "./view-models/GameGuideBase";
+import NoticeUtil from "../../common/utils/NoticeUtil";
+import GameRoundHistory from "./view-models/GameRoundHistory";
 
 const { ccclass, property } = cc._decorator;
 
@@ -62,8 +65,13 @@ export default class GameBase extends BaseComponent {
     @property(cc.Label)
     gameRound: cc.Label = null;
 
+    @property(cc.Prefab)
+    roundHistoryPrefab: cc.Prefab = null;
+
     @property
     enableChips = false;
+
+    private roundHistory: GameRoundHistory;
 
     @property({
         type: cc.Node,
@@ -458,15 +466,6 @@ export default class GameBase extends BaseComponent {
         return false;
     }
 
-    openGuide() {
-        // const dialog = cc.instantiate(this.guidePrefab);
-        // const guide = dialog.getComponent(WebViewGuide);
-        // const { minBet, maxBet } = this.getBetRange();
-        // guide.initURL(this.gameId, getLocale(), { minBet, maxBet, used: this.isUsingMaxStakeLevel() });
-        // this.currentMiniPanel.showGuide(dialog);
-        // guide.loadWebView();4
-    }
-
     getBetRange() {
         return this.isUsingMaxStakeLevel() ? this.getVipBetRange() : this.getNormalBetRange();
     }
@@ -486,4 +485,30 @@ export default class GameBase extends BaseComponent {
             maxBet: Math.min(cc.GameManager.userStakeLevel.maxBet, maxbet)
         };
     }
+
+    openGuide() {
+        if (!this.gameConfigs) {
+            return;
+        }
+        const lang = NoticeUtil.getCurrentLanguage();
+        const gameName = GameInfos[this.gameId].key;
+        GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {
+            const node = cc.instantiate(prefab);
+            const guide = node.getComponent(GameGuideBase);
+            guide.init(this.gameConfigs);
+            this.currentMiniPanel.addDialog(node);
+        });
+    }
+
+    openScoreBoard() {
+        cc.GameManager.playClick();
+
+        const node = cc.instantiate(this.roundHistoryPrefab);
+        this.roundHistory = node.getComponent(GameRoundHistory);
+        this.roundHistory.init(this);
+        this.currentMiniPanel.addDialog(node);
+        this.updateRoundHistory();
+    }
+
+    updateRoundHistory() {}
 }

@@ -3465,16 +3465,14 @@
     "logControl": {
       "__id__": 83
     },
-    "even": {
-      "__id__": 19
-    },
-    "odd": {
-      "__id__": 29
-    },
-    "red3": null,
-    "red4": null,
-    "white3": null,
-    "white4": null,
+    "statisticLabels": [
+      {
+        "__id__": 19
+      },
+      {
+        "__id__": 29
+      }
+    ],
     "_id": ""
   },
   {

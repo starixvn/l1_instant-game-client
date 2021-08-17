@@ -7,9 +7,7 @@ import RHFinishDataHandler from "./handlers/RHFinishDataHandler";
 import RHGameTimeHandler from "./handlers/RHGameTimeHandler";
 import RHLogsDataHandler from "./handlers/RHLogsDataHandler";
 import { DragonTigerConfigs } from "./DragonTigerConfigs";
-import NoticeUtil from "../../../common/utils/NoticeUtil";
 import GameUtils from "../../../common/utils/GameUtils";
-import DragonTigerGuide from "./DragonTigerGuide";
 import DragonTigerRoundHistory from "./DragonTigerRoundHistory";
 
 const { ccclass, property } = cc._decorator;
@@ -40,9 +38,6 @@ export default class DragonTiger extends SocketIOMiniGameBase {
     @property(cc.Node)
     miniRoundHistoryContainer: cc.Node = null;
 
-    @property(cc.Prefab)
-    roundHistoryPrefab: cc.Prefab = null;
-
     @property(cc.Node)
     chipContainer: cc.Node = null;
 
@@ -57,7 +52,6 @@ export default class DragonTiger extends SocketIOMiniGameBase {
 
     public resultCards = [];
     public miniRoundHistory: MiniRoundHistory = null;
-    private roundHistory: DragonTigerRoundHistory;
     public resultAnimating = false;
     private frontCards: NewCard[] = [];
     protected readonly betTypes = ["dragon", "tiger", "tie"];
@@ -232,29 +226,5 @@ export default class DragonTiger extends SocketIOMiniGameBase {
                 this.audioDrawCard.stop();
             })
             .start();
-    }
-
-    openGuide() {
-        if (!this.gameConfigs) {
-            return;
-        }
-        const lang = NoticeUtil.getCurrentLanguage();
-        const gameName = GameInfos[this.gameId].key;
-        GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {
-            const node = cc.instantiate(prefab);
-            const guide = node.getComponent(DragonTigerGuide);
-            guide.init(this.gameConfigs);
-            this.currentMiniPanel.addDialog(node);
-        });
-    }
-
-    openScoreBoard() {
-        cc.GameManager.playClick();
-
-        const node = cc.instantiate(this.roundHistoryPrefab);
-        this.roundHistory = node.getComponent(DragonTigerRoundHistory);
-        this.roundHistory.init(this);
-        this.currentMiniPanel.addDialog(node);
-        this.updateRoundHistory();
     }
 }

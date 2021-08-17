@@ -3193,12 +3193,14 @@
     "logControl": {
       "__id__": 75
     },
-    "bigLabel": {
-      "__id__": 19
-    },
-    "smallLabel": {
-      "__id__": 29
-    },
+    "statisticLabels": [
+      {
+        "__id__": 19
+      },
+      {
+        "__id__": 29
+      }
+    ],
     "_id": ""
   },
   {
