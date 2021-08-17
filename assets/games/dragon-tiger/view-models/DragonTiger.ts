@@ -31,9 +31,6 @@ export default class DragonTiger extends SocketIOMiniGameBase {
     @property({ type: cc.Sprite })
     cardBacks: cc.Sprite[] = [];
 
-    @property(cc.Node)
-    scoreBoard: cc.Node = null;
-
     @property(cc.AudioSource)
     audioDrawCard: cc.AudioSource = null;
 
@@ -45,6 +42,18 @@ export default class DragonTiger extends SocketIOMiniGameBase {
 
     @property(cc.Prefab)
     roundHistoryPrefab: cc.Prefab = null;
+
+    @property(cc.Node)
+    chipContainer: cc.Node = null;
+
+    @property(cc.Node)
+    totalBetContainer: cc.Node = null;
+
+    @property(cc.Node)
+    ownBetContainer: cc.Node = null;
+
+    @property(cc.Node)
+    tipContainer: cc.Node = null;
 
     public resultCards = [];
     public miniRoundHistory: MiniRoundHistory = null;
@@ -65,10 +74,20 @@ export default class DragonTiger extends SocketIOMiniGameBase {
 
     onLoad() {
         super.onLoad();
+        this.relocationChipNode();
         const mini = cc.instantiate(this.miniRoundHistoryPrefab);
         this.miniRoundHistory = mini.getComponent(MiniRoundHistory);
         this.miniRoundHistoryContainer.addChild(mini);
         this.frontCards = this.frontCardNodes.map((card) => card.children[0].getComponent(NewCard));
+        GameUtils.moveToOtherNode(this.miniRoundHistory.tip.node, this.tipContainer);
+    }
+
+    relocationChipNode() {
+        this.betItems.forEach((item) => {
+            GameUtils.moveToOtherNode(item.chipNode, this.chipContainer);
+            GameUtils.moveToOtherNode(item.totalBet.node, this.totalBetContainer);
+            GameUtils.moveToOtherNode(item.ownBet.node, this.ownBetContainer);
+        });
     }
 
     onEnable() {
