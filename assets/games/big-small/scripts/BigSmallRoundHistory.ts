@@ -12,14 +12,8 @@ export default class BigSmallRoundHistory extends GameRoundHistory {
             return;
         }
         const bigValue = bigSmallData.filter((value) => value > 0).length;
-        const smallValue = total - bigValue;
+        const bigPercent = Math.floor((bigValue * 100) / total);
 
-        if (bigValue > smallValue) {
-            const smallPercent = Math.floor((smallValue * 100) / total);
-            this.updateStatisticLabels([100 - smallPercent, smallPercent]);
-        } else {
-            const bigPercent = Math.floor((smallValue * 100) / total);
-            this.updateStatisticLabels([bigPercent, 100 - bigPercent]);
-        }
+        this.updateStatisticLabels([bigPercent, 100 - bigPercent]);
     }
 }

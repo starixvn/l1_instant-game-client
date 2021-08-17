@@ -1,11 +1,9 @@
 import MiniPanel from "../../common/control/mini-panel/MiniPanel";
 import MiniRoundHistory from "../../common/control/mini-round-history/MiniRoundHistory";
 import GameUtils from "../../common/utils/GameUtils";
-import NoticeUtil from "../../common/utils/NoticeUtil";
-import { GameIds, GameInfos } from "../../configs/SabaConfigs";
+import { GameIds } from "../../configs/SabaConfigs";
 import SocketIOMiniGameBase from "../_base/SocketIOMiniGameBase";
 import SedieMiniRoundHistory from "../sedie/view-models/SedieMiniRoundHistory";
-import SedieRoundHistory from "../sedie/view-models/SedieRoundHistory";
 import MiniSedieFinishHandler from "./handlers/MiniSedieFinishHandler";
 import MiniSedieLogsHandler from "./handlers/MiniSedieLogsHandler";
 import MiniSedieTimeHandler from "./handlers/MiniSedieTimeHandler";

@@ -1,13 +1,10 @@
 import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
 import MiniRoundHistory from "../../../common/control/mini-round-history/MiniRoundHistory";
 import GameUtils from "../../../common/utils/GameUtils";
-import NoticeUtil from "../../../common/utils/NoticeUtil";
-import { GameIds, GameInfos } from "../../../configs/SabaConfigs";
+import { GameIds } from "../../../configs/SabaConfigs";
 import GameBaseFinishHandler from "../../_base/handlers/GameBaseFinishHandler";
 import BalancedBettingPoolGameBase from "./BalancedBettingPoolGameBase";
 import { BigSmallConfigs } from "./BigSmallConfigs";
-import BigSmallGuide from "./BigSmallGuide";
-import BigSmallRoundHistory from "./BigSmallRoundHistory";
 import BigSmallBetHandler from "./handlers/BigSmallBetHandler";
 import BigSmallFinishHandler from "./handlers/BigSmallFinishHandler";
 import BigSmallLogsHandler from "./handlers/BigSmallLogsHandler";

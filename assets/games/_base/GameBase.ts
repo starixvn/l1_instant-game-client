@@ -71,7 +71,7 @@ export default class GameBase extends BaseComponent {
     @property
     enableChips = false;
 
-    private roundHistory: GameRoundHistory;
+    protected roundHistory: GameRoundHistory;
 
     @property({
         type: cc.Node,
