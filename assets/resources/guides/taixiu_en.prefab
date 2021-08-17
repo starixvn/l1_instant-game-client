@@ -713,7 +713,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 591
+      "height": 561
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1056,7 +1056,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 624,
-      "height": 120
+      "height": 90
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1068,7 +1068,7 @@
       "ctor": "Float64Array",
       "array": [
         7,
-        -196,
+        -181,
         0,
         0,
         0,
@@ -1107,8 +1107,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "-  The player can bet on either BIG or SMALL, but not on both.\n   + BIG:  the player wins if the total points of three dice >= 11\n   + SMALL: the player wins if the total points of the three dice <= 10",
-    "_N$string": "-  The player can bet on either BIG or SMALL, but not on both.\n   + BIG:  the player wins if the total points of three dice >= 11\n   + SMALL: the player wins if the total points of the three dice <= 10",
+    "_string": "-  The player can bet on either BIG or SMALL, but not on both.\n   + BIG: the total points of three dice >= 11\n   + SMALL: the total points of the three dice <= 10 ",
+    "_N$string": "-  The player can bet on either BIG or SMALL, but not on both.\n   + BIG: the total points of three dice >= 11\n   + SMALL: the total points of the three dice <= 10 ",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1206,7 +1206,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -366,
+        -336,
         0,
         0,
         0,
@@ -1344,7 +1344,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -491,
+        -461,
         0,
         0,
         0,
@@ -1482,7 +1482,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -541,
+        -511,
         0,
         0,
         0,
@@ -1615,7 +1615,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 591
+      "height": 561
     },
     "_resize": 1,
     "_N$layoutType": 2,
