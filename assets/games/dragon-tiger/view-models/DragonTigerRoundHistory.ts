@@ -1,10 +1,8 @@
 import BaseComponent from "../../../common/control/BaseComponent";
 import CommonDialog from "../../../common/control/CommonDialog";
-import GameBase from "../../_base/GameBase";
 import GameBaseFinishHandler from "../../_base/handlers/GameBaseFinishHandler";
 import GameLogControlBase from "../../_base/view-models/GameLogControlBase";
 import DragonTiger from "./DragonTiger";
-import DragonTigerRoundResultItem from "./DragonTigerRoundResultItem";
 
 const { ccclass, property } = cc._decorator;
 

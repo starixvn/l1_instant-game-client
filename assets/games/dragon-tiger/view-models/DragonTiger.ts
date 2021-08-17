@@ -68,10 +68,6 @@ export default class DragonTiger extends SocketIOMiniGameBase {
         this.setConfig(new DragonTigerConfigs());
     }
 
-    protected onChangedBetChip(bet) {
-        super.onChangedBetChip(bet);
-    }
-
     onLoad() {
         super.onLoad();
         this.relocationChipNode();
