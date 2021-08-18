@@ -15,6 +15,7 @@ export default class RHGameTimeHandler extends GameBaseTimeHandler {
         }
 
         if (this.main.currentTimeRemaining === this.main.config.betTime + 1) {
+            this.main.resetDataAndUI();
             this.main.playDrawAnimation();
         }
     }
