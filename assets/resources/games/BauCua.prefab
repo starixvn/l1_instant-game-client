@@ -309,7 +309,7 @@
       "ctor": "Float64Array",
       "array": [
         -249.136,
-        -78.292,
+        -54.741,
         0,
         0,
         0,
@@ -554,7 +554,7 @@
     "_lineHeight": 45,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
+      "__uuid__": "72f17939-1190-4e1d-b8d0-2520ac44dd7e"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -918,7 +918,7 @@
     "_lineHeight": 45,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
+      "__uuid__": "72f17939-1190-4e1d-b8d0-2520ac44dd7e"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1282,7 +1282,7 @@
     "_lineHeight": 45,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
+      "__uuid__": "72f17939-1190-4e1d-b8d0-2520ac44dd7e"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1958,8 +1958,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        18.938,
-        24.483,
+        13.174,
+        36.012,
         0,
         0,
         0,
@@ -2067,8 +2067,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -25.089,
-        -8.95,
+        -30.853,
+        2.579,
         0,
         0,
         0,
@@ -2176,8 +2176,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        39.78,
-        -25.359,
+        34.016,
+        -13.83,
         0,
         0,
         0,
@@ -2519,7 +2519,7 @@
       "ctor": "Float64Array",
       "array": [
         -244.386,
-        -38.067,
+        1.798,
         0,
         0,
         0,
@@ -11372,7 +11372,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "4f14fiF59tKfbk9c2rRQHrB",
+    "_componentId": "4ce0cMJ1SxPXorsBF7pz7LE",
     "handler": "openScoreBoard",
     "customEventData": ""
   },
@@ -12324,7 +12324,9 @@
     "gameRound": {
       "__id__": 3
     },
-    "roundHistoryPrefab": null,
+    "roundHistoryPrefab": {
+      "__uuid__": "6d677390-ce6a-4257-a7ff-bdc9bad54601"
+    },
     "enableChips": true,
     "betChipsContainer": {
       "__id__": 292

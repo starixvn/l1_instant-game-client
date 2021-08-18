@@ -7,7 +7,6 @@ export default class BauCuaLogsHandler extends GameBaseLogsHandler {
     }
 
     buildLogs(dataLogs) {
-        // this.main.addLogs();
         this.main.highlightWinningBetItems(false);
         this.main.resetUIBetItems();
         this.main.resetXTimesResult();

@@ -77,6 +77,12 @@ export default class BauCua extends SocketIOMiniGameBase {
         this.gameConfigs.odds && this.oddItems.forEach((item) => item.setValue(this.gameConfigs.odds[item.node.name]));
     }
 
+    public updateRoundHistory() {
+        if (this.roundHistory && this.roundHistory.isAlive()) {
+            this.roundHistory.setData(this.currentDataLogs);
+        }
+    }
+
     setDiceResult() {
         if (this.currentDataLogs.length > 0) {
             const { result } = this.currentDataLogs[0];
@@ -85,6 +91,8 @@ export default class BauCua extends SocketIOMiniGameBase {
                 this.dices[index].spriteFrame = this.iconLV[dice];
                 this.dices[index].node.active = true;
             });
+
+            this.updateRoundHistory();
         }
     }
 
