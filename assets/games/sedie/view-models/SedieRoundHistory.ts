@@ -33,9 +33,14 @@ export default class SedieRoundHistory extends GameRoundHistory {
             }
         });
 
-        const oddValue = Math.round((oddCount * 100) / total);
-        const evenValue = 100 - oddValue;
+        const evenCount = 100 - oddCount;
 
-        this.updateStatisticLabels([evenValue, oddValue]);
+        if (oddCount > evenCount) {
+            const oddPercent = Math.floor((oddCount * 100) / total);
+            this.updateStatisticLabels([100 - oddPercent, oddPercent]);
+        } else {
+            const evenPercent = Math.floor((evenCount * 100) / total);
+            this.updateStatisticLabels([evenPercent, 100 - evenPercent]);
+        }
     }
 }
