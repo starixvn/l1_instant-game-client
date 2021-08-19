@@ -29,18 +29,15 @@ export default class SocketIOController {
         });
 
         socket.on("reconnect", () => {
-            console.log(`${gameName} socket reconnect`);
             socket.sendBuffer = [];
         });
 
         socket.on("connect_failed", () => {
-            console.log(`${gameName} socket connect failed`);
             onConnectFailed(gameName, isGameRoom);
             socket.close();
         });
 
         socket.on("connect_error", (error) => {
-            console.log(`${gameName} socket error: ${error}`);
             sentryLogger.logError(error);
             if (!socket.connected) {
                 onConnectFailed(gameName, isGameRoom);
@@ -49,7 +46,6 @@ export default class SocketIOController {
         });
 
         socket.on("disconnect", (reason) => {
-            console.log(`${gameName} socket disconnect: ${reason}`);
             if (reason === "io server disconnect") {
                 // the disconnection was initiated by the server, you need to reconnect manually
                 onConnectFailed(gameName, isGameRoom);

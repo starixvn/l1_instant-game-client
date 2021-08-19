@@ -162,7 +162,6 @@ export default class Main extends cc.Component {
     }
 
     openGame(gameId: number) {
-        console.log("open game id " + gameId);
         this.miniPanel.openNewSocketMiniGame(gameId);
     }
 

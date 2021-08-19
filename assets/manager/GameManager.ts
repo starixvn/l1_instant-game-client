@@ -55,9 +55,7 @@ export default class GameManager extends cc.Component {
     }
 
     loadUserData(data: any) {
-        console.log("user data before ", this.user);
         this.user = { ...this.user, ...data };
-        console.log("user data loaded ", this.user);
     }
 
     sendToMainSocket(data: any) {
