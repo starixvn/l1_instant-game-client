@@ -6,6 +6,10 @@ export default class RHGameTimeHandler extends GameBaseTimeHandler {
         super(main);
     }
 
+    showWaitTime() {
+        this.main.timeWaitNode.active = false;
+    }
+
     handleWaitTime() {
         super.handleWaitTime();
 
