@@ -1856,7 +1856,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 160,
-      "height": 38
+      "height": 42
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1868,7 +1868,7 @@
       "ctor": "Float64Array",
       "array": [
         80,
-        0,
+        -1,
         0,
         0,
         0,
@@ -1921,7 +1921,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 160,
-      "height": 38
+      "height": 42
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1933,7 +1933,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -0.5,
+        0,
         0,
         0,
         0,
@@ -2047,7 +2047,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 160,
-      "height": 38
+      "height": 42
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2059,7 +2059,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -0.5,
+        0,
         0,
         0,
         0,
@@ -2128,8 +2128,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": 0,
-    "_right": 0,
+    "_left": 3.552713678800501e-15,
+    "_right": -3.552713678800501e-15,
     "_top": -8,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -2172,7 +2172,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 151.09,
+      "width": 135.82,
       "height": 24
     },
     "_anchorPoint": {
@@ -2224,8 +2224,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "GAMENAMES.9",
-    "_N$string": "GAMENAMES.9",
+    "_string": "XÓC ĐĨA MINI",
+    "_N$string": "XÓC ĐĨA MINI",
     "_fontSize": 24,
     "_lineHeight": 24,
     "_enableWrapText": true,
@@ -2383,7 +2383,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 160,
-      "height": 38
+      "height": 42
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2395,7 +2395,7 @@
       "ctor": "Float64Array",
       "array": [
         250,
-        0,
+        -1,
         0,
         0,
         0,
@@ -2448,7 +2448,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 160,
-      "height": 38
+      "height": 42
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2574,7 +2574,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 160,
-      "height": 38
+      "height": 42
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2699,7 +2699,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 147.82,
+      "width": 74.18,
       "height": 24
     },
     "_anchorPoint": {
@@ -2751,8 +2751,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "GAMENAMES.1",
-    "_N$string": "GAMENAMES.1",
+    "_string": "TÀI XỈU",
+    "_N$string": "TÀI XỈU",
     "_fontSize": 24,
     "_lineHeight": 24,
     "_enableWrapText": true,
@@ -2910,7 +2910,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 160,
-      "height": 38
+      "height": 42
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2922,7 +2922,7 @@
       "ctor": "Float64Array",
       "array": [
         420,
-        0,
+        -1,
         0,
         0,
         0,
@@ -2975,7 +2975,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 160,
-      "height": 38
+      "height": 42
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3101,7 +3101,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 160,
-      "height": 38
+      "height": 42
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3226,7 +3226,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 151.09,
+      "width": 93.82,
       "height": 24
     },
     "_anchorPoint": {
@@ -3278,8 +3278,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "GAMENAMES.7",
-    "_N$string": "GAMENAMES.7",
+    "_string": "RỒNG HỔ",
+    "_N$string": "RỒNG HỔ",
     "_fontSize": 24,
     "_lineHeight": 24,
     "_enableWrapText": true,
