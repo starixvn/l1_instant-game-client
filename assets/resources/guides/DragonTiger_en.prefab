@@ -2627,7 +2627,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 200,
-      "height": 24
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2681,7 +2681,7 @@
     "_string": "Dragon",
     "_N$string": "Dragon",
     "_fontSize": 22,
-    "_lineHeight": 24,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -3091,7 +3091,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 200,
-      "height": 24
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3145,7 +3145,7 @@
     "_string": "Tiger",
     "_N$string": "Tiger",
     "_fontSize": 22,
-    "_lineHeight": 24,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -3447,7 +3447,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 200,
-      "height": 24
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3501,7 +3501,7 @@
     "_string": "Tie",
     "_N$string": "Tie",
     "_fontSize": 22,
-    "_lineHeight": 24,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -4865,7 +4865,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 204,
+      "width": 166,
       "height": 28
     },
     "_anchorPoint": {
@@ -4917,8 +4917,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "UI.GAMERULES",
-    "_N$string": "UI.GAMERULES",
+    "_string": "HƯỚNG DẪN",
+    "_N$string": "HƯỚNG DẪN",
     "_fontSize": 28,
     "_lineHeight": 28,
     "_enableWrapText": true,
