@@ -99,7 +99,6 @@ export default class MiniPanelMiniGameInitializers {
                     }
                 }
 
-                this.main.showLoading(false);
                 this.main.onGeneralData(data);
             });
 

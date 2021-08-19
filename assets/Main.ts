@@ -17,8 +17,8 @@ export default class Main extends cc.Component {
     @property(cc.Label)
     splashMessage: cc.Label = null;
 
-    @property(cc.Node)
-    loading: cc.Node = null;
+    // @property(cc.Node)
+    // loading: cc.Node = null;
 
     @property(cc.Node)
     main: cc.Node = null;
