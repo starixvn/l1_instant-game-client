@@ -116,7 +116,7 @@ export default class MiniPanel extends BaseComponent {
     removeGame(gameId: number) {
         delete this.miniGamesCache[gameId];
         this.miniGames.destroyAllChildren();
-        this.gameMiniInitializers.removeSocket(gameId);
+        this.gameMiniInitializers.closeSocketGame(gameId);
     }
 
     getGameMini(gameId): any {

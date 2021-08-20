@@ -117,7 +117,7 @@ export default class MiniPanelMiniGameInitializers {
         }
     }
 
-    removeSocket(gameId: number) {
-        this.socketIOController.removeSocket(gameId);
+    closeSocketGame(gameId: number) {
+        this.socketIOController.closeSocket(gameId);
     }
 }
