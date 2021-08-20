@@ -9,6 +9,7 @@ import ProcessingWarning from "../../common/control/notice/ProcessingWarning";
 import UmWarning from "../../common/control/notice/UmWarning";
 import TypingLabel from "../../common/control/TypingLabel";
 import GameUtils from "../../common/utils/GameUtils";
+import NoticeUtil from "../../common/utils/NoticeUtil";
 import { GameInfos } from "../../configs/SabaConfigs";
 import DataHandler from "./handlers/DataHandler";
 import GameBaseBetHandler from "./handlers/GameBaseBetHandler";
@@ -24,7 +25,6 @@ import BetItem from "./view-models/BetItem";
 import GameAudios from "./view-models/GameAudios";
 import { GameConfigBase } from "./view-models/GameConfigBase";
 import GameGuideBase from "./view-models/GameGuideBase";
-import NoticeUtil from "../../common/utils/NoticeUtil";
 import GameRoundHistory from "./view-models/GameRoundHistory";
 
 const { ccclass, property } = cc._decorator;
@@ -365,6 +365,8 @@ export default class GameBase extends BaseComponent {
         if (this.statusHandler) {
             this.statusHandler.currentStatusData = null;
         }
+
+        this.clearAllNotices();
     }
 
     protected formatGameRound(gameRoundId: any) {
