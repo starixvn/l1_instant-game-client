@@ -2253,8 +2253,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 82.42,
-      "height": 23
+      "width": 93.17,
+      "height": 26
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2307,8 +2307,8 @@
     "_dstBlendFactor": 771,
     "_string": "6,8000",
     "_N$string": "6,8000",
-    "_fontSize": 23,
-    "_lineHeight": 23,
+    "_fontSize": 26,
+    "_lineHeight": 26,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
@@ -4293,8 +4293,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 82.42,
-      "height": 23
+      "width": 93.17,
+      "height": 26
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4347,8 +4347,8 @@
     "_dstBlendFactor": 771,
     "_string": "6,8000",
     "_N$string": "6,8000",
-    "_fontSize": 23,
-    "_lineHeight": 23,
+    "_fontSize": 26,
+    "_lineHeight": 26,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "abdbed50-f083-49d6-9d57-22dac3b815a2"
