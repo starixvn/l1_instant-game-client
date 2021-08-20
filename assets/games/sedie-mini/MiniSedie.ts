@@ -1,16 +1,13 @@
 import MiniPanel from "../../common/control/mini-panel/MiniPanel";
 import MiniRoundHistory from "../../common/control/mini-round-history/MiniRoundHistory";
 import GameUtils from "../../common/utils/GameUtils";
-import NoticeUtil from "../../common/utils/NoticeUtil";
-import { GameIds, GameInfos } from "../../configs/SabaConfigs";
+import { GameIds } from "../../configs/SabaConfigs";
 import SocketIOMiniGameBase from "../_base/SocketIOMiniGameBase";
 import SedieMiniRoundHistory from "../sedie/view-models/SedieMiniRoundHistory";
-import SedieRoundHistory from "../sedie/view-models/SedieRoundHistory";
 import MiniSedieFinishHandler from "./handlers/MiniSedieFinishHandler";
 import MiniSedieLogsHandler from "./handlers/MiniSedieLogsHandler";
 import MiniSedieTimeHandler from "./handlers/MiniSedieTimeHandler";
 import { MiniSedieConfigs } from "./MiniSedieConfigs";
-import MiniSedieGuide from "./MiniSedieGuide";
 
 const { ccclass, property } = cc._decorator;
 
@@ -37,9 +34,6 @@ export default class MiniSedie extends SocketIOMiniGameBase {
     @property(cc.Node)
     dishNode: cc.Node = null;
 
-    @property(cc.Prefab)
-    roundHistoryPrefab: cc.Prefab = null;
-
     @property(cc.Node)
     chipContainer: cc.Node = null;
 
@@ -53,7 +47,6 @@ export default class MiniSedie extends SocketIOMiniGameBase {
     tipContainer: cc.Node = null;
 
     public miniRoundHistory: SedieMiniRoundHistory = null;
-    public roundHistory: SedieRoundHistory = null;
     public resultAnimating = false;
     public originalDishPosition = cc.v2(0, 6);
 
@@ -89,10 +82,6 @@ export default class MiniSedie extends SocketIOMiniGameBase {
     onDestroy() {
         super.onDestroy();
         this.miniRoundHistoryContainer.isValid && this.miniRoundHistoryContainer.destroyAllChildren();
-    }
-
-    onEnable() {
-        super.onEnable();
     }
 
     initHandlers() {
@@ -154,26 +143,5 @@ export default class MiniSedie extends SocketIOMiniGameBase {
 
     showAcceptedBet(bet: number) {
         GameUtils.addFlyingText(this.betChipsContainer, false, bet, 1);
-    }
-
-    openGuide() {
-        const lang = NoticeUtil.getCurrentLanguage();
-        const gameName = GameInfos[this.gameId].key;
-        GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {
-            const node = cc.instantiate(prefab);
-            const guide = node.getComponent(MiniSedieGuide);
-            guide.init(this.gameConfigs);
-            this.currentMiniPanel.addDialog(node);
-        });
-    }
-
-    openScoreBoard() {
-        cc.GameManager.playClick();
-
-        const node = cc.instantiate(this.roundHistoryPrefab);
-        this.roundHistory = node.getComponent(SedieRoundHistory);
-        this.roundHistory.init(this);
-        this.currentMiniPanel.addDialog(node);
-        this.updateRoundHistory();
     }
 }

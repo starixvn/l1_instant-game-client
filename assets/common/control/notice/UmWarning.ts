@@ -1,4 +1,4 @@
-import NoticeUtil from "../utils/NoticeUtil";
+import NoticeUtil from "../../utils/NoticeUtil";
 
 const { ccclass, property } = cc._decorator;
 

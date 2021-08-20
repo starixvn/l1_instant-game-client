@@ -40,6 +40,11 @@ export default class MiniPanel extends BaseComponent {
     private miniGamesCache = {};
     private currentGame: GameBase;
     public currentGameId: number;
+    public mainCallback: {
+        showNoticeNotPermitToPlay: () => void;
+        updateOfferGameHeaders: () => void;
+        selecAndOpenGame: (gameId: number) => void;
+    };
 
     onLoad() {
         this.showLoading(false);
@@ -111,7 +116,7 @@ export default class MiniPanel extends BaseComponent {
     removeGame(gameId: number) {
         delete this.miniGamesCache[gameId];
         this.miniGames.destroyAllChildren();
-        this.gameMiniInitializers.removeSocket(gameId);
+        this.gameMiniInitializers.closeSocketGame(gameId);
     }
 
     getGameMini(gameId): any {
@@ -143,17 +148,28 @@ export default class MiniPanel extends BaseComponent {
         }
     }
 
-    handleNotPermittedToPlay(message: string) {
-        const canNotClose = true;
+    handleNotPermittedToPlay(gameId: number, switchGame: boolean) {
+        cc.GameManager.removeGameOffer(gameId);
+        this.mainCallback.showNoticeNotPermitToPlay();
+        const gameName = GameUtils.getGameNameString(gameId);
+        const message = i18n.t("messages.gameExcluded", { gameName: gameName });
+        const canNotClose = cc.GameManager.isNoGameOffer();
         const noticeData = {
             text: message,
             isInfo: true,
             canNotClose
         } as NoticeData;
-        this.showNotice(noticeData, this.switchToDefaultGames, this.switchToDefaultGames);
+        const callback = () => {
+            if (this.mainCallback.updateOfferGameHeaders) {
+                this.mainCallback.updateOfferGameHeaders();
+            }
+            if (switchGame) {
+                const firstGameId = cc.GameManager.getFirstOfferGame();
+                this.mainCallback.selecAndOpenGame(firstGameId);
+            }
+        };
+        this.showNotice(noticeData, callback, callback);
     }
-
-    switchToDefaultGames() {}
 
     forceKickedOut() {
         authManager.signOut();
@@ -168,7 +184,13 @@ export default class MiniPanel extends BaseComponent {
     }
 
     openNewSocketMiniGame(id) {
+        if (this.currentGame) {
+            this.currentGame.closeGame();
+        }
+        this.removeGame(this.currentGameId);
+
         this.currentGameId = id;
+        this.currentGame = null;
         this.gameMiniInitializers.openNewSocket(id);
     }
 
@@ -267,5 +289,9 @@ export default class MiniPanel extends BaseComponent {
 
     removeAllDialogs() {
         this.dialog.destroyAllChildren();
+    }
+
+    removeAllNotices() {
+        this.noticeContainer.destroyAllChildren();
     }
 }

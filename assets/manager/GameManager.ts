@@ -24,27 +24,28 @@ export default class GameManager extends cc.Component {
     dataObservers = {};
     soundObservers = {};
     userStakeLevel: any = {};
-    sleepTime: number;
-    user: any;
+    // sleepTime: number;
+    user: any = {};
+    supportGames: number[] = [];
 
     onLoad() {
         GameManager.Instance = this;
         cc.game.on(cc.game.EVENT_HIDE, () => {
             this.GAME_IS_SHOWED = false;
-            this.sleepTime = Date.now();
+            // this.sleepTime = Date.now();
         });
 
         cc.game.on(cc.game.EVENT_SHOW, () => {
             this.GAME_IS_SHOWED = true;
             this.IS_LOGIN && this.sendToMainSocket({ user: { updateCoin: true } });
 
-            if (cc.sys.isMobile) {
-                const sleepSecond = (Date.now() - this.sleepTime) / 1000;
+            // if (cc.sys.isMobile) {
+            //     const sleepSecond = (Date.now() - this.sleepTime) / 1000;
 
-                if (sleepSecond > 300) {
-                    this.miniPanel.onForceReload(false);
-                }
-            }
+            //     if (sleepSecond > 300) {
+            //         this.miniPanel.onForceReload(false);
+            //     }
+            // }
         });
     }
 
@@ -54,8 +55,7 @@ export default class GameManager extends cc.Component {
     }
 
     loadUserData(data: any) {
-        // console.log("user data loaded ", data);
-        this.user = { ...data };
+        this.user = { ...this.user, ...data };
     }
 
     sendToMainSocket(data: any) {
@@ -102,5 +102,28 @@ export default class GameManager extends cc.Component {
 
     playUnClick() {
         this._playSFX(this.unClickAudioClip);
+    }
+
+    isNoGameOffer(): boolean {
+        let result = true;
+        result = !this.supportGames.some((id) => this.user.offerGames.includes(id));
+        return result;
+    }
+
+    isGameExcluded(gameId: number): boolean {
+        return !this.supportGames.includes(gameId) || !this.user.offerGames.includes(gameId);
+    }
+
+    getFirstOfferGame(): number {
+        return this.supportGames.find((game) => this.user.offerGames.includes(game));
+    }
+
+    removeGameOffer(gameId: number) {
+        if (this.user && this.user.offerGames) {
+            const index = this.user.offerGames.findIndex((id) => id === gameId);
+            if (index > -1) {
+                this.user.offerGames.splice(index, 1);
+            }
+        }
     }
 }

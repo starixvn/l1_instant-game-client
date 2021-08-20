@@ -17,25 +17,45 @@ export default class Main extends cc.Component {
     @property(cc.Label)
     splashMessage: cc.Label = null;
 
-    @property(cc.Node)
-    loading: cc.Node = null;
+    // @property(cc.Node)
+    // loading: cc.Node = null;
 
     @property(cc.Node)
     main: cc.Node = null;
 
     @property(cc.Node)
-    content: cc.Node = null;
+    headerContainer: cc.Node = null;
 
     @property(cc.Node)
     miniPanelNode: cc.Node = null;
 
-    generateNameCount = 0;
-    miniPanel: MiniPanel;
+    private generateNameCount = 0;
+    private miniPanel: MiniPanel;
+    private gameHeaders: cc.Toggle[] = [];
+    private showingNoticeNotPermitToPlay = false;
 
     onLoad() {
-        this.initLanguage();
         cc.GameManager = GameManager.Instance;
+        this.headerContainer.children.forEach((child) => {
+            const toggle = child.getComponent(cc.Toggle);
+            if (toggle) {
+                this.gameHeaders.push(toggle);
+            }
+
+            cc.GameManager.supportGames.push(+child.name);
+        });
+        this.initLanguage();
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
+        this.miniPanel.mainCallback = {
+            showNoticeNotPermitToPlay: () => {
+                this.showingNoticeNotPermitToPlay = true;
+            },
+            updateOfferGameHeaders: () => this.updateOfferGameHeaders(),
+            selecAndOpenGame: (gameId) => {
+                this.updateSelectedHeader(gameId);
+                this.openGame(gameId);
+            }
+        };
         GameManager.Instance.miniPanel = this.miniPanel;
         this.splash.active = true;
         this.checkSSO();
@@ -72,7 +92,7 @@ export default class Main extends cc.Component {
     }
 
     handleUserData(user) {
-        console.log("user ", user);
+        cc.GameManager.loadUserData(user);
     }
 
     serviceAuthorized(authorized: boolean) {
@@ -103,9 +123,11 @@ export default class Main extends cc.Component {
     }
 
     openGameSSO() {
-        let gameId = 0;
+        let gameId = -1;
+        let ssoGameId = 0;
         if (window.openGameId) {
             gameId = parseInt(window.openGameId);
+            ssoGameId = gameId;
             window.openGameId = null;
         }
 
@@ -113,17 +135,59 @@ export default class Main extends cc.Component {
             gameId = GameIds.MiniSedie;
         }
 
+        if (gameId === -1) {
+            gameId = this.getCacheCurrentGameId();
+        }
+
         this.splash.active = false;
-        this.openGame(gameId);
+        if (gameId) {
+            this.updateSelectedHeader(gameId);
+            this.openGame(gameId);
+        }
+    }
+
+    updateOfferGameHeaders() {
+        const offerGames = cc.GameManager.user.offerGames;
+        this.gameHeaders.forEach((toggle) => {
+            toggle.node.active = offerGames.includes(+toggle.node.name);
+        });
+    }
+
+    updateSelectedHeader(gameId: number) {
+        const name = gameId.toString();
+        const toggle = this.gameHeaders.find((comp) => comp.node.name === name);
+        if (toggle) {
+            toggle.isChecked = true;
+        }
     }
 
     openGame(gameId: number) {
-        console.log("open game id " + gameId);
         this.miniPanel.openNewSocketMiniGame(gameId);
+    }
+
+    saveCacheCurrrentGameId(gameId: number) {
+        cc.sys.localStorage.setItem("instant_current_game", gameId);
+    }
+
+    getCacheCurrentGameId(): number {
+        const cacheId = cc.sys.localStorage.getItem("instant_current_game");
+        return cacheId ? +cacheId : GameIds.MiniSedie;
     }
 
     onGuideClick() {
         cc.GameManager.playClick();
         this.miniPanel.openGuide();
+    }
+
+    onGameChanged(toggle: cc.Toggle) {
+        this.miniPanel.removeAllNotices();
+        if (this.showingNoticeNotPermitToPlay) {
+            this.showingNoticeNotPermitToPlay = false;
+            this.updateOfferGameHeaders();
+        }
+        if (toggle.isChecked) {
+            const gameId = +toggle.node.name;
+            this.openGame(gameId);
+        }
     }
 }

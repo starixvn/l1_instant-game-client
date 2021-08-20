@@ -9,6 +9,7 @@ import ProcessingWarning from "../../common/control/notice/ProcessingWarning";
 import UmWarning from "../../common/control/notice/UmWarning";
 import TypingLabel from "../../common/control/TypingLabel";
 import GameUtils from "../../common/utils/GameUtils";
+import NoticeUtil from "../../common/utils/NoticeUtil";
 import { GameInfos } from "../../configs/SabaConfigs";
 import DataHandler from "./handlers/DataHandler";
 import GameBaseBetHandler from "./handlers/GameBaseBetHandler";
@@ -23,6 +24,8 @@ import GameBaseUmDataHandler from "./handlers/GameBaseUmDataHandler";
 import BetItem from "./view-models/BetItem";
 import GameAudios from "./view-models/GameAudios";
 import { GameConfigBase } from "./view-models/GameConfigBase";
+import GameGuideBase from "./view-models/GameGuideBase";
+import GameRoundHistory from "./view-models/GameRoundHistory";
 
 const { ccclass, property } = cc._decorator;
 
@@ -62,8 +65,13 @@ export default class GameBase extends BaseComponent {
     @property(cc.Label)
     gameRound: cc.Label = null;
 
+    @property(cc.Prefab)
+    roundHistoryPrefab: cc.Prefab = null;
+
     @property
     enableChips = false;
+
+    protected roundHistory: GameRoundHistory;
 
     @property({
         type: cc.Node,
@@ -166,7 +174,7 @@ export default class GameBase extends BaseComponent {
         this.setGameRound(0);
         this.resetDataAndUI();
         cc.game.on(cc.game.EVENT_HIDE, this.onGameHide, this);
-        cc.game.on(cc.game.EVENT_SHOW, this.onGameShow, this);
+        cc.game.on(cc.game.EVENT_SHOW, this.connectGameService, this);
     }
 
     setUpHandlers() {
@@ -186,13 +194,13 @@ export default class GameBase extends BaseComponent {
 
     onDestroy() {
         cc.game.off(cc.game.EVENT_HIDE, this.onGameHide, this);
-        cc.game.off(cc.game.EVENT_SHOW, this.onGameShow, this);
+        cc.game.off(cc.game.EVENT_SHOW, this.connectGameService, this);
     }
 
-    onEnable() {
-        this.startGame();
-        this.registerViewGame();
-    }
+    // onEnable() {
+    //     this.startGame();
+    //     this.registerViewGame();
+    // }
 
     onDisable() {
         this.stopGame();
@@ -357,6 +365,8 @@ export default class GameBase extends BaseComponent {
         if (this.statusHandler) {
             this.statusHandler.currentStatusData = null;
         }
+
+        this.clearAllNotices();
     }
 
     protected formatGameRound(gameRoundId: any) {
@@ -367,7 +377,7 @@ export default class GameBase extends BaseComponent {
         this.stopGame();
     }
 
-    public onGameShow() {
+    public connectGameService() {
         this.startGame();
         this.registerViewGame();
     }
@@ -458,15 +468,6 @@ export default class GameBase extends BaseComponent {
         return false;
     }
 
-    openGuide() {
-        // const dialog = cc.instantiate(this.guidePrefab);
-        // const guide = dialog.getComponent(WebViewGuide);
-        // const { minBet, maxBet } = this.getBetRange();
-        // guide.initURL(this.gameId, getLocale(), { minBet, maxBet, used: this.isUsingMaxStakeLevel() });
-        // this.currentMiniPanel.showGuide(dialog);
-        // guide.loadWebView();4
-    }
-
     getBetRange() {
         return this.isUsingMaxStakeLevel() ? this.getVipBetRange() : this.getNormalBetRange();
     }
@@ -486,4 +487,30 @@ export default class GameBase extends BaseComponent {
             maxBet: Math.min(cc.GameManager.userStakeLevel.maxBet, maxbet)
         };
     }
+
+    openGuide() {
+        if (!this.gameConfigs) {
+            return;
+        }
+        const lang = NoticeUtil.getCurrentLanguage();
+        const gameName = GameInfos[this.gameId].key;
+        GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {
+            const node = cc.instantiate(prefab);
+            const guide = node.getComponent(GameGuideBase);
+            guide.init(this.gameConfigs);
+            this.currentMiniPanel.addDialog(node);
+        });
+    }
+
+    openScoreBoard() {
+        cc.GameManager.playClick();
+
+        const node = cc.instantiate(this.roundHistoryPrefab);
+        this.roundHistory = node.getComponent(GameRoundHistory);
+        this.roundHistory.init(this);
+        this.currentMiniPanel.addDialog(node);
+        this.updateRoundHistory();
+    }
+
+    updateRoundHistory() {}
 }

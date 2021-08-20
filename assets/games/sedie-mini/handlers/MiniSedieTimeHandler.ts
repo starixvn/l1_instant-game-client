@@ -70,7 +70,7 @@ export default class MiniSedieTimeHandler extends GameBaseTimeHandler {
             if (this.main.timeWaitNode) {
                 this.main.timeWaitNode.active = true;
             }
-            this.main.timeWaitLabel.string = `00:${numberPad(time, 2)}`;
+            this.main.timeWaitLabel.string = `${numberPad(time, 2)}`;
         } else {
             if (this.main.timeWaitNode) {
                 this.main.timeWaitNode.active = false;

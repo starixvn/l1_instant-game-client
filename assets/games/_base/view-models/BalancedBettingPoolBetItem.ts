@@ -5,19 +5,23 @@ const { ccclass } = cc._decorator;
 
 @ccclass
 export default class BalancedBettingPoolBetItem extends BetItem {
-    public resetHighlight() {
-        this.resetHighlightOptions();
+    public setHighlight(highlight: boolean, isAnimated = true) {
+        super.setHighlight(highlight, isAnimated);
+
+        if (this.highlightBorder) {
+            this.highlightBorder.active = highlight && !isAnimated;
+        }
     }
 
-    protected setHighlightItems(highlight: boolean, isAnimated = true) {
-        this.setHighlightItemsOptions(highlight, isAnimated);
+    public resetHighlight() {
+        this.highlight.active = false;
     }
 
     public balanceBet(bet: number) {
         numberTo(this.totalBet, 0, bet, 1000, true);
     }
 
-    protected setTotalBet(bet: number) {
+    public setTotalBet(bet: number) {
         this.totalBet.string = numberWithCommas(bet);
     }
 }

@@ -134,6 +134,7 @@ export function triggerSignIn(main) {
                 const session = sessionManager.getSession();
                 const isSessionExpired = verifySession(session);
 
+                //FIXME: no infor of user
                 if (!isSessionExpired) {
                     main.serviceAuthorized(true);
                 } else {
