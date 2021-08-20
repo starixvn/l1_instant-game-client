@@ -179,14 +179,14 @@ export default class Main extends cc.Component {
         this.miniPanel.openGuide();
     }
 
-    onGameChanged(toggle: cc.Toggle, param: string) {
+    onGameChanged(toggle: cc.Toggle) {
         this.miniPanel.removeAllNotices();
         if (this.showingNoticeNotPermitToPlay) {
             this.showingNoticeNotPermitToPlay = false;
             this.updateOfferGameHeaders();
         }
         if (toggle.isChecked) {
-            const gameId = +param;
+            const gameId = +toggle.node.name;
             this.openGame(gameId);
         }
     }
