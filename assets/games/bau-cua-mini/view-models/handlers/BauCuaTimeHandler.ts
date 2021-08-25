@@ -1,5 +1,5 @@
-import GameBaseTimeHandler from '../../../_base/handlers/GameBaseTimeHandler';
-import BauCua from '../BauCua';
+import GameBaseTimeHandler from "../../../_base/handlers/GameBaseTimeHandler";
+import BauCua from "../BauCua";
 
 export default class BauCuaTimeHandler extends GameBaseTimeHandler {
     constructor(protected readonly main: BauCua) {
@@ -9,6 +9,7 @@ export default class BauCuaTimeHandler extends GameBaseTimeHandler {
     handleInRoundTime() {
         super.handleInRoundTime();
         this.main.hideAllDices();
+        this.main.dishNode.active = true;
         this.main.animationNode.node.active = false;
     }
 }

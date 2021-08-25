@@ -12,6 +12,7 @@ export default class BauCuaLogsHandler extends GameBaseLogsHandler {
         this.main.resetXTimesResult();
         if (!this.main.finishShowResult) {
             this.main.setDiceResult();
+            this.main.dishNode.active = false;
             this.main.animationNode.node.active = true;
             const duration = this.main.animationNode.defaultClip.duration;
             this.main.animationNode.play("Result", duration);

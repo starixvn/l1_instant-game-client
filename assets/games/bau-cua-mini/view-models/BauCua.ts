@@ -22,6 +22,9 @@ export default class BauCua extends SocketIOMiniGameBase {
     @property({ type: cc.Sprite })
     dices: cc.Sprite[] = [];
 
+    @property(cc.Node)
+    dishNode: cc.Node = null;
+
     @property(cc.Animation)
     animationNode: cc.Animation = null;
 
@@ -98,6 +101,7 @@ export default class BauCua extends SocketIOMiniGameBase {
 
     resetDataAndUI() {
         super.resetDataAndUI();
+        this.dishNode.active = true;
         this.animationNode.node.active = false;
         this.hideAllDices();
         this.node.stopAllActions();
