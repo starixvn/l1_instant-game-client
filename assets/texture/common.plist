@@ -15,9 +15,24 @@
                 <key>spriteSourceSize</key>
                 <string>{24,13}</string>
                 <key>textureRect</key>
-                <string>{{397,88},{24,13}}</string>
+                <string>{{397,110},{24,13}}</string>
                 <key>textureRotated</key>
                 <true/>
+            </dict>
+            <key>bg_header.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2,46}</string>
+                <key>spriteSourceSize</key>
+                <string>{2,46}</string>
+                <key>textureRect</key>
+                <string>{{397,62},{2,46}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>bg_mini_sedie.png</key>
             <dict>
@@ -450,7 +465,7 @@
                 <key>spriteSourceSize</key>
                 <string>{2,2}</string>
                 <key>textureRect</key>
-                <string>{{397,62},{2,2}}</string>
+                <string>{{401,76},{2,2}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -948,7 +963,7 @@
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f36b308e4fed2bac90fc6c1093e292ad:2febe1ae6053e796a1de709932662f29:1f55903e2927f6cb72c625c6a594708e$</string>
+            <string>$TexturePacker:SmartUpdate:00c8e42d1ba93d36a17b08946e2550e9:176bd989b26fd36476d2512e5c6cb903:1f55903e2927f6cb72c625c6a594708e$</string>
             <key>textureFileName</key>
             <string>common.png</string>
         </dict>
