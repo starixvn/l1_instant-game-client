@@ -15,14 +15,11 @@ export default class SetMinWidth extends cc.Component {
             .delay(0.2)
             .call(() => {
                 this.containerLayout.children.forEach((item) => {
-                    layout.enabled = false;
-
                     if (item.width < this.minWidth && item.width > 3) {
                         item.getComponent(cc.Layout).enabled = false;
                         item.width = this.minWidth;
                     }
                 });
-                layout.enabled = true;
                 layout.updateLayout();
             })
             .start();
