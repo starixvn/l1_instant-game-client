@@ -4,7 +4,7 @@ const configs = {
     serverDomainMapper: {
         "miniuat.sgamesuat.com": "sabagame.com"
     },
-    subDomain: "uatproxy",
+    subDomain: "l1uatproxy",
     env: "uat",
     sentry: {
         url: "https://08d902b128ea45b6a11639833224f481@sentryuat.sabagame.com/25",
