@@ -51,13 +51,15 @@ export default class GameBaseFinishHandler implements DataHandler {
         }
         const settlementResultKeys = getLowercaseObjectKeys(settlementResult);
         const lostBetItems = _.filter(this.main.betItems, (item) => !settlementResult[settlementResultKeys[item.node.name.toLowerCase()]]);
-        const winBetItems = _.filter(this.main.betItems, (item) => !!settlementResult[settlementResultKeys[item.node.name.toLowerCase()]]);
 
         cc.tween(this.main.node)
             .delay(this.main.betChips.chipDelayFlyingTime)
-            .call(() => this.dealerGetChips(this.main, lostBetItems))
+            .call(() => {
+                this.dealerGetChips(this.main, lostBetItems);
+                lostBetItems.forEach((item) => item.clearOwnBetValue());
+            })
             .delay(this.main.betChips.chipDelayFlyingTime)
-            .call(() => this.payChipToLoginPlayerMiniGame(this.main.statusHandler.currentStatusData, winBetItems))
+            .call(() => this.payChipToLoginPlayerMiniGame(this.main.statusHandler.currentStatusData))
             .start();
     }
 
@@ -128,13 +130,13 @@ export default class GameBaseFinishHandler implements DataHandler {
         this.main.updateUserBalance();
     }
 
-    payChipToLoginPlayerMiniGame(statusData: any, winBetItems: BetItem[]) {
+    payChipToLoginPlayerMiniGame(statusData: any) {
         if (!statusData || !statusData.win) {
             return;
         }
         const betItems = statusData.winningByChoices;
         const betItemLowercaseObjectKeys = getLowercaseObjectKeys(betItems);
-        const filteredItems = winBetItems.filter((item) => betItems[betItemLowercaseObjectKeys[item.node.name.toLowerCase()]]);
+        const filteredItems = this.main.betItems.filter((item) => betItems[betItemLowercaseObjectKeys[item.node.name.toLowerCase()]]);
 
         filteredItems.forEach((item) => {
             const winBet = betItems[item.node.name] - item.ownBetValue;

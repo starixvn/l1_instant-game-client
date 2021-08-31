@@ -240,6 +240,7 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
     }
 
     public payChipsToWinningBetItemWithAmount(chipBox: cc.Node, dealerBox: cc.Node, amount: number) {
+        console.log("amount ", amount);
         const dealerBoxPosition = dealerBox.parent.convertToWorldSpaceAR(dealerBox.position);
         const dealerBoxInChipBoxSpacePosition = chipBox.convertToNodeSpaceAR(dealerBoxPosition);
 
