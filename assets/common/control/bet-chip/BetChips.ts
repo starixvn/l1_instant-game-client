@@ -239,6 +239,19 @@ export default class BetChips extends ComponentSystem implements ICreditSystem, 
         });
     }
 
+    public payChipsToWinningBetItemWithAmount(chipBox: cc.Node, dealerBox: cc.Node, amount: number) {
+        const dealerBoxPosition = dealerBox.parent.convertToWorldSpaceAR(dealerBox.position);
+        const dealerBoxInChipBoxSpacePosition = chipBox.convertToNodeSpaceAR(dealerBoxPosition);
+
+        const chipNodes = this.createChipNodes(amount);
+        chipNodes.forEach((node) => {
+            node.position = dealerBoxInChipBoxSpacePosition;
+            chipBox.addChild(node);
+            const randomPosition = this.getRandomPositionChip(node, chipBox);
+            node.runAction(this.moveChipTo(randomPosition));
+        });
+    }
+
     public placeChipBet(bet: number, destNode: cc.Node, startNode: cc.Node = null, onComplete = () => {}) {
         let chipPosition: cc.Vec3;
         const isLoginUserPlaceBet = startNode == null;
