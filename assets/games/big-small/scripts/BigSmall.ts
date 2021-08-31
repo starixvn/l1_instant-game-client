@@ -56,7 +56,7 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
 
     private dices: cc.Sprite[] = [];
     private miniRoundHistory: MiniRoundHistory;
-    private diceAnimationDuration: number;
+    public diceAnimationDuration: number;
 
     readonly choices = ["small", "big"];
 
