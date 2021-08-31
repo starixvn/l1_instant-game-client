@@ -77,7 +77,7 @@ export default class MinWidthLayout extends cc.Layout {
             }
         }
 
-        var newChildWidth = this.cellSize.width;
+        var newChildWidth = Math.max(this.cellSize.width, this.minWidth);
         if (this.type !== Type.GRID && this.resizeMode === ResizeMode.CHILDREN) {
             newChildWidth =
                 (Math.max(baseWidth, this.minWidth) - (this.paddingLeft + this.paddingRight) - (activeChildCount - 1) * this.spacingX) /
@@ -122,9 +122,11 @@ export default class MinWidthLayout extends cc.Layout {
             if (rowBreak) {
                 var rowBreakBoundary = nextX + rightBoundaryOfChild + sign * (sign > 0 ? this.paddingRight : this.paddingLeft);
                 var leftToRightRowBreak =
-                    this.horizontalDirection === HorizontalDirection.LEFT_TO_RIGHT && rowBreakBoundary > (1 - layoutAnchor.x) * baseWidth;
+                    this.horizontalDirection === HorizontalDirection.LEFT_TO_RIGHT &&
+                    rowBreakBoundary > (1 - layoutAnchor.x) * Math.max(baseWidth, this.minWidth);
                 var rightToLeftRowBreak =
-                    this.horizontalDirection === HorizontalDirection.RIGHT_TO_LEFT && rowBreakBoundary < -layoutAnchor.x * baseWidth;
+                    this.horizontalDirection === HorizontalDirection.RIGHT_TO_LEFT &&
+                    rowBreakBoundary < -layoutAnchor.x * Math.max(baseWidth, this.minWidth);
 
                 if (leftToRightRowBreak || rightToLeftRowBreak) {
                     if (childBoundingBoxHeight >= tempMaxHeight) {
@@ -144,7 +146,7 @@ export default class MinWidthLayout extends cc.Layout {
             }
 
             var finalPositionY = fnPositionY(child, rowMaxHeight, row);
-            if (baseWidth >= childBoundingBoxWidth + this.paddingLeft + this.paddingRight) {
+            if (Math.max(baseWidth, this.minWidth) >= childBoundingBoxWidth + this.paddingLeft + this.paddingRight) {
                 if (applyChildren) {
                     child.setPosition(cc.v2(nextX, finalPositionY));
                 }
