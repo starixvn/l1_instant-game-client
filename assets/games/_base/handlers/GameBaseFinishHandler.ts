@@ -59,7 +59,7 @@ export default class GameBaseFinishHandler implements DataHandler {
             .delay(this.main.betChips.chipDelayFlyingTime)
             .call(() => this.dealerPayChips(this.main, winBetItems))
             // .delay(this.main.betChips.chipDelayFlyingTime)
-            // .call(() => this.payChipToLoginPlayerMiniGame(this.main.statusHandler.currentStatusData, winBetItems))
+            .call(() => this.payChipToLoginPlayerMiniGame(this.main.statusHandler.currentStatusData, winBetItems))
             .start();
     }
 
@@ -134,11 +134,11 @@ export default class GameBaseFinishHandler implements DataHandler {
         if (!statusData || !statusData.win) {
             return;
         }
-        const betItems = statusData.winningByChoices;
-        const betItemLowercaseObjectKeys = getLowercaseObjectKeys(betItems);
-        const filteredItems = winBetItems.filter((item) => betItems[betItemLowercaseObjectKeys[item.node.name.toLowerCase()]]);
-        const destNode = this.main.betChipsContainer;
-        this.moveChipsFromBetItem(filteredItems, destNode);
+        // const betItems = statusData.winningByChoices;
+        // const betItemLowercaseObjectKeys = getLowercaseObjectKeys(betItems);
+        // const filteredItems = winBetItems.filter((item) => betItems[betItemLowercaseObjectKeys[item.node.name.toLowerCase()]]);
+        // const destNode = this.main.betChipsContainer;
+        // this.moveChipsFromBetItem(filteredItems, destNode);
 
         this.main.showWinningBet(statusData.bet);
         this.main.updateUserBalance();
