@@ -361,6 +361,12 @@ export default class GameBase extends BaseComponent {
             this.statusHandler.currentStatusData = null;
         }
 
+        if (this.dealerChipBox) {
+            this.dealerChipBox.destroyAllChildren();
+        }
+
+        this.node.stopAllActions();
+
         this.clearAllNotices();
     }
 
