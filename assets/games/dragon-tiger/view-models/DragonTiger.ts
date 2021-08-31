@@ -1,13 +1,13 @@
+import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
 import MiniRoundHistory from "../../../common/control/mini-round-history/MiniRoundHistory";
 import NewCard from "../../../common/control/new-card/view-models/NewCard";
+import GameUtils from "../../../common/utils/GameUtils";
 import { GameIds } from "../../../configs/SabaConfigs";
-import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
 import SocketIOMiniGameBase from "../../_base/SocketIOMiniGameBase";
+import { DragonTigerConfigs } from "./DragonTigerConfigs";
 import RHFinishDataHandler from "./handlers/RHFinishDataHandler";
 import RHGameTimeHandler from "./handlers/RHGameTimeHandler";
 import RHLogsDataHandler from "./handlers/RHLogsDataHandler";
-import { DragonTigerConfigs } from "./DragonTigerConfigs";
-import GameUtils from "../../../common/utils/GameUtils";
 
 const { ccclass, property } = cc._decorator;
 

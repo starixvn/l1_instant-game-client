@@ -42,7 +42,7 @@ export class GameBaseStatusHandler implements IGameBaseStatusHandler {
     }
 
     showStatus(win: boolean, bet: number) {
-        if (!cc.GameManager.GAME_IS_SHOWED) {
+        if (!cc.GameManager.GAME_IS_SHOWED || this.main.enableChips) {
             return;
         }
         if (win) {

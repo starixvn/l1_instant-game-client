@@ -1,8 +1,7 @@
 import _ = require("lodash");
-import GameBase from "../../_base/GameBase";
+
 import GameRoundHistory from "../../_base/view-models/GameRoundHistory";
 import BauCuaLogItems from "./BauCuaLogItems";
-import GameBaseFinishHandler from "../../_base/handlers/GameBaseFinishHandler";
 
 const { ccclass, property } = cc._decorator;
 
