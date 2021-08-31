@@ -46,6 +46,9 @@ export default class BauCua extends SocketIOMiniGameBase {
     @property(cc.Node)
     ownBetContainer: cc.Node = null;
 
+    @property(cc.Node)
+    xContainer: cc.Node = null;
+
     onLoad() {
         super.onLoad();
         this.relocationChipNode();
@@ -69,6 +72,7 @@ export default class BauCua extends SocketIOMiniGameBase {
             GameUtils.moveToOtherNode(item.chipNode, this.chipContainer);
             GameUtils.moveToOtherNode(item.totalBet.node, this.totalBetContainer);
             GameUtils.moveToOtherNode(item.ownBet.node, this.ownBetContainer);
+            GameUtils.moveToOtherNode(item.xSprite.node, this.xContainer);
         });
     }
 
