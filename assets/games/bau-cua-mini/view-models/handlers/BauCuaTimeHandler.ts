@@ -9,7 +9,5 @@ export default class BauCuaTimeHandler extends GameBaseTimeHandler {
     handleInRoundTime() {
         super.handleInRoundTime();
         this.main.hideAllDices();
-        this.main.dishNode.active = true;
-        this.main.animationNode.node.active = false;
     }
 }

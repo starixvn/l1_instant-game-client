@@ -3,7 +3,7 @@
   "_name": "xocbaucua",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 3,
+  "_duration": 1.5,
   "sample": 60,
   "speed": 1,
   "wrapMode": 0,
@@ -229,8 +229,8 @@
             {
               "frame": 0,
               "value": [
-                0,
-                -14.314,
+                1.5,
+                -27.472,
                 0
               ]
             }
@@ -265,8 +265,8 @@
             {
               "frame": 0,
               "value": [
-                -2.61,
-                18.403,
+                0,
+                0,
                 0
               ]
             },
@@ -283,54 +283,6 @@
               "value": [
                 -198.351,
                 104.529,
-                0
-              ]
-            }
-          ]
-        }
-      },
-      "xingau": {
-        "props": {
-          "opacity": [
-            {
-              "frame": 0,
-              "value": 0
-            },
-            {
-              "frame": 1.15,
-              "value": 0
-            },
-            {
-              "frame": 1.2,
-              "value": 255
-            },
-            {
-              "frame": 3,
-              "value": 255
-            }
-          ],
-          "position": [
-            {
-              "frame": 0,
-              "value": [
-                0,
-                0,
-                0
-              ]
-            },
-            {
-              "frame": 2.15,
-              "value": [
-                0,
-                0,
-                0
-              ]
-            },
-            {
-              "frame": 3,
-              "value": [
-                0,
-                0,
                 0
               ]
             }
