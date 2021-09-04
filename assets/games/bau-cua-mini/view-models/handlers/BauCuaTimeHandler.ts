@@ -10,4 +10,22 @@ export default class BauCuaTimeHandler extends GameBaseTimeHandler {
         super.handleInRoundTime();
         this.main.hideAllDices();
     }
+
+    handleWaitTime() {
+        super.handleWaitTime();
+
+        if (!this.main.resultAnimating) {
+            this.main.setDiceResult();
+            this.main.highlightWinningBetItems(true);
+            this.main.dishNode.active = false;
+            this.main.resultAnimating = true;
+        }
+
+        const shakingDuration = this.main.animationNode.defaultClip.duration;
+        const shakeTimePoint = this.main.config.betTime + shakingDuration;
+
+        if (this.main.currentTimeRemaining === shakeTimePoint) {
+            this.main.resetDataAndUI();
+        }
+    }
 }

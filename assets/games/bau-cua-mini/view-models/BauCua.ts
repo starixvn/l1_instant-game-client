@@ -49,6 +49,8 @@ export default class BauCua extends SocketIOMiniGameBase {
     @property(cc.Node)
     xContainer: cc.Node = null;
 
+    public resultAnimating = false;
+
     onLoad() {
         super.onLoad();
         this.relocationChipNode();
