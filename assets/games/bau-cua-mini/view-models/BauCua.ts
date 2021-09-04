@@ -52,6 +52,7 @@ export default class BauCua extends SocketIOMiniGameBase {
     onLoad() {
         super.onLoad();
         this.relocationChipNode();
+        this.animatedTime.setAnimatedY(40, 0);
     }
 
     initMiniPanel(miniPanel: MiniPanel) {
