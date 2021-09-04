@@ -25,7 +25,7 @@ export default class BauCuaFinishHandler extends GameBaseFinishHandler {
     }
 
     handleAnimation() {
-        this.main.animationNode.node.active = true;
         this.main.animationNode.play();
+        this.main.resultAnimating = true;
     }
 }
