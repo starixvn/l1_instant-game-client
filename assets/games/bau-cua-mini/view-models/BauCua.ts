@@ -72,10 +72,11 @@ export default class BauCua extends SocketIOMiniGameBase {
 
     relocationChipNode() {
         this.betItems.forEach((item) => {
-            GameUtils.moveToOtherNode(item.chipNode, this.chipContainer);
-            GameUtils.moveToOtherNode(item.totalBet.node, this.totalBetContainer);
-            GameUtils.moveToOtherNode(item.ownBet.node, this.ownBetContainer);
-            GameUtils.moveToOtherNode(item.xSprite.node, this.xContainer);
+            const bauCuaItem = item as BauCuaBetItem;
+            GameUtils.moveToOtherNode(bauCuaItem.chipNode, this.chipContainer);
+            GameUtils.moveToOtherNode(bauCuaItem.totalBet.node, this.totalBetContainer);
+            GameUtils.moveToOtherNode(bauCuaItem.ownBet.node, this.ownBetContainer);
+            GameUtils.moveToOtherNode(bauCuaItem.xSprite.node, this.xContainer);
         });
     }
 
