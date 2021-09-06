@@ -2,7 +2,6 @@ import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
 import MiniRoundHistory from "../../../common/control/mini-round-history/MiniRoundHistory";
 import GameUtils from "../../../common/utils/GameUtils";
 import { GameIds } from "../../../configs/SabaConfigs";
-import GameBaseFinishHandler from "../../_base/handlers/GameBaseFinishHandler";
 import BalancedBettingPoolGameBase from "./BalancedBettingPoolGameBase";
 import { BigSmallConfigs } from "./BigSmallConfigs";
 import BigSmallBetHandler from "./handlers/BigSmallBetHandler";
@@ -128,32 +127,41 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
         Object.keys(result).forEach((key, index) => {
             this.dices[index].spriteFrame = this.diceAtlas.getSpriteFrame(`p-${result[key]}`);
         });
+
+        this.resultLabel.string = result.dice1 + result.dice2 + result.dice3;
     }
 
-    showResult() {
-        if (this.currentDataLogs.length > 0) {
-            const { settlementResult } = this.currentDataLogs[0];
-
-            cc.tween(this.node)
-                .call(() => {
-                    this.diceAnimation.node.active = true;
-                    this.diceContainer.active = false;
-                    this.diceAnimation.play();
-
-                    const currentStatusData = this.statusHandler.currentStatusData;
-                    currentStatusData && this.statusHandler.status(currentStatusData.win, currentStatusData.bet);
-                })
-                .delay(this.diceAnimationDuration)
-                .call(() => {
-                    this.diceAnimation.node.active = false;
-                    this.diceContainer.active = true;
-                    this.updateRoundHistory();
-                })
-                .start();
-
-            (this.finishHandler as GameBaseFinishHandler).payChips(settlementResult, null);
-            this.finishShowResult = true;
+    showResult(animated: boolean) {
+        console.log("show result");
+        if (this.currentDataLogs.length === 0) {
+            return;
         }
+
+        if (!animated) {
+            this.showDiceAnimation(false);
+            this.resultNode.active = true;
+            return;
+        }
+
+        cc.tween(this.node)
+            .call(() => {
+                this.showDiceAnimation(true);
+                this.diceAnimation.play();
+
+                const currentStatusData = this.statusHandler.currentStatusData;
+                currentStatusData && this.statusHandler.status(currentStatusData.win, currentStatusData.bet);
+            })
+            .delay(this.diceAnimationDuration)
+            .call(() => {
+                this.showDiceAnimation(false);
+                this.updateRoundHistory();
+            })
+            .start();
+    }
+
+    private showDiceAnimation(show: boolean) {
+        this.diceAnimation.node.active = show;
+        this.diceContainer.active = !show;
     }
 
     showWinningAnimation(data) {
@@ -165,7 +173,6 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
                 });
 
                 this.resultNode.active = true;
-                this.resultLabel.string = data.result.dice1 + data.result.dice2 + data.result.dice3;
             })
             .start();
     }
