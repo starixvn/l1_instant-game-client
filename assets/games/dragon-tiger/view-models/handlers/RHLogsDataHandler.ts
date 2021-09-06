@@ -8,5 +8,9 @@ export default class RHLogsDataHandler extends GameBaseLogsHandler {
 
     buildLogs(dataLogs: any) {
         this.main.updateRoundHistory();
+        if (dataLogs.length > 0) {
+            const lastResult = dataLogs[0].result;
+            this.main.resultCards = [lastResult.dragon, lastResult.tiger];
+        }
     }
 }
