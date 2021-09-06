@@ -25,7 +25,6 @@ export default class BigSmallTimeHandler extends GameBaseTimeHandler {
 
             if (this.isDisplayResultTime) {
                 cc.GameManager.GAME_IS_SHOWED && this.main.showResult(true);
-                this.main.showWinningAnimation(this.main.currentDataLogs[0]);
                 this.main.currentTimeRemaining--;
             } else {
                 super.gameUpdate();

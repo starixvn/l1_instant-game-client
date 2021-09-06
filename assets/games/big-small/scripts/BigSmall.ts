@@ -138,8 +138,7 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
         }
 
         if (!animated) {
-            this.showDiceAnimation(false);
-            this.resultNode.active = true;
+            this.showResultAfterAnimation();
             return;
         }
 
@@ -153,10 +152,16 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
             })
             .delay(this.diceAnimationDuration)
             .call(() => {
-                this.showDiceAnimation(false);
+                this.showResultAfterAnimation();
                 this.updateRoundHistory();
             })
             .start();
+    }
+
+    showResultAfterAnimation() {
+        this.showDiceAnimation(false);
+        this.showWinningAnimation(this.currentDataLogs[0]);
+        this.resultNode.active = true;
     }
 
     private showDiceAnimation(show: boolean) {
@@ -165,16 +170,10 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     }
 
     showWinningAnimation(data) {
-        cc.tween(this.node)
-            .delay(this.diceAnimationDuration)
-            .call(() => {
-                this.betItems.forEach((betItem) => {
-                    betItem.setHighlight(data.settlementResult[betItem.node.name], true);
-                });
-
-                this.resultNode.active = true;
-            })
-            .start();
+        const { settlementResult } = data;
+        this.betItems.forEach((betItem) => {
+            betItem.setHighlight(settlementResult[betItem.node.name], true);
+        });
     }
 
     resetDataAndUI() {
