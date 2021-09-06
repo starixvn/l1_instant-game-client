@@ -124,10 +124,8 @@ export default class Main extends cc.Component {
 
     openGameSSO() {
         let gameId = -1;
-        let ssoGameId = 0;
         if (window.openGameId) {
             gameId = parseInt(window.openGameId);
-            ssoGameId = gameId;
             window.openGameId = null;
         }
 
@@ -140,16 +138,21 @@ export default class Main extends cc.Component {
         }
 
         this.splash.active = false;
+
         if (gameId) {
+            this.updateOfferGameHeaders(gameId);
             this.updateSelectedHeader(gameId);
             this.openGame(gameId);
         }
     }
 
-    updateOfferGameHeaders() {
-        const offerGames = cc.GameManager.user.offerGames;
+    updateOfferGameHeaders(needShowGameId?: number) {
+        const list = [...cc.GameManager.user.offerGames];
+        if (needShowGameId !== undefined) {
+            list.push(needShowGameId);
+        }
         this.gameHeaders.forEach((toggle) => {
-            toggle.node.active = offerGames.includes(+toggle.node.name);
+            toggle.node.active = list.includes(+toggle.node.name);
         });
     }
 

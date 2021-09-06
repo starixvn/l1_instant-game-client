@@ -32,7 +32,18 @@ export default class BetItem extends cc.Component {
 
     public betCallback = (e) => {};
 
+    private _ownBetValue: number;
+
+    get ownBetValue() {
+        return this._ownBetValue;
+    }
+
+    public clearOwnBetValue() {
+        this._ownBetValue = 0;
+    }
+
     public setOwnBet(bet: number) {
+        this._ownBetValue = bet;
         if (this.ownBet) {
             this.ownBet.string = bet > 0 ? numberWithCommas(bet) : "";
         }

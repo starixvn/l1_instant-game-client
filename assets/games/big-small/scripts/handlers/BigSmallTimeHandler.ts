@@ -24,8 +24,7 @@ export default class BigSmallTimeHandler extends GameBaseTimeHandler {
             this.main.hideBalanceBetNotice();
 
             if (this.isDisplayResultTime) {
-                cc.GameManager.GAME_IS_SHOWED && this.main.showResult();
-                this.main.showWinningAnimation(this.main.currentDataLogs[0]);
+                cc.GameManager.GAME_IS_SHOWED && this.main.showResult(true);
                 this.main.currentTimeRemaining--;
             } else {
                 super.gameUpdate();
@@ -45,13 +44,5 @@ export default class BigSmallTimeHandler extends GameBaseTimeHandler {
         if (this.main.currentTimeRemaining <= this.main.config.betTime) {
             this.showRoundTime();
         }
-    }
-
-    handleWaitTime() {
-        super.handleWaitTime();
-    }
-
-    handleInLockBetTime() {
-        super.handleInLockBetTime();
     }
 }

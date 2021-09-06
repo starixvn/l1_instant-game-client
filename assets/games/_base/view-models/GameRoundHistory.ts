@@ -18,6 +18,7 @@ export default class GameRoundHistory extends BaseComponent {
     statisticLabels: cc.Label[] = [];
 
     protected suffix = "%";
+    protected main: GameBase = null;
 
     onLoad() {
         this.dialog.onDidHide = () => {
@@ -30,21 +31,22 @@ export default class GameRoundHistory extends BaseComponent {
     }
 
     public init(main: GameBase) {
+        this.main = main;
         const condition = () => {
-            const finishHandler = main.finishHandler as GameBaseFinishHandler;
+            const finishHandler = this.main.finishHandler as GameBaseFinishHandler;
             return (
-                main.currentTimeRemaining < main.config.stopBetTime ||
-                main.currentTimeRemaining > main.config.fullTime - finishHandler.getResultAnimationTime()
+                this.main.currentTimeRemaining < this.main.config.stopBetTime ||
+                this.main.currentTimeRemaining > this.main.config.fullTime - finishHandler.getResultAnimationTime()
             );
         };
-        this.logControl.init(condition);
+        this.logControl && this.logControl.init(condition);
     }
 
-    updateHistory(dragonTigerData: any) {
-        const roundHistoryData = [...dragonTigerData];
+    updateHistory(dataLogs: any) {
+        const roundHistoryData = [...dataLogs];
         this.updateStatistic(roundHistoryData);
         roundHistoryData.reverse();
-        this.logControl.setData(roundHistoryData);
+        this.logControl && this.logControl.setData(roundHistoryData);
     }
 
     updateStatistic(roundHistoryData) {}

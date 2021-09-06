@@ -96,12 +96,7 @@ export default class GameBase extends BaseComponent {
     })
     enablePlaceChips = false;
 
-    @property({
-        type: cc.Node,
-        visible: function (this: GameBase) {
-            return this.enablePlaceChips;
-        }
-    })
+    @property(cc.Node)
     dealerChipBox: cc.Node = null;
 
     @property(cc.Prefab)
@@ -365,6 +360,12 @@ export default class GameBase extends BaseComponent {
         if (this.statusHandler) {
             this.statusHandler.currentStatusData = null;
         }
+
+        if (this.dealerChipBox) {
+            this.dealerChipBox.destroyAllChildren();
+        }
+
+        this.node.stopAllActions();
 
         this.clearAllNotices();
     }

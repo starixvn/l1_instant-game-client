@@ -48,7 +48,7 @@ export default abstract class BalancedBettingPoolGameBase extends SocketIOMiniGa
     }
 
     public highlightLastResult() {
-        if (this.currentTimeRemaining <= this.config.stopBetTime) {
+        if (this.currentTimeRemaining <= this.config.stopBetTime || this.timeHandler.isInWaitTime) {
             return;
         }
         const dataLog = this.currentDataLogs[0];
