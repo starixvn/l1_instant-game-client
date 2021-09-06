@@ -132,7 +132,6 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     }
 
     showResult(animated: boolean) {
-        console.log("show result");
         if (this.currentDataLogs.length === 0) {
             return;
         }
