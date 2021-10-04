@@ -2,7 +2,7 @@ const configs = {
     systemType: "SC1",
     ssl: true,
     serverDomainMapper: {
-        "minisit.sgamesuat.com": "sabagame.com"
+        "minisit.sgamesuat.com": "sgamesuat.com"
     },
     subDomain: "uatproxy",
     env: "sit",
@@ -14,8 +14,7 @@ const configs = {
         clientId: "093146669bf12df12eeedd2d57ddb469",
         secretKey: "f41dc948ed66a029406413327a68b6ae27fe4e6c"
     },
-    guideDomain: "https://guidessit.sabagame.com",
-    userServiceUrl: "https://uatproxy.sabagame.com/sit/user"
+    userServiceUrl: "https://l1uatproxy.sgamesuat.com/sit/user"
 };
 
 module.exports = configs;
