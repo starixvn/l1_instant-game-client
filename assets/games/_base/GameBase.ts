@@ -449,6 +449,7 @@ export default class GameBase extends BaseComponent {
         this.updateOddsFromConfigs();
 
         if (this.betChips) {
+            this.betChips.setChipValues(this.gameConfigs.chips);
             const userStakeLevel = this.betChips.getComponent(HandleUserStakeLevel);
             if (userStakeLevel) {
                 userStakeLevel.gameConfig = this.gameConfigs;

@@ -1,6 +1,7 @@
 import BlinkNode from "../../../common/control/BlinkNode";
 import { numberWithCommas } from "../../../common/helper/NumberHelper";
 import { getLowercaseObjectKeys } from "../../../common/helper/ObjectHelper";
+import GameUtils from "../../../common/utils/GameUtils";
 
 const { ccclass, property } = cc._decorator;
 
@@ -62,7 +63,8 @@ export default class BetItem extends cc.Component {
 
     public setTotalBetsData(data: any) {
         const totalBetsKeys = getLowercaseObjectKeys(data);
-        this.setTotalBet(data[totalBetsKeys[this.node.name.toLowerCase()]]);
+        const value = data[totalBetsKeys[this.node.name.toLowerCase()]];
+        this.setTotalBet(GameUtils.getValueByCurrency(value || 0));
     }
 
     public setOwnBetsData(data: any) {

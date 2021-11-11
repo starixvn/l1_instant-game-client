@@ -1,5 +1,6 @@
 import * as i18n from "i18n/runtime-scripts/LanguageData";
 
+import GameManager from "../../manager/GameManager";
 import { numberWithCommas } from "../helper/NumberHelper";
 
 export default class GameUtils {
@@ -38,6 +39,29 @@ export default class GameUtils {
                 resolve(prefab);
             });
         });
+    }
+
+    public static getValueByCurrency(value: number, otherRate?: number): number {
+        if (otherRate === undefined) {
+            otherRate = 1;
+        }
+        return (value * otherRate) / GameManager.Instance.user.rate;
+    }
+
+    public static getChipQuantity(bet: number, options: number[]): any {
+        const list = [...options].reverse();
+        let total = bet;
+        const values = {};
+        list.forEach((value) => {
+            const count = Math.floor(total / value);
+            values[value] = count;
+            total = total % value;
+        });
+
+        if (total > 0) {
+            values[0] = 1;
+        }
+        return values;
     }
 
     public static getChipValues(bet: number, options: number[]): any {

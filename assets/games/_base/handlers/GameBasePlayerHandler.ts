@@ -1,4 +1,5 @@
 import * as _ from "lodash";
+
 import RoomPlayer from "../view-models/RoomPlayer";
 import WebSocketTableGameBase from "../WebSocketTableGameBase";
 import DataHandler from "./DataHandler";
@@ -48,7 +49,7 @@ export class GameBasePlayerHandler implements IGameBasePlayerHandler {
     }
 
     addPlayers(playersData) {
-        const players: PlayerData[] = _.values(playersData);
+        const players: any[] = _.values(playersData);
         const realPlayers = _.filter(players, (player) => !player.type);
         const botPlayers = _.filter(players, (player) => player.type);
 
@@ -61,7 +62,7 @@ export class GameBasePlayerHandler implements IGameBasePlayerHandler {
         });
     }
 
-    addPlayer(player: PlayerData) {
+    addPlayer(player: any) {
         const playerSlot = this.getPlayerSlot(player.id);
         const playerFromCache = RoomPlayer.getPlayerFromCache(player.id, this.main.gameName);
         player.idleCount = playerFromCache ? playerFromCache.idleCount : 0;
@@ -105,7 +106,7 @@ export class GameBasePlayerHandler implements IGameBasePlayerHandler {
         });
 
         const botsInTable = _.filter(this.main.players, (player) => player.data && player.data.type);
-        const realPlayers: PlayerData[] = _.filter(otherPlayers, (player) => player && !player.type);
+        const realPlayers: any[] = _.filter(otherPlayers, (player) => player && !player.type);
 
         _.forEach(botsInTable, (bot) => {
             const botData = bot.data;
