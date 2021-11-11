@@ -13,9 +13,9 @@ export default class OldMiniGameConfig extends System implements ICreditSystem, 
 
     customizeCredit(): void {
         this.gameConfigs = {
-            minbet: 1,
-            maxbet: 2000,
-            choices_maxbet: {},
+            minBet: 1,
+            maxBet: 2000,
+            maxBetPerChoices: {},
             odds: {
                 even: 1.96
             }
@@ -29,9 +29,9 @@ export default class OldMiniGameConfig extends System implements ICreditSystem, 
 
     customizeCash(): void {
         this.gameConfigs = {
-            minbet: 10,
-            maxbet: 20000,
-            choices_maxbet: {},
+            minBet: 10,
+            maxBet: 20000,
+            maxBetPerChoices: {},
             odds: {
                 even: 1.96
             }
