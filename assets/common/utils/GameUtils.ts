@@ -103,13 +103,13 @@ export default class GameUtils {
                 cc
                     .tween(label)
                     .call(() => {
-                        label.string = numberWithCommas(value, 2, noZeroSuffix);
+                        label.string = numberWithCommas(value, 1, noZeroSuffix);
                         value += stepValue;
                     })
                     .delay(stepTime)
             )
             .call(() => {
-                label.string = numberWithCommas(end, 2, noZeroSuffix);
+                label.string = numberWithCommas(end, 1, noZeroSuffix);
             })
             .start();
     }

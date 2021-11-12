@@ -1,4 +1,4 @@
-const numberWithCommas = (number, toFixed = 2, noZeroSuffix = true) => {
+const numberWithCommas = (number, toFixed = 1, noZeroSuffix = true) => {
     if (number) {
         const result = parseFloat(number).toFixed(toFixed).toString().split(".");
         result[0] = result[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
