@@ -51,28 +51,34 @@ const numberPad = (number: any, length: number) => {
     return str;
 };
 
-const numberTo = (obj, start, end, duration, currency = false) => {
-    clearInterval(obj.timer);
-    const range = end - (parseFloat(obj.string.replace(/,/g, "")) || 0);
-    const minTimer = 50;
-    let stepTime = Math.abs(Math.floor(duration / range));
-    stepTime = Math.max(stepTime, minTimer);
-    const startTime = new Date().getTime();
-    const endTime = startTime + duration;
-
-    obj.timer = setInterval(function () {
-        if (!!obj.node) {
-            const now = new Date().getTime();
-            const remaining = Math.max((endTime - now) / duration, 0);
-            const value = (end - remaining * range) >> 0;
-            obj.string = currency ? numberWithCommas(value) : value;
-            if (value === end) {
-                clearInterval(obj.timer);
-            }
-        } else {
-            clearInterval(obj.timer);
-        }
-    }, stepTime);
+const numberTo = (label, end, duration, currency = false) => {
+    const endString = currency ? numberWithCommas(end, 1) : end;
+    if (label.string === endString) {
+        return;
+    }
+    const start = parseFloat(label.string.replace(/,/g, "")) || 0;
+    const range = end - start;
+    const stepCount = 20;
+    const stepTime = duration / stepCount;
+    const stepValue = range / stepCount;
+    let step = 0;
+    label.node.stopAllActions();
+    cc.tween(label.node)
+        .repeat(
+            stepCount,
+            cc
+                .tween()
+                .delay(stepTime)
+                .call(() => {
+                    const value = start + step * stepValue;
+                    label.string = currency ? numberWithCommas(value, 1) : value;
+                    step++;
+                })
+        )
+        .call(() => {
+            label.string = endString;
+        })
+        .start();
 };
 
 const zeroPad = (num: number, places: number) => {
