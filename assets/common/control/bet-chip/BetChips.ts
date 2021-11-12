@@ -434,7 +434,7 @@ export default class BetChips extends cc.Component {
         const nodes = this.createChipNodes(bet);
         nodes.forEach((node) => {
             const randomPosition = this.getRandomPositionChip(node, item.chipNode);
-            node.position = cc.v3(randomPosition);
+            node.position = randomPosition;
             item.chipNode.addChild(node);
         });
     }
