@@ -49,6 +49,21 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
+            <key>chip_le.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{23,26}</string>
+                <key>spriteSourceSize</key>
+                <string>{23,26}</string>
+                <key>textureRect</key>
+                <string>{{226,185},{23,26}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
             <key>highlight_not_confirm.png</key>
             <dict>
                 <key>aliases</key>
@@ -258,9 +273,9 @@
             <key>size</key>
             <string>{256,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:a73a9983dda469807fd7880d56aac5f7:5bf868a30b134cf6c79e2ac30741a80e:3c02825eb380eb1e5a25f88264fb2632$</string>
+            <string>$TexturePacker:SmartUpdate:94dbb7120847235dc87b0b79186c60f8:1c2afefcd12f77dfe94202693abcdabe:3c02825eb380eb1e5a25f88264fb2632$</string>
             <key>textureFileName</key>
-            <string>money.png</string>
+            <string>bet_chip.png</string>
         </dict>
     </dict>
 </plist>

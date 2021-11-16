@@ -44,6 +44,9 @@ export default class BetChips extends cc.Component {
     @property(cc.Prefab)
     chipPrefab: cc.Prefab = null;
 
+    @property(cc.SpriteFrame)
+    lowValueChipSprite: cc.SpriteFrame = null;
+
     public chipValues: number[] = [];
     public onChanged: OnChangedBet = (bet) => {};
     public readonly chipFlyingTime: number = 0.8;
@@ -360,12 +363,24 @@ export default class BetChips extends cc.Component {
     }
 
     public createSmallChip(bet: number): cc.Node {
+        if (bet === 0) {
+            const node = this.createLowValueChip();
+            node.rotation = _.random(0, 360);
+            return node;
+        }
         const chip = this.createBigChip(bet);
         const chipView = chip.getComponent(ChipView);
         chipView.applyForSmallChip();
-        chip.scale = 0.25;
+        chip.scale = 0.29;
         chip.group = "Chip";
         return chip;
+    }
+
+    private createLowValueChip() {
+        const node = new cc.Node();
+        const sprite = node.addComponent(cc.Sprite);
+        sprite.spriteFrame = this.lowValueChipSprite;
+        return node;
     }
 
     public createBigChip(value: number): cc.Node {

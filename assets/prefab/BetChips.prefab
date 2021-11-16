@@ -1604,6 +1604,9 @@
     "chipPrefab": {
       "__uuid__": "633cf66b-3be0-4cbc-8f1f-1f40aa8bd144"
     },
+    "lowValueChipSprite": {
+      "__uuid__": "6f0698a7-c4e5-4880-9f36-3f7cbe1ca0cc"
+    },
     "_id": ""
   },
   {
