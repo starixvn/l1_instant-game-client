@@ -1,3 +1,5 @@
+import { Socket } from "socket.io-client";
+
 import { numberWithCommas } from "../../common/helper/NumberHelper";
 import SocketIOTableGameBase from "./SocketIOTableGameBase";
 
@@ -26,7 +28,7 @@ export default class FreeBetGameBase extends SocketIOTableGameBase {
     private isFreeBet = false;
     private isFocusScoin = false;
 
-    protected socket: SocketIOClient.Socket;
+    protected socket: Socket;
 
     onChangeWalletClick(e, isFreeBet) {
         if (this.gameConfigs.enableFreeBet) {
