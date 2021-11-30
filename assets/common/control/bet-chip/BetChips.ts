@@ -47,7 +47,9 @@ export default class BetChips extends cc.Component {
     @property(cc.SpriteFrame)
     lowValueChipSprite: cc.SpriteFrame = null;
 
+    private gameConfigs: any;
     public chipValues: number[] = [];
+    public configValues: number[] = [];
     public onChanged: OnChangedBet = (bet) => {};
     public readonly chipFlyingTime: number = 0.8;
     public readonly loginUserChipFlyingTime: number = 0.5;
@@ -73,11 +75,17 @@ export default class BetChips extends cc.Component {
         };
     }
 
-    setChipValues(values: number[]) {
-        if (values.length === 0) {
+    setChipValues(gameConfigs: any) {
+        if (gameConfigs.chips.length === 0) {
             return;
         }
-        this.chipValues = values;
+        this.gameConfigs = gameConfigs;
+        this.configValues = gameConfigs.chips;
+        this.updateChips();
+    }
+
+    updateChips() {
+        this.chipValues = GameUtils.getFilterValuesByStakeLevel(this.configValues, this.gameConfigs);
         this.createChips();
         this.chipList = [...this.chips.children];
         this.setCurrentBet(this.chipValues[0].toString());

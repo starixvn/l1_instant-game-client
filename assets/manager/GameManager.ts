@@ -46,7 +46,9 @@ export default class GameManager extends cc.Component {
 
     loadUserData(data: any) {
         this.user = { ...this.user, ...data };
-        this.user.offerGames = this.user.offerGames.map((item) => +item.gameId);
+        if (data.offerGames) {
+            this.user.offerGames = data.offerGames.map((item) => +item.gameId);
+        }
     }
 
     sendToMainSocket(data: any) {

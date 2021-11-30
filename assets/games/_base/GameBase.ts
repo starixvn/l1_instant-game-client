@@ -3,7 +3,6 @@ import * as _ from "lodash";
 import AnimatedTime from "../../common/control/animated-time/AnimatedTime";
 import BaseComponent from "../../common/control/BaseComponent";
 import BetChips from "../../common/control/bet-chip/BetChips";
-import HandleUserStakeLevel from "../../common/control/bet-chip/HandleUserStakeLevel";
 import MiniPanel from "../../common/control/mini-panel/MiniPanel";
 import ProcessingWarning from "../../common/control/notice/ProcessingWarning";
 import UmWarning from "../../common/control/notice/UmWarning";
@@ -449,12 +448,7 @@ export default class GameBase extends BaseComponent {
         this.updateOddsFromConfigs();
 
         if (this.betChips) {
-            this.betChips.setChipValues(this.gameConfigs.chips);
-            const userStakeLevel = this.betChips.getComponent(HandleUserStakeLevel);
-            if (userStakeLevel) {
-                userStakeLevel.gameConfig = this.gameConfigs;
-                userStakeLevel.handle();
-            }
+            this.betChips.setChipValues(this.gameConfigs);
         }
     }
 
@@ -467,7 +461,7 @@ export default class GameBase extends BaseComponent {
     }
 
     public isUsingMaxStakeLevel() {
-        return false;
+        return true;
     }
 
     getBetRange() {

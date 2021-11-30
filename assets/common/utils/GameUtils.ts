@@ -129,4 +129,19 @@ export default class GameUtils {
         }
         return i18n.t(`gameNames.${gameId}`);
     }
+
+    public static getFilterValuesByStakeLevel(values: number[], gameConfigs: any) {
+        let minBet = gameConfigs.minBet;
+        let maxBet = gameConfigs.maxBet;
+
+        if (cc.GameManager.userStakeLevel) {
+            const minStake = cc.GameManager.userStakeLevel.minBet;
+            const maxStake = cc.GameManager.userStakeLevel.maxBet;
+
+            minBet = Math.max(minStake, minBet);
+            maxBet = Math.min(maxStake, maxBet);
+        }
+
+        return values.filter((value) => value >= minBet && value <= maxBet);
+    }
 }
