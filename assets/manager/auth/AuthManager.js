@@ -227,7 +227,6 @@ export function reCheckIn() {
                         } else {
                             if (cc.GameManager.user) {
                                 cc.GameManager.user.red = response.balance;
-                                cc.GameManager.loadUserData(cc.GameManager.user);
                             }
                         }
                     } else {
