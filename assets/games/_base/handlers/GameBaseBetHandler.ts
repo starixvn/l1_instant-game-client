@@ -94,7 +94,7 @@ export default class GameBaseBetHandler implements DataHandler {
 
     private placeChipToBetItem(bet: number, betChoice: string) {
         const betItem = _.find(this.main.betItems, (item) => item.node.name.toLowerCase() === betChoice);
-        this.main.betChips.placeChipBet(bet, betItem.chipNode);
+        this.main.betChips.placeChipToChipBox(bet, betItem.chipNode, null, null);
     }
 
     placeOwnChip(data: any) {
@@ -124,7 +124,7 @@ export default class GameBaseBetHandler implements DataHandler {
                 startNode = gameRoomMain.otherPlayers;
                 this.updateOtherDataStorage(data);
             }
-            this.main.betChips.placeChipBet(bet, betItem.chipNode, startNode);
+            this.main.betChips.placeChipToChipBox(bet, betItem.chipNode, startNode, null);
             this.playerChips.pop();
         }
     }
@@ -147,16 +147,19 @@ export default class GameBaseBetHandler implements DataHandler {
         }
     }
 
-    placeTotalChips(chips) {
-        if (!chips) {
+    placeTotalChips(dataChips) {
+        if (!dataChips) {
             return;
         }
 
-        const chipsKeys = getLowercaseObjectKeys(chips);
+        Object.keys(dataChips).forEach((rate) => {
+            const chips = dataChips[rate];
+            const chipsKeys = getLowercaseObjectKeys(chips);
 
-        _.forEach(this.main.betItems, (item) => {
-            const betItemData = chips[chipsKeys[item.node.name.toLowerCase()]];
-            this.main.betChips.initChips(betItemData, item.chipNode);
+            _.forEach(this.main.betItems, (item) => {
+                const betItemData = chips[chipsKeys[item.node.name.toLowerCase()]];
+                this.main.betChips.addChipsToChipBox(+rate, betItemData, item.chipNode);
+            });
         });
     }
 }

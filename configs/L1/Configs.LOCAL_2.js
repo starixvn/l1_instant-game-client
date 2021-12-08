@@ -2,7 +2,7 @@ const configs = {
     systemType: "SC1",
     ssl: true,
     serverDomainMapper: {
-        "l1-games2.lumigame.com": "lumigame.com"
+        "l1-mini2.lumigame.com": "lumigame.com"
     },
     subDomain: "l1-proxy2",
     env: "",

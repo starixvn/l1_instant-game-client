@@ -21,7 +21,7 @@ export default class HandleUserStakeLevel extends cc.Component {
         }
 
         const maxValueDisplay =
-            Math.min(this.gameConfig.maxbet, cc.GameManager.userStakeLevel.maxBet) >= this.maxBet5k ? this.maxBet5k : this.maxBet3k;
+            Math.min(this.gameConfig.maxBet, cc.GameManager.userStakeLevel.maxBet) >= this.maxBet5k ? this.maxBet5k : this.maxBet3k;
 
         this.betChips.updateLastChip(maxValueDisplay);
         this.betChips.updateSelectedChipValue();

@@ -1,3 +1,5 @@
+import { Socket } from "socket.io-client";
+
 import * as configs from "../../../configs/Configs";
 import { GameInfos } from "../../../configs/SabaConfigs";
 import GameBase from "../../../games/_base/GameBase";
@@ -68,7 +70,7 @@ export default class MiniPanelMiniGameInitializers {
 
     openNewSocket(gameId) {
         this.main.showLoading(true);
-        const currentSocket: SocketIOClient.Socket = this.socketIOController.gameSockets[gameId];
+        const currentSocket: Socket = this.socketIOController.gameSockets[gameId];
 
         if (currentSocket && currentSocket.connected) {
             this.openMiniGame(gameId, true);

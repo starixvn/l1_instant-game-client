@@ -3,7 +3,7 @@ import { ComponentSystem, ICashSystem, ICreditSystem } from "../../../manager/Sy
 
 const { ccclass, property } = cc._decorator;
 
-export interface PlayerData {
+interface PlayerData {
     id: string;
     red: any;
     name: string;

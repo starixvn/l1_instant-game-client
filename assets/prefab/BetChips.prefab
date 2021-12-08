@@ -1602,7 +1602,10 @@
     "displaySize": 6,
     "movingStep": 1,
     "chipPrefab": {
-      "__uuid__": "6562b7ed-bd92-46a1-a728-0ee00a0c3a35"
+      "__uuid__": "633cf66b-3be0-4cbc-8f1f-1f40aa8bd144"
+    },
+    "lowValueChipSprite": {
+      "__uuid__": "6f0698a7-c4e5-4880-9f36-3f7cbe1ca0cc"
     },
     "_id": ""
   },

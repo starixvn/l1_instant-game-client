@@ -8,6 +8,14 @@ beforeEach(() => {
     betItem = node.addComponent(BetItem);
 });
 
+jest.mock("../../../assets/common/utils/GameUtils", () => ({
+    default: class {
+        public static getBetChoiceString(params) {
+            return params;
+        }
+    }
+}));
+
 describe("setOwnBet", () => {
     beforeEach(() => {
         const ownBetLabel = node.addComponent(cc.Label);

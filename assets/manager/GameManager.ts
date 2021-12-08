@@ -32,20 +32,10 @@ export default class GameManager extends cc.Component {
         GameManager.Instance = this;
         cc.game.on(cc.game.EVENT_HIDE, () => {
             this.GAME_IS_SHOWED = false;
-            // this.sleepTime = Date.now();
         });
 
         cc.game.on(cc.game.EVENT_SHOW, () => {
             this.GAME_IS_SHOWED = true;
-            this.IS_LOGIN && this.sendToMainSocket({ user: { updateCoin: true } });
-
-            // if (cc.sys.isMobile) {
-            //     const sleepSecond = (Date.now() - this.sleepTime) / 1000;
-
-            //     if (sleepSecond > 300) {
-            //         this.miniPanel.onForceReload(false);
-            //     }
-            // }
         });
     }
 
@@ -56,6 +46,9 @@ export default class GameManager extends cc.Component {
 
     loadUserData(data: any) {
         this.user = { ...this.user, ...data };
+        if (data.offerGames) {
+            this.user.offerGames = data.offerGames.map((item) => +item.gameId);
+        }
     }
 
     sendToMainSocket(data: any) {
@@ -90,18 +83,18 @@ export default class GameManager extends cc.Component {
         delete this.soundObservers[key];
     }
 
-    private _playSFX(clip: cc.AudioClip) {
-        if (this.isSoundGame()) {
+    playSFX(clip: cc.AudioClip) {
+        if (this.isSoundGame() && clip) {
             cc.audioEngine.playEffect(clip, false);
         }
     }
 
     playClick() {
-        this._playSFX(this.clickAudioClip);
+        this.playSFX(this.clickAudioClip);
     }
 
     playUnClick() {
-        this._playSFX(this.unClickAudioClip);
+        this.playSFX(this.unClickAudioClip);
     }
 
     isNoGameOffer(): boolean {

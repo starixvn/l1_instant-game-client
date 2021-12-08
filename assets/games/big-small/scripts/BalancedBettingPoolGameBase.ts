@@ -1,5 +1,6 @@
 import * as _ from "lodash";
 
+import GameUtils from "../../../common/utils/GameUtils";
 import SocketIOMiniGameBase from "../../_base/SocketIOMiniGameBase";
 import BalancedBettingPoolBetItem from "../../_base/view-models/BalancedBettingPoolBetItem";
 
@@ -34,7 +35,7 @@ export default abstract class BalancedBettingPoolGameBase extends SocketIOMiniGa
     balanceBet() {
         const totalBets = _.values(this.totalBets);
         const balancedBetAmount = Math.min(...[totalBets[0] ?? 0, totalBets[1] ?? 0]);
-        this.betItems.forEach((item) => (item as BalancedBettingPoolBetItem).balanceBet(balancedBetAmount));
+        this.betItems.forEach((item) => (item as BalancedBettingPoolBetItem).balanceBet(GameUtils.getValueByCurrency(balancedBetAmount)));
     }
 
     showBalanceBetNotice() {

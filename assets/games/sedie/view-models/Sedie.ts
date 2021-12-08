@@ -18,9 +18,6 @@ export default class Sedie extends FreeBetGameBase {
     @property(cc.Prefab)
     historyPrefab: cc.Prefab = null;
 
-    @property(cc.Prefab)
-    roundHistoryPrefab: cc.Prefab = null;
-
     @property(cc.Node)
     roundHistoryContainer: cc.Node = null;
 
@@ -57,7 +54,7 @@ export default class Sedie extends FreeBetGameBase {
     @property(cc.Node)
     ownBetContainer: cc.Node = null;
 
-    private roundHistory: SedieRoundHistory;
+    protected roundHistory: SedieRoundHistory;
     protected miniRoundHistory: MiniRoundHistory;
     private historyComponent: SedieHistory;
 

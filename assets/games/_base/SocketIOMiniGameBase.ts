@@ -1,3 +1,5 @@
+import { Socket } from "socket.io-client";
+
 import SabaConfigs = require("../../configs/SabaConfigs");
 import { lazyInject } from "../../manager/Application";
 import SocketIOController from "../../manager/SocketIOController";
@@ -7,7 +9,7 @@ export default abstract class SocketIOMiniGameBase extends GameBase {
     @lazyInject(SocketIOController)
     private readonly socketIOController: SocketIOController;
 
-    public socket: SocketIOClient.Socket;
+    public socket: Socket;
 
     onLoad() {
         super.onLoad();

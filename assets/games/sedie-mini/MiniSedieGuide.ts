@@ -6,17 +6,17 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class MiniSedieGuide extends GameGuideBase {
     createReplaceData(configs) {
-        const { odds, choices_maxbet, minbet, maxbet } = configs;
+        const { odds, maxBetPerChoices, minBet, maxBet } = configs;
 
         return {
             _oddsMain: odds.even,
             _oddsRed4: odds.red4,
             _oddsRed3: odds.red3,
-            _minBet: numberWithCommas(minbet),
-            _maxBetMain: numberWithCommas(choices_maxbet.even),
-            _maxBetRed4: numberWithCommas(choices_maxbet.red4),
-            _maxBetRed3: numberWithCommas(choices_maxbet.red3),
-            _maxBetRound: numberWithCommas(maxbet)
+            _minBet: numberWithCommas(minBet),
+            _maxBetMain: numberWithCommas(maxBetPerChoices.even),
+            _maxBetRed4: numberWithCommas(maxBetPerChoices.red4),
+            _maxBetRed3: numberWithCommas(maxBetPerChoices.red3),
+            _maxBetRound: numberWithCommas(maxBet)
         };
     }
 }

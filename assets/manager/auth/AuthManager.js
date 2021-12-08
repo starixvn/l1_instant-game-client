@@ -1,5 +1,7 @@
+import axios from "axios";
 import i18n from "i18n/runtime-scripts/LanguageData";
 
+import ChipConfig from "../../common/control/bet-chip/ChipConfig";
 import httpHelper from "../../common/helper/httpHelper";
 import { buildServerUrl } from "../../common/helper/UrlHelper";
 import logger from "../../common/logger";
@@ -62,6 +64,19 @@ export function preChecking(cb) {
     );
 }
 
+export function getChipSetting() {
+    const request = {
+        session: window.authData.ss,
+        username: window.authData.username,
+        browserUserAgent: window.navigator.userAgent
+    };
+    axios.post(`${configs.userServiceUrl}/settings`, request).then((response) => {
+        if (response.data.chips) {
+            ChipConfig.getInstance().setData(response.data.chips);
+        }
+    });
+}
+
 export function checkSSO(labelMessage, onSuccessFunc) {
     let isSuccess = false;
     const urlParams = new URLSearchParams(window.location.search);
@@ -74,6 +89,7 @@ export function checkSSO(labelMessage, onSuccessFunc) {
             .then((response) => {
                 if (response.isAuthenticated) {
                     window.authData = response;
+                    getChipSetting();
                     sentryLogger.setUser(response);
                     window.authData.time = new Date();
                     window.openGameId = urlParams.get("gameId");
@@ -93,6 +109,7 @@ export function checkSSO(labelMessage, onSuccessFunc) {
     } else if (authData && authData.isAuthenticated && authData.ss) {
         isSuccess = true;
         window.authData = authData;
+        getChipSetting();
         sessionManager.updateLanguage(authData);
         sentryLogger.setUser(authData);
         onSuccessFunc();
@@ -210,7 +227,6 @@ export function reCheckIn() {
                         } else {
                             if (cc.GameManager.user) {
                                 cc.GameManager.user.red = response.balance;
-                                cc.GameManager.loadUserData(cc.GameManager.user);
                             }
                         }
                     } else {

@@ -1,5 +1,5 @@
 import { injectable } from "inversify";
-import * as socketIo from "socket.io-client";
+import { io, Socket } from "socket.io-client";
 
 import { sentryLogger } from "../common/logger.js";
 import { GameInfos } from "../configs/SabaConfigs";
@@ -15,8 +15,8 @@ export default class SocketIOController {
         proxyRoute: string,
         onConnectFailed: (gameName, isGameRoom) => void,
         isGameRoom = true
-    ): SocketIOClient.Socket => {
-        const socket = socketIo(socketUri, {
+    ): Socket => {
+        const socket = io(socketUri, {
             // reconnection: false,
             forceNew: true,
             transports: ["websocket"],
@@ -56,7 +56,7 @@ export default class SocketIOController {
     };
 
     async closeSocket(gameId) {
-        const socket: SocketIOClient.Socket = this.gameSockets[gameId];
+        const socket: Socket = this.gameSockets[gameId];
         socket && socket.close();
         this.removeSocket(gameId);
     }

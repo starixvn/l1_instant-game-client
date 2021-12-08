@@ -40,9 +40,9 @@ export default class Main extends cc.Component {
             const toggle = child.getComponent(cc.Toggle);
             if (toggle) {
                 this.gameHeaders.push(toggle);
+                const childName = +child.name;
+                cc.GameManager.supportGames.push(childName);
             }
-
-            cc.GameManager.supportGames.push(+child.name);
         });
         this.initLanguage();
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
@@ -152,7 +152,12 @@ export default class Main extends cc.Component {
             list.push(needShowGameId);
         }
         this.gameHeaders.forEach((toggle) => {
-            toggle.node.active = list.includes(+toggle.node.name);
+            const gameId = +toggle.node.name;
+            toggle.node.active = list.includes(gameId);
+            const line = this.headerContainer.getChildByName(`line_${gameId}`);
+            if (line) {
+                line.active = toggle.node.active;
+            }
         });
     }
 

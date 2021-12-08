@@ -7,9 +7,9 @@ const { ccclass } = cc._decorator;
 export default class BauCuaGuide extends GameGuideBase {
     createReplaceData(configs) {
         return {
-            _maxBetRound: numberWithCommas(Math.min(cc.GameManager.userStakeLevel.maxBet, configs.maxbet)),
-            _minBet: numberWithCommas(configs.minbet),
-            _maxBet: numberWithCommas(configs.maxbet)
+            _maxBetRound: numberWithCommas(Math.min(cc.GameManager.userStakeLevel.maxBet, configs.maxBet)),
+            _minBet: numberWithCommas(configs.minBet),
+            _maxBet: numberWithCommas(configs.maxBet)
         };
     }
 }
