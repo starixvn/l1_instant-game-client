@@ -14,37 +14,22 @@ var Type = cc.Enum({
 });
 
 @ccclass
-export default class MinWidthLayout extends cc.Layout {
+export default class MinWidthLayout extends cc.Component {
+    @property
+    padding = 8;
+
     @property()
     minWidth = 0;
 
-    _doLayout() {
-        if (this.type === Type.HORIZONTAL) {
-            var newWidth = this._getHorizontalBaseWidth(this.node.children);
+    @property(cc.Node)
+    target: cc.Node = null;
 
-            var fnPositionY = function (child) {
-                return child.y;
-            };
+    onLoad() {
+        this.onTargetSizeChanged();
+        this.target.on(cc.Node.EventType.SIZE_CHANGED, this.onTargetSizeChanged.bind(this), this);
+    }
 
-            this._doLayoutHorizontally(newWidth, false, fnPositionY, true);
-
-            this.node.width = Math.max(newWidth, this.minWidth);
-        } else if (this.type === Type.VERTICAL) {
-            var newHeight = this._getVerticalBaseHeight(this.node.children);
-
-            var fnPositionX = function (child) {
-                return child.x;
-            };
-
-            this._doLayoutVertically(newHeight, false, fnPositionX, true);
-
-            this.node.height = newHeight;
-        } else if (this.type === Type.NONE) {
-            if (this.resizeMode === ResizeMode.CONTAINER) {
-                this._doLayoutBasic();
-            }
-        } else if (this.type === Type.GRID) {
-            this._doLayoutGrid();
-        }
+    onTargetSizeChanged() {
+        this.node.width = Math.max(this.minWidth, this.target.width + this.padding * 2);
     }
 }

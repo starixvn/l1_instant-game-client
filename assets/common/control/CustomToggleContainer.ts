@@ -9,12 +9,8 @@ export default class CustomToggleContainer extends cc.ToggleContainer {
             this.toggleItems.forEach(function (item) {
                 if (item !== toggle && item.isChecked && item.enabled) {
                     item._hideCheckMark();
-                    item.target.opacity = 80;
                 }
-
-                if (item.isChecked) {
-                    item.target.opacity = 255;
-                }
+                item.target.opacity = item.isChecked ? 255 : 88;
             });
 
             if (this.checkEvents) {

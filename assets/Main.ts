@@ -1,3 +1,4 @@
+import CategoryList from "./common/control/category/CategoryList";
 import MiniPanel from "./common/control/mini-panel/MiniPanel";
 import { sentryLogger } from "./common/logger.js";
 import NameGenerator from "./common/name-generator/NameGenerator";
@@ -18,13 +19,13 @@ export default class Main extends cc.Component {
     splashMessage: cc.Label = null;
 
     // @property(cc.Node)
-    // loading: cc.Node = null;
+    // main: cc.Node = null;
 
-    @property(cc.Node)
-    main: cc.Node = null;
+    // @property(cc.Node)
+    // headerContainer: cc.Node = null;
 
-    @property(cc.Node)
-    headerContainer: cc.Node = null;
+    @property(CategoryList)
+    category: CategoryList = null;
 
     @property(cc.Node)
     miniPanelNode: cc.Node = null;
@@ -36,15 +37,19 @@ export default class Main extends cc.Component {
 
     onLoad() {
         cc.GameManager = GameManager.Instance;
-        this.headerContainer.children.forEach((child) => {
-            const toggle = child.getComponent(cc.Toggle);
-            if (toggle) {
-                this.gameHeaders.push(toggle);
-                const childName = +child.name;
-                cc.GameManager.supportGames.push(childName);
-            }
-        });
         this.initLanguage();
+
+        this.category.setItems(
+            cc.GameManager.supportGames.map((id) => {
+                return {
+                    itemId: id
+                };
+            })
+        );
+        this.category.itemClickCallback = (itemId) => {
+            this.onGameChanged(itemId);
+        };
+
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
         this.miniPanel.mainCallback = {
             showNoticeNotPermitToPlay: () => {
@@ -151,14 +156,18 @@ export default class Main extends cc.Component {
         if (needShowGameId !== undefined) {
             list.push(needShowGameId);
         }
-        this.gameHeaders.forEach((toggle) => {
-            const gameId = +toggle.node.name;
-            toggle.node.active = list.includes(gameId);
-            const line = this.headerContainer.getChildByName(`line_${gameId}`);
-            if (line) {
-                line.active = toggle.node.active;
-            }
-        });
+
+        //TODO: remove this
+        // this.gameHeaders.forEach((toggle) => {
+        //     const gameId = +toggle.node.name;
+        //     toggle.node.active = list.includes(gameId);
+        //     const line = this.headerContainer.getChildByName(`line_${gameId}`);
+        //     if (line) {
+        //         line.active = toggle.node.active;
+        //     }
+        // });
+
+        this.category.updateVisibleItems(list);
     }
 
     updateSelectedHeader(gameId: number) {
@@ -187,15 +196,13 @@ export default class Main extends cc.Component {
         this.miniPanel.openGuide();
     }
 
-    onGameChanged(toggle: cc.Toggle) {
+    onGameChanged(gameId: number) {
         this.miniPanel.removeAllNotices();
         if (this.showingNoticeNotPermitToPlay) {
             this.showingNoticeNotPermitToPlay = false;
             this.updateOfferGameHeaders();
         }
-        if (toggle.isChecked) {
-            const gameId = +toggle.node.name;
-            this.openGame(gameId);
-        }
+
+        this.openGame(gameId);
     }
 }
