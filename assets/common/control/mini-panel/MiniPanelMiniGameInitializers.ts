@@ -38,7 +38,8 @@ export default class MiniPanelMiniGameInitializers {
         const isAlreadyOpened = gameBase !== undefined;
 
         if (!isAlreadyOpened) {
-            const prefabPath = `games/${this.getGameName(gameId)}`;
+            const suffix = cc.sys.isMobile ? "" : "_p";
+            const prefabPath = `games/${this.getGameName(gameId)}${suffix}`;
             this.main.loading.setDefaultPercent();
             cc.loader.loadRes(
                 prefabPath,
