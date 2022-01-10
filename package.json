@@ -42,6 +42,7 @@
     "dependencies": {
         "axios": "^0.21.1",
         "chance": "^1.1.8",
+        "husky": "^7.0.4",
         "i18n": "file:./packages/i18n",
         "inversify": "^5.0.5",
         "inversify-inject-decorators": "^3.1.0",
@@ -90,5 +91,10 @@
         "reportPath": "reports",
         "reportFile": "test-reporter.xml",
         "indent": 4
+    },
+    "husky": {
+        "hooks": {
+            "pre-push": "yarn test"
+        }
     }
 }
