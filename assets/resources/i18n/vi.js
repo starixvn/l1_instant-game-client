@@ -68,6 +68,7 @@ window.i18n.languages.vi = {
         gameExcluded: "Tài khoản của bạn hiện đang bị giới hạn, vui lòng thử các trò chơi khác.",
         getBalanceFailed: "Không thể cập nhật số tiền trong tài khoản.(%{errorCode})",
         handAlreadySplit: "Tay bài này đã được tách bài.",
+        disallowHedgeBet: "Chỉ có thể đặt cược trên %{betChoice1} hoặc %{betChoice2}.",
         handIsStand: "Tay bài đã dừng",
         handNotActive: "Tay bài chưa tới lượt",
         invalidBet: "Cược không hợp lệ",
