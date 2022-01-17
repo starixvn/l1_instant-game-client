@@ -11,8 +11,18 @@ export default class AutoSiblingResize extends cc.Component {
     @property
     syncHeight = true;
 
+    @property
+    ratioWidth = 1;
+
+    @property
+    ratioHeight = 1;
+
     onLoad() {
         this.target.on(cc.Node.EventType.SIZE_CHANGED, this.resizeNode, this);
+        this.resizeNode();
+    }
+
+    uupdate(dt) {
         this.resizeNode();
     }
 
@@ -22,10 +32,10 @@ export default class AutoSiblingResize extends cc.Component {
 
     resizeNode() {
         if (this.syncWidth) {
-            this.node.width = this.target.width;
+            this.node.width = this.target.width * this.ratioWidth;
         }
         if (this.syncHeight) {
-            this.node.height = this.target.height;
+            this.node.height = this.target.height * this.ratioHeight;
         }
 
         const richText = this.getComponent(cc.RichText);
