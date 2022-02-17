@@ -1,19 +1,26 @@
 import * as configs from "../../configs/Configs";
 import { GameInfos } from "../../configs/SabaConfigs";
 
-export function buildUrl(subDomain, hostName, ssl, protocol = "http", path = "/", port = 80) {
+export function buildUrl(protocol = "http", path = "/") {
+    const ssl = configs.ssl;
+    const hostName = configs.serverDomainMapper[window.location.hostname];
+    const subDomain = configs.subDomain;
     const subDomainText = `${subDomain}.`;
-    const portText = `:${port}`;
-    return `${protocol}${ssl ? "s" : ""}://${subDomain === "" ? "" : subDomainText}${hostName}${port === "" ? "" : portText}${path}`;
+    return `${protocol}${ssl ? "s" : ""}://${subDomain === "" ? "" : subDomainText}${hostName}${path}`;
 }
 
-export function buildServerUrl(ssl, protocol = "http", path = "/", gameId = 0) {
-    const serverHostName = configs.serverDomainMapper[window.location.hostname];
+export function getUserServiceURL() {
+    const path = configs.env === "" ? "/user" : `/${configs.env}/user`;
+    return buildUrlWithPath(path);
+}
 
-    const subDomain = configs.subDomain;
+export function buildUrlWithPath(path) {
+    return buildUrl("http", path);
+}
+
+export function buildServerUrl(protocol = "http", path = "/", gameId = 0) {
     const gamePath = getPath(gameId);
-
-    return buildUrl(subDomain, serverHostName, ssl, protocol, gamePath + path, "");
+    return buildUrl(protocol, gamePath + path);
 }
 
 export function getPath(gameId) {

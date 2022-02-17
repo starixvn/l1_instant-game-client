@@ -11,8 +11,7 @@ const configs = {
         env: "INSTANT_LOCAL_2"
     },
     guideDomain: "https://l2-guide-2.lumigame.com",
-    kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno",
-    userServiceUrl: "https://l2-proxy2.lumigame.com/user"
+    kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno"
 };
 
 module.exports = configs;

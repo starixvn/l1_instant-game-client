@@ -1,4 +1,3 @@
-import * as configs from "../../../configs/Configs";
 import { lazyInject } from "../../../manager/Application";
 import SocketIOController from "../../../manager/SocketIOController";
 import { buildServerUrl, getProxyRoute } from "../../helper/UrlHelper";
@@ -29,7 +28,7 @@ export default class MiniPanelSocketIOGameInitializers {
         this.socketIOController.closeSocket(gameId).then(() => {
             const gameName = GameUtils.getGameNameString(gameId);
             const proxyRoute = getProxyRoute(gameId);
-            const gameServerUrl = buildServerUrl(configs.ssl, "http", "", gameId);
+            const gameServerUrl = buildServerUrl("http", "", gameId);
             const socket = this.socketIOController.connectGameSocket(
                 gameServerUrl,
                 gameName,

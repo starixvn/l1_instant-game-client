@@ -15,8 +15,7 @@ const configs = {
         clientId: "093146669bf12df12eeedd2d57ddb469",
         secretKey: "f41dc948ed66a029406413327a68b6ae27fe4e6c"
     },
-    guideDomain: "https://l1-guide.lumigame.com",
-    userServiceUrl: "https://l1-proxy.lumigame.com/user"
+    guideDomain: "https://l1-guide.lumigame.com"
 };
 
 module.exports = configs;
