@@ -3,10 +3,9 @@ import i18n from "i18n/runtime-scripts/LanguageData";
 
 import ChipConfig from "../../common/control/bet-chip/ChipConfig";
 import httpHelper from "../../common/helper/httpHelper";
-import { buildServerUrl } from "../../common/helper/UrlHelper";
+import { buildServerUrl, getUserServiceURL } from "../../common/helper/UrlHelper";
 import logger from "../../common/logger";
 import NoticeUtil from "../../common/utils/NoticeUtil";
-import * as configs from "../../configs/Configs";
 import * as sessionManager from "./SessionManager";
 import UserService from "./UserService";
 
@@ -14,7 +13,7 @@ const sentryLogger = logger();
 const sessionExpiredTimeoutMinutes = 19.8;
 
 export function preChecking(cb) {
-    const settingUrl = buildServerUrl(configs.ssl, "http", "/api/settings");
+    const settingUrl = buildServerUrl("http", "/api/settings");
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("isUM") && urlParams.get("isUM") === "true") {
@@ -70,7 +69,8 @@ export function getChipSetting() {
         username: window.authData.username,
         browserUserAgent: window.navigator.userAgent
     };
-    axios.post(`${configs.userServiceUrl}/settings`, request).then((response) => {
+    const userServiceUrl = getUserServiceURL();
+    axios.post(`${userServiceUrl}/settings`, request).then((response) => {
         if (response.data.chips) {
             ChipConfig.getInstance().setData(response.data.chips);
         }

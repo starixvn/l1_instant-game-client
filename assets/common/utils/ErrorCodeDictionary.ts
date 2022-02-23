@@ -85,7 +85,8 @@ const ErrorCodeDictionary = {
     SB1932: "openedBonus",
     SB1933: "gameExcluded",
     SB1934: "notEnoughSpin",
-    SB1935: "invalidBet"
+    SB1935: "invalidBet",
+    SB1939: "disallowHedgeBet"
 };
 
 export const CommonErrorCodeList = [

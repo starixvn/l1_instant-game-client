@@ -11,8 +11,7 @@ const configs = {
         url: "https://b015ef787273452c8fce4af733e62d59@sentry.lumigame.com/29",
         env: "INSTANT_LOCAL"
     },
-    guideDomain: "https://l2-guide.lumigame.com",
-    userServiceUrl: "https://l2-proxy.lumigame.com/user"
+    guideDomain: "https://l2-guide.lumigame.com"
 };
 
 module.exports = configs;

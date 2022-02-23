@@ -15,8 +15,7 @@ const configs = {
         secretKey: "f41dc948ed66a029406413327a68b6ae27fe4e6c"
     },
     guideDomain: "https://l1-guide-2.lumigame.com",
-    kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno",
-    userServiceUrl: "https://l1-proxy2.lumigame.com/user"
+    kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno"
 };
 
 module.exports = configs;

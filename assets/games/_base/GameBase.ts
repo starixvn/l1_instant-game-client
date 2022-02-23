@@ -509,4 +509,8 @@ export default class GameBase extends BaseComponent {
     }
 
     updateRoundHistory() {}
+
+    getBetChoiceString(choice: string): string {
+        return GameUtils.getBetChoiceString(choice);
+    }
 }
