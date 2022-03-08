@@ -1,3 +1,4 @@
+import * as i18n from "i18n/runtime-scripts/LanguageData";
 import * as _ from "lodash";
 
 import AnimatedTime from "../../common/control/animated-time/AnimatedTime";
@@ -482,6 +483,18 @@ export default class GameBase extends BaseComponent {
             minBet: minBet,
             maxBet: Math.min(cc.GameManager.userStakeLevel.maxBet, maxBet)
         };
+    }
+
+    showMiniWarningLimitBetChanged() {
+        this.showMiniWarning(i18n.t("messages.limitBetChanged"));
+    }
+
+    updateUserStakeLevel(data): boolean {
+        let updated = false;
+        if (data.maxBet && data.minBet) {
+            updated = cc.GameManager.userStakeLevelData(data);
+        }
+        return updated;
     }
 
     openGuide() {

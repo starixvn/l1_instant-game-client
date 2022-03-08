@@ -42,8 +42,21 @@ export default class GameManager extends cc.Component {
     }
 
     userStakeLevelData(data) {
+        if (this.userStakeLevel.minBet === data.minBet && this.userStakeLevel.maxBet === data.maxBet) {
+            return false;
+        }
+
         this.userStakeLevel.minBet = data.minBet;
         this.userStakeLevel.maxBet = data.maxBet;
+
+        const scene = cc.director.getScene();
+        const betChips = scene.getComponentsInChildren("BetChips");
+        betChips.forEach((betChip) => betChip.updateChips());
+
+        const balanceGames = scene.getComponentsInChildren("BalancedBettingPoolGameBase");
+        balanceGames.forEach((balanceGame) => balanceGame.updateBetBoard());
+
+        return true;
     }
 
     loadUserData(data: any) {

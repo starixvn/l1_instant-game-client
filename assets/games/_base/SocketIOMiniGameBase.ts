@@ -53,6 +53,19 @@ export default abstract class SocketIOMiniGameBase extends GameBase {
             cc.GameManager.loadUserData(data.user);
         }
 
+        const apiError = data.apiError;
+        if (apiError) {
+            if (this.updateUserStakeLevel(apiError)) {
+                this.showMiniWarningLimitBetChanged();
+            }
+        }
+
+        if (data.userStakeLevel) {
+            if (this.updateUserStakeLevel(data.userStakeLevel)) {
+                this.showMiniWarningLimitBetChanged();
+            }
+        }
+
         !data.notice && this.currentMiniPanel.onGeneralData(data);
     }
 
