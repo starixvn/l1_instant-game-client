@@ -57,6 +57,7 @@ export default class BetChips extends cc.Component {
 
     private selectedIndex = 0;
     private chipList: cc.Node[] = [];
+    private currentBetValue = "1";
 
     onLoad() {
         this.leftButton.active = false;
@@ -87,18 +88,26 @@ export default class BetChips extends cc.Component {
     updateChips() {
         this.chipValues = GameUtils.getFilterValuesByStakeLevel(this.configValues, this.gameConfigs);
         this.createChips();
-        this.chipList = [...this.chips.children];
-        this.setCurrentBet(this.chipValues[0].toString());
+        const currentBet =
+            this.chipValues.findIndex((value) => parseInt(value.toString()) === parseInt(this.currentBetValue)) !== -1
+                ? this.currentBetValue
+                : this.chipValues[0] && this.chipValues[0].toString();
+        const needResetScrollOffset = currentBet !== this.currentBetValue;
+        this.setCurrentBet(currentBet);
         this.snappedScrollView.initCalculatedPercent();
+        if (needResetScrollOffset) {
+            this.snappedScrollView.scroll.scrollToPercentHorizontal(0, 0.1);
+        }
     }
 
     createChips() {
-        this.chips.destroyAllChildren();
+        this.chipList.forEach((chip) => chip.destroy());
+        this.chipList = [];
         this.chipValues.forEach((value) => {
             const node = this.createBigChip(value);
             this.chips.addChild(node);
-
             node.on("click", this.onClickBet.bind(this));
+            this.chipList.push(node);
         });
 
         const layout = this.chips.getComponent(cc.Layout);
@@ -178,6 +187,7 @@ export default class BetChips extends cc.Component {
     }
 
     public setCurrentBet(bet: string) {
+        this.currentBetValue = bet;
         this.updateSelectedBet(bet);
         this.onChanged(bet);
     }
