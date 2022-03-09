@@ -53,9 +53,6 @@ export default class GameManager extends cc.Component {
         const betChips = scene.getComponentsInChildren("BetChips");
         betChips.forEach((betChip) => betChip.updateChips());
 
-        const balanceGames = scene.getComponentsInChildren("BalancedBettingPoolGameBase");
-        balanceGames.forEach((balanceGame) => balanceGame.updateBetBoard());
-
         return true;
     }
 
