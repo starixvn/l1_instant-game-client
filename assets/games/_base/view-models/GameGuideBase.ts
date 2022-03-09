@@ -7,6 +7,8 @@ export default abstract class GameGuideBase extends cc.Component {
     @property(cc.Node)
     mainFrame: cc.Node = null;
 
+    gameConfigs: any;
+
     onLoad() {
         const commonDialog = this.mainFrame.getComponent("CommonDialog");
         commonDialog.onDidHide = () => {
@@ -15,6 +17,7 @@ export default abstract class GameGuideBase extends cc.Component {
     }
 
     init(configs) {
+        this.gameConfigs = configs;
         const replaceData = this.createReplaceData(configs);
 
         this.textComponents.forEach((label: any) => {
@@ -26,4 +29,16 @@ export default abstract class GameGuideBase extends cc.Component {
     }
 
     abstract createReplaceData(configs): {};
+
+    getMaxBet(): number {
+        return Math.min(this.gameConfigs.maxBet, cc.GameManager.userStakeLevel.maxBet);
+    }
+
+    getMinBet(): number {
+        return Math.max(this.gameConfigs.minBet, cc.GameManager.userStakeLevel.minBet);
+    }
+
+    getMaxBetForChoice(choiceMaxBet: number): number {
+        return Math.min(this.getMaxBet(), choiceMaxBet);
+    }
 }

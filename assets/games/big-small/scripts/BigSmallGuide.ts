@@ -8,8 +8,8 @@ export default class BigSmallGuide extends GameGuideBase {
     createReplaceData(configs) {
         return {
             _chipMax: numberWithCommas(2000),
-            _minBet: configs.minBet,
-            _maxBet: numberWithCommas(configs.maxBet)
+            _minBet: numberWithCommas(this.getMinBet()),
+            _maxBet: numberWithCommas(this.getMaxBet())
         };
     }
 }
