@@ -327,5 +327,17 @@ window.i18n.languages.en = {
         undo: "Undo",
         win: "Win",
         you_win: "YOU WIN"
+    },
+    hiLo: {
+        collect: "Collect",
+        sorryMessage: "Sorry, you lost the game.",
+        play: "Play",
+        turn: "Turn",
+        baseCard: "Base Card",
+        resultCard: "Result Card",
+        startRound: "Start Round",
+        endRound: "End Round",
+        high: "High",
+        low: "Low"
     }
 };

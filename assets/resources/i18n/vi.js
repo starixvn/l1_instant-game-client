@@ -327,5 +327,17 @@ window.i18n.languages.vi = {
         undo: "Giảm",
         win: "Thắng",
         you_win: "Bạn vừa thắng"
+    },
+    hiLo: {
+        collect: "Ăn Non",
+        sorryMessage: "Thật tiếc, bạn đã thua.",
+        play: "Bắt đầu",
+        turn: "Bước",
+        baseCard: "Bài",
+        resultCard: "Kết Quả",
+        startRound: "Bắt đầu phiên",
+        endRound: "Kết thúc phiên",
+        high: "Cao",
+        low: "Thấp"
     }
 };
