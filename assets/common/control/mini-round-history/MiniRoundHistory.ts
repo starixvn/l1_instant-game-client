@@ -2,7 +2,7 @@ import * as _ from "lodash";
 
 import BlinkNode from "../BlinkNode";
 import MiniRoundHistoryItem from "./MiniRoundHistoryItem";
-import MiniRoundHistoryTip from "./MiniRoundHistoryTip";
+import MiniRoundHistoryTip, { TipAlignment } from "./MiniRoundHistoryTip";
 
 const { ccclass, property } = cc._decorator;
 
@@ -17,15 +17,28 @@ export default class MiniRoundHistory extends cc.Component {
     @property(cc.Node)
     nodeNext: cc.Node = null;
 
+    @property()
+    offsetBorderCount = 2;
+
     protected items: MiniRoundHistoryItem[] = [];
     protected selectedNode: cc.Node = null;
     private listener = {
         onEnter: (node: cc.Node) => {
+            const childIndex = node.parent.children.findIndex((child) => child === node);
             this.selectedNode = node;
             this.tip.node.position = cc.v3(node.x, this.tip.node.y);
             const data = node.getComponent(MiniRoundHistoryItem).data;
             this.tip.setData(data);
             this.tip.show();
+
+            let tipAlignment = TipAlignment.Cennter;
+            if (childIndex <= this.offsetBorderCount) {
+                tipAlignment = TipAlignment.Left;
+            }
+            if (childIndex >= node.parent.childrenCount - 1 - this.offsetBorderCount) {
+                tipAlignment = TipAlignment.Right;
+            }
+            this.tip.setAlignment(tipAlignment);
         },
         onLeave: (node: cc.Node) => {
             this.selectedNode = null;
