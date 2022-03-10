@@ -3,7 +3,7 @@ const configs = {
     ssl: true,
     disabledDirectLogin: true,
     serverDomainMapper: {
-        "minisit.sgamesuat.com": "sgamesuat.com"
+        "l2minisit.sgamesuat.com": "sgamesuat.com"
     },
     subDomain: "l2uatproxy",
     env: "sit",
