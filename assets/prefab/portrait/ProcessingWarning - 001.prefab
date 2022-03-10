@@ -545,6 +545,10 @@
     "target": {
       "__id__": 15
     },
+    "syncWidth": true,
+    "syncHeight": true,
+    "ratioWidth": 1,
+    "ratioHeight": 1,
     "_id": ""
   },
   {
