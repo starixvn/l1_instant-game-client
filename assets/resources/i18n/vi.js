@@ -31,7 +31,8 @@ window.i18n.languages.vi = {
         28: "Xóc Đĩa Đối Kháng",
         29: "Long Lân Quy Phụng",
         31: "Xổ Số RNG",
-        35: "3 Lá Đỏ Đen"
+        35: "3 Lá Đỏ Đen",
+        45: "Cao Thấp"
     },
     messages: {
         accountBlacklisted: "Tài khoản đã bị đóng. Vui lòng liên hệ bộ phận CSKH.(%{errorCode})",

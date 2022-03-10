@@ -144,4 +144,8 @@ export default class GameUtils {
 
         return values.map((a) => +a).filter((value) => value >= minBet && value <= maxBet);
     }
+
+    public static createNodeFromPrefab(prefab: cc.Prefab) {
+        return cc.instantiate(prefab);
+    }
 }

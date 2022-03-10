@@ -28,10 +28,10 @@ export default class NewCard extends cc.Component {
     @property(cc.Sprite)
     largeSuite: cc.Sprite = null;
 
-    private card: CardModel = { rank: "A", suit: 3 };
+    public card: CardModel = { rank: "A", suit: 3 };
 
-    private readonly suffix = ["heart", "diamond", "club", "spade"];
-    private readonly picture = {
+    protected readonly suffix = ["heart", "diamond", "club", "spade"];
+    protected readonly picture = {
         j: "j_picture",
         q: "q_picture",
         k: "k_picture"

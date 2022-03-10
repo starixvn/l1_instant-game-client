@@ -1,6 +1,7 @@
 import * as _ from "lodash";
 
 import BetItem from "../../../games/_base/view-models/BetItem";
+import AudioManager from "../../audio/AudioManager";
 import GameUtils from "../../utils/GameUtils";
 import SnappedScrollView from "../SnappedScrollView";
 import ChipConfig from "./ChipConfig";
@@ -55,11 +56,15 @@ export default class BetChips extends cc.Component {
     public readonly loginUserChipFlyingTime: number = 0.5;
     public readonly chipDelayFlyingTime: number = 1.25;
 
-    private selectedIndex = 0;
-    private chipList: cc.Node[] = [];
+    public chipConfig: ChipConfig;
+    public selectedIndex = 0;
+    public chipList: cc.Node[] = [];
+    public enableStakeLevel = true;
+    protected needResetCurrentChip = true;
     private currentBetValue = "1";
 
     onLoad() {
+        this.chipConfig = ChipConfig.getInstance();
         this.leftButton.active = false;
         this.snappedScrollView.onScrollEnded = () => {
             const min = this.snappedScrollView.getMinDisplayIndex();
@@ -74,6 +79,10 @@ export default class BetChips extends cc.Component {
             this.updateArrowVisibility();
             this.updateSelectedChipValue();
         };
+    }
+
+    setNeedResetCurrentChip(status: boolean) {
+        this.needResetCurrentChip = status;
     }
 
     setChipValues(gameConfigs: any) {
@@ -123,10 +132,17 @@ export default class BetChips extends cc.Component {
     updateLastChip(value: number) {
         const chipView = this.chipList[this.chipList.length - 1].getComponent(ChipView);
         chipView.setValue(value);
-        chipView.setColor(ChipConfig.getInstance().getChipColor(value));
+        chipView.setColor(this.chipConfig.getChipColor(value));
     }
 
     onEnable() {
+        this.resetCurrentChip();
+    }
+
+    resetCurrentChip() {
+        if (!this.needResetCurrentChip) {
+            return;
+        }
         this.selectedIndex = 0;
         this.snappedScrollView.scrollTo(0);
         this.scrollToSelectedIndex();
@@ -149,8 +165,11 @@ export default class BetChips extends cc.Component {
     }
 
     private updateArrowVisibility() {
-        this.leftButton.active = true;
-        this.rightButton.active = true;
+        if (this.needResetCurrentChip) {
+            this.leftButton.active = true;
+            this.rightButton.active = true;
+        }
+
         if (this.selectedIndex <= 0) {
             this.selectedIndex = 0;
             this.leftButton.active = false;
@@ -175,7 +194,11 @@ export default class BetChips extends cc.Component {
 
     public onClickBet(target) {
         const bet = target.node.name;
-        cc.GameManager.playSFX(this.betChipClickAudio.clip);
+        AudioManager.getInstance().playSFX(this.betChipClickAudio.clip);
+        this.setSelectedIndexAndScroll(bet);
+    }
+
+    setSelectedIndexAndScroll(bet: string) {
         let i = 0;
         for (; i < this.chipList.length; i++) {
             if (this.chipList[i].name === bet) {
@@ -404,37 +427,39 @@ export default class BetChips extends cc.Component {
     public createBigChip(value: number): cc.Node {
         const chip = cc.instantiate(this.chipPrefab);
         const chipView = chip.getComponent(ChipView);
-        chipView.setColor(ChipConfig.getInstance().getChipColor(value));
+        chipView.setColor(this.chipConfig.getChipColor(value));
         chipView.setValue(value);
         const index = this.chipValues.findIndex((chipValue) => chipValue === value);
         chipView.setType(this.getChipDisplayType(index));
         return chip;
     }
 
-    private updateSelectedBet(targetName: string) {
+    clearAllHighlight() {
         this.chips.children.forEach((chip) => {
             chip.stopAllActions();
+            this.highlightChip(chip, false);
+        });
+    }
 
-            const activeNode = chip.getChildByName("active");
-            if (chip.name === targetName) {
-                activeNode.active = true;
-                chip.zIndex = 2;
-                cc.tween(chip)
-                    .to(0.2, {
-                        scale: 1.15,
-                        position: cc.v2(chip.position.x, 12)
-                    })
-                    .start();
-            } else {
-                activeNode.active = false;
-                chip.zIndex = 1;
-                cc.tween(chip)
-                    .to(0.2, {
-                        scale: 1,
-                        position: cc.v2(chip.position.x, 0)
-                    })
-                    .start();
-            }
+    highlightChip(chip: cc.Node, highlight: boolean) {
+        const activeNode = chip.getChildByName("active");
+        activeNode.active = highlight;
+        chip.zIndex = highlight ? 2 : 1;
+        const scaleChip = highlight ? 1.15 : 1;
+        const posY = highlight ? 12 : 0;
+        cc.tween(chip)
+            .to(0.2, {
+                scale: scaleChip,
+                position: cc.v2(chip.position.x, posY)
+            })
+            .start();
+    }
+
+    public updateSelectedBet(targetName: string) {
+        this.chips.children.forEach((chip) => {
+            chip.stopAllActions();
+            const highlight = chip.name === targetName;
+            this.highlightChip(chip, highlight);
         });
     }
 

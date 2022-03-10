@@ -31,7 +31,8 @@ window.i18n.languages.en = {
         28: "Se Die War",
         29: "Four Guardians",
         31: "RNG Lottery",
-        35: "Three Cards"
+        35: "Three Cards",
+        45: "Hi-Lo"
     },
     messages: {
         loginFailed: "Incorrect login name or password",

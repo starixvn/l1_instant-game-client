@@ -27,6 +27,7 @@ import GameAudios from "./view-models/GameAudios";
 import { GameConfigBase } from "./view-models/GameConfigBase";
 import GameGuideBase from "./view-models/GameGuideBase";
 import GameRoundHistory from "./view-models/GameRoundHistory";
+import AudioManager from "../../common/audio/AudioManager";
 
 const { ccclass, property } = cc._decorator;
 
@@ -518,7 +519,7 @@ export default class GameBase extends BaseComponent {
     }
 
     openScoreBoard() {
-        cc.GameManager.playClick();
+        this.playClick();
 
         const node = cc.instantiate(this.roundHistoryPrefab);
         this.roundHistory = node.getComponent(GameRoundHistory);
@@ -539,5 +540,9 @@ export default class GameBase extends BaseComponent {
             username: cc.GameManager.user.name,
             m: FeatureConfig.PortraitMode ? "2" : "1"
         };
+    }
+
+    public playClick() {
+        AudioManager.getInstance().playClick();
     }
 }

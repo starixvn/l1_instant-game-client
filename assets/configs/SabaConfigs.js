@@ -30,7 +30,8 @@ const configs = {
         VipSedieWar: 28,
         FourGuardians: 29,
         Lottery: 31,
-        ThreeCards: 35
+        ThreeCards: 35,
+        HiLo: 45
     },
     GameInfos: {
         0: {
@@ -114,6 +115,10 @@ const configs = {
         },
         35: {
             key: "ThreeCards"
+        },
+        45: {
+            key: "Hilo",
+            mini: true
         }
     }
 };
