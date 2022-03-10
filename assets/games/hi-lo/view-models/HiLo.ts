@@ -24,7 +24,6 @@ import HiLoBetBoard from "./HiLoBetBoard";
 import HiLoBettingArea, { BettingAreaEvents } from "./HiLoBettingArea";
 import HiLoResult from "./HiLoResult";
 import HiLoStatistic from "./HiLoStatistic";
-import HiLoTicketHistory from "./HiLoTicketHistory";
 import GameUtils from "../../../common/utils/GameUtils";
 import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
 
