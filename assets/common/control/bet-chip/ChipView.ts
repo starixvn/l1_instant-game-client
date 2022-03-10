@@ -69,5 +69,10 @@ export default class ChipView extends cc.Component {
                 sprite.dstBlendFactor = cc.macro.BlendFactor.ONE_MINUS_SRC_ALPHA;
             }
         });
+
+        const button = this.getComponent(cc.Button);
+        if (button) {
+            button.enabled = false;
+        }
     }
 }
