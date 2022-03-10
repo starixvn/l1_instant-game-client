@@ -27,6 +27,9 @@ export default abstract class MiniRoundHistoryTip extends cc.Component {
     }
 
     public setAlignment(alignment: TipAlignment) {
+        if (!this.background) {
+            return;
+        }
         const pos = this.background.position;
         const width = this.background.width;
         const dict = [-0.5 + this.offsetAligment, 0, 0.5 - this.offsetAligment];
