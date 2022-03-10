@@ -82,11 +82,7 @@ export default class NewCard extends cc.Component {
                 this.number.node.color = this.card.suit > 1 ? color : color.fromHEX("#960000");
                 this.smallSuite.spriteFrame = this.atlas.getSpriteFrame(`${this.suffix[this.card.suit]}_small`);
 
-                if (+this.card.rank || this.card.rank === "A") {
-                    this.largeSuite.spriteFrame = this.atlas.getSpriteFrame(this.suffix[this.card.suit]);
-                } else {
-                    this.largeSuite.spriteFrame = this.atlas.getSpriteFrame(this.picture[lowerCaseRank]);
-                }
+                this.setLargeSuiteImage(lowerCaseRank);
 
                 this.image.spriteFrame = this.atlas.getSpriteFrame("card_bg");
             } else {
@@ -95,6 +91,14 @@ export default class NewCard extends cc.Component {
             }
         } else {
             this.showCardBack();
+        }
+    }
+
+    setLargeSuiteImage(lowerCaseRank: string) {
+        if (+this.card.rank || this.card.rank === "A") {
+            this.largeSuite.spriteFrame = this.atlas.getSpriteFrame(this.suffix[this.card.suit]);
+        } else {
+            this.largeSuite.spriteFrame = this.atlas.getSpriteFrame(this.picture[lowerCaseRank]);
         }
     }
 

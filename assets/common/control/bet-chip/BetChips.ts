@@ -48,7 +48,7 @@ export default class BetChips extends cc.Component {
     @property(cc.SpriteFrame)
     lowValueChipSprite: cc.SpriteFrame = null;
 
-    private gameConfigs: any;
+    public gameConfigs: any;
     public chipValues: number[] = [];
     public configValues: number[] = [];
     public onChanged: OnChangedBet = (bet) => {};
@@ -113,7 +113,7 @@ export default class BetChips extends cc.Component {
         this.chipList.forEach((chip) => chip.destroy());
         this.chipList = [];
         this.chipValues.forEach((value) => {
-            const node = this.createBigChip(value);
+            const node = this.createChipNode(value);
             this.chips.addChild(node);
             node.on("click", this.onClickBet.bind(this));
             this.chipList.push(node);
@@ -123,6 +123,10 @@ export default class BetChips extends cc.Component {
         layout.enabled = true;
         layout.updateLayout();
         layout.enabled = false;
+    }
+
+    createChipNode(value: number): cc.Node {
+        return this.createBigChip(value);
     }
 
     getChipDisplayType(index: number) {

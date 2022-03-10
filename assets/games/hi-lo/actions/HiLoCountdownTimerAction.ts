@@ -1,4 +1,4 @@
-import { numberPad } from "../../../common/helpers/NumberHelper";
+import { numberPad } from "../../../common/helper/NumberHelper";
 import HiLo from "../view-models/HiLo";
 
 export const updateClockTime =

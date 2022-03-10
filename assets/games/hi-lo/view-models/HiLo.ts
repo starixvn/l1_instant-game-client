@@ -103,7 +103,6 @@ export default class HiLo extends NewMiniGameBase {
     }
 
     onEnable() {
-        super.onEnable();
         this.isStopSchedule = false;
 
         if (this.gameData.stateModel.state === HiLoState.BLANK_NEW) {

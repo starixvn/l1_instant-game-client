@@ -1,5 +1,5 @@
 import AudioManager from "../../../common/audio/AudioManager";
-import { numberWithCommas } from "../../../common/helpers/NumberHelper";
+import { numberWithCommas } from "../../../common/helper/NumberHelper";
 import { HiloChoicesConst } from "../events-models/HiLoChoices";
 import { HiLoOwnBetsModel } from "../events-models/HiLoOwnBetsModel";
 import { HiLoStatusModel } from "../events-models/HiLoStatusModel";
@@ -28,7 +28,7 @@ export const updateCard = (mainGame: HiLo) => async (model: HiLoOwnBetsModel) =>
 };
 
 export const updateStatistic = (mainGame: HiLo) => (model: HiLoOwnBetsModel) => {
-    mainGame.statisticComp.updateCards(model.result);
+    mainGame.statisticComp.updateItems(model.result);
 };
 
 export const updateStakesAndButtons = (mainGame: HiLo) => (model: HiLoOwnBetsModel) => {
