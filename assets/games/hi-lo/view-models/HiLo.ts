@@ -170,6 +170,7 @@ export default class HiLo extends NewMiniGameBase {
         await updateCard(this)(model);
         this.setInteractableButtons(true);
         updateStatistic(this)(model);
+        this.statisticArea.active = true;
         updateStakesAndButtons(this)(model);
         checkStatusLost(this)(this.gameData.statusModel);
 
@@ -236,6 +237,7 @@ export default class HiLo extends NewMiniGameBase {
         const node = cc.instantiate(this.statisticPrefab);
         this.statisticComp = node.getComponent(HiLoStatistic);
         this.statisticArea.addChild(node);
+        this.statisticArea.active = false;
     }
 
     initBetBoard() {
