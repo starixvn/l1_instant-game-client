@@ -10,12 +10,12 @@ export default class HiLoCard extends NewCard {
     setLargeSuiteImage(lowerCaseRank: string) {
         if (+this.card.rank || this.card.rank === "A") {
             this.largeSuite.spriteFrame = this.atlas.getSpriteFrame(this.suffix[this.card.suit]);
-            this.largeSuite.node.width = 64;
-            this.largeSuite.node.height = 70;
+            this.largeSuite.node.width = 62;
+            this.largeSuite.node.height = 68;
         } else {
             this.largeSuite.spriteFrame = this.atlas.getSpriteFrame(this.picture[lowerCaseRank]);
-            this.largeSuite.node.width = 90;
-            this.largeSuite.node.height = 135;
+            this.largeSuite.node.width = 86;
+            this.largeSuite.node.height = 130;
         }
     }
 }
