@@ -431,7 +431,7 @@
         "__id__": 28
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 31
@@ -1223,8 +1223,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "message",
-    "_N$string": "message",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 25,
     "_lineHeight": 30,
     "_enableWrapText": true,
