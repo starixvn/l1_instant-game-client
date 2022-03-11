@@ -65,20 +65,22 @@ export default class BetChips extends cc.Component {
 
     onLoad() {
         this.chipConfig = ChipConfig.getInstance();
-        this.leftButton.active = false;
-        this.snappedScrollView.onScrollEnded = () => {
-            const min = this.snappedScrollView.getMinDisplayIndex();
+        this.leftButton && (this.leftButton.active = false);
+        if (this.snappedScrollView) {
+            this.snappedScrollView.onScrollEnded = () => {
+                const min = this.snappedScrollView.getMinDisplayIndex();
 
-            if (this.selectedIndex < min) {
-                this.selectedIndex = min;
-                this.selectedIndex = Math.min(this.selectedIndex, this.chipList.length - this.displaySize);
-            } else if (this.selectedIndex > min + this.displaySize - 1) {
-                this.selectedIndex = min + this.displaySize - 1;
-            }
+                if (this.selectedIndex < min) {
+                    this.selectedIndex = min;
+                    this.selectedIndex = Math.min(this.selectedIndex, this.chipList.length - this.displaySize);
+                } else if (this.selectedIndex > min + this.displaySize - 1) {
+                    this.selectedIndex = min + this.displaySize - 1;
+                }
 
-            this.updateArrowVisibility();
-            this.updateSelectedChipValue();
-        };
+                this.updateArrowVisibility();
+                this.updateSelectedChipValue();
+            };
+        }
     }
 
     setNeedResetCurrentChip(status: boolean) {
@@ -103,9 +105,11 @@ export default class BetChips extends cc.Component {
                 : this.chipValues[0] && this.chipValues[0].toString();
         const needResetScrollOffset = currentBet !== this.currentBetValue;
         this.setCurrentBet(currentBet);
-        this.snappedScrollView.initCalculatedPercent();
-        if (needResetScrollOffset) {
-            this.snappedScrollView.scroll.scrollToPercentHorizontal(0, 0.1);
+        if (this.snappedScrollView) {
+            this.snappedScrollView.initCalculatedPercent();
+            if (needResetScrollOffset) {
+                this.snappedScrollView.scroll.scrollToPercentHorizontal(0, 0.1);
+            }
         }
     }
 
@@ -148,7 +152,7 @@ export default class BetChips extends cc.Component {
             return;
         }
         this.selectedIndex = 0;
-        this.snappedScrollView.scrollTo(0);
+        this.snappedScrollView && this.snappedScrollView.scrollTo(0);
         this.scrollToSelectedIndex();
     }
 
@@ -170,29 +174,32 @@ export default class BetChips extends cc.Component {
 
     private updateArrowVisibility() {
         if (this.needResetCurrentChip) {
-            this.leftButton.active = true;
-            this.rightButton.active = true;
+            this.leftButton && (this.leftButton.active = true);
+            this.rightButton && (this.rightButton.active = true);
         }
 
         if (this.selectedIndex <= 0) {
             this.selectedIndex = 0;
-            this.leftButton.active = false;
+            this.leftButton && (this.leftButton.active = false);
         } else if (this.selectedIndex >= this.chipList.length - 1) {
             this.selectedIndex = this.chipList.length - 1;
-            this.rightButton.active = false;
+            this.rightButton && (this.rightButton.active = false);
         }
     }
 
     private scrollToSelectedIndex() {
         this.updateArrowVisibility();
 
-        const min = this.snappedScrollView.getMinDisplayIndex();
-        if (this.selectedIndex <= min) {
-            this.snappedScrollView.scrollTo(min > 0 ? min - 1 : 0);
+        if (this.snappedScrollView) {
+            const min = this.snappedScrollView.getMinDisplayIndex();
+            if (this.selectedIndex <= min) {
+                this.snappedScrollView.scrollTo(min > 0 ? min - 1 : 0);
+            }
+            if (this.selectedIndex >= min + this.displaySize - 1) {
+                this.snappedScrollView.scrollTo(min + 1);
+            }
         }
-        if (this.selectedIndex >= min + this.displaySize - 1) {
-            this.snappedScrollView.scrollTo(min + 1);
-        }
+
         this.updateSelectedChipValue();
     }
 

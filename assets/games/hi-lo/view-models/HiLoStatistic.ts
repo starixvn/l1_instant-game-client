@@ -15,9 +15,11 @@ export default class HiLoStatistic extends cc.Component {
     @property(cc.ScrollView)
     statsScrollView: cc.ScrollView = null;
 
+    @property
+    itemSize = 10;
+
     layout: cc.Layout;
     public spaceX: number;
-    private readonly itemSize = 10;
     private itemWidth = 44;
 
     onLoad() {

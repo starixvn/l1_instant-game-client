@@ -14,8 +14,8 @@ export default class HiLoBetBoard extends BetChips {
 
     disableBetBoard(status: boolean) {
         this.disableLayer.active = status;
-        this.leftButton.active = !status;
-        this.rightButton.active = !status;
+        this.leftButton && (this.leftButton.active = !status);
+        this.rightButton && (this.rightButton.active = !status);
         this.disablePrevNextButtons(status);
     }
 
@@ -37,10 +37,12 @@ export default class HiLoBetBoard extends BetChips {
     }
 
     disablePrevNextButtons(status: boolean) {
-        this.leftButton.active = !status;
-        this.rightButton.active = !status;
-        if (this.selectedIndex <= 0) {
-            this.leftButton.active = false;
+        if (this.leftButton && this.rightButton) {
+            this.leftButton.active = !status;
+            this.rightButton.active = !status;
+            if (this.selectedIndex <= 0) {
+                this.leftButton.active = false;
+            }
         }
     }
 }
