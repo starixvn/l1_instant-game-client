@@ -22,7 +22,7 @@ export default class AutoSiblingResize extends cc.Component {
         this.resizeNode();
     }
 
-    uupdate(dt) {
+    update(dt) {
         this.resizeNode();
     }
 
