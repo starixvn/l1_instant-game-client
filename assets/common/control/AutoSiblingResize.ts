@@ -31,12 +31,8 @@ export default class AutoSiblingResize extends cc.Component {
     }
 
     resizeNode() {
-        if (this.syncWidth) {
-            this.node.width = this.target.width * this.ratioWidth;
-        }
-        if (this.syncHeight) {
-            this.node.height = this.target.height * this.ratioHeight;
-        }
+        this.setWidth();
+        this.setHeight();
 
         const richText = this.getComponent(cc.RichText);
         if (richText) {
@@ -49,5 +45,17 @@ export default class AutoSiblingResize extends cc.Component {
                 widget.updateAlignment();
             }
         });
+    }
+
+    setWidth() {
+        if (this.syncWidth) {
+            this.node.width = this.target.width * this.ratioWidth;
+        }
+    }
+
+    setHeight() {
+        if (this.syncHeight) {
+            this.node.height = this.target.height * this.ratioHeight;
+        }
     }
 }
