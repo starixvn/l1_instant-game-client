@@ -491,10 +491,10 @@
       "width": 96,
       "height": 58
     },
-    "_N$startAxis": 1,
+    "_N$startAxis": 0,
     "_N$paddingLeft": 10,
     "_N$paddingRight": 5,
-    "_N$paddingTop": 6,
+    "_N$paddingTop": 8,
     "_N$paddingBottom": 6,
     "_N$spacingX": 6,
     "_N$spacingY": 6,
@@ -522,7 +522,7 @@
       "__id__": 1
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 16
