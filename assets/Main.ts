@@ -157,16 +157,6 @@ export default class Main extends cc.Component {
             list.push(needShowGameId);
         }
 
-        //TODO: remove this
-        // this.gameHeaders.forEach((toggle) => {
-        //     const gameId = +toggle.node.name;
-        //     toggle.node.active = list.includes(gameId);
-        //     const line = this.headerContainer.getChildByName(`line_${gameId}`);
-        //     if (line) {
-        //         line.active = toggle.node.active;
-        //     }
-        // });
-
         this.category.updateVisibleItems(list);
     }
 

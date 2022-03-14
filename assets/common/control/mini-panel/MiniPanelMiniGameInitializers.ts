@@ -39,8 +39,8 @@ export default class MiniPanelMiniGameInitializers {
         const isAlreadyOpened = gameBase !== undefined;
 
         if (!isAlreadyOpened) {
-            const suffix = FeatureConfig.PortraitMode ? "_p" : "";
-            const prefabPath = `games/${this.getGameName(gameId)}${suffix}`;
+            const prefix = FeatureConfig.PortraitMode ? "portrait-mode/" : "";
+            const prefabPath = `games/${prefix}${this.getGameName(gameId)}`;
             this.main.loading.setDefaultPercent();
             cc.loader.loadRes(
                 prefabPath,
