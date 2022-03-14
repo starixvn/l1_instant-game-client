@@ -932,7 +932,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 161.45999999999998,
+      "width": 390,
       "height": 30
     },
     "_anchorPoint": {
@@ -1014,7 +1014,7 @@
     "_target": null,
     "_alignFlags": 40,
     "_left": 0,
-    "_right": 228.54000000000002,
+    "_right": 0,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
