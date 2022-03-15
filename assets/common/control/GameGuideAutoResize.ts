@@ -5,9 +5,20 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class GameGuideAutoResize extends AutoSiblingResize {
     @property
+    portraiRatioWidth = 0.9;
+
+    @property
     portraiRatioHeight = 0.75;
 
-    update(dt) {}
+    setWidth() {
+        if (this.syncWidth) {
+            if (FeatureConfig.PortraitMode) {
+                this.node.width = this.target.width * this.portraiRatioWidth;
+            } else {
+                this.node.width = this.target.width * this.ratioWidth;
+            }
+        }
+    }
 
     setHeight() {
         if (this.syncHeight) {
