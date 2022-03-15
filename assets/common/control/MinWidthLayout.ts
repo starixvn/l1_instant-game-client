@@ -1,18 +1,5 @@
 const { ccclass, property } = cc._decorator;
 
-var ResizeMode = cc.Enum({
-    NONE: 0,
-    CONTAINER: 1,
-    CHILDREN: 2
-});
-
-var Type = cc.Enum({
-    NONE: 0,
-    HORIZONTAL: 1,
-    VERTICAL: 2,
-    GRID: 3
-});
-
 @ccclass
 export default class MinWidthLayout extends cc.Component {
     @property

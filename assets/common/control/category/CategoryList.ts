@@ -14,11 +14,12 @@ export default class CategoryList extends cc.Component {
     @property(cc.Node)
     content: cc.Node = null;
 
-    protected items: CategoryItem[] = [];
+    items: CategoryItem[] = [];
+    itemsToggle: cc.Toggle[] = [];
 
     itemClickCallback = (itemId: number) => {};
 
-    protected onItemClick(itemId: number) {}
+    scrollToSelectedGame(itemId: number) {}
 
     setItems(items: CategoryItemData[]): void {
         items.forEach((item, index) => {
@@ -33,11 +34,14 @@ export default class CategoryList extends cc.Component {
     addItem(data: CategoryItemData): CategoryItem {
         const node = cc.instantiate(this.itemPrefab);
         this.content.addChild(node);
+        const toggle = node.getComponent(cc.Toggle);
+        this.itemsToggle.push(toggle);
+        node.name = data.itemId.toString();
         const item = node.getComponent(CategoryItem);
         item.itemId = data.itemId;
         item.onCategoryClickCallback = () => {
             this.itemClickCallback(data.itemId);
-            this.onItemClick(data.itemId);
+            this.scrollToSelectedGame(data.itemId);
         };
         return item;
     }
