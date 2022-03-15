@@ -7,7 +7,7 @@ const { ccclass, property } = cc._decorator;
 export default class BigSmallGuide extends GameGuideBase {
     createReplaceData(configs) {
         return {
-            _chipMax: numberWithCommas(2000),
+            _chipMax: numberWithCommas(this.getMaxBet()),
             _minBet: numberWithCommas(this.getMinBet()),
             _maxBet: numberWithCommas(this.getMaxBet())
         };
