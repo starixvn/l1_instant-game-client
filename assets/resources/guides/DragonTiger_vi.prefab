@@ -5431,7 +5431,9 @@
         "__id__": 102
       }
     ],
-    "mainFrame": null,
+    "mainFrame": {
+      "__id__": 7
+    },
     "_id": ""
   },
   {
