@@ -175,13 +175,13 @@ export default class GameBase extends BaseComponent {
         this.initHandlers();
         this.addHandlers(
             this.umHandler,
+            this.configsHandler,
             this.noticeHandler,
             this.statusHandler,
             this.betHandler,
             this.timeHandler,
             this.errorHandler,
             this.logsHandler,
-            this.configsHandler,
             this.finishHandler
         );
     }
