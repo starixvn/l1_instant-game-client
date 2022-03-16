@@ -27,6 +27,7 @@ export default class Main extends cc.Component {
     private generateNameCount = 0;
     private miniPanel: MiniPanel;
     private showingNoticeNotPermitToPlay = false;
+    private currentGameId: number;
 
     onLoad() {
         cc.GameManager = GameManager.Instance;
@@ -41,7 +42,10 @@ export default class Main extends cc.Component {
         );
 
         this.category.itemClickCallback = (itemId) => {
-            this.onGameChanged(itemId);
+            if (itemId !== this.currentGameId) {
+                this.onGameChanged(itemId);
+                this.currentGameId = itemId;
+            }
         };
 
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
@@ -141,6 +145,7 @@ export default class Main extends cc.Component {
         if (gameId) {
             this.updateOfferGameHeaders(gameId);
             this.updateSelectedHeader(gameId);
+            this.currentGameId = gameId;
             this.openGame(gameId);
         }
     }

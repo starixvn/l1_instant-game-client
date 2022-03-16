@@ -140,8 +140,4 @@ export default class MiniSedie extends SocketIOMiniGameBase {
             this.roundHistory.setData(miniHistoryData.map((d) => d.red));
         }
     }
-
-    showAcceptedBet(bet: number) {
-        GameUtils.addFlyingText(this.betChipsContainer, false, bet, 1);
-    }
 }
