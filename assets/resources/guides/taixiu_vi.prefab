@@ -913,7 +913,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 382,
-      "height": 836
+      "height": 866
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1808,7 +1808,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 382,
-      "height": 90
+      "height": 120
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1820,7 +1820,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -771,
+        -786,
         0,
         0,
         0,
@@ -1859,8 +1859,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "-  Hạn mức cược từ 1 đến _chipMax cho một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là _maxBet.",
-    "_N$string": "-  Hạn mức cược từ 1 đến _chipMax cho một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là _maxBet.",
+    "_string": "-  Hạn mức cược từ _minBet đến _chipMax cho một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là _maxBet.",
+    "_N$string": "-  Hạn mức cược từ _minBet đến _chipMax cho một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là _maxBet.",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1953,7 +1953,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 382,
-      "height": 836
+      "height": 866
     },
     "_resize": 1,
     "_N$layoutType": 2,
