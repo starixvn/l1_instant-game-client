@@ -51,7 +51,8 @@
         "moment": "^2.26.0",
         "reflect-metadata": "^0.1.13",
         "sc-user-service-client": "^1.1.0",
-        "socket.io-client": "^4.3.2"
+        "socket.io-client": "^4.3.2",
+        "socket.io-msgpack-parser": "^3.0.1"
     },
     "prettier": {
         "tabWidth": 4,
