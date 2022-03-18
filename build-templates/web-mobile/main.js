@@ -20,6 +20,19 @@ window.boot = function () {
         }
     }
 
+    function updateDPR(designWidth, designHeight) {
+        // dpr tells the browser how many of the screen's actual pixels should be used to draw a single CSS pixel.
+        if (window.devicePixelRatio) {
+            const deviceSize = cc.view.getFrameSize();
+            const windowDPR = window.devicePixelRatio || 1;
+            const scale = Math.max(designWidth / deviceSize.width, designHeight / deviceSize.height);
+            const newDPR = windowDPR * scale;
+            const minDPR = 1.5;
+            const maxDPR = 2;
+            window.devicePixelRatio = newDPR > maxDPR ? maxDPR : newDPR < minDPR ? minDPR : newDPR;
+        }
+    }
+
     var onStart = function () {
         cc.view.enableRetina(true);
         cc.view.resizeWithBrowserSize(true);
@@ -41,6 +54,8 @@ window.boot = function () {
             cc.assetManager.downloader.maxConcurrency = 2;
             cc.assetManager.downloader.maxRequestsPerFrame = 2;
         }
+
+        updateDPR(448, 740);
 
         var launchScene = settings.launchScene;
         var bundle = cc.assetManager.bundles.find(function (b) {
