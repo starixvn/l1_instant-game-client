@@ -6,6 +6,19 @@ window.boot = function () {
     var RESOURCES = cc.AssetManager.BuiltinBundleName.RESOURCES;
     var INTERNAL = cc.AssetManager.BuiltinBundleName.INTERNAL;
     var MAIN = cc.AssetManager.BuiltinBundleName.MAIN;
+    const deviceSize = cc.view.getFrameSize();
+
+    function updateDPR(designWidth, designHeight) {
+        if (window.devicePixelRatio) {
+            const windowDPR = window.devicePixelRatio || 1;
+            const scale = Math.max(designWidth / deviceSize.width, designHeight / deviceSize.height);
+            const newDPR = windowDPR * scale;
+            const minDPR = 1.5;
+            const maxDPR = 2;
+            window.devicePixelRatio = newDPR > maxDPR ? maxDPR : newDPR < minDPR ? minDPR : newDPR;
+            console.log("change: " + window.devicePixelRatio);
+        }
+    }
 
     var onStart = function () {
         cc.view.enableRetina(true);
@@ -20,6 +33,10 @@ window.boot = function () {
         if (cc.sys.isBrowser && cc.sys.os === cc.sys.OS_ANDROID) {
             cc.assetManager.downloader.maxConcurrency = 2;
             cc.assetManager.downloader.maxRequestsPerFrame = 2;
+        }
+
+        if (deviceSize.width < deviceSize.height) {
+            updateDPR(448, 740);
         }
 
         var launchScene = settings.launchScene;
