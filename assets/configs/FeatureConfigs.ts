@@ -1,7 +1,7 @@
 import configs = require("./Configs");
 
 const FeatureConfig = {
-    PortraitMode: !cc.sys.isMobile && configs.systemType === "SC1"
+    PortraitMode: window.innerWidth < window.innerHeight && configs.systemType === "SC1"
 };
 
 export { FeatureConfig };
