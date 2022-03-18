@@ -24,7 +24,8 @@ window.boot = function () {
         cc.view.enableRetina(true);
         cc.view.resizeWithBrowserSize(true);
 
-        cc.view.setOrientation(cc.macro.ORIENTATION_LANDSCAPE);
+        const isPortrait = window.innerWidth < window.innerHeight;
+        cc.view.setOrientation(isPortrait ? cc.macro.ORIENTATION_PORTRAIT : cc.macro.ORIENTATION_LANDSCAPE);
         cc.view.enableAutoFullScreen(false);
 
         // Limit downloading max concurrent task to 2,
@@ -35,7 +36,7 @@ window.boot = function () {
             cc.assetManager.downloader.maxRequestsPerFrame = 2;
         }
 
-        if (deviceSize.width < deviceSize.height) {
+        if (isPortrait) {
             updateDPR(448, 740);
         }
 
