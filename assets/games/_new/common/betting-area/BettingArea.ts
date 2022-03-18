@@ -1,6 +1,6 @@
-import GameUtils from "../../../../common/GameUtils";
-import { getInternationalFractionalOdds, numberWithCommas } from "../../../../common/helpers/NumberHelper";
 import BettingAreaTheme from "./BettingAreaTheme";
+import GameUtils from "../../../../common/utils/GameUtils";
+import { getInternationalFractionalOdds, numberWithCommas } from "../../../../common/helper/NumberHelper";
 
 const { ccclass, property, menu } = cc._decorator;
 export const BettingAreaEvents = {

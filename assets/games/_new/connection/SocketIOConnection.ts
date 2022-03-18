@@ -1,8 +1,8 @@
 import { Socket } from "socket.io-client";
 
-import { getSession } from "../../../common/auth/SessionManager";
 import logger from "../../../common/logger";
 import Connection from "./Connection";
+import { getSession } from "../../../manager/auth/SessionManager";
 
 const sentryLogger = logger();
 
