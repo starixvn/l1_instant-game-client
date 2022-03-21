@@ -526,7 +526,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "statis-container",
+    "_name": "statistic",
     "_objFlags": 0,
     "_parent": {
       "__id__": 7
@@ -555,7 +555,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 666.140909090909,
+      "width": 666.1409090909092,
       "height": 50
     },
     "_anchorPoint": {
@@ -567,8 +567,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -22.020454545454584,
-        136,
+        -22.019999999999982,
+        135.149,
         0,
         0,
         0,
@@ -594,7 +594,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "statistic",
+    "_name": "container",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -645,7 +645,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -0.18,
+        2.373,
         0,
         0,
         0,
@@ -1803,8 +1803,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": 4,
-    "_right": 48.04090909090909,
+    "_left": 4.000454545454481,
+    "_right": 48.040454545454466,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
