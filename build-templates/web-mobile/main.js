@@ -27,6 +27,12 @@ window.boot = function () {
         const isPortrait = window.innerWidth < window.innerHeight;
         cc.view.setOrientation(isPortrait ? cc.macro.ORIENTATION_PORTRAIT : cc.macro.ORIENTATION_LANDSCAPE);
         cc.view.enableAutoFullScreen(false);
+        if (cc.sys.os !== cc.sys.OS_ANDROID || cc.sys.browserType !== cc.sys.BROWSER_TYPE_UC) {
+            cc.view.enableRetina(true);
+        }
+        if (isPortrait) {
+            updateDPR(448, 740);
+        }
 
         // Limit downloading max concurrent task to 2,
         // more tasks simultaneously may cause performance draw back on some android system / browsers.
@@ -34,10 +40,6 @@ window.boot = function () {
         if (cc.sys.isBrowser && cc.sys.os === cc.sys.OS_ANDROID) {
             cc.assetManager.downloader.maxConcurrency = 2;
             cc.assetManager.downloader.maxRequestsPerFrame = 2;
-        }
-
-        if (isPortrait) {
-            updateDPR(448, 740);
         }
 
         var launchScene = settings.launchScene;
