@@ -6,6 +6,7 @@ import * as authManager from "./manager/auth/AuthManager";
 import { getCacheLanguage, setLanguage } from "./manager/auth/SessionManager";
 import UserService from "./manager/auth/UserService";
 import GameManager from "./manager/GameManager";
+import GameCategoryList from "./common/control/category/GameCategoryList";
 
 const { ccclass, property } = cc._decorator;
 
@@ -17,34 +18,36 @@ export default class Main extends cc.Component {
     @property(cc.Label)
     splashMessage: cc.Label = null;
 
-    // @property(cc.Node)
-    // loading: cc.Node = null;
-
-    @property(cc.Node)
-    main: cc.Node = null;
-
-    @property(cc.Node)
-    headerContainer: cc.Node = null;
+    @property(GameCategoryList)
+    category: GameCategoryList = null;
 
     @property(cc.Node)
     miniPanelNode: cc.Node = null;
 
     private generateNameCount = 0;
     private miniPanel: MiniPanel;
-    private gameHeaders: cc.Toggle[] = [];
     private showingNoticeNotPermitToPlay = false;
+    private currentGameId: number;
 
     onLoad() {
         cc.GameManager = GameManager.Instance;
-        this.headerContainer.children.forEach((child) => {
-            const toggle = child.getComponent(cc.Toggle);
-            if (toggle) {
-                this.gameHeaders.push(toggle);
-                const childName = +child.name;
-                cc.GameManager.supportGames.push(childName);
-            }
-        });
         this.initLanguage();
+
+        this.category.setItems(
+            cc.GameManager.supportGames.map((id) => {
+                return {
+                    itemId: id
+                };
+            })
+        );
+
+        this.category.itemClickCallback = (itemId) => {
+            if (itemId !== this.currentGameId) {
+                this.onGameChanged(itemId);
+                this.currentGameId = itemId;
+            }
+        };
+
         this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
         this.miniPanel.mainCallback = {
             showNoticeNotPermitToPlay: () => {
@@ -142,6 +145,7 @@ export default class Main extends cc.Component {
         if (gameId) {
             this.updateOfferGameHeaders(gameId);
             this.updateSelectedHeader(gameId);
+            this.currentGameId = gameId;
             this.openGame(gameId);
         }
     }
@@ -151,22 +155,17 @@ export default class Main extends cc.Component {
         if (needShowGameId !== undefined) {
             list.push(needShowGameId);
         }
-        this.gameHeaders.forEach((toggle) => {
-            const gameId = +toggle.node.name;
-            toggle.node.active = list.includes(gameId);
-            const line = this.headerContainer.getChildByName(`line_${gameId}`);
-            if (line) {
-                line.active = toggle.node.active;
-            }
-        });
+
+        this.category.updateVisibleItems(list);
     }
 
     updateSelectedHeader(gameId: number) {
         const name = gameId.toString();
-        const toggle = this.gameHeaders.find((comp) => comp.node.name === name);
+        const toggle = this.category.itemsToggle.find((comp) => comp.node.name === name);
         if (toggle) {
             toggle.isChecked = true;
         }
+        this.category.scrollToSelectedGame(gameId);
     }
 
     openGame(gameId: number) {
@@ -187,15 +186,13 @@ export default class Main extends cc.Component {
         this.miniPanel.openGuide();
     }
 
-    onGameChanged(toggle: cc.Toggle) {
+    onGameChanged(gameId: number) {
         this.miniPanel.removeAllNotices();
         if (this.showingNoticeNotPermitToPlay) {
             this.showingNoticeNotPermitToPlay = false;
             this.updateOfferGameHeaders();
         }
-        if (toggle.isChecked) {
-            const gameId = +toggle.node.name;
-            this.openGame(gameId);
-        }
+
+        this.openGame(gameId);
     }
 }

@@ -1,4 +1,5 @@
 import MiniPanel from "../common/control/mini-panel/MiniPanel";
+import { GameIds } from "../configs/SabaConfigs";
 
 const { ccclass, property } = cc._decorator;
 
@@ -29,6 +30,7 @@ export default class GameManager extends cc.Component {
     supportGames: number[] = [];
 
     onLoad() {
+        this.supportGames.push(...[GameIds.MiniSedie, GameIds.BigSmall, GameIds.DragonTiger, GameIds.FishPrawnCrab]);
         GameManager.Instance = this;
         cc.game.on(cc.game.EVENT_HIDE, () => {
             this.GAME_IS_SHOWED = false;
@@ -40,8 +42,18 @@ export default class GameManager extends cc.Component {
     }
 
     userStakeLevelData(data) {
+        if (this.userStakeLevel.minBet === data.minBet && this.userStakeLevel.maxBet === data.maxBet) {
+            return false;
+        }
+
         this.userStakeLevel.minBet = data.minBet;
         this.userStakeLevel.maxBet = data.maxBet;
+
+        const scene = cc.director.getScene();
+        const betChips = scene.getComponentsInChildren("BetChips");
+        betChips.forEach((betChip) => betChip.updateChips());
+
+        return true;
     }
 
     loadUserData(data: any) {
@@ -51,9 +63,7 @@ export default class GameManager extends cc.Component {
         }
     }
 
-    sendToMainSocket(data: any) {
-        // console.log("sendToMainSocket ", data);
-    }
+    sendToMainSocket(data: any) {}
 
     isSoundGame(): boolean {
         const check = cc.sys.localStorage.getItem("SOUND_GAME");

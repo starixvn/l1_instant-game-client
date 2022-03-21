@@ -1,7 +1,7 @@
 {
   "title": "InstantClient",
   "packageName": "org.cocos2d.demo",
-  "startScene": "f2e70522-d2ef-4ba9-b29a-7aceca2446d1",
+  "startScene": "8ea752cf-b2ac-45b7-8fc6-7317615899bc",
   "excludeScenes": [],
   "orientation": {
     "landscapeRight": true,

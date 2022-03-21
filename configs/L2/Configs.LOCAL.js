@@ -3,7 +3,7 @@ const configs = {
     ssl: true,
     disabledDirectLogin: true,
     serverDomainMapper: {
-        "l2-games.lumigame.com": "lumigame.com"
+        "l2-mini.lumigame.com": "lumigame.com"
     },
     subDomain: "l2-proxy",
     env: "",

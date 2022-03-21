@@ -2,9 +2,9 @@ const configs = {
     systemType: "SC1",
     ssl: true,
     serverDomainMapper: {
-        "minisit.sgamesuat.com": "sgamesuat.com"
+        "l1minisit.sgamesuat.com": "sgamesuat.com"
     },
-    subDomain: "uatproxy",
+    subDomain: "l1uatproxy",
     env: "sit",
     sentry: {
         url: "https://08d902b128ea45b6a11639833224f481@sentryuat.sabagame.com/25",

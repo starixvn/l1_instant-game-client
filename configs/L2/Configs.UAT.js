@@ -3,9 +3,9 @@ const configs = {
     ssl: true,
     disabledDirectLogin: true,
     serverDomainMapper: {
-        "uat.sabagame.net": "sabagame.net"
+        "l2miniuat.sgamesuat.com": "sgamesuat.com"
     },
-    subDomain: "uatproxy",
+    subDomain: "l2uatproxy",
     env: "uat",
     sentry: {
         url: "https://df0ce89a96b045e4ae626c16a143d8f9@sentryuat.sabagame.com/51",

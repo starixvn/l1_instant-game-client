@@ -53,7 +53,7 @@ export default class GameRoundHistory extends BaseComponent {
 
     updateStatisticLabels(statisticData: any) {
         this.statisticLabels.forEach((label, index) => {
-            label.string = `${statisticData[index]}${this.suffix}`;
+            label.string = `${statisticData[index] ? statisticData[index] : 0}${this.suffix}`;
         });
     }
 }

@@ -6,13 +6,33 @@ window.boot = function () {
     var RESOURCES = cc.AssetManager.BuiltinBundleName.RESOURCES;
     var INTERNAL = cc.AssetManager.BuiltinBundleName.INTERNAL;
     var MAIN = cc.AssetManager.BuiltinBundleName.MAIN;
+    const deviceSize = cc.view.getFrameSize();
+
+    function updateDPR(designWidth, designHeight) {
+        if (window.devicePixelRatio) {
+            const windowDPR = window.devicePixelRatio || 1;
+            const scale = Math.max(designWidth / deviceSize.width, designHeight / deviceSize.height);
+            const newDPR = windowDPR * scale;
+            const minDPR = 1.5;
+            const maxDPR = 2;
+            window.devicePixelRatio = newDPR > maxDPR ? maxDPR : newDPR < minDPR ? minDPR : newDPR;
+            console.log("change: " + window.devicePixelRatio);
+        }
+    }
 
     var onStart = function () {
         cc.view.enableRetina(true);
         cc.view.resizeWithBrowserSize(true);
 
-        cc.view.setOrientation(cc.macro.ORIENTATION_LANDSCAPE);
+        const isPortrait = window.innerWidth < window.innerHeight;
+        cc.view.setOrientation(isPortrait ? cc.macro.ORIENTATION_PORTRAIT : cc.macro.ORIENTATION_LANDSCAPE);
         cc.view.enableAutoFullScreen(false);
+        if (cc.sys.os !== cc.sys.OS_ANDROID || cc.sys.browserType !== cc.sys.BROWSER_TYPE_UC) {
+            cc.view.enableRetina(true);
+        }
+        if (isPortrait) {
+            updateDPR(448, 740);
+        }
 
         // Limit downloading max concurrent task to 2,
         // more tasks simultaneously may cause performance draw back on some android system / browsers.

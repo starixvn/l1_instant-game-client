@@ -1,5 +1,6 @@
 import { Socket } from "socket.io-client";
 
+import { FeatureConfig } from "../../../configs/FeatureConfigs";
 import { GameInfos } from "../../../configs/SabaConfigs";
 import GameBase from "../../../games/_base/GameBase";
 import { lazyInject } from "../../../manager/Application";
@@ -38,7 +39,8 @@ export default class MiniPanelMiniGameInitializers {
         const isAlreadyOpened = gameBase !== undefined;
 
         if (!isAlreadyOpened) {
-            const prefabPath = `games/${this.getGameName(gameId)}`;
+            const prefix = FeatureConfig.PortraitMode ? "portrait-mode/" : "";
+            const prefabPath = `games/${prefix}${this.getGameName(gameId)}`;
             this.main.loading.setDefaultPercent();
             cc.loader.loadRes(
                 prefabPath,
