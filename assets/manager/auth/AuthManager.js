@@ -8,6 +8,7 @@ import { buildServerUrl, getUserServiceURL } from "../../common/helper/UrlHelper
 import logger from "../../common/logger";
 import NoticeUtil from "../../common/utils/NoticeUtil";
 import * as sessionManager from "./SessionManager";
+import { isDifferentWithStoredToken, storeToken } from "./TokenManager";
 import UserService from "./UserService";
 
 const sentryLogger = logger();
@@ -83,10 +84,14 @@ export function checkSSO(labelMessage, onSuccessFunc) {
     const urlParams = new URLSearchParams(window.location.search);
     const authData = sessionManager.getSession();
 
-    if (urlParams.has("token")) {
+    if (urlParams.has("token") && isDifferentWithStoredToken(urlParams.get("token"))) {
         const systemType = 3;
+        const token = urlParams.get("token");
+
+        storeToken(token);
+
         UserService.getInstance()
-            .auth.sso(urlParams.get("token"), systemType)
+            .auth.sso(token, systemType)
             .then((response) => {
                 if (response.isAuthenticated) {
                     window.authData = response;
