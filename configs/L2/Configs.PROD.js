@@ -3,10 +3,8 @@ const configs = {
     ssl: true,
     disabledDirectLogin: true,
     serverDomainMapper: {
-        "www.sabagame.net": "sabagame.net",
-        "sabagame.net": "sabagame.net",
-        "www.gamesaba.net": "gamesaba.net",
-        "gamesaba.net": "gamesaba.net"
+        "www.mini.v-gaming.net": "v-gaming.net",
+        "mini.v-gaming.net": "v-gaming.net"
     },
     subDomain: "proxy",
     env: "",
