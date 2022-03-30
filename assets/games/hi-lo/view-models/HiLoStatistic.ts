@@ -20,7 +20,7 @@ export default class HiLoStatistic extends cc.Component {
 
     layout: cc.Layout;
     public spaceX: number;
-    private itemWidth = 46;
+    private readonly itemWidth = 46;
 
     onLoad() {
         this.layout = this.statisticContainer.getComponent(cc.Layout);

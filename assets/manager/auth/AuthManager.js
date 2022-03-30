@@ -156,7 +156,6 @@ export function triggerSignIn(main) {
                 const session = sessionManager.getSession();
                 const isSessionExpired = verifySession(session);
 
-                //FIXME: no infor of user
                 if (!isSessionExpired) {
                     main.serviceAuthorized(true);
                 } else {
@@ -211,29 +210,7 @@ export function reCheckIn() {
                 .auth.reCheckIn(session.ss, session.username)
                 .then((response) => {
                     if (response.isSuccessful) {
-                        session.time = new Date();
-                        sessionManager.storeSessionData(session);
-
-                        if (response.apiError) {
-                            if (response.isDisableAccount) {
-                                const autoClearDuration = 10;
-                                setTimeout(signOut, autoClearDuration * 1000);
-                                const noticeData = {
-                                    text: i18n.t("messages.accountClosed"),
-                                    autoClearDuration
-                                };
-                                cc.GameManager.miniPanel && cc.GameManager.miniPanel.showNotice(noticeData, signOut, signOut);
-                            } else {
-                                const errorCode = response.apiError.errorCode;
-                                const message = NoticeUtil.getLocalizedErrorMessage(errorCode, { errorCode });
-                                const noticeData = { text: message };
-                                cc.GameManager.miniPanel && cc.GameManager.miniPanel.showNotice(noticeData);
-                            }
-                        } else {
-                            if (cc.GameManager.user) {
-                                cc.GameManager.user.red = response.balance;
-                            }
-                        }
+                        handleResponse(session, response);
                     } else {
                         signOut();
                     }
@@ -242,5 +219,31 @@ export function reCheckIn() {
         }
     } catch (ex) {
         console.log(JSON.stringify(ex));
+    }
+}
+
+function handleResponse(session, response) {
+    session.time = new Date();
+    sessionManager.storeSessionData(session);
+
+    if (response.apiError) {
+        if (response.isDisableAccount) {
+            const autoClearDuration = 10;
+            setTimeout(signOut, autoClearDuration * 1000);
+            const noticeData = {
+                text: i18n.t("messages.accountClosed"),
+                autoClearDuration
+            };
+            cc.GameManager.miniPanel && cc.GameManager.miniPanel.showNotice(noticeData, signOut, signOut);
+        } else {
+            const errorCode = response.apiError.errorCode;
+            const message = NoticeUtil.getLocalizedErrorMessage(errorCode, { errorCode });
+            const noticeData = { text: message };
+            cc.GameManager.miniPanel && cc.GameManager.miniPanel.showNotice(noticeData);
+        }
+    } else {
+        if (cc.GameManager.user) {
+            cc.GameManager.user.red = response.balance;
+        }
     }
 }
