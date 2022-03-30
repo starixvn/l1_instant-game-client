@@ -27,7 +27,7 @@ export function preChecking(cb) {
     }
 
     if (urlParams.has("isTimeout") && urlParams.get("isTimeout") === "true") {
-        cc.director.loadScene("sessiontimeout");
+        this.loadSessionTimeoutScene();
         return;
     }
 
@@ -130,8 +130,12 @@ export function clearTokenOnUrl() {
 }
 
 export function signOut() {
-    cc.director.loadScene("sessiontimeout");
+    this.loadSessionTimeoutScene();
     sessionManager.removeSession();
+}
+
+function loadSessionTimeoutScene() {
+    FeatureConfig.PortraitMode ? cc.director.loadScene("sessiontimeout_Portrait") : cc.director.loadScene("sessiontimeout");
 }
 
 let autoTriggerSignInTimeout = null;
