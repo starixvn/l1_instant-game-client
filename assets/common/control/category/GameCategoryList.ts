@@ -1,4 +1,3 @@
-import CategoryItem from "./CategoryItem";
 import CategoryList from "./CategoryList";
 
 const { ccclass, property } = cc._decorator;

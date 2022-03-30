@@ -3,7 +3,7 @@ import * as _ from "lodash";
 import { GameIds } from "../../../configs/SabaConfigs";
 import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
 import SocketIOMiniGameBase from "../../_base/SocketIOMiniGameBase";
-import vipFishPrawnCrabConstants from "./BauCuaConstants";
+import BauCuaConstants from "./BauCuaConstants";
 import BauCuaBetItem from "./BauCuaBetItem";
 import { BauCuaConfigs } from "./BauCuaConfigs";
 import BauCuaOddItem from "./BauCuaOddItem";
@@ -143,8 +143,8 @@ export default class BauCua extends SocketIOMiniGameBase {
                 betItem.updateHighlight(false);
                 betItem.setHighlight(settlementResult[choice], type);
 
-                if (_.keys(vipFishPrawnCrabConstants.resultMapper).indexOf(choice) >= 0) {
-                    const xValue = _.values(result).filter((value) => value === vipFishPrawnCrabConstants.resultMapper[choice]).length;
+                if (_.keys(BauCuaConstants.resultMapper).indexOf(choice) >= 0) {
+                    const xValue = _.values(result).filter((value) => value === BauCuaConstants.resultMapper[choice]).length;
                     if (xValue > 1) {
                         betItem.setXSpriteFrame(xValue === 2 ? betItem.x2Sprite : betItem.x3Sprite);
                     }

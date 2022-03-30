@@ -1,7 +1,5 @@
 import { lazyInject } from "../../../manager/Application";
 import SocketIOController from "../../../manager/SocketIOController";
-import { buildServerUrl, getProxyRoute } from "../../helper/UrlHelper";
-import GameUtils from "../../utils/GameUtils";
 import MiniPanel from "./MiniPanel";
 
 export default class MiniPanelSocketIOGameInitializers {

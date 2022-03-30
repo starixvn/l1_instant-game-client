@@ -45,6 +45,5 @@ export default class GameIconMenu extends BaseComponent {
     itemPressed(id: number) {
         cc.GameManager.playClick();
         cc.sys.localStorage.setItem(`UserSetting_game_${id}`, "");
-        // GameUtils.openGame(id, this.miniPanel);
     }
 }

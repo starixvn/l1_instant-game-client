@@ -27,7 +27,6 @@ export default class OnePackLocalizedSprite extends LocalizedSprite {
         if (sprite) {
             this.sprite = sprite;
             this.updateSprite(window.i18n.curLang);
-            return;
         }
     }
 

@@ -38,12 +38,6 @@ export default class Notice extends cc.Component {
     public handleClose: () => void;
     private canNotClose = false;
 
-    onEnable() {
-        // this.popupNode.opacity = 0;
-        // this.popupNode.scale = 0;
-        // this.pop1upNode.runAction(cc.spawn(cc.scaleTo(0.5, 1).easing(cc.easeBackOut()), cc.fadeTo(0.5, 255)));
-    }
-
     onDisable() {
         this.node.destroyAllChildren();
         this.node.destroy();
@@ -63,7 +57,6 @@ export default class Notice extends cc.Component {
         this.setTitle(data.title);
         this.setMessage(data.text);
         this.setButton(data.button);
-        this.setBackground(data.isInfo);
     }
 
     private updateAutoClearDuration(duration: number) {
@@ -95,14 +88,6 @@ export default class Notice extends cc.Component {
         }
 
         this.node.active = false;
-    }
-
-    public setBackground(isInfo: boolean) {
-        // if (isInfo) {
-        //     this.popupNode.spriteFrame = this.infoBackground;
-        // } else {
-        //     this.popupNode.spriteFrame = this.errorBackground;
-        // }
     }
 
     public setTitle(title: string) {

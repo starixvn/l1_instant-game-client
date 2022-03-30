@@ -3,7 +3,9 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class CustomToggleContainer extends cc.ToggleContainer {
     updateToggles(toggle) {
-        if (!this.enabledInHierarchy) return;
+        if (!this.enabledInHierarchy) {
+            return;
+        }
 
         if (toggle.isChecked) {
             this.toggleItems.forEach(function (item) {

@@ -53,7 +53,7 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     @property(cc.Node)
     tipContainer: cc.Node = null;
 
-    private dices: cc.Sprite[] = [];
+    private readonly dices: cc.Sprite[] = [];
     private miniRoundHistory: MiniRoundHistory;
     public diceAnimationDuration: number;
 
