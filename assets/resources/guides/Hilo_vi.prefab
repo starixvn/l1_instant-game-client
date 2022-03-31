@@ -31,10 +31,13 @@
       },
       {
         "__id__": 77
+      },
+      {
+        "__id__": 78
       }
     ],
     "_prefab": {
-      "__id__": 78
+      "__id__": 79
     },
     "_opacity": 255,
     "_color": {
@@ -913,7 +916,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 380,
-      "height": 1156.4
+      "height": 1143.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1673,7 +1676,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 385.71000000000004,
-      "height": 50.4
+      "height": 37.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1685,7 +1688,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -981.2,
+        -974.9,
         0,
         0,
         0,
@@ -1746,13 +1749,13 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "-  Không so chất (<img src=\"statistic_suit_spade\" offset=10 width=20 height=20/> <img src=\"statistic_suit_club\" offset=10 width=20 height=20/> <img src=\"statistic_suit_diamond\" offset=10 width=20 height=20/> <img src=\"statistic_suit_heart\" offset=10 width=20 height=20/>) của lá bài.",
+    "_N$string": "-  Không so chất (<img src=\"statistic_suit_spade\" offset=3 width=20 height=20/> <img src=\"statistic_suit_club\" offset=3 width=20 height=20/> <img src=\"statistic_suit_diamond\" offset=3 width=20 height=20/> <img src=\"statistic_suit_heart\" offset=3 width=20 height=20/>) của lá bài.",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 22,
     "_N$font": null,
     "_N$cacheMode": 0,
     "_N$maxWidth": 0,
-    "_N$lineHeight": 40,
+    "_N$lineHeight": 30,
     "_N$imageAtlas": {
       "__uuid__": "1625c29c-7dac-418f-bbb0-8c7fc26269a6"
     },
@@ -1830,7 +1833,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -1031.4,
+        -1018.8,
         0,
         0,
         0,
@@ -1968,7 +1971,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -1101.4,
+        -1088.8,
         0,
         0,
         0,
@@ -2101,7 +2104,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 380,
-      "height": 1156.4
+      "height": 1143.8
     },
     "_resize": 1,
     "_N$layoutType": 2,
@@ -2651,6 +2654,20 @@
     "_isAbsVerticalCenter": true,
     "_originalWidth": 751,
     "_originalHeight": 400,
+    "_id": ""
+  },
+  {
+    "__type__": "23d67P4CgxDY7DOFnOgn0Sz",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "textComponents": [],
+    "mainFrame": {
+      "__id__": 7
+    },
     "_id": ""
   },
   {

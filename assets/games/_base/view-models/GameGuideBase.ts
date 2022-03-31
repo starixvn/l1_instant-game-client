@@ -28,7 +28,9 @@ export default abstract class GameGuideBase extends cc.Component {
         });
     }
 
-    abstract createReplaceData(configs): {};
+    createReplaceData(configs) {
+        return {};
+    }
 
     getMaxBet(): number {
         return Math.min(this.gameConfigs.maxBet, cc.GameManager.userStakeLevel.maxBet);
