@@ -1675,7 +1675,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 442.58000000000004,
+      "width": 385.12000000000006,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1723,8 +1723,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": -31.29000000000002,
-    "_right": -31.29000000000002,
+    "_left": -2.5600000000000307,
+    "_right": -2.5600000000000307,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -1749,7 +1749,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "+ Other bet options as (<img src=\"statistic_suit_spade\" offset=10 width=20 height=20/> <img src=\"statistic_suit_club\" offset=10 width=20 height=20/> <img src=\"statistic_suit_diamond\" offset=10 width=20 height=20/> <img src=\"statistic_suit_heart\" offset=10 width=20 height=20/>) của lá bài.",
+    "_N$string": "+ Không so chất (<img src=\"statistic_suit_spade\" offset=10 width=20 height=20/> <img src=\"statistic_suit_club\" offset=10 width=20 height=20/> <img src=\"statistic_suit_diamond\" offset=10 width=20 height=20/> <img src=\"statistic_suit_heart\" offset=10 width=20 height=20/>) của lá bài.",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 22,
     "_N$font": null,

@@ -123,6 +123,10 @@ export default class BetChips extends cc.Component {
             this.chipList.push(node);
         });
 
+        this.updateChipLayout();
+    }
+
+    updateChipLayout() {
         const layout = this.chips.getComponent(cc.Layout);
         layout.enabled = true;
         layout.updateLayout();

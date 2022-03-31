@@ -704,6 +704,8 @@
     "numberBetPrefab": {
       "__uuid__": "4e6729f8-f66c-48c7-b9d2-14174935b236"
     },
+    "isLimitChip": true,
+    "chipsNumber": 8,
     "_id": ""
   },
   {
