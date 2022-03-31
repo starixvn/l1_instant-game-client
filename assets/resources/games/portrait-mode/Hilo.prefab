@@ -8446,7 +8446,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 364,
+      "width": 355,
       "height": 67.8
     },
     "_anchorPoint": {
@@ -8458,7 +8458,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        3,
+        0,
         0,
         0,
         0,
@@ -9015,10 +9015,10 @@
     "_enabled": true,
     "betItems": [],
     "processWarningPrefab": {
-      "__uuid__": "af047db7-73df-4f25-ad03-874c3fbd6c58"
+      "__uuid__": "5b3767a3-0cdc-4355-bdd2-0c38e3cb33dc"
     },
     "miniNoticePrefab": {
-      "__uuid__": "c7dbd2bb-0d0a-4e99-a915-d82686b55ca5"
+      "__uuid__": "8ffb89cd-7360-494c-9503-378b4998ff67"
     },
     "noticeNode": {
       "__id__": 244
