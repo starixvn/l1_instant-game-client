@@ -3,6 +3,7 @@ import i18n from "i18n/runtime-scripts/LanguageData";
 
 import ChipConfig from "../../common/control/bet-chip/ChipConfig";
 import httpHelper from "../../common/helper/httpHelper";
+import { FeatureConfig } from "../../configs/FeatureConfigs";
 import { buildServerUrl, getUserServiceURL } from "../../common/helper/UrlHelper";
 import logger from "../../common/logger";
 import NoticeUtil from "../../common/utils/NoticeUtil";
@@ -130,7 +131,7 @@ export function clearTokenOnUrl() {
 }
 
 export function signOut() {
-    this.loadSessionTimeoutScene();
+    loadSessionTimeoutScene();
     sessionManager.removeSession();
 }
 
