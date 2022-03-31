@@ -27,17 +27,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 76
+        "__id__": 80
       },
       {
-        "__id__": 77
-      },
-      {
-        "__id__": 78
+        "__id__": 81
       }
     ],
     "_prefab": {
-      "__id__": 79
+      "__id__": 82
     },
     "_opacity": 255,
     "_color": {
@@ -107,7 +104,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 75
+      "__id__": 79
     },
     "_opacity": 210,
     "_color": {
@@ -317,14 +314,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 72
+        "__id__": 76
       },
       {
-        "__id__": 73
+        "__id__": 77
       }
     ],
     "_prefab": {
-      "__id__": 74
+      "__id__": 78
     },
     "_opacity": 255,
     "_color": {
@@ -514,23 +511,23 @@
         "__id__": 17
       },
       {
-        "__id__": 62
+        "__id__": 66
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 68
+        "__id__": 72
       },
       {
-        "__id__": 69
+        "__id__": 73
       },
       {
-        "__id__": 70
+        "__id__": 74
       }
     ],
     "_prefab": {
-      "__id__": 71
+      "__id__": 75
     },
     "_opacity": 255,
     "_color": {
@@ -733,14 +730,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 59
+        "__id__": 63
       },
       {
-        "__id__": 60
+        "__id__": 64
       }
     ],
     "_prefab": {
-      "__id__": 61
+      "__id__": 65
     },
     "_opacity": 255,
     "_color": {
@@ -804,14 +801,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 56
+        "__id__": 60
       },
       {
-        "__id__": 57
+        "__id__": 61
       }
     ],
     "_prefab": {
-      "__id__": 58
+      "__id__": 62
     },
     "_opacity": 255,
     "_color": {
@@ -887,23 +884,26 @@
         "__id__": 40
       },
       {
-        "__id__": 45
+        "__id__": 44
       },
       {
         "__id__": 49
+      },
+      {
+        "__id__": 53
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 53
+        "__id__": 57
       },
       {
-        "__id__": 54
+        "__id__": 58
       }
     ],
     "_prefab": {
-      "__id__": 55
+      "__id__": 59
     },
     "_opacity": 255,
     "_color": {
@@ -916,7 +916,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 380,
-      "height": 1156.4
+      "height": 1196.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1034,8 +1034,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Cao Thấp sử dụng bộ bài tây 52 lá (không bao gồm lá Joker), người chơi sẽ dự đoán lá bài xuất hiện tiếp theo sẽ Cao hơn hay Thấp hơn lá bài hiện tại. ",
-    "_N$string": "Cao Thấp sử dụng bộ bài tây 52 lá (không bao gồm lá Joker), người chơi sẽ dự đoán lá bài xuất hiện tiếp theo sẽ Cao hơn hay Thấp hơn lá bài hiện tại. ",
+    "_string": "The game is played with a standard 52-card deck (excluding Joker). The aim of the game is to guess whether the next card to be dealt will be higher or lower than the current one.",
+    "_N$string": "The game is played with a standard 52-card deck (excluding Joker). The aim of the game is to guess whether the next card to be dealt will be higher or lower than the current one.",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1172,8 +1172,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Điều kiện thắng",
-    "_N$string": "Điều kiện thắng",
+    "_string": "Winning Conditions",
+    "_N$string": "Winning Conditions",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": false,
@@ -1310,8 +1310,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "-  Sau mỗi lượt dự đoán, nếu thắng người chơi sẽ có 2 lựa chọn: \n  + Bấm nút “Ăn Non” để nhận tiền thắng và phiên chơi kết thúc. \n  + Hoặc tiếp tục dự đoán lá bài kế tiếp sẽ Cao hay Thấp so với lá bài hiện tại (lá kết quả của lượt chơi gần nhất), khi đó số tiền thắng ở lượt dự đoán trước sẽ được tính như là tiền cược cho lượt chơi tiếp theo.",
-    "_N$string": "-  Sau mỗi lượt dự đoán, nếu thắng người chơi sẽ có 2 lựa chọn: \n  + Bấm nút “Ăn Non” để nhận tiền thắng và phiên chơi kết thúc. \n  + Hoặc tiếp tục dự đoán lá bài kế tiếp sẽ Cao hay Thấp so với lá bài hiện tại (lá kết quả của lượt chơi gần nhất), khi đó số tiền thắng ở lượt dự đoán trước sẽ được tính như là tiền cược cho lượt chơi tiếp theo.",
+    "_string": "-  After each turn, if the result is a win, the Player can decide whether to stop or continue playing the next turn.\n  + Click the button “Collect” to stop playing and get the payout.\n  + Continue playing the next turn, the result card for the turn will become the base card for the next turn, and the payout of the turn will be the bet amount for the next turn.",
+    "_N$string": "-  After each turn, if the result is a win, the Player can decide whether to stop or continue playing the next turn.\n  + Click the button “Collect” to stop playing and get the payout.\n  + Continue playing the next turn, the result card for the turn will become the base card for the next turn, and the payout of the turn will be the bet amount for the next turn.",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1397,7 +1397,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 380,
-      "height": 330
+      "height": 90
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1409,7 +1409,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -681,
+        -561,
         0,
         0,
         0,
@@ -1448,8 +1448,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "-  Mỗi lượt dự đoán sẽ diễn ra trong vòng 2 phút. Hết thời gian mà người chơi không đưa ra dự đoán thì hệ thống sẽ:\n  + Với lượt chơi đầu tiên sau khi bấm “Bắt Đầu”, hệ thống sẽ tự động chọn kết quả ngẫu nhiên Cao hoặc Thấp và phiên chơi kết thúc.\n  + Với những lượt chơi khác, hệ thống sẽ tính như người chơi chọn “Ăn Non”.",
-    "_N$string": "-  Mỗi lượt dự đoán sẽ diễn ra trong vòng 2 phút. Hết thời gian mà người chơi không đưa ra dự đoán thì hệ thống sẽ:\n  + Với lượt chơi đầu tiên sau khi bấm “Bắt Đầu”, hệ thống sẽ tự động chọn kết quả ngẫu nhiên Cao hoặc Thấp và phiên chơi kết thúc.\n  + Với những lượt chơi khác, hệ thống sẽ tính như người chơi chọn “Ăn Non”.",
+    "_string": "-  The Player will have 2 minutes to complete a turn (decide to select either Hi or Lo).",
+    "_N$string": "-  The Player will have 2 minutes to complete a turn (decide to select either Hi or Lo).",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1535,7 +1535,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 380,
-      "height": 90
+      "height": 240
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1547,7 +1547,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -901,
+        -736,
         0,
         0,
         0,
@@ -1586,8 +1586,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "-  Thứ tự các lá bài từ nhỏ đến lớn: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (J), Queen (Q), King (K), Ace (A)",
-    "_N$string": "-  Thứ tự các lá bài từ nhỏ đến lớn: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (J), Queen (Q), King (K), Ace (A)",
+    "_string": "-  If the Player cannot complete a turn within 2 minutes:\n  + The system will randomly select the Hi or Lo for the first turn that the User has clicked or tapped on the “Play” button.\n  + Other turns will be treated as “Collect”.",
+    "_N$string": "-  If the Player cannot complete a turn within 2 minutes:\n  + The system will randomly select the Hi or Lo for the first turn that the User has clicked or tapped on the “Play” button.\n  + Other turns will be treated as “Collect”.",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1610,6 +1610,144 @@
     "_objFlags": 0,
     "node": {
       "__id__": 36
+    },
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 40,
+    "_left": 0,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 2882.75,
+    "_originalHeight": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "f35cfe1d-d12d-4327-b051-b4e00646063e"
+    },
+    "fileId": "d7akld0aJA8LQmnksmqxmt",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "New Label copy",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 19
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 41
+      },
+      {
+        "__id__": 42
+      }
+    ],
+    "_prefab": {
+      "__id__": 43
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 380,
+      "height": 120
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        -926,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 40
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_string": "-  The card's value is ranked from the lowest to the highest in the following order: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (J), Queen (Q), King (K), and Ace (A)",
+    "_N$string": "-  The card's value is ranked from the lowest to the highest in the following order: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (J), Queen (Q), King (K), and Ace (A)",
+    "_fontSize": 22,
+    "_lineHeight": 30,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 0,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 3,
+    "_N$cacheMode": 2,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 40
     },
     "_enabled": true,
     "alignMode": 1,
@@ -1653,17 +1791,17 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 41
+        "__id__": 45
       },
       {
-        "__id__": 42
+        "__id__": 46
       },
       {
-        "__id__": 43
+        "__id__": 47
       }
     ],
     "_prefab": {
-      "__id__": 44
+      "__id__": 48
     },
     "_opacity": 255,
     "_color": {
@@ -1675,7 +1813,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 385.12000000000006,
+      "width": 806.34,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1688,7 +1826,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -981.2,
+        -1021.2,
         0,
         0,
         0,
@@ -1717,14 +1855,14 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 40
+      "__id__": 44
     },
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": -2.5600000000000307,
-    "_right": -2.5600000000000307,
+    "_left": -213.17000000000002,
+    "_right": -213.17000000000002,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -1744,12 +1882,12 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 40
+      "__id__": 44
     },
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "+ Không so chất (<img src=\"statistic_suit_spade\" offset=10 width=20 height=20/> <img src=\"statistic_suit_club\" offset=10 width=20 height=20/> <img src=\"statistic_suit_diamond\" offset=10 width=20 height=20/> <img src=\"statistic_suit_heart\" offset=10 width=20 height=20/>) của lá bài.",
+    "_N$string": "-  All the suits - heart (<img src=\"statistic_suit_heart\" offset=10 width=20 height=20/>),  spade (<img src=\"statistic_suit_spade\" offset=10 width=20 height=20/>), diamond (<img src=\"statistic_suit_diamond\" offset=10 width=20 height=20/>, and club (<img src=\"statistic_suit_club\" offset=10 width=20 height=20/>) have equal value.",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 22,
     "_N$font": null,
@@ -1767,7 +1905,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 40
+      "__id__": 44
     },
     "_enabled": true,
     "target": {
@@ -1801,14 +1939,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 46
+        "__id__": 50
       },
       {
-        "__id__": 47
+        "__id__": 51
       }
     ],
     "_prefab": {
-      "__id__": 48
+      "__id__": 52
     },
     "_opacity": 255,
     "_color": {
@@ -1833,7 +1971,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -1031.4,
+        -1071.4,
         0,
         0,
         0,
@@ -1862,7 +2000,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 45
+      "__id__": 49
     },
     "_enabled": true,
     "_materials": [
@@ -1872,8 +2010,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Trả thưởng",
-    "_N$string": "Trả thưởng",
+    "_string": "Payout",
+    "_N$string": "Payout",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1895,7 +2033,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 45
+      "__id__": 49
     },
     "_enabled": true,
     "alignMode": 1,
@@ -1939,14 +2077,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 50
+        "__id__": 54
       },
       {
-        "__id__": 51
+        "__id__": 55
       }
     ],
     "_prefab": {
-      "__id__": 52
+      "__id__": 56
     },
     "_opacity": 255,
     "_color": {
@@ -1971,7 +2109,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -1101.4,
+        -1141.4,
         0,
         0,
         0,
@@ -2000,7 +2138,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 49
+      "__id__": 53
     },
     "_enabled": true,
     "_materials": [
@@ -2010,8 +2148,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "- Mỗi lượt dự đoán sẽ có mức thưởng khác nhau trên từng lựa chọn Cao/Thấp",
-    "_N$string": "- Mỗi lượt dự đoán sẽ có mức thưởng khác nhau trên từng lựa chọn Cao/Thấp",
+    "_string": "- The payout for correctly guessing whether the next card will be higher or lower could vary each turn. ",
+    "_N$string": "- The payout for correctly guessing whether the next card will be higher or lower could vary each turn. ",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -2033,7 +2171,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 49
+      "__id__": 53
     },
     "_enabled": true,
     "alignMode": 1,
@@ -2104,7 +2242,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 380,
-      "height": 1156.4
+      "height": 1196.4
     },
     "_resize": 1,
     "_N$layoutType": 2,
@@ -2267,17 +2405,17 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 63
+        "__id__": 67
       },
       {
-        "__id__": 64
+        "__id__": 68
       },
       {
-        "__id__": 65
+        "__id__": 69
       }
     ],
     "_prefab": {
-      "__id__": 67
+      "__id__": 71
     },
     "_opacity": 255,
     "_color": {
@@ -2331,7 +2469,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 62
+      "__id__": 66
     },
     "_enabled": true,
     "_materials": [
@@ -2365,7 +2503,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 62
+      "__id__": 66
     },
     "_enabled": true,
     "alignMode": 1,
@@ -2392,7 +2530,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 62
+      "__id__": 66
     },
     "_enabled": true,
     "_normalMaterial": null,
@@ -2401,7 +2539,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 66
+        "__id__": 70
       }
     ],
     "_N$interactable": true,
@@ -2654,24 +2792,6 @@
     "_isAbsVerticalCenter": true,
     "_originalWidth": 751,
     "_originalHeight": 400,
-    "_id": ""
-  },
-  {
-    "__type__": "64c4dsar3tBMoqk4FTvIT/i",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "textComponents": [
-      {
-        "__id__": 50
-      }
-    ],
-    "mainFrame": {
-      "__id__": 7
-    },
     "_id": ""
   },
   {

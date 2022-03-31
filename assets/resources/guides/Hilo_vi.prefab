@@ -31,13 +31,10 @@
       },
       {
         "__id__": 77
-      },
-      {
-        "__id__": 78
       }
     ],
     "_prefab": {
-      "__id__": 79
+      "__id__": 78
     },
     "_opacity": 255,
     "_color": {
@@ -1675,7 +1672,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 385.12000000000006,
+      "width": 385.71000000000004,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1723,8 +1720,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": -2.5600000000000307,
-    "_right": -2.5600000000000307,
+    "_left": -2.855000000000018,
+    "_right": -2.855000000000018,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -1749,7 +1746,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "+ Không so chất (<img src=\"statistic_suit_spade\" offset=10 width=20 height=20/> <img src=\"statistic_suit_club\" offset=10 width=20 height=20/> <img src=\"statistic_suit_diamond\" offset=10 width=20 height=20/> <img src=\"statistic_suit_heart\" offset=10 width=20 height=20/>) của lá bài.",
+    "_N$string": "-  Không so chất (<img src=\"statistic_suit_spade\" offset=10 width=20 height=20/> <img src=\"statistic_suit_club\" offset=10 width=20 height=20/> <img src=\"statistic_suit_diamond\" offset=10 width=20 height=20/> <img src=\"statistic_suit_heart\" offset=10 width=20 height=20/>) của lá bài.",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 22,
     "_N$font": null,
@@ -2654,24 +2651,6 @@
     "_isAbsVerticalCenter": true,
     "_originalWidth": 751,
     "_originalHeight": 400,
-    "_id": ""
-  },
-  {
-    "__type__": "64c4dsar3tBMoqk4FTvIT/i",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "textComponents": [
-      {
-        "__id__": 50
-      }
-    ],
-    "mainFrame": {
-      "__id__": 7
-    },
     "_id": ""
   },
   {
