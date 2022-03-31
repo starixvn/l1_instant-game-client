@@ -2001,7 +2001,7 @@
         "__id__": 55
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": {
       "__id__": 58
@@ -2407,7 +2407,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "74fa8cc6-f01e-4c77-941f-392fe2491561"
+      "__uuid__": "ef5e1446-1da0-415d-84c4-b67739595a6a"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2513,7 +2513,7 @@
     "asset": {
       "__uuid__": "f61676d2-9a68-4d05-bc7c-9ad74032557f"
     },
-    "fileId": "96rp8BxKVNQ5Zya0GH8ANQ",
+    "fileId": "4dOBLaJ5hHprhXTAkMjc3h",
     "sync": false
   },
   {

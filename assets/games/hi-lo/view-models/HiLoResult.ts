@@ -59,11 +59,11 @@ export default class HiLoResult extends cc.Component {
             return;
         }
         this.setCard(this.topCard, result[result.length - 1]);
+        this.topCard.faceUp();
     }
 
     setCard(cardComponent: HiLoCard, data: CardModel) {
         cardComponent.setCard(data);
-        cardComponent.faceUp();
     }
 
     faceDownCards() {
