@@ -10,6 +10,7 @@ import UmWarning from "../../common/control/notice/UmWarning";
 import TypingLabel from "../../common/control/TypingLabel";
 import GameUtils from "../../common/utils/GameUtils";
 import NoticeUtil from "../../common/utils/NoticeUtil";
+import { FeatureConfig } from "../../configs/FeatureConfigs";
 import { GameInfos } from "../../configs/SabaConfigs";
 import DataHandler from "./handlers/DataHandler";
 import GameBaseBetHandler from "./handlers/GameBaseBetHandler";
@@ -383,7 +384,8 @@ export default class GameBase extends BaseComponent {
         this.registerViewGame();
     }
 
-    protected bet(betData) {
+    public onBetItemClick(event) {
+        cc.GameManager.playClick();
         if (!this.isReadyBet()) {
             return;
         }
@@ -392,9 +394,13 @@ export default class GameBase extends BaseComponent {
             this.showProcessingWarning(true);
         } else {
             this.lockBet();
-            this.sendData(betData);
+            const betData = this.createCommonBetData();
+            betData["betChoice"] = event.target.name;
+            this.sendBetData(betData);
         }
     }
+
+    sendBetData(data) {}
 
     protected initBetChips() {
         if (this.enableChips) {
@@ -525,5 +531,13 @@ export default class GameBase extends BaseComponent {
 
     getBetChoiceString(choice: string): string {
         return GameUtils.getBetChoiceString(choice);
+    }
+
+    createCommonBetData() {
+        return {
+            amount: this.currentBet,
+            username: cc.GameManager.user.name,
+            m: FeatureConfig.PortraitMode ? 2 : 1
+        };
     }
 }

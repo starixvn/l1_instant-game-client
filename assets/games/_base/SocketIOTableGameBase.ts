@@ -69,24 +69,6 @@ export default class SocketIOTableGameBase extends WebSocketTableGameBase {
         !data.notice && this.currentMiniPanel.onGeneralData(data);
     }
 
-    onBetItemClick(event) {
-        if (!this.isReadyBet()) {
-            return;
-        }
-
-        if (this.waitingProcessing) {
-            this.showProcessingWarning(true);
-        } else {
-            this.lockBet();
-            const betData = {
-                amount: this.currentBet,
-                betChoice: event.target.name,
-                username: cc.GameManager.user.name
-            };
-            this.socket && this.socket.connected && this.socket.emit("bet", betData);
-        }
-    }
-
     onCloseGameClick() {
         super.onCloseGameClick();
         removeInRoomGameId();
@@ -96,5 +78,9 @@ export default class SocketIOTableGameBase extends WebSocketTableGameBase {
         if (this.socket) {
             this.socket.emit("retry");
         }
+    }
+
+    sendBetData(data) {
+        this.socket && this.socket.connected && this.socket.emit("bet", data);
     }
 }

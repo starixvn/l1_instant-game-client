@@ -80,22 +80,10 @@ export default class FreeBetGameBase extends SocketIOTableGameBase {
         }
     }
 
-    onBetItemClick(event) {
-        if (!this.isReadyBet()) {
-            return;
-        }
-
-        if (this.waitingProcessing) {
-            this.showProcessingWarning(true);
-        } else {
-            this.lockBet();
-            const betData = {
-                amount: this.currentBet,
-                betChoice: event.target.name,
-                freeBet: this.isFreeBet
-            };
-            this.socket && this.socket.emit("bet", betData);
-        }
+    createCommonBetData() {
+        const betData = super.createCommonBetData();
+        betData["freeBet"] = this.isFreeBet;
+        return betData;
     }
 
     updateWalletWidth() {
