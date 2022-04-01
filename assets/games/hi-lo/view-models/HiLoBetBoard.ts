@@ -13,7 +13,7 @@ export default class HiLoBetBoard extends BetChips {
     numberBetPrefab: cc.Prefab = null;
 
     @property
-    isLimitChip: boolean = false;
+    isLimitChip = false;
 
     @property({
         type: cc.Integer,
