@@ -28,6 +28,7 @@ export class HiLoStatusModel extends EventEmitter {
         this.bet = 0;
         this.win = false;
         this.isSettled = true;
+        this.emit(HiLoStatusModel.Events.LOST, this);
     }
 
     collectFailed() {

@@ -13,8 +13,9 @@ export const handleStatusWon = (mainGame: HiLo) => async (statusModel: HiLoStatu
     mainGame.gameData.stateModel.prepareNewRound();
 };
 
-export const checkStatusLost = (mainGame: HiLo) => async (statusModel: HiLoStatusModel) => {
-    if (statusModel.isSettled && !statusModel.win) {
+export const handleStatusLost = (mainGame: HiLo) => async (statusModel: HiLoStatusModel) => {
+    if (statusModel.isSettled && !statusModel.win && mainGame.shouldHandleStatus) {
+        mainGame.shouldHandleStatus = false;
         mainGame.resetUIPrepareNewRound();
         await mainGame.showUserLoseMessage();
         mainGame.gameData.stateModel.prepareNewRound();
