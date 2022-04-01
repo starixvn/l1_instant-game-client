@@ -537,7 +537,7 @@ export default class GameBase extends BaseComponent {
         return {
             amount: this.currentBet,
             username: cc.GameManager.user.name,
-            m: FeatureConfig.PortraitMode ? 2 : 1
+            m: FeatureConfig.PortraitMode ? "2" : "1"
         };
     }
 }
