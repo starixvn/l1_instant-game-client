@@ -3,6 +3,7 @@ import i18n from "i18n/runtime-scripts/LanguageData";
 
 import ChipConfig from "../../common/control/bet-chip/ChipConfig";
 import httpHelper from "../../common/helper/httpHelper";
+import { FeatureConfig } from "../../configs/FeatureConfigs";
 import { buildServerUrl, getUserServiceURL } from "../../common/helper/UrlHelper";
 import logger from "../../common/logger";
 import NoticeUtil from "../../common/utils/NoticeUtil";
@@ -27,7 +28,7 @@ export function preChecking(cb) {
     }
 
     if (urlParams.has("isTimeout") && urlParams.get("isTimeout") === "true") {
-        cc.director.loadScene("sessiontimeout");
+        this.loadSessionTimeoutScene();
         return;
     }
 
@@ -130,8 +131,12 @@ export function clearTokenOnUrl() {
 }
 
 export function signOut() {
-    cc.director.loadScene("sessiontimeout");
+    loadSessionTimeoutScene();
     sessionManager.removeSession();
+}
+
+function loadSessionTimeoutScene() {
+    FeatureConfig.PortraitMode ? cc.director.loadScene("sessiontimeout_Portrait") : cc.director.loadScene("sessiontimeout");
 }
 
 let autoTriggerSignInTimeout = null;
