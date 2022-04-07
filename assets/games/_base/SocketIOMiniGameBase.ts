@@ -81,23 +81,8 @@ export default abstract class SocketIOMiniGameBase extends GameBase {
         }
     }
 
-    public onBetItemClick(e) {
-        cc.GameManager.playClick();
-        if (!this.isReadyBet()) {
-            return;
-        }
-        if (this.waitingProcessing) {
-            this.showProcessingWarning(true);
-        } else {
-            this.lockBet();
-            const betData = {
-                amount: this.currentBet,
-                betChoice: e.target.name,
-                username: cc.GameManager.user.name
-            };
-
-            this.socket && this.socket.connected && this.socket.emit("bet", betData);
-        }
+    sendBetData(data) {
+        this.socket && this.socket.connected && this.socket.emit("bet", data);
     }
 
     sendRetryMessage() {
