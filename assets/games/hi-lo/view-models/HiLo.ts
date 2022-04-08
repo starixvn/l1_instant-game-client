@@ -27,6 +27,7 @@ import HiLoStatistic from "./HiLoStatistic";
 import GameUtils from "../../../common/utils/GameUtils";
 import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
 import HiLoBetHandler from "../events-handlers/HiLoBetHandler";
+import { FeatureConfig } from "../../../configs/FeatureConfigs";
 
 const { ccclass, property } = cc._decorator;
 
@@ -272,7 +273,9 @@ export default class HiLo extends NewMiniGameBase {
         this.playClick();
         this.gameRound.string = "";
         this.statisticComp.clearCards();
-        this.emitEventConnection(HiLoEvents.bet, { amount: this.currentBet });
+
+        const betData = this.createCommonBetData();
+        this.emitEventConnection(HiLoEvents.bet, betData);
     }
 
     onCollectClick() {
