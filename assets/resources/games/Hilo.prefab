@@ -7200,7 +7200,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -12,
+        0,
         0,
         0,
         0,
@@ -7258,7 +7258,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 300,
+      "width": 340,
       "height": 94
     },
     "_anchorPoint": {
@@ -7410,7 +7410,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 300,
+      "width": 340,
       "height": 94
     },
     "_anchorPoint": {
