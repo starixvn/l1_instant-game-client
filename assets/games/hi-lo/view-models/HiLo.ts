@@ -27,7 +27,6 @@ import HiLoStatistic from "./HiLoStatistic";
 import GameUtils from "../../../common/utils/GameUtils";
 import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
 import HiLoBetHandler from "../events-handlers/HiLoBetHandler";
-import { FeatureConfig } from "../../../configs/FeatureConfigs";
 
 const { ccclass, property } = cc._decorator;
 
