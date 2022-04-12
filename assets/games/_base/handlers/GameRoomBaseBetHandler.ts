@@ -39,7 +39,6 @@ export default class GameRoomBaseBetHandler extends GameBaseBetHandler {
             }
         });
 
-        // this.main.betChips.placeChipToChipBox(amount, betItem.chipNode, startNode, null);
         this.playerChips.pop();
     }
 }

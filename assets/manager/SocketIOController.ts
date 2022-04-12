@@ -1,5 +1,6 @@
 import { injectable } from "inversify";
-import { io, Socket } from "socket.io-client";
+import { io, ManagerOptions, Socket, SocketOptions } from "socket.io-client";
+import * as MsgpackParser from "socket.io-msgpack-parser";
 
 import { sentryLogger } from "../common/logger.js";
 import { GameInfos } from "../configs/SabaConfigs";
@@ -14,15 +15,21 @@ export default class SocketIOController {
         gameName: string,
         proxyRoute: string,
         onConnectFailed: (gameName, isGameRoom) => void,
-        isGameRoom = true
+        isGameRoom: boolean,
+        enableMsgpackParser: boolean
     ): Socket => {
-        const socket = io(socketUri, {
-            // reconnection: false,
-            forceNew: true,
+        const socketOptions: Partial<ManagerOptions & SocketOptions> = {
             transports: ["websocket"],
             upgrade: false,
             path: proxyRoute
-        });
+        };
+
+        if (enableMsgpackParser) {
+            socketOptions.parser = MsgpackParser;
+            console.log(`msgpack is enabled on ${gameName}`);
+        }
+
+        const socket = io(socketUri, socketOptions);
 
         socket.on("connect", () => {
             socket.emit("signin", getSession());

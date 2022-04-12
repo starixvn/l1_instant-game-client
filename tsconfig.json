@@ -7,7 +7,6 @@
         "outDir": "temp/vscode-dist",
         "forceConsistentCasingInFileNames": true,
         "allowJs": true,
-        "types": ["reflect-metadata", "jest"],
         "moduleResolution": "node",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true

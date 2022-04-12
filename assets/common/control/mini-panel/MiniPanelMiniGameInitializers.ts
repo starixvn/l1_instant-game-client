@@ -1,4 +1,5 @@
 import { Socket } from "socket.io-client";
+import { enableMsgpackParserOnGame } from "../../../configs/Configs";
 
 import { FeatureConfig } from "../../../configs/FeatureConfigs";
 import { GameInfos } from "../../../configs/SabaConfigs";
@@ -77,34 +78,7 @@ export default class MiniPanelMiniGameInitializers {
             this.openMiniGame(gameId, true);
         } else {
             const gameName = GameUtils.getGameNameString(gameId);
-            const proxyRoute = getProxyRoute(gameId);
-            const gameServerUrl = buildServerUrl("http", "", gameId);
-            const socket = this.socketIOController.connectGameSocket(
-                gameServerUrl,
-                gameName,
-                proxyRoute,
-                this.main.onConnectSocketFailed.bind(this.main),
-                false
-            );
-
-            socket.on("message", (data) => {
-                if (!this.main.isAlive()) {
-                    return;
-                }
-                if (data.um || data.notPermittedToPlay) {
-                    this.openMiniGame(gameId, false);
-                }
-
-                if (data.um) {
-                    this.socketIOController.closeSocket(gameId);
-                    if (data.um_message) {
-                        this.main.handleUmMessage(data.um_message);
-                    }
-                }
-
-                this.main.onGeneralData(data);
-            });
-
+            const socket = this.setUpSocketForGame(gameName, gameId, true, null);
             socket.on("signedIn", () => {
                 if (!this.main.isAlive()) {
                     return;
@@ -122,5 +96,39 @@ export default class MiniPanelMiniGameInitializers {
 
     closeSocketGame(gameId: number) {
         this.socketIOController.closeSocket(gameId);
+    }
+
+    setUpSocketForGame(gameName: string, gameId: number, forceNew: boolean, gameContainer: any): Socket {
+        const proxyRoute = getProxyRoute(gameId);
+        const gameServerUrl = buildServerUrl("http", "", gameId);
+
+        const socket = this.socketIOController.connectGameSocket(
+            gameServerUrl,
+            gameName,
+            proxyRoute,
+            this.main.onConnectSocketFailed.bind(this.main),
+            false,
+            enableMsgpackParserOnGame?.[gameId]
+        );
+
+        socket.on("message", (data) => {
+            if (!this.main.isAlive()) {
+                return;
+            }
+            if (data.um || data.notPermittedToPlay) {
+                this.openMiniGame(gameId, false);
+            }
+
+            if (data.um) {
+                this.socketIOController.closeSocket(gameId);
+                if (data.um_message) {
+                    this.main.handleUmMessage(data.um_message);
+                }
+            }
+
+            this.main.onGeneralData(data);
+        });
+
+        return socket;
     }
 }

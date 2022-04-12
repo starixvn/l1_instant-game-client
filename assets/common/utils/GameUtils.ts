@@ -50,29 +50,30 @@ export default class GameUtils {
 
     public static getChipQuantity(bet: number, options: number[]): any {
         const list = [...options].reverse();
-        let total = bet;
-        const values = {};
-        list.forEach((value) => {
-            const count = Math.floor(total / value);
-            values[value] = count;
-            total = total % value;
-        });
+        const chipValue = this.calcChipValue(list, bet);
+        const values = chipValue.values;
 
-        if (total > 0) {
+        if (chipValue.chipTotal > 0) {
             values[0] = 1;
         }
         return values;
     }
 
     public static getChipValues(bet: number, options: number[]): any {
-        let total = bet;
+        const chipValue = this.calcChipValue(options, bet);
+        return chipValue.values;
+    }
+
+    private static calcChipValue(list, total) {
         const values = {};
-        options.forEach((value) => {
-            const count = Math.floor(total / value);
+        let chipTotal = total;
+        list.forEach((value) => {
+            const count = Math.floor(chipTotal / value);
             values[value] = count;
-            total = total % value;
+            chipTotal = chipTotal % value;
         });
-        return values;
+
+        return { values, chipTotal };
     }
 
     public static roundFixed(num: number, fixedNumber: number): number {
@@ -143,5 +144,9 @@ export default class GameUtils {
         }
 
         return values.map((a) => +a).filter((value) => value >= minBet && value <= maxBet);
+    }
+
+    public static createNodeFromPrefab(prefab: cc.Prefab) {
+        return cc.instantiate(prefab);
     }
 }

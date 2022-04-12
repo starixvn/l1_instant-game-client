@@ -31,7 +31,8 @@ window.i18n.languages.en = {
         28: "Se Die War",
         29: "Four Guardians",
         31: "RNG Lottery",
-        35: "Three Cards"
+        35: "Three Cards",
+        45: "Hi-Lo"
     },
     messages: {
         loginFailed: "Incorrect login name or password",
@@ -326,5 +327,17 @@ window.i18n.languages.en = {
         undo: "Undo",
         win: "Win",
         you_win: "YOU WIN"
+    },
+    hiLo: {
+        collect: "Collect",
+        sorryMessage: "Sorry, you lost the game.",
+        play: "Play",
+        turn: "Turn",
+        baseCard: "Base Card",
+        resultCard: "Result Card",
+        startRound: "Start Round",
+        endRound: "End Round",
+        high: "High",
+        low: "Low"
     }
 };

@@ -1,6 +1,7 @@
 import * as _ from "lodash";
 
 import BetItem from "../../../games/_base/view-models/BetItem";
+import AudioManager from "../../audio/AudioManager";
 import GameUtils from "../../utils/GameUtils";
 import SnappedScrollView from "../SnappedScrollView";
 import ChipConfig from "./ChipConfig";
@@ -47,7 +48,7 @@ export default class BetChips extends cc.Component {
     @property(cc.SpriteFrame)
     lowValueChipSprite: cc.SpriteFrame = null;
 
-    private gameConfigs: any;
+    public gameConfigs: any;
     public chipValues: number[] = [];
     public configValues: number[] = [];
     public onChanged: OnChangedBet = (bet) => {};
@@ -55,25 +56,35 @@ export default class BetChips extends cc.Component {
     public readonly loginUserChipFlyingTime: number = 0.5;
     public readonly chipDelayFlyingTime: number = 1.25;
 
-    private selectedIndex = 0;
-    private chipList: cc.Node[] = [];
+    public chipConfig: ChipConfig;
+    public selectedIndex = 0;
+    public chipList: cc.Node[] = [];
+    public enableStakeLevel = true;
+    protected needResetCurrentChip = true;
     private currentBetValue = "1";
 
     onLoad() {
-        this.leftButton.active = false;
-        this.snappedScrollView.onScrollEnded = () => {
-            const min = this.snappedScrollView.getMinDisplayIndex();
+        this.chipConfig = ChipConfig.getInstance();
+        this.leftButton && (this.leftButton.active = false);
+        if (this.snappedScrollView) {
+            this.snappedScrollView.onScrollEnded = () => {
+                const min = this.snappedScrollView.getMinDisplayIndex();
 
-            if (this.selectedIndex < min) {
-                this.selectedIndex = min;
-                this.selectedIndex = Math.min(this.selectedIndex, this.chipList.length - this.displaySize);
-            } else if (this.selectedIndex > min + this.displaySize - 1) {
-                this.selectedIndex = min + this.displaySize - 1;
-            }
+                if (this.selectedIndex < min) {
+                    this.selectedIndex = min;
+                    this.selectedIndex = Math.min(this.selectedIndex, this.chipList.length - this.displaySize);
+                } else if (this.selectedIndex > min + this.displaySize - 1) {
+                    this.selectedIndex = min + this.displaySize - 1;
+                }
 
-            this.updateArrowVisibility();
-            this.updateSelectedChipValue();
-        };
+                this.updateArrowVisibility();
+                this.updateSelectedChipValue();
+            };
+        }
+    }
+
+    setNeedResetCurrentChip(status: boolean) {
+        this.needResetCurrentChip = status;
     }
 
     setChipValues(gameConfigs: any) {
@@ -94,9 +105,11 @@ export default class BetChips extends cc.Component {
                 : this.chipValues[0] && this.chipValues[0].toString();
         const needResetScrollOffset = currentBet !== this.currentBetValue;
         this.setCurrentBet(currentBet);
-        this.snappedScrollView.initCalculatedPercent();
-        if (needResetScrollOffset) {
-            this.snappedScrollView.scroll.scrollToPercentHorizontal(0, 0.1);
+        if (this.snappedScrollView) {
+            this.snappedScrollView.initCalculatedPercent();
+            if (needResetScrollOffset) {
+                this.snappedScrollView.scroll.scrollToPercentHorizontal(0, 0.1);
+            }
         }
     }
 
@@ -104,16 +117,24 @@ export default class BetChips extends cc.Component {
         this.chipList.forEach((chip) => chip.destroy());
         this.chipList = [];
         this.chipValues.forEach((value) => {
-            const node = this.createBigChip(value);
+            const node = this.createChipNode(value);
             this.chips.addChild(node);
             node.on("click", this.onClickBet.bind(this));
             this.chipList.push(node);
         });
 
+        this.updateChipLayout();
+    }
+
+    updateChipLayout() {
         const layout = this.chips.getComponent(cc.Layout);
         layout.enabled = true;
         layout.updateLayout();
         layout.enabled = false;
+    }
+
+    createChipNode(value: number): cc.Node {
+        return this.createBigChip(value);
     }
 
     getChipDisplayType(index: number) {
@@ -123,12 +144,19 @@ export default class BetChips extends cc.Component {
     updateLastChip(value: number) {
         const chipView = this.chipList[this.chipList.length - 1].getComponent(ChipView);
         chipView.setValue(value);
-        chipView.setColor(ChipConfig.getInstance().getChipColor(value));
+        chipView.setColor(this.chipConfig.getChipColor(value));
     }
 
     onEnable() {
+        this.resetCurrentChip();
+    }
+
+    resetCurrentChip() {
+        if (!this.needResetCurrentChip) {
+            return;
+        }
         this.selectedIndex = 0;
-        this.snappedScrollView.scrollTo(0);
+        this.snappedScrollView && this.snappedScrollView.scrollTo(0);
         this.scrollToSelectedIndex();
     }
 
@@ -149,33 +177,43 @@ export default class BetChips extends cc.Component {
     }
 
     private updateArrowVisibility() {
-        this.leftButton.active = true;
-        this.rightButton.active = true;
+        if (this.needResetCurrentChip) {
+            this.leftButton && (this.leftButton.active = true);
+            this.rightButton && (this.rightButton.active = true);
+        }
+
         if (this.selectedIndex <= 0) {
             this.selectedIndex = 0;
-            this.leftButton.active = false;
+            this.leftButton && (this.leftButton.active = false);
         } else if (this.selectedIndex >= this.chipList.length - 1) {
             this.selectedIndex = this.chipList.length - 1;
-            this.rightButton.active = false;
+            this.rightButton && (this.rightButton.active = false);
         }
     }
 
     private scrollToSelectedIndex() {
         this.updateArrowVisibility();
 
-        const min = this.snappedScrollView.getMinDisplayIndex();
-        if (this.selectedIndex <= min) {
-            this.snappedScrollView.scrollTo(min > 0 ? min - 1 : 0);
+        if (this.snappedScrollView) {
+            const min = this.snappedScrollView.getMinDisplayIndex();
+            if (this.selectedIndex <= min) {
+                this.snappedScrollView.scrollTo(min > 0 ? min - 1 : 0);
+            }
+            if (this.selectedIndex >= min + this.displaySize - 1) {
+                this.snappedScrollView.scrollTo(min + 1);
+            }
         }
-        if (this.selectedIndex >= min + this.displaySize - 1) {
-            this.snappedScrollView.scrollTo(min + 1);
-        }
+
         this.updateSelectedChipValue();
     }
 
     public onClickBet(target) {
         const bet = target.node.name;
-        cc.GameManager.playSFX(this.betChipClickAudio.clip);
+        AudioManager.getInstance().playSFX(this.betChipClickAudio.clip);
+        this.setSelectedIndexAndScroll(bet);
+    }
+
+    setSelectedIndexAndScroll(bet: string) {
         let i = 0;
         for (; i < this.chipList.length; i++) {
             if (this.chipList[i].name === bet) {
@@ -404,37 +442,39 @@ export default class BetChips extends cc.Component {
     public createBigChip(value: number): cc.Node {
         const chip = cc.instantiate(this.chipPrefab);
         const chipView = chip.getComponent(ChipView);
-        chipView.setColor(ChipConfig.getInstance().getChipColor(value));
+        chipView.setColor(this.chipConfig.getChipColor(value));
         chipView.setValue(value);
         const index = this.chipValues.findIndex((chipValue) => chipValue === value);
         chipView.setType(this.getChipDisplayType(index));
         return chip;
     }
 
-    private updateSelectedBet(targetName: string) {
+    clearAllHighlight() {
         this.chips.children.forEach((chip) => {
             chip.stopAllActions();
+            this.highlightChip(chip, false);
+        });
+    }
 
-            const activeNode = chip.getChildByName("active");
-            if (chip.name === targetName) {
-                activeNode.active = true;
-                chip.zIndex = 2;
-                cc.tween(chip)
-                    .to(0.2, {
-                        scale: 1.15,
-                        position: cc.v2(chip.position.x, 12)
-                    })
-                    .start();
-            } else {
-                activeNode.active = false;
-                chip.zIndex = 1;
-                cc.tween(chip)
-                    .to(0.2, {
-                        scale: 1,
-                        position: cc.v2(chip.position.x, 0)
-                    })
-                    .start();
-            }
+    highlightChip(chip: cc.Node, highlight: boolean) {
+        const activeNode = chip.getChildByName("active");
+        activeNode.active = highlight;
+        chip.zIndex = highlight ? 2 : 1;
+        const scaleChip = highlight ? 1.15 : 1;
+        const posY = highlight ? 12 : 0;
+        cc.tween(chip)
+            .to(0.2, {
+                scale: scaleChip,
+                position: cc.v2(chip.position.x, posY)
+            })
+            .start();
+    }
+
+    public updateSelectedBet(targetName: string) {
+        this.chips.children.forEach((chip) => {
+            chip.stopAllActions();
+            const highlight = chip.name === targetName;
+            this.highlightChip(chip, highlight);
         });
     }
 

@@ -30,7 +30,7 @@ export default class GameManager extends cc.Component {
     supportGames: number[] = [];
 
     onLoad() {
-        this.supportGames.push(...[GameIds.MiniSedie, GameIds.BigSmall, GameIds.DragonTiger, GameIds.FishPrawnCrab]);
+        this.supportGames.push(...[GameIds.MiniSedie, GameIds.BigSmall, GameIds.DragonTiger, GameIds.FishPrawnCrab, GameIds.HiLo]);
         GameManager.Instance = this;
         cc.game.on(cc.game.EVENT_HIDE, () => {
             this.GAME_IS_SHOWED = false;

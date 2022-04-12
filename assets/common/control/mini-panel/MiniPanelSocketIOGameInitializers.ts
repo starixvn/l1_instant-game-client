@@ -1,7 +1,5 @@
 import { lazyInject } from "../../../manager/Application";
 import SocketIOController from "../../../manager/SocketIOController";
-import { buildServerUrl, getProxyRoute } from "../../helper/UrlHelper";
-import GameUtils from "../../utils/GameUtils";
 import MiniPanel from "./MiniPanel";
 
 export default class MiniPanelSocketIOGameInitializers {
@@ -18,44 +16,5 @@ export default class MiniPanelSocketIOGameInitializers {
         }
 
         this.main.showLoading(true);
-        // cc.GameManager.currentScene.outRoomGame().then(() => {
-        //     removeInRoomGameId();
-        //     this.openNewSocket(gameId);
-        // });
-    }
-
-    private openNewSocket(gameId) {
-        this.socketIOController.closeSocket(gameId).then(() => {
-            const gameName = GameUtils.getGameNameString(gameId);
-            const proxyRoute = getProxyRoute(gameId);
-            const gameServerUrl = buildServerUrl("http", "", gameId);
-            const socket = this.socketIOController.connectGameSocket(
-                gameServerUrl,
-                gameName,
-                proxyRoute,
-                this.main.onConnectSocketFailed.bind(this.main)
-            );
-
-            socket.on("message", (data) => {
-                if (!this.main.isAlive()) {
-                    return;
-                }
-
-                if (data.um) {
-                    this.socketIOController.closeSocket(gameId);
-                    if (data.um_message) {
-                        this.main.handleUmMessage(data.um_message);
-                    }
-                }
-                this.main.showLoading(false);
-                this.main.onGeneralData(data);
-            });
-
-            socket.on("forceDisconnect", () => {
-                socket.close();
-            });
-
-            this.socketIOController.gameSockets[gameId] = socket;
-        });
     }
 }
