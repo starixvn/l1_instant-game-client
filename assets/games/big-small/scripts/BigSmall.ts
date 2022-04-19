@@ -21,7 +21,7 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     miniRoundHistoryContainer: cc.Node = null;
 
     @property(cc.Animation)
-    diceAnimation: cc.Animation = null;
+    shakeThePlateAnimation: cc.Animation = null;
 
     @property(cc.Node)
     diceContainer: cc.Node = null;
@@ -53,9 +53,11 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     @property(cc.Node)
     tipContainer: cc.Node = null;
 
-    private readonly dices: cc.Sprite[] = [];
+    @property(cc.Node)
+    thePlate: cc.Node = null;
+
+    private dices: cc.Sprite[] = [];
     private miniRoundHistory: MiniRoundHistory;
-    public diceAnimationDuration: number;
 
     readonly choices = ["small", "big"];
 
@@ -69,7 +71,6 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
         super.onLoad();
         this.animatedTime.setAnimatedY(40, 0);
         this.diceContainer.children.forEach((child) => this.dices.push(child.getComponent(cc.Sprite)));
-        this.diceAnimationDuration = this.diceAnimation.defaultClip.duration / this.diceAnimation.defaultClip.speed;
         this.setValueBetAmount();
         this.initRoundHistory();
 
@@ -141,16 +142,14 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
             return;
         }
 
-        cc.tween(this.node)
+        cc.tween(this.thePlate)
             .call(() => {
-                this.showDiceAnimation(true);
-                this.diceAnimation.play();
-
+                this.hideBalanceBetNotice();
+            })
+            .to(0.3, { position: cc.v2(50, 150) }, { easing: "sineInOut" })
+            .call(() => {
                 const currentStatusData = this.statusHandler.currentStatusData;
                 currentStatusData && this.statusHandler.status(currentStatusData.win, currentStatusData.bet);
-            })
-            .delay(this.diceAnimationDuration)
-            .call(() => {
                 this.showResultAfterAnimation();
                 this.updateRoundHistory();
             })
@@ -158,14 +157,8 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     }
 
     showResultAfterAnimation() {
-        this.showDiceAnimation(false);
         this.showWinningAnimation(this.currentDataLogs[0]);
         this.resultNode.active = true;
-    }
-
-    private showDiceAnimation(show: boolean) {
-        this.diceAnimation.node.active = show;
-        this.diceContainer.active = !show;
     }
 
     showWinningAnimation(data) {
@@ -177,14 +170,17 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
 
     resetDataAndUI() {
         super.resetDataAndUI();
+        this.resetThePlate();
         this.statusHandler.currentStatusData = null;
-        this.diceAnimation.stop();
-        this.diceAnimation.node.active = false;
-        this.diceContainer.active = false;
-        this.resultNode.active = false;
-        this.node.stopAllActions();
         this.betItems.forEach((betItem) => {
             betItem.ownBet.string = "0";
         });
+        this.resultNode.active = false;
+    }
+
+    resetThePlate() {
+        this.thePlate.position = cc.v2(0, 7);
+        this.thePlate.opacity = 255;
+        this.thePlate.active = true;
     }
 }

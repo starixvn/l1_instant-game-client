@@ -3741,7 +3741,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "<img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/> / <img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_red\" offset=-4/>",
+    "_N$string": "<img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_red\" offset=-4/><img src=\"dot_white\" offset=-4/> / <img src=\"dot_red\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/><img src=\"dot_white\" offset=-4/>",
     "_N$horizontalAlign": 1,
     "_N$fontSize": 22,
     "_N$font": null,
@@ -4761,7 +4761,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -101,
+        -96.25,
         15,
         0,
         0,
@@ -4859,7 +4859,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        101,
+        96.25,
         15,
         0,
         0,

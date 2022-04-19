@@ -15,7 +15,9 @@ const configs = {
         secretKey: "f41dc948ed66a029406413327a68b6ae27fe4e6c"
     },
     enableMsgpackParserOnGame: {
-        45: true
+        45: true,
+        1: true,
+        9: true
     }
 };
 
