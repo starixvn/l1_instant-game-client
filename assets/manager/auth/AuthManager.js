@@ -84,6 +84,10 @@ export function checkSSO(labelMessage, onSuccessFunc) {
     const urlParams = new URLSearchParams(window.location.search);
     const authData = sessionManager.getSession();
 
+    if (urlParams.has("gameId")) {
+        window.openGameId = urlParams.get("gameId");
+    }
+
     if (urlParams.has("token") && isDifferentWithStoredToken(urlParams.get("token"))) {
         const systemType = 3;
         const token = urlParams.get("token");
@@ -98,7 +102,6 @@ export function checkSSO(labelMessage, onSuccessFunc) {
                     getChipSetting();
                     sentryLogger.setUser(response);
                     window.authData.time = new Date();
-                    window.openGameId = urlParams.get("gameId");
                     sessionManager.storeSessionData(response);
                     clearTokenOnUrl();
                     onSuccessFunc();
