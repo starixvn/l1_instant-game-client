@@ -12910,9 +12910,12 @@
     },
     "_enabled": true,
     "_defaultClip": {
-      "__uuid__": "54f245b8-ea83-4d98-bcb4-148dba0870ca"
+      "__uuid__": "e978f6e3-53c4-445f-8f87-e296091bce7c"
     },
     "_clips": [
+      {
+        "__uuid__": "e978f6e3-53c4-445f-8f87-e296091bce7c"
+      },
       {
         "__uuid__": "54f245b8-ea83-4d98-bcb4-148dba0870ca"
       }

@@ -14,6 +14,11 @@ import GameUtils from "../../../common/utils/GameUtils";
 
 const { ccclass, property } = cc._decorator;
 
+export enum DishAnimation {
+    OpenDish = "modia",
+    ShakeDish = "xocbaucua"
+}
+
 @ccclass
 export default class BauCua extends SocketIOMiniGameBase {
     @property({ type: cc.SpriteFrame })
@@ -109,7 +114,7 @@ export default class BauCua extends SocketIOMiniGameBase {
 
     resetDataAndUI() {
         super.resetDataAndUI();
-        this.hideAllDices();
+        //this.hideAllDices();
         this.node.stopAllActions();
         this.resetXTimesResult();
         this.dishNode.active = true;
