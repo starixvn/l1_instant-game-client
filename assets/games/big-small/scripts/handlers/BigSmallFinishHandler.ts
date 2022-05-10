@@ -14,7 +14,7 @@ export default class BigSmallFinishHandler extends GameBaseFinishHandler {
         this.main.setDices(dataFinish.result);
         const delayForBalanceBet = 3;
         cc.tween(this.main.node)
-            .delay(this.main.diceAnimationDuration + delayForBalanceBet)
+            .delay(delayForBalanceBet)
             .call(() => onFinishHandlingData())
             .start();
     }

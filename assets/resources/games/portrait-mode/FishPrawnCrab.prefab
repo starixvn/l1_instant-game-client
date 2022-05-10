@@ -13395,7 +13395,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 200,
-      "height": 38
+      "height": 50
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -13407,7 +13407,7 @@
       "ctor": "Float64Array",
       "array": [
         0.071,
-        -78.495,
+        -73.495,
         0,
         0,
         0,
@@ -13512,7 +13512,7 @@
     "_dstBlendFactor": 771,
     "_string": "000",
     "_N$string": "000",
-    "_fontSize": 25,
+    "_fontSize": 40,
     "_lineHeight": 44,
     "_enableWrapText": true,
     "_N$file": null,
