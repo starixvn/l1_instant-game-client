@@ -20,8 +20,7 @@ export default class BauCuaTimeHandler extends GameBaseTimeHandler {
 
     handleStartingNewGameRound() {
         super.handleStartingNewGameRound();
-        this.shakeThePlate();
-        console.log("handleStartingNewGameRound");
+        cc.GameManager.GAME_IS_SHOWED && this.shakeThePlate();
     }
 
     handleInLockBetTime() {
