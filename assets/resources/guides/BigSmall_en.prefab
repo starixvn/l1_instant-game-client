@@ -49,8 +49,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 812,
-      "height": 456
+      "width": 448,
+      "height": 740
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -61,8 +61,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        406,
-        228,
+        224,
+        370,
         0,
         0,
         0,
@@ -119,8 +119,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 812,
-      "height": 456
+      "width": 448,
+      "height": 740
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -752,7 +752,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 388,
+      "width": 391,
       "height": 360
     },
     "_anchorPoint": {
@@ -764,7 +764,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        0.5,
         -1.5,
         0,
         0,
@@ -823,7 +823,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 388,
+      "width": 391,
       "height": 358
     },
     "_anchorPoint": {
@@ -909,8 +909,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 382,
-      "height": 831
+      "width": 393,
+      "height": 801
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -922,7 +922,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        179.5,
+        180,
         0,
         0,
         0,
@@ -976,7 +976,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 382,
+      "width": 393,
       "height": 120
     },
     "_anchorPoint": {
@@ -1114,7 +1114,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 382,
+      "width": 393,
       "height": 30
     },
     "_anchorPoint": {
@@ -1252,7 +1252,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 396,
+      "width": 391.4000000000001,
       "height": 180
     },
     "_anchorPoint": {
@@ -1264,7 +1264,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        2.9999999999999716,
+        0.4000000000000057,
         -256,
         0,
         0,
@@ -1333,8 +1333,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": -4.000000000000025,
-    "_right": -9.999999999999975,
+    "_left": 1.1999999999999553,
+    "_right": 0.3999999999999536,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -1390,7 +1390,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 382,
+      "width": 393,
       "height": 300
     },
     "_anchorPoint": {
@@ -1528,7 +1528,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 382,
+      "width": 393,
       "height": 30
     },
     "_anchorPoint": {
@@ -1666,8 +1666,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 382,
-      "height": 120
+      "width": 403,
+      "height": 90
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1678,8 +1678,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        -751,
+        5,
+        -736,
         0,
         0,
         0,
@@ -1747,8 +1747,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": 0,
-    "_right": 0,
+    "_left": -3.9968028886505635e-15,
+    "_right": -9.999999999999996,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -1785,8 +1785,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": 3,
-    "_right": 3,
+    "_left": -0.9999999999999989,
+    "_right": -1.0000000000000082,
     "_top": 2,
     "_bottom": 41.960000000000036,
     "_verticalCenter": 0,
@@ -1811,8 +1811,8 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 382,
-      "height": 831
+      "width": 393,
+      "height": 801
     },
     "_resize": 1,
     "_N$layoutType": 2,
@@ -1913,8 +1913,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 45,
-    "_left": 10,
-    "_right": 10,
+    "_left": 9.000000000000007,
+    "_right": 7.999999999999995,
     "_top": 5,
     "_bottom": 2,
     "_verticalCenter": 0,
