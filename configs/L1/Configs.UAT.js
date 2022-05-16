@@ -17,7 +17,8 @@ const configs = {
     enableMsgpackParserOnGame: {
         45: true,
         1: true,
-        9: true
+        9: true,
+        3: true
     }
 };
 

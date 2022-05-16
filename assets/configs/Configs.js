@@ -16,11 +16,7 @@ const configs = {
         secretKey: "f41dc948ed66a029406413327a68b6ae27fe4e6c"
     },
     guideDomain: "https://l1-guide-1.lumigame.com",
-    enableMsgpackParserOnGame: {
-        45: false,
-        1: false,
-        9: false
-    }
+    enableMsgpackParserOnGame: {}
 };
 
 module.exports = configs;

@@ -45,7 +45,7 @@ const configs = {
             key: "SeDie",
         },
         3: {
-            key: "BauCua",
+            key: "FishPrawnCrab",
             route: "fishprawncrab",
             mini: true
         },
