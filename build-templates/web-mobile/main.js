@@ -9,18 +9,6 @@ window.boot = function () {
     const deviceSize = cc.view.getFrameSize();
 
     function updateDPR(designWidth, designHeight) {
-        if (window.devicePixelRatio) {
-            const windowDPR = window.devicePixelRatio || 1;
-            const scale = Math.max(designWidth / deviceSize.width, designHeight / deviceSize.height);
-            const newDPR = windowDPR * scale;
-            const minDPR = 1.5;
-            const maxDPR = 2;
-            window.devicePixelRatio = newDPR > maxDPR ? maxDPR : newDPR < minDPR ? minDPR : newDPR;
-            console.log("change: " + window.devicePixelRatio);
-        }
-    }
-
-    function updateDPR(designWidth, designHeight) {
         // dpr tells the browser how many of the screen's actual pixels should be used to draw a single CSS pixel.
         if (window.devicePixelRatio) {
             const deviceSize = cc.view.getFrameSize();
@@ -54,8 +42,6 @@ window.boot = function () {
             cc.assetManager.downloader.maxConcurrency = 2;
             cc.assetManager.downloader.maxRequestsPerFrame = 2;
         }
-
-        updateDPR(448, 740);
 
         var launchScene = settings.launchScene;
         var bundle = cc.assetManager.bundles.find(function (b) {
@@ -141,3 +127,37 @@ if (window.jsb) {
     cc.macro.CLEANUP_IMAGE_CACHE = true;
     window.boot();
 }
+
+function initGA() {
+    const hostName = window.location.hostname.toLocaleLowerCase();
+    const gaCode = hostName.includes("saba") || hostName.includes("l1") ? "G-83SN447D8K" : "G-RMDY57JTSG";
+
+    loadScript(`https://www.googletagmanager.com/gtag/js?id=${gaCode}`).then(
+        () => {
+            console.log("Init GA");
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", gaCode);
+        },
+        (reason) => {
+            console.log("Init GA failed with" + reason);
+        }
+    );
+
+    function loadScript(src) {
+        return new Promise(function (resolve, reject) {
+            let script;
+            script = document.createElement("script");
+            script.src = src;
+            script.async = true;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+}
+
+initGA();
