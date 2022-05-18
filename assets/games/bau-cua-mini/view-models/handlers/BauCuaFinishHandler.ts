@@ -19,6 +19,7 @@ export default class BauCuaFinishHandler extends GameBaseFinishHandler {
                 .call(() => {
                     onFinishHandlingData();
                     this.main.highlightWinningBetItems(true);
+                    this.main.updateRoundHistory();
                 })
                 .start();
         }

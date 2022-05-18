@@ -13,6 +13,7 @@ export default class BauCuaLogsHandler extends GameBaseLogsHandler {
 
         if (this.main.currentTimeRemaining > this.main.config.betTime) {
             this.main.setDiceResult();
+            this.main.updateRoundHistory();
             this.main.dishNode.active = false;
             this.main.finishShowResult = true;
         }

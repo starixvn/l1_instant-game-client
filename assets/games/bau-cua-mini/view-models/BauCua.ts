@@ -107,8 +107,6 @@ export default class BauCua extends SocketIOMiniGameBase {
                 this.dices[index].spriteFrame = this.iconLV[dice];
                 this.dices[index].node.active = true;
             });
-
-            this.updateRoundHistory();
         }
     }
 
