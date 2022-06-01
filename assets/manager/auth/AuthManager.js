@@ -235,16 +235,15 @@ function handleResponse(session, response) {
     sessionManager.storeSessionData(session);
 
     if (response.apiError) {
+        const errorCode = response.apiError.errorCode.toString();
+        const expiredTokenErrorCode = errorCode === "1001" || errorCode === "1002";
+        const autoClearDuration = 10;
+
         if (response.isDisableAccount) {
-            const autoClearDuration = 10;
-            setTimeout(signOut, autoClearDuration * 1000);
-            const noticeData = {
-                text: i18n.t("messages.accountClosed"),
-                autoClearDuration
-            };
-            cc.GameManager.miniPanel && cc.GameManager.miniPanel.showNotice(noticeData, signOut, signOut);
+            showMessageForAccountClosed(errorCode, autoClearDuration);
+        } else if (expiredTokenErrorCode) {
+            showMessageForExpiredToken(errorCode, autoClearDuration);
         } else {
-            const errorCode = response.apiError.errorCode;
             const message = NoticeUtil.getLocalizedErrorMessage(errorCode, { errorCode });
             const noticeData = { text: message };
             cc.GameManager.miniPanel && cc.GameManager.miniPanel.showNotice(noticeData);
@@ -254,4 +253,26 @@ function handleResponse(session, response) {
             cc.GameManager.user.red = response.balance;
         }
     }
+}
+
+export function showMessageForAccountClosed(errorCode, autoClearDuration) {
+    const noticeData = {
+        text: i18n.t("messages.accountClosed", { errorCode: errorCode }),
+        autoClearDuration
+    };
+    showMessageAndAutoSignOut(noticeData, autoClearDuration);
+}
+
+export function showMessageForExpiredToken(errorCode, autoClearDuration) {
+    const text = `${i18n.t("messages.sessionTimeout")} (${errorCode})`;
+    const noticeData = {
+        text,
+        autoClearDuration
+    };
+    showMessageAndAutoSignOut(noticeData, autoClearDuration);
+}
+
+function showMessageAndAutoSignOut(noticeData, autoClearDuration) {
+    setTimeout(signOut, autoClearDuration * 1000);
+    cc.GameManager.miniPanel && cc.GameManager.miniPanel.showNotice(noticeData, signOut, signOut);
 }
