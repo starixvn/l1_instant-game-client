@@ -18,7 +18,8 @@ const configs = {
         45: true,
         1: true,
         9: true,
-        3: true
+        3: true,
+        7: true
     }
 };
 
