@@ -43,6 +43,7 @@ export default class MiniPanelMiniGameInitializers {
             const prefix = FeatureConfig.PortraitMode ? "portrait-mode/" : "";
             const prefabPath = `games/${prefix}${this.getGameName(gameId)}`;
             this.main.loading.setDefaultPercent();
+
             cc.loader.loadRes(
                 prefabPath,
                 (completedCount, total, item) => {
@@ -58,11 +59,13 @@ export default class MiniPanelMiniGameInitializers {
                         return;
                     }
 
-                    const node = cc.instantiate(prefab);
-                    const gameComponent = node.getComponent(GameBase);
-                    gameComponent.initMiniPanel(this.main);
-                    this.main.addMiniGame(gameComponent, gameId);
-                    this.showGame(node, connect);
+                    if (this.main.currentGameId === gameId) {
+                        const node = cc.instantiate(prefab);
+                        const gameComponent = node.getComponent(GameBase);
+                        gameComponent.initMiniPanel(this.main);
+                        this.main.addMiniGame(gameComponent, gameId);
+                        this.showGame(node, connect);
+                    }
                 }
             );
         } else {
