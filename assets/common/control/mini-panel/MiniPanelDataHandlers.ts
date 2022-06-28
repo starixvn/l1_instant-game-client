@@ -1,3 +1,4 @@
+import { showMessageForExpiredToken } from "../../../manager/auth/AuthManager";
 import { removeInRoomGameId, removeSession } from "../../../manager/auth/SessionManager";
 import { numberWithCommas } from "../../helper/NumberHelper";
 import GameUtils from "../../utils/GameUtils";
@@ -78,6 +79,15 @@ export default class MiniPanelDataHandlers {
     handleDataApiError(apiErrorData: any) {
         const error = apiErrorData.apiError;
         const gameId = error.gameTypeId;
+
+        const errorCode = error.errorCode.toString();
+        const expiredTokenErrorCode = errorCode === "1001" || errorCode === "1002";
+        const autoClearDuration = 10;
+
+        if (expiredTokenErrorCode) {
+            showMessageForExpiredToken(errorCode, autoClearDuration);
+            return;
+        }
 
         if (this.main.skipShowApiErrorGameIds.includes(gameId)) {
             return;
