@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "dd107093-242f-434f-848e-a0bef2599c6e",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 512,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "baccarat-cards": {
+      "ver": "1.0.6",
+      "uuid": "a063d253-b089-4697-88f4-d8c583435ae1",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "dd107093-242f-434f-848e-a0bef2599c6e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -2,
+      "offsetY": 18.5,
+      "trimX": 1,
+      "trimY": 1,
+      "width": 506,
+      "height": 985,
+      "rawWidth": 512,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
