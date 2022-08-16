@@ -3,6 +3,7 @@ import MiniRoundHistory from "../../../common/control/mini-round-history/MiniRou
 import GameUtils from "../../../common/utils/GameUtils";
 import { GameIds } from "../../../configs/SabaConfigs";
 import SocketIOMiniGameBase from "../../_base/SocketIOMiniGameBase";
+import BaccaratBetOptions from "../components/view-models/BaccaratBetOptions";
 import BaccaratConfigs from "./BaccaratConfigs";
 
 const { ccclass, property } = cc._decorator;
@@ -32,6 +33,7 @@ export default class Baccarat extends SocketIOMiniGameBase {
 
     public resultAnimating = false;
     public originalDishPosition = cc.v2(0, 6);
+    public betOptionsUI: BaccaratBetOptions = null;
 
     onLoad() {
         super.onLoad();
@@ -57,7 +59,7 @@ export default class Baccarat extends SocketIOMiniGameBase {
 
     resetDataAndUI() {
         super.resetDataAndUI();
-        this.animation.node.active = false;
+        // this.animation.node.active = false;
     }
 
     onDestroy() {
@@ -67,5 +69,10 @@ export default class Baccarat extends SocketIOMiniGameBase {
 
     initHandlers() {
         super.initHandlers();
+    }
+
+    private initBetOptions(node: cc.Node) {
+        this.betOptionsUI = node.getComponent(BaccaratBetOptions);
+        this.betOptionsUI.initBetOptions(this);
     }
 }

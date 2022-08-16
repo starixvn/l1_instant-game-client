@@ -4,7 +4,7 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class AutoClearNotice extends cc.Component {
-    @property(Notice)
+    @property({ type: Notice })
     notice: Notice = null;
 
     @property()

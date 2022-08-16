@@ -902,7 +902,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        29,
+        26,
         0,
         0,
         0,
@@ -953,7 +953,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 24.92,
+      "width": 16.33,
       "height": 24
     },
     "_anchorPoint": {
@@ -966,7 +966,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -3,
+        0,
         0,
         0,
         0,
@@ -1007,11 +1007,11 @@
     "_dstBlendFactor": 771,
     "_string": "3",
     "_N$string": "3",
-    "_fontSize": 24,
+    "_fontSize": 28,
     "_lineHeight": 24,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a0ec2fa5-fc8c-4611-8a90-43cba6432332"
+      "__uuid__": "30018d00-207b-441b-bb83-ea6fe20b0da1"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,

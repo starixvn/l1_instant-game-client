@@ -37,13 +37,10 @@
       },
       {
         "__id__": 40
-      },
-      {
-        "__id__": 41
       }
     ],
     "_prefab": {
-      "__id__": 42
+      "__id__": 41
     },
     "_opacity": 255,
     "_color": {
@@ -744,6 +741,10 @@
     "target": {
       "__id__": 20
     },
+    "syncWidth": true,
+    "syncHeight": true,
+    "ratioWidth": 1,
+    "ratioHeight": 1,
     "_id": ""
   },
   {
@@ -1505,19 +1506,6 @@
     },
     "buttonLabel": {
       "__id__": 33
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "caea4d57VpP8ZzwdgE0ujLP",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "notice": {
-      "__id__": 40
     },
     "duration": 3,
     "_id": ""
