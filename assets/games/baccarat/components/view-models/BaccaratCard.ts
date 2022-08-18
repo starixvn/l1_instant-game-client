@@ -18,4 +18,12 @@ export default class BaccaratCard extends NewCard {
             this.largeSuite.node.height = 130;
         }
     }
+
+    setNumberTag(data: string) {
+        this.index.getComponent(cc.Label).string = data;
+    }
+
+    getNumberTag() {
+        return this.index.getComponent(cc.Label).string;
+    }
 }

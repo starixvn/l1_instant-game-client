@@ -1,4 +1,4 @@
-import MiniSedieBetItem from "../../sedie-mini/MiniSedieBetItem";
+import MiniSedieBetItem from "../../../sedie-mini/MiniSedieBetItem";
 
 const { ccclass } = cc._decorator;
 

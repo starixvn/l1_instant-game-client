@@ -1,5 +1,5 @@
 import Baccarat from "../../view-models/Baccarat";
-import BaccaratBetItem from "../../view-models/BaccaratBetItem";
+import BaccaratBetItem from "./BaccaratBetItem";
 
 const { ccclass, property } = cc._decorator;
 

@@ -1,10 +1,13 @@
+import AudioManager from "../../../common/audio/AudioManager";
 import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
-import MiniRoundHistory from "../../../common/control/mini-round-history/MiniRoundHistory";
 import GameUtils from "../../../common/utils/GameUtils";
 import { GameIds } from "../../../configs/SabaConfigs";
 import SocketIOMiniGameBase from "../../_base/SocketIOMiniGameBase";
 import BaccaratBetOptions from "../components/view-models/BaccaratBetOptions";
 import BaccaratConfigs from "./BaccaratConfigs";
+import BaccaratFinishHandler from "./data-handlers/BaccaratFinishHandler";
+import BaccaratLogsHandler from "./data-handlers/BaccaratLogsHandler";
+import BaccaratTimeDataHandler from "./data-handlers/BaccaratTimeDataHandler";
 
 const { ccclass, property } = cc._decorator;
 
@@ -30,6 +33,9 @@ export default class Baccarat extends SocketIOMiniGameBase {
 
     @property(cc.Node)
     tipContainer: cc.Node = null;
+
+    @property(cc.AudioSource)
+    getCardAudioSource: cc.AudioSource = null;
 
     public resultAnimating = false;
     public originalDishPosition = cc.v2(0, 6);
@@ -69,10 +75,27 @@ export default class Baccarat extends SocketIOMiniGameBase {
 
     initHandlers() {
         super.initHandlers();
+        this.timeHandler = new BaccaratTimeDataHandler(this);
+        this.finishHandler = new BaccaratFinishHandler(this);
+        this.logsHandler = new BaccaratLogsHandler(this);
     }
 
     private initBetOptions(node: cc.Node) {
         this.betOptionsUI = node.getComponent(BaccaratBetOptions);
         this.betOptionsUI.initBetOptions(this);
+
+        this.betItems?.forEach((item) => {
+            GameUtils.moveToOtherNode(item.chipNode, this.chipContainer);
+            GameUtils.moveToOtherNode(item.totalBet.node, this.totalBetContainer);
+            GameUtils.moveToOtherNode(item.ownBet.node, this.ownBetContainer);
+        });
+    }
+
+    private initCardsUI(node: cc.Node) {
+        // cardBox
+    }
+
+    playGetCardAudio() {
+        AudioManager.getInstance().playSFX(this.getCardAudioSource.clip);
     }
 }

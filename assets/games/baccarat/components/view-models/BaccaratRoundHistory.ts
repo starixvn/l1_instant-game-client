@@ -1,4 +1,4 @@
-import GameRoundHistory from "../../_base/view-models/GameRoundHistory";
+import GameRoundHistory from "../../../_base/view-models/GameRoundHistory";
 
 const { ccclass, property } = cc._decorator;
 
