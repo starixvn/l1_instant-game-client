@@ -4,6 +4,7 @@ import GameUtils from "../../../common/utils/GameUtils";
 import { GameIds } from "../../../configs/SabaConfigs";
 import SocketIOMiniGameBase from "../../_base/SocketIOMiniGameBase";
 import BaccaratBetOptions from "../components/view-models/BaccaratBetOptions";
+import BaccaratCardsUI from "../components/view-models/BaccaratCardsUI";
 import BaccaratConfigs from "./BaccaratConfigs";
 import BaccaratFinishHandler from "./data-handlers/BaccaratFinishHandler";
 import BaccaratLogsHandler from "./data-handlers/BaccaratLogsHandler";
@@ -40,6 +41,7 @@ export default class Baccarat extends SocketIOMiniGameBase {
     public resultAnimating = false;
     public originalDishPosition = cc.v2(0, 6);
     public betOptionsUI: BaccaratBetOptions = null;
+    public cardsUI: BaccaratCardsUI = null;
 
     onLoad() {
         super.onLoad();
@@ -66,6 +68,7 @@ export default class Baccarat extends SocketIOMiniGameBase {
     resetDataAndUI() {
         super.resetDataAndUI();
         // this.animation.node.active = false;
+        this.cardsUI?.winningText && (this.cardsUI.winningText.node.parent.active = false);
     }
 
     onDestroy() {
@@ -93,6 +96,7 @@ export default class Baccarat extends SocketIOMiniGameBase {
 
     private initCardsUI(node: cc.Node) {
         // cardBox
+        this.cardsUI = node.getComponent(BaccaratCardsUI);
     }
 
     playGetCardAudio() {

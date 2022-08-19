@@ -3,8 +3,14 @@ import BaccaratCard from "./BaccaratCard";
 
 const { ccclass, property } = cc._decorator;
 
+export enum OrderCardIndex {
+    card1 = 0,
+    card2,
+    card3
+}
+
 @ccclass
-export default class BaccaratCardsUI extends cc.Component {
+export default class BaccaratCards extends cc.Component {
     @property(cc.Node)
     card1: cc.Node = null;
 
@@ -46,9 +52,9 @@ export default class BaccaratCardsUI extends cc.Component {
     protected SET_POINT = 3;
 
     onLoad() {
-        this.card1.children[0].getComponent(BaccaratCard).faceDown();
-        this.card2.children[0].getComponent(BaccaratCard).faceDown();
-        this.card3.children[0].getComponent(BaccaratCard).faceDown();
+        this.card1.children[0]?.getComponent(BaccaratCard).faceDown();
+        this.card2.children[0]?.getComponent(BaccaratCard).faceDown();
+        this.card3.children[0]?.getComponent(BaccaratCard).faceDown();
         this.cardsReserve[0]?.children[0].getComponent(BaccaratCard).faceDown();
         this.cardsReserve[1]?.children[0].getComponent(BaccaratCard).faceDown();
     }
@@ -79,7 +85,7 @@ export default class BaccaratCardsUI extends cc.Component {
         this.resetCard(this.cardsReserve[0]);
         this.resetCard(this.cardsReserve[1]);
         this.card3.active = false;
-        this.showHighlightCards(false);
+        // this.showHighlightCards(false);
     }
 
     showHighlightCards(highlight = true) {
@@ -149,20 +155,20 @@ export default class BaccaratCardsUI extends cc.Component {
         this.card3.stopActionByTag(this.SET_POINT);
     }
 
-    flyFirstCard() {
-        this.flyCard(this.card1);
+    flyCards(cardIndex: OrderCardIndex) {
+        this.flyCard(cardIndex === OrderCardIndex.card1 ? this.card1 : this.card2);
     }
 
-    flySecondCard() {
-        this.flyCard(this.card2);
-    }
+    // flyFirstCard() {
+    //     this.flyCard(this.card1);
+    // }
 
-    flyCardTmp1() {
-        this.flyCard(this.cardsReserve[0], 0.6);
-    }
+    // flySecondCard() {
+    //     this.flyCard(this.card2);
+    // }
 
-    flyCardTmp2() {
-        this.flyCard(this.cardsReserve[1], 0.6);
+    flyCardReserve(cardIndex: number) {
+        this.flyCard(this.cardsReserve[cardIndex], 0.6);
     }
 
     protected setPoint(point: number) {
@@ -249,7 +255,7 @@ export default class BaccaratCardsUI extends cc.Component {
         const cardPosition = card.position;
         card.position = from;
         card.opacity = 255;
-        card?.getComponent(BaccaratCard) && (card.getComponent(BaccaratCard).index.node.parent.active = true);
+        // card?.getComponent(BaccaratCard) && (card.getComponent(BaccaratCard).index.node.parent.active = true);
 
         if (isCard3) {
             // card.getComponent(BaccaratCard).index.runAction(cc.scaleTo(this.flyCardSecond, 2).easing(cc.easeInOut(2)));
@@ -277,7 +283,7 @@ export default class BaccaratCardsUI extends cc.Component {
         card.opacity = 0;
         card.scale = 0.5;
         card.angle = -135;
-        card.getComponent(BaccaratCard).index.node.active = true;
+        // card.getComponent(BaccaratCard).index.node.active = true;
     }
 
     protected openCard(index: number, cards: any[], isAnimated = true) {
@@ -290,7 +296,7 @@ export default class BaccaratCardsUI extends cc.Component {
             if (cardData) {
                 currentCard.active = true;
             }
-            currentCard?.getComponent(BaccaratCard) && (currentCard.getComponent(BaccaratCard).index.node.parent.active = false);
+            // currentCard?.getComponent(BaccaratCard) && (currentCard.getComponent(BaccaratCard).index.node.parent.active = false);
 
             const newCard = currentCard.children[0].getComponent(BaccaratCard);
             newCard.setCardOldStyle({
@@ -318,7 +324,7 @@ export default class BaccaratCardsUI extends cc.Component {
             delayTime = this.calculateDelayTimeWithAnimation(index, currentCard, delayTime);
         } else {
             if (this.isMainPage) {
-                currentCard.getComponent(BaccaratCard).index.node.active = false;
+                // currentCard.getComponent(BaccaratCard).index.node.active = false;
                 if (index === 2) {
                     currentCard.opacity = 255;
                     currentCard.scale = 1;
@@ -335,14 +341,14 @@ export default class BaccaratCardsUI extends cc.Component {
             // 1st card
             currentCard.scaleX = 0;
             currentCard.runAction(cc.scaleTo(this.openCardSecond, 1, 1));
-            this.card1.getComponent(BaccaratCard).index.node.active = false;
+            // this.card1.getComponent(BaccaratCard).index.node.active = false;
             delayTime += this.openCardSecond;
         } else {
             // this.cardBack.node.active = true;
             const position = cc.v3(currentCard.position.x - currentCard.width / 2, currentCard.position.y - currentCard.height / 2, 0);
             // this.cardBack.node.position = position;
             const card = currentCard.getComponent(BaccaratCard);
-            card.index.node.active = false;
+            // card.index.node.active = false;
             // this.numberTagCardBack.string = card.getNumberTag();
             this.setActionCardBack();
 

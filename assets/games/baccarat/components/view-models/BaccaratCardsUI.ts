@@ -1,7 +1,19 @@
+import BaccaratCards from "./BaccaratCards";
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class BaccaratCardsUI extends cc.Component {
-    @property(cc.Node)
-    winning: cc.Node = null;
+    @property(BaccaratCards)
+    playerCards: BaccaratCards = null;
+
+    @property(BaccaratCards)
+    bankerCards: BaccaratCards = null;
+
+    @property(cc.Label)
+    winningText: cc.Label = null;
+
+    onLoad() {
+        this.winningText.node.parent.active = false;
+    }
 }

@@ -2,6 +2,7 @@ import Baccarat from "../Baccarat";
 import BaccaratLogsHandler from "./BaccaratLogsHandler";
 import BaccaratFinishHandler from "./BaccaratFinishHandler";
 import GameBaseTimeHandler from "../../../_base/handlers/GameBaseTimeHandler";
+import { OrderCardIndex } from "../../components/view-models/BaccaratCards";
 
 export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
     protected dealCardsTime = 2;
@@ -29,7 +30,7 @@ export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
         );
     }
 
-    protected getOwnMain(): any {
+    protected getOwnMain(): Baccarat {
         return this.main as Baccarat;
     }
 
@@ -73,23 +74,23 @@ export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
 
     handleFlyCards() {
         const baccarat = this.getOwnMain();
-        baccarat.bankerCards.resetCards();
-        baccarat.playerCards.resetCards();
+        baccarat.cardsUI.bankerCards.resetCards();
+        baccarat.cardsUI.playerCards.resetCards();
         this.main.setGameRound(this.main.roundId);
         this.main.node.runAction(
             cc.sequence(
                 cc.delayTime(0.1),
-                cc.callFunc(() => baccarat.playerCards.flyFirstCard()),
+                cc.callFunc(() => baccarat.cardsUI.playerCards.flyCards(OrderCardIndex.card1)),
                 cc.delayTime(0.4),
-                cc.callFunc(() => baccarat.bankerCards.flyFirstCard()),
+                cc.callFunc(() => baccarat.cardsUI.bankerCards.flyCards(OrderCardIndex.card1)),
                 cc.delayTime(0.4),
-                cc.callFunc(() => baccarat.playerCards.flySecondCard()),
+                cc.callFunc(() => baccarat.cardsUI.playerCards.flyCards(OrderCardIndex.card2)),
                 cc.delayTime(0.4),
-                cc.callFunc(() => baccarat.bankerCards.flySecondCard()),
+                cc.callFunc(() => baccarat.cardsUI.bankerCards.flyCards(OrderCardIndex.card2)),
                 cc.delayTime(0.2),
-                cc.callFunc(() => baccarat.playerCards.flyCardTmp1()),
+                cc.callFunc(() => baccarat.cardsUI.playerCards.flyCardReserve(OrderCardIndex.card1)),
                 cc.delayTime(0.2),
-                cc.callFunc(() => baccarat.bankerCards.flyCardTmp2())
+                cc.callFunc(() => baccarat.cardsUI.bankerCards.flyCardReserve(OrderCardIndex.card2))
             )
         );
         if (this.main.currentDataLogs[0]) {
@@ -103,7 +104,7 @@ export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
         super.handleInLockBetTime();
         this.main.betItems.forEach((item) => item.setHighlight(false));
 
-        this.getOwnMain().bigRoad.renderNextNode();
+        // this.getOwnMain().bigRoad.renderNextNode();
         if (this.main.currentTimeRemaining <= this.main.config.stopBetTime && this.main.currentDataLogs.length >= 102) {
             this.main.currentDataLogs.pop();
             (this.main.logsHandler as BaccaratLogsHandler).buildLogs(this.main.currentDataLogs);

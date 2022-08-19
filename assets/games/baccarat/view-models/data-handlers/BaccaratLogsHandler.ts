@@ -17,7 +17,7 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
 
         if (data.roundHistory && data.roundHistory[0]) {
             const ownMain = this.getOwnMain();
-            ownMain.bigRoad.renderScoreBoardInGame(data.roundHistory);
+            // ownMain.bigRoad.renderScoreBoardInGame(data.roundHistory);
             const lastLog = data.roundHistory[0];
             const settlementResult = this.getSettlementResult(lastLog);
             const finishHandler = this.getOwnFinishHandle();
@@ -26,8 +26,8 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
                 const playerCards = this.getLogDataFollowTypePlayer(false, lastLog);
                 const bankerCards = this.getLogDataFollowTypePlayer(true, lastLog);
 
-                ownMain.playerCards.showCardsWithoutAnimation(playerCards);
-                ownMain.bankerCards.showCardsWithoutAnimation(bankerCards);
+                ownMain.cardsUI.playerCards.showCardsWithoutAnimation(playerCards);
+                ownMain.cardsUI.bankerCards.showCardsWithoutAnimation(bankerCards);
                 finishHandler.showWinNotice(settlementResult);
             }
 
@@ -47,7 +47,7 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
         return Object.values(resultTmp.player).filter((value) => value != null);
     }
 
-    protected getOwnMain(): any {
+    protected getOwnMain(): Baccarat {
         return this.main as Baccarat;
     }
 
@@ -66,8 +66,8 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
             dataLogs[dataLogs.length - 1].previousLog = null;
         }
 
-        this.buildBasicScoreBoard(dataLogs);
-        this.buildTotalScoreBoard(dataLogs);
+        // this.buildBasicScoreBoard(dataLogs);
+        // this.buildTotalScoreBoard(dataLogs);
         this.updateMiniHistoryLogs(dataLogs);
     }
 
@@ -130,7 +130,7 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
         });
 
         const ownMain = this.getOwnMain();
-        ownMain.totalHistoryBoard.setData(totalHistoryData);
+        // ownMain.totalHistoryBoard.setData(totalHistoryData);
     }
 
     protected setTieLog(log, previousLog) {

@@ -45,18 +45,18 @@ export default class BaccaratFinishHandler extends GameBaseFinishHandler {
         this.showCards(dataFinish, baccaratMain, onFinishHandlingData);
     }
 
-    protected getOwnMain(): any {
+    protected getOwnMain(): Baccarat {
         return this.main as Baccarat;
     }
 
-    protected showCards(dataFinish: any, baccaratMain: any, onFinishHandlingData: () => void) {
-        baccaratMain.showScoreBoardNextDot = true;
+    protected showCards(dataFinish: any, baccaratMain: Baccarat, onFinishHandlingData: () => void) {
+        // baccaratMain.showScoreBoardNextDot = true;
         const result = dataFinish.result;
         const settlementResult = dataFinish.settlementResult;
         const playerCards = this.getDataFollowTypePlayer(result, false);
         const bankerCards = this.getDataFollowTypePlayer(result, true);
         const showResultFunc = () => {
-            baccaratMain.showScoreBoardNextDot = false;
+            // baccaratMain.showScoreBoardNextDot = false;
             this.showResult(settlementResult);
             this.showWinNotice(settlementResult);
             onFinishHandlingData && onFinishHandlingData();
@@ -66,8 +66,8 @@ export default class BaccaratFinishHandler extends GameBaseFinishHandler {
             this.handleBuildMiniLogs(baccaratMain);
         };
 
-        baccaratMain.playerCards.showCards(playerCards, bankerCards.length === 3 ? null : showResultFunc);
-        baccaratMain.bankerCards.showCards(bankerCards, bankerCards.length === 3 ? showResultFunc : null, playerCards.length === 3);
+        baccaratMain.cardsUI.playerCards.showCards(playerCards, bankerCards.length === 3 ? null : showResultFunc);
+        baccaratMain.cardsUI.bankerCards.showCards(bankerCards, bankerCards.length === 3 ? showResultFunc : null, playerCards.length === 3);
     }
 
     protected getDataFollowTypePlayer(data: any, isBanker: boolean) {
@@ -97,20 +97,20 @@ export default class BaccaratFinishHandler extends GameBaseFinishHandler {
 
     public showWinNotice(result) {
         const baccaratMain = this.getOwnMain();
-        const winNoticeNode = baccaratMain.winNoticeLabel.node.parent;
+        const winNoticeNode = baccaratMain.cardsUI.winningText.node.parent;
         let key = "";
 
         if (result.banker) {
             key = "banker_win";
-            baccaratMain.bankerCards.showHighlightCards();
+            baccaratMain.cardsUI.bankerCards.showHighlightCards();
         } else if (result.player) {
             key = "player_win";
-            baccaratMain.playerCards.showHighlightCards();
+            baccaratMain.cardsUI.playerCards.showHighlightCards();
         } else {
             key = "tie_win";
         }
 
-        baccaratMain.winNoticeLabel.string = i18n.t(`ui.${key}`).toUpperCase();
+        baccaratMain.cardsUI.winningText.string = i18n.t(`ui.${key}`).toUpperCase();
         winNoticeNode.active = true;
     }
 }
