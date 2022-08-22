@@ -837,15 +837,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -1,
-        -5,
+        -129,
+        -43,
         0,
         0,
         0,
@@ -910,7 +910,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 43.33,
+      "width": 0,
       "height": 26
     },
     "_anchorPoint": {
@@ -962,8 +962,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "400",
-    "_N$string": "400",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 20,
     "_lineHeight": 26,
     "_enableWrapText": true,
@@ -1043,7 +1043,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 42.5,
+      "width": 0,
       "height": 30
     },
     "_anchorPoint": {
@@ -1095,8 +1095,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "400",
-    "_N$string": "400",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 20,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1138,7 +1138,7 @@
       "__id__": 24
     },
     "ownBet": {
-      "__id__": 24
+      "__id__": 28
     },
     "odds": {
       "__id__": 19
@@ -1371,8 +1371,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 279,
-      "height": 134
+      "width": 214,
+      "height": 138
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2003,15 +2003,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        1,
-        0,
+        -93,
+        -43,
         0,
         0,
         0,
@@ -2076,7 +2076,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 43.33,
+      "width": 0,
       "height": 26
     },
     "_anchorPoint": {
@@ -2128,8 +2128,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "400",
-    "_N$string": "400",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 20,
     "_lineHeight": 26,
     "_enableWrapText": true,
@@ -2209,7 +2209,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 42.5,
+      "width": 0,
       "height": 30
     },
     "_anchorPoint": {
@@ -2261,8 +2261,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "400",
-    "_N$string": "400",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 20,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -3169,15 +3169,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        -128,
+        -43,
         0,
         0,
         0,
@@ -3242,7 +3242,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 43.33,
+      "width": 0,
       "height": 26
     },
     "_anchorPoint": {
@@ -3294,8 +3294,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "400",
-    "_N$string": "400",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 20,
     "_lineHeight": 26,
     "_enableWrapText": true,
@@ -3375,7 +3375,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 42.5,
+      "width": 0,
       "height": 30
     },
     "_anchorPoint": {
@@ -3427,8 +3427,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "400",
-    "_N$string": "400",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 20,
     "_lineHeight": 30,
     "_enableWrapText": true,

@@ -4,26 +4,25 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class BaccaratCard extends NewCard {
-    @property(cc.Node)
+    @property(cc.Label)
     index: cc.Label = null;
 
-    setLargeSuiteImage(lowerCaseRank: string) {
-        if (+this.card.rank || this.card.rank === "A") {
-            this.largeSuite.spriteFrame = this.atlas.getSpriteFrame(this.suffix[this.card.suit]);
-            this.largeSuite.node.width = 62;
-            this.largeSuite.node.height = 68;
-        } else {
-            this.largeSuite.spriteFrame = this.atlas.getSpriteFrame(this.picture[lowerCaseRank]);
-            this.largeSuite.node.width = 86;
-            this.largeSuite.node.height = 130;
-        }
-    }
+    @property(cc.Node)
+    highLight: cc.Node = null;
 
-    setNumberTag(data: string) {
-        this.index.getComponent(cc.Label).string = data;
+    setNumberTag(number: string) {
+        this.index.string = number;
     }
 
     getNumberTag() {
-        return this.index.getComponent(cc.Label).string;
+        return this.index.string;
+    }
+
+    resetHighlight() {
+        this.highLight.active = false;
+    }
+
+    setStatusInfoIndex(status: boolean) {
+        this.index.node.parent.active = status;
     }
 }

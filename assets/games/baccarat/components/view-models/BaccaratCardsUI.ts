@@ -10,6 +10,9 @@ export default class BaccaratCardsUI extends cc.Component {
     @property(BaccaratCards)
     bankerCards: BaccaratCards = null;
 
+    @property(BaccaratCards)
+    reserveCards: BaccaratCards = null;
+
     @property(cc.Label)
     winningText: cc.Label = null;
 

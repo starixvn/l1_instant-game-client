@@ -72,27 +72,22 @@ export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
         this.handleFlyCards();
     }
 
-    handleFlyCards() {
+    async handleFlyCards() {
         const baccarat = this.getOwnMain();
-        baccarat.cardsUI.bankerCards.resetCards();
-        baccarat.cardsUI.playerCards.resetCards();
+        const cardsUI = baccarat.cardsUI;
+
+        cardsUI.bankerCards.resetCards();
+        cardsUI.playerCards.resetCards();
+        cardsUI.reserveCards.resetCards();
         this.main.setGameRound(this.main.roundId);
-        this.main.node.runAction(
-            cc.sequence(
-                cc.delayTime(0.1),
-                cc.callFunc(() => baccarat.cardsUI.playerCards.flyCards(OrderCardIndex.card1)),
-                cc.delayTime(0.4),
-                cc.callFunc(() => baccarat.cardsUI.bankerCards.flyCards(OrderCardIndex.card1)),
-                cc.delayTime(0.4),
-                cc.callFunc(() => baccarat.cardsUI.playerCards.flyCards(OrderCardIndex.card2)),
-                cc.delayTime(0.4),
-                cc.callFunc(() => baccarat.cardsUI.bankerCards.flyCards(OrderCardIndex.card2)),
-                cc.delayTime(0.2),
-                cc.callFunc(() => baccarat.cardsUI.playerCards.flyCardReserve(OrderCardIndex.card1)),
-                cc.delayTime(0.2),
-                cc.callFunc(() => baccarat.cardsUI.bankerCards.flyCardReserve(OrderCardIndex.card2))
-            )
-        );
+
+        await cardsUI.playerCards.flyCards(cardsUI.playerCards.cards[OrderCardIndex.card1], 0.4);
+        await cardsUI.bankerCards.flyCards(cardsUI.bankerCards.cards[OrderCardIndex.card1], 0.4);
+        await cardsUI.playerCards.flyCards(cardsUI.playerCards.cards[OrderCardIndex.card2], 0.4);
+        await cardsUI.bankerCards.flyCards(cardsUI.bankerCards.cards[OrderCardIndex.card2], 0.2);
+        await cardsUI.playerCards.flyCards(cardsUI.reserveCards.cards[OrderCardIndex.card1], 0.2);
+        await cardsUI.bankerCards.flyCards(cardsUI.reserveCards.cards[OrderCardIndex.card2], 0.2);
+
         if (this.main.currentDataLogs[0]) {
             const currentData = this.main.currentDataLogs[0];
             const finishHandler = this.main.finishHandler as BaccaratFinishHandler;
