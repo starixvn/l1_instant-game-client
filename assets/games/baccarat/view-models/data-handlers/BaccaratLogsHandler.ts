@@ -1,3 +1,4 @@
+import { CardData, OrderCard } from "./../../components/view-models/BaccaratCards";
 import * as _ from "lodash";
 import GameBaseLogsHandler from "../../../_base/handlers/GameBaseLogsHandler";
 import Baccarat from "../Baccarat";
@@ -16,7 +17,7 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
         super.handle(data);
 
         if (data.roundHistory && data.roundHistory[0]) {
-            const ownMain = this.getOwnMain();
+            const cardUI = this.getOwnMain().cardsUI;
             // ownMain.bigRoad.renderScoreBoardInGame(data.roundHistory);
             const lastLog = data.roundHistory[0];
             const settlementResult = this.getSettlementResult(lastLog);
@@ -26,8 +27,17 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
                 const playerCards = this.getLogDataFollowTypePlayer(false, lastLog);
                 const bankerCards = this.getLogDataFollowTypePlayer(true, lastLog);
 
-                ownMain.cardsUI.playerCards.showCardsWithoutAnimation(playerCards);
-                ownMain.cardsUI.bankerCards.showCardsWithoutAnimation(bankerCards);
+                cardUI.playerCards.showCardsWithoutAnimation(playerCards as CardData[]);
+                cardUI.bankerCards.showCardsWithoutAnimation(bankerCards as CardData[]);
+
+                if (playerCards.length === 3 && bankerCards.length === 3) {
+                    cardUI.reserveCards.resetCards(false);
+                }
+
+                if (playerCards.length === 3 || bankerCards.length === 3) {
+                    cardUI.reserveCards.resetCard(cardUI.reserveCards.cards[OrderCard.card1]);
+                }
+
                 finishHandler.showWinNotice(settlementResult);
             }
 

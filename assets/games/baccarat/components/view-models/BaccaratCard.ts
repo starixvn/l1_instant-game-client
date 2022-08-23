@@ -18,6 +18,10 @@ export default class BaccaratCard extends NewCard {
         return this.index.string;
     }
 
+    setHighlight() {
+        this.highLight.active = true;
+    }
+
     resetHighlight() {
         this.highLight.active = false;
     }

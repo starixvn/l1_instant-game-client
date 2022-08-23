@@ -1,4 +1,4 @@
-import { OrderCardIndex } from "./../../components/view-models/BaccaratCards";
+import BaccaratCards, { OrderCard } from "./../../components/view-models/BaccaratCards";
 import * as i18n from "i18n/runtime-scripts/LanguageData";
 import * as _ from "lodash";
 
@@ -68,50 +68,35 @@ export default class BaccaratFinishHandler extends GameBaseFinishHandler {
             this.handleBuildMiniLogs(baccaratMain);
         };
 
-        await cardUI.playerCards.openCard(cardUI.playerCards.cards[OrderCardIndex.card1], playerCards[OrderCardIndex.card1], 1);
-        await cardUI.bankerCards.openCard(cardUI.bankerCards.cards[OrderCardIndex.card1], bankerCards[OrderCardIndex.card1], 3);
-        await cardUI.playerCards.openCard(cardUI.playerCards.cards[OrderCardIndex.card2], playerCards[OrderCardIndex.card2], 2);
-        await cardUI.bankerCards.openCard(cardUI.bankerCards.cards[OrderCardIndex.card2], bankerCards[OrderCardIndex.card2], 4);
+        await cardUI.playerCards.faceUpCard(cardUI.playerCards.cards[OrderCard.card1], playerCards[OrderCard.card1]);
+        await cardUI.bankerCards.faceUpCard(cardUI.bankerCards.cards[OrderCard.card1], bankerCards[OrderCard.card1]);
+        await cardUI.playerCards.faceUpCard(cardUI.playerCards.cards[OrderCard.card2], playerCards[OrderCard.card2]);
+        await cardUI.bankerCards.faceUpCard(cardUI.bankerCards.cards[OrderCard.card2], bankerCards[OrderCard.card2]);
 
-        console.log(playerCards, "playerCards");
-        console.log(bankerCards, "bankerCards");
         let isFlyPlayer = false;
         if (playerCards.length === 3) {
-            await cardUI.playerCards.stackCard();
-            cardUI.playerCards.cards[OrderCardIndex.card3].opacity = 255;
-            await cardUI.playerCards.flyCardReserves(
-                cardUI.playerCards.cards[OrderCardIndex.card3],
-                0.2,
-                cardUI.reserveCards.cards[OrderCardIndex.card1],
-                5
-            );
-            await cardUI.playerCards.openCard(cardUI.playerCards.cards[OrderCardIndex.card3], playerCards[OrderCardIndex.card3], 1);
+            await this.handleFaceUpReserveCard(cardUI.playerCards, cardUI.reserveCards, playerCards);
             isFlyPlayer = true;
         }
 
         if (bankerCards.length === 3) {
-            await cardUI.bankerCards.stackCard();
-            cardUI.bankerCards.cards[OrderCardIndex.card3].opacity = 255;
-            if (isFlyPlayer) {
-                await cardUI.bankerCards.flyCardReserves(
-                    cardUI.bankerCards.cards[OrderCardIndex.card3],
-                    0.2,
-                    cardUI.reserveCards.cards[OrderCardIndex.card2],
-                    6
-                );
-            } else {
-                await cardUI.bankerCards.flyCardReserves(
-                    cardUI.bankerCards.cards[OrderCardIndex.card3],
-                    0.2,
-                    cardUI.reserveCards.cards[OrderCardIndex.card1],
-                    5
-                );
-            }
-
-            await cardUI.bankerCards.openCard(cardUI.bankerCards.cards[OrderCardIndex.card3], bankerCards[OrderCardIndex.card3], 1);
+            await this.handleFaceUpReserveCard(cardUI.bankerCards, cardUI.reserveCards, bankerCards, isFlyPlayer);
         }
 
         showResultFunc();
+    }
+
+    private async handleFaceUpReserveCard(cardPunter: BaccaratCards, reserveCards: BaccaratCards, cardData, isFlyPlayer = false) {
+        await cardPunter.stackCard();
+        cardPunter.cards[OrderCard.card3].opacity = 255;
+        await cardPunter.flyCard({
+            card: cardPunter.cards[OrderCard.card3],
+            delay: 0.4,
+            start: reserveCards.cards[isFlyPlayer ? OrderCard.card2 : OrderCard.card1],
+            isReserve: true,
+            numberTag: isFlyPlayer ? 6 : 5
+        });
+        await cardPunter.faceUpCard(cardPunter.cards[OrderCard.card3], cardData[OrderCard.card3]);
     }
 
     protected getDataFollowTypePlayer(data: any, isBanker: boolean) {
@@ -139,7 +124,7 @@ export default class BaccaratFinishHandler extends GameBaseFinishHandler {
         _.forEach(this.main.betItems, (item) => item.setHighlight(resultData[keys[item.node.name.toLowerCase()]], isAnimated));
     }
 
-    public showWinNotice(result) {
+    private showWinNotice(result) {
         const baccaratMain = this.getOwnMain();
         const winNoticeNode = baccaratMain.cardsUI.winningText.node.parent;
         let key = "";

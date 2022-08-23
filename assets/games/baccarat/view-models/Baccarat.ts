@@ -35,9 +35,6 @@ export default class Baccarat extends SocketIOMiniGameBase {
     @property(cc.Node)
     tipContainer: cc.Node = null;
 
-    @property(cc.AudioSource)
-    getCardAudioSource: cc.AudioSource = null;
-
     public resultAnimating = false;
     public originalDishPosition = cc.v2(0, 6);
     public betOptionsUI: BaccaratBetOptions = null;
@@ -49,6 +46,7 @@ export default class Baccarat extends SocketIOMiniGameBase {
         const mini = cc.instantiate(this.miniRoundHistoryPrefab);
 
         this.miniRoundHistoryContainer.addChild(mini);
+        this.animatedTime.setAnimatedY(15, -5);
     }
 
     relocationChipNode() {
@@ -98,8 +96,3 @@ export default class Baccarat extends SocketIOMiniGameBase {
         // cardBox
         this.cardsUI = node.getComponent(BaccaratCardsUI);
     }
-
-    playGetCardAudio() {
-        AudioManager.getInstance().playSFX(this.getCardAudioSource.clip);
-    }
-}
