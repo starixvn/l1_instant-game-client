@@ -28,6 +28,7 @@ import { GameConfigBase } from "./view-models/GameConfigBase";
 import GameGuideBase from "./view-models/GameGuideBase";
 import GameRoundHistory from "./view-models/GameRoundHistory";
 import AudioManager from "../../common/audio/AudioManager";
+import GameBaseOddsHandler from "./handlers/GameBaseOddsHandler";
 
 const { ccclass, property } = cc._decorator;
 
@@ -145,6 +146,7 @@ export default class GameBase extends BaseComponent {
     public logsHandler: DataHandler;
     public finishHandler: DataHandler;
     public configsHandler: DataHandler;
+    public oddsHandler: DataHandler;
 
     public betChips: BetChips;
     public currentBet: number;
@@ -185,7 +187,8 @@ export default class GameBase extends BaseComponent {
             this.timeHandler,
             this.errorHandler,
             this.logsHandler,
-            this.finishHandler
+            this.finishHandler,
+            this.oddsHandler
         );
     }
 
@@ -437,6 +440,7 @@ export default class GameBase extends BaseComponent {
         this.logsHandler = new GameBaseLogsHandler(this);
         this.finishHandler = new GameBaseFinishHandler(this);
         this.configsHandler = new GameBaseConfigsHandler(this);
+        this.oddsHandler = new GameBaseOddsHandler(this);
     }
 
     protected addHandlers(...handlers: DataHandler[]): void {
@@ -451,6 +455,17 @@ export default class GameBase extends BaseComponent {
 
     public updateOddsFromConfigs() {
         this.gameConfigs.odds && this.betItems.forEach((item) => item.setOdd(this.gameConfigs.odds[item.node.name]));
+    }
+
+    public updateOdds(values) {
+        this.gameConfigs.odds = values;
+        this.betItems.forEach((item) => item.setOdd(values[item.node.name]));
+    }
+
+    setBoostedChoices(boostedChoices: any) {
+        if (boostedChoices) {
+            this.betItems.forEach((item) => item.highLightOdds(boostedChoices.includes(item.node.name)));
+        }
     }
 
     public updateDisplayForRemoteConfig() {

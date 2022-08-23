@@ -79,6 +79,12 @@ export default class BetItem extends cc.Component {
         }
     }
 
+    public highLightOdds(boostedChoice) {
+        if (boostedChoice) {
+            this.odds.node.color = cc.Color.CYAN;
+        } else this.odds.node.color = cc.Color.WHITE;
+    }
+
     public clearChips() {
         this.chipNode.destroyAllChildren();
     }

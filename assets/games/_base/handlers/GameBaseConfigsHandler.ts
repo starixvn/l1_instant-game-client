@@ -11,6 +11,7 @@ export default class GameBaseConfigsHandler implements DataHandler {
 
         this.main.gameConfigs = data.gameConfigs;
         this.main.updateDisplayForRemoteConfig();
+        this.main.setBoostedChoices(data.gameConfigs?.boostedChoices);
         return true;
     }
 }
