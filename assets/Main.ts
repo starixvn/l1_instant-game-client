@@ -7,6 +7,8 @@ import { getCacheLanguage, setLanguage } from "./manager/auth/SessionManager";
 import UserService from "./manager/auth/UserService";
 import GameManager from "./manager/GameManager";
 import GameCategoryList from "./common/control/category/GameCategoryList";
+import NotificationService from "./manager/auth/NotificationService";
+import { Promotions } from "./common/control/promotions/Promotions";
 
 const { ccclass, property } = cc._decorator;
 
@@ -40,7 +42,7 @@ export default class Main extends cc.Component {
                 };
             })
         );
-
+        console.log("autoGenerateUserName", window?.authData);
         this.category.itemClickCallback = (itemId) => {
             if (itemId !== this.currentGameId) {
                 this.onGameChanged(itemId);
@@ -62,8 +64,15 @@ export default class Main extends cc.Component {
         GameManager.Instance.miniPanel = this.miniPanel;
         this.splash.active = true;
         this.checkSSO();
+        NotificationService.getInstance().connect();
+        NotificationService.getInstance().emitEvent("promotionNotifications", {});
+        this.initPromotions();
     }
 
+    initPromotions() {
+        Promotions.getInstance().addDataObserver();
+    }
+    
     initLanguage() {
         let language = getCacheLanguage();
         const urlParams = new URLSearchParams(window.location.search);
