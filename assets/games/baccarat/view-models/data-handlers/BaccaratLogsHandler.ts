@@ -12,9 +12,11 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
 
     handle(data: any): boolean {
         super.handle(data);
-
+        const cardUI = this.getOwnMain().cardsUI;
+        cardUI.reserveCards.showCardsJoinGame();
+        cardUI.playerCards.showCardsJoinGame();
+        cardUI.bankerCards.showCardsJoinGame();
         if (data.roundHistory && data.roundHistory[0]) {
-            const cardUI = this.getOwnMain().cardsUI;
             const lastLog = data.roundHistory[0];
             const settlementResult = this.getSettlementResult(lastLog);
             const finishHandler = this.getOwnFinishHandle();
@@ -25,15 +27,7 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
 
                 cardUI.playerCards.showCardsWithoutAnimation(playerCards as CardData[]);
                 cardUI.bankerCards.showCardsWithoutAnimation(bankerCards as CardData[]);
-
-                if (playerCards.length === 3 && bankerCards.length === 3) {
-                    cardUI.reserveCards.resetCards(false);
-                }
-
-                if (playerCards.length === 3 || bankerCards.length === 3) {
-                    cardUI.reserveCards.resetCard(cardUI.reserveCards.cards[OrderCard.card1]);
-                }
-
+                this.handleShowCardsJoinRoom(playerCards, bankerCards, cardUI);
                 finishHandler.showWinNotice(settlementResult);
             }
 
@@ -43,6 +37,20 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
         }
 
         return true;
+    }
+
+    private handleShowCardsJoinRoom(playerCards, bankerCards, cardUI) {
+        if (playerCards.length === 2 && bankerCards.length === 2) {
+            cardUI.reserveCards.showCardsJoinGame();
+        }
+
+        if (playerCards.length === 3 && bankerCards.length === 3) {
+            cardUI.reserveCards.resetCards(false);
+        }
+
+        if (playerCards.length === 3 || bankerCards.length === 3) {
+            cardUI.reserveCards.resetCard(cardUI.reserveCards.cards[OrderCard.card1]);
+        }
     }
 
     protected getLogDataFollowTypePlayer(isBanker: boolean, data: any) {

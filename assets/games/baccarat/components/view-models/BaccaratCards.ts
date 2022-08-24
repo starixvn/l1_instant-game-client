@@ -65,6 +65,12 @@ export default class BaccaratCards extends cc.Component {
         });
     }
 
+    showCardsJoinGame() {
+        this.cards.forEach((card: cc.Node, index: number) => {
+            index < 2 && (card.opacity = 255);
+        });
+    }
+
     private resetPoint() {
         if (this.point) {
             this.point.node.parent.active = false;

@@ -2,38 +2,11 @@ import BaccaratCards, { OrderCard } from "./../../components/view-models/Baccara
 import * as i18n from "i18n/runtime-scripts/LanguageData";
 
 import { getLowercaseObjectKeys } from "../../../../common/helper/ObjectHelper";
-import { updateOtherPlayerBalance } from "../../../_base/action/OtherPlayerAction";
-import { payChips } from "../../../_base/action/PayChipsAction";
 import GameBaseFinishHandler from "../../../_base/handlers/GameBaseFinishHandler";
-import WebSocketTableGameBase from "../../../_base/WebSocketTableGameBase";
 import Baccarat from "../Baccarat";
 import BaccaratLogsHandler from "./BaccaratLogsHandler";
 
 export default class BaccaratFinishHandler extends GameBaseFinishHandler {
-    handle(data: any): boolean {
-        if (data.finish) {
-            this.main.finishShowResult = false;
-            this.main.node.activeInHierarchy && this.main.gameAudios.playEndGameAudio();
-            this.setNewGameRound(data);
-            const mainRoomGame = this.main as WebSocketTableGameBase;
-            if (mainRoomGame && mainRoomGame.playerHandler) {
-                updateOtherPlayerBalance(data.finish.winningPlayers, this.main);
-            }
-            this.handleFinishData(data.finish, () => {
-                payChips(
-                    this.main,
-                    data.finish.settlementResult,
-                    data.finish.winningPlayers,
-                    this.payChipFlyTime,
-                    this.WinningAnimationDuration
-                );
-                this.main.finishShowResult = true;
-            });
-        }
-
-        return true;
-    }
-
     handleFinishData(dataFinish: any, onFinishHandlingData: () => void = null) {
         super.handleFinishData(dataFinish, onFinishHandlingData);
 
