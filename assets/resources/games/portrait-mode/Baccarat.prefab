@@ -3784,7 +3784,9 @@
     },
     "guidePrefab": null,
     "animation": null,
-    "miniRoundHistoryPrefab": null,
+    "miniRoundHistoryPrefab": {
+      "__uuid__": "8687d23a-16ca-4325-b13c-821c7960b93b"
+    },
     "miniRoundHistoryContainer": {
       "__id__": 53
     },

@@ -1,6 +1,5 @@
 import BaccaratCards, { OrderCard } from "./../../components/view-models/BaccaratCards";
 import * as i18n from "i18n/runtime-scripts/LanguageData";
-import * as _ from "lodash";
 
 import { getLowercaseObjectKeys } from "../../../../common/helper/ObjectHelper";
 import { updateOtherPlayerBalance } from "../../../_base/action/OtherPlayerAction";
@@ -51,21 +50,18 @@ export default class BaccaratFinishHandler extends GameBaseFinishHandler {
     }
 
     protected async showCards(dataFinish: any, baccaratMain: Baccarat, onFinishHandlingData: () => void) {
-        // baccaratMain.showScoreBoardNextDot = true;
         const cardUI = baccaratMain.cardsUI;
         const result = dataFinish.result;
         const settlementResult = dataFinish.settlementResult;
         const playerCards: any = this.getDataFollowTypePlayer(result, false);
         const bankerCards: any = this.getDataFollowTypePlayer(result, true);
         const showResultFunc = () => {
-            // baccaratMain.showScoreBoardNextDot = false;
             this.showResult(settlementResult);
             this.showWinNotice(settlementResult);
             onFinishHandlingData && onFinishHandlingData();
             this.insertCurrentDataLogs(baccaratMain, dataFinish);
             baccaratMain.currentDataLogs.length > 102 && this.main.currentDataLogs.pop();
-            (baccaratMain.logsHandler as BaccaratLogsHandler).buildLogs(baccaratMain.currentDataLogs);
-            this.handleBuildMiniLogs(baccaratMain);
+            (baccaratMain.logsHandler as BaccaratLogsHandler).buildLogs();
         };
 
         await cardUI.playerCards.faceUpCard(cardUI.playerCards.cards[OrderCard.card1], playerCards[OrderCard.card1]);
@@ -114,14 +110,10 @@ export default class BaccaratFinishHandler extends GameBaseFinishHandler {
         baccaratMain.currentDataLogs.unshift(dataFinish);
     }
 
-    protected handleBuildMiniLogs(baccaratMain: any) {
-        // nothing
-    }
-
     public showResult(resultData, isAnimated = true): void {
         const keys = getLowercaseObjectKeys(resultData);
 
-        _.forEach(this.main.betItems, (item) => item.setHighlight(resultData[keys[item.node.name.toLowerCase()]], isAnimated));
+        this.main.betItems.forEach((item) => item.setHighlight(resultData[keys[item.node.name.toLowerCase()]], isAnimated));
     }
 
     private showWinNotice(result) {

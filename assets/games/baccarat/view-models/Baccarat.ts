@@ -1,5 +1,5 @@
-import AudioManager from "../../../common/audio/AudioManager";
 import MiniPanel from "../../../common/control/mini-panel/MiniPanel";
+import MiniRoundHistory from "../../../common/control/mini-round-history/MiniRoundHistory";
 import GameUtils from "../../../common/utils/GameUtils";
 import { GameIds } from "../../../configs/SabaConfigs";
 import SocketIOMiniGameBase from "../../_base/SocketIOMiniGameBase";
@@ -39,13 +39,13 @@ export default class Baccarat extends SocketIOMiniGameBase {
     public originalDishPosition = cc.v2(0, 6);
     public betOptionsUI: BaccaratBetOptions = null;
     public cardsUI: BaccaratCardsUI = null;
+    public miniRoundHistory: MiniRoundHistory;
+    protected readonly betTypes = ["player", "banker", "tie"];
 
     onLoad() {
         super.onLoad();
         this.relocationChipNode();
-        const mini = cc.instantiate(this.miniRoundHistoryPrefab);
-
-        this.miniRoundHistoryContainer.addChild(mini);
+        this.initMiniRoundHistory();
         this.animatedTime.setAnimatedY(15, -5);
     }
 
@@ -65,7 +65,6 @@ export default class Baccarat extends SocketIOMiniGameBase {
 
     resetDataAndUI() {
         super.resetDataAndUI();
-        // this.animation.node.active = false;
         this.cardsUI?.winningText && (this.cardsUI.winningText.node.parent.active = false);
     }
 
@@ -96,3 +95,30 @@ export default class Baccarat extends SocketIOMiniGameBase {
         // cardBox
         this.cardsUI = node.getComponent(BaccaratCardsUI);
     }
+
+    initMiniRoundHistory() {
+        const mini = cc.instantiate(this.miniRoundHistoryPrefab);
+        this.miniRoundHistory = mini.getComponent(MiniRoundHistory);
+        this.miniRoundHistoryContainer.addChild(mini);
+        GameUtils.moveToOtherNode(this.miniRoundHistory.tip.node, this.tipContainer);
+    }
+
+    updateRoundHistory() {
+        this.miniRoundHistory.setData(this.currentDataLogs);
+        if (this.roundHistory && this.roundHistory.isAlive()) {
+            const settlementResult = this.currentDataLogs.map((log) => {
+                return this.getWinItem(log.settlementResult);
+            });
+            this.roundHistory.setData(settlementResult);
+        }
+    }
+
+    public getWinItem(settlementResult: any): number {
+        for (let i = 0; i < this.betTypes.length; i++) {
+            if (settlementResult[this.betTypes[i]]) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}

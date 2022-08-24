@@ -12,24 +12,24 @@ export default class DragonTigerRoundHistory extends GameRoundHistory {
             return;
         }
 
-        let dragonCount = 0,
-            drawCount = 0;
+        let playerCount = 0,
+            bankerCount = 0;
 
         roundHistoryData.forEach((log) => {
             switch (log) {
                 case 0:
-                    dragonCount++;
+                    playerCount++;
                     break;
                 case 2:
-                    drawCount++;
+                    bankerCount++;
                     break;
             }
         });
 
-        const dragonStats = Math.floor((dragonCount * 100) / total);
-        const drawStats = Math.floor((drawCount * 100) / total);
-        const tigerStats = 100 - (dragonStats + drawStats);
+        const playerStats = Math.floor((playerCount * 100) / total);
+        const tieStats = Math.floor((bankerCount * 100) / total);
+        const bankerStats = 100 - (playerStats + tieStats);
 
-        this.updateStatisticLabels([dragonStats, tigerStats, drawStats]);
+        this.updateStatisticLabels([playerStats, bankerStats, tieStats]);
     }
 }
