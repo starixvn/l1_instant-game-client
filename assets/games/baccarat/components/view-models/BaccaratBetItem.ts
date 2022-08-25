@@ -1,9 +1,9 @@
-import MiniSedieBetItem from "../../../sedie-mini/MiniSedieBetItem";
+import BetItem from "../../../_base/view-models/BetItem";
 
 const { ccclass } = cc._decorator;
 
 @ccclass
-export default class BaccaratBetItem extends MiniSedieBetItem {
+export default class BaccaratBetItem extends BetItem {
     public setHighlight(highlight: boolean, isAnimated = true) {
         super.setHighlight(highlight, isAnimated);
 

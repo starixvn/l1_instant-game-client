@@ -1,20 +1,27 @@
 import AudioManager from "../../../../common/audio/AudioManager";
+import GameUtils from "../../../../common/utils/GameUtils";
+import { CardModel } from "../../BaccaratType";
 import { CardAnimation } from "./../../../../common/control/new-card/view-models/NewCard";
 import BaccaratCard from "./BaccaratCard";
 
 const { ccclass, property } = cc._decorator;
 
-export enum OrderCard {
+export enum OrderCardIndex {
     card1 = 0,
     card2,
     card3
 }
 
-export type CardModel = { rank: string; suit: number };
+export enum OrderNameCard {
+    card1 = "card1",
+    card2 = "card2",
+    card3 = "card3"
+}
 
-export type CardData = {
-    card: number;
-    type: number;
+export type CardFlyPros = {
+    card: cc.Node;
+    start: cc.Node;
+    isReserve?: boolean;
 };
 
 export const playFlyCardAudio = (card: cc.Node, source: cc.AudioClip) => {
@@ -52,9 +59,19 @@ export default class BaccaratCards extends cc.Component {
     private readonly durationAwaitAnimFaceUp = 0.8;
     private readonly durationStackCard = 0.3;
 
-    onLoad() {
-        this.cards.forEach((card: cc.Node) => {
-            card?.getComponent(BaccaratCard).faceDown();
+    private readonly faceUpCardsTween: cc.Tween[] = [];
+    private readonly cardsFlyTween: cc.Tween[] = [];
+
+    onDisable() {
+        this.resetActions();
+    }
+
+    private resetActions() {
+        this.cardsFlyTween?.forEach((cardTween: cc.Tween) => {
+            cardTween.stop();
+        });
+        this.faceUpCardsTween?.forEach((faceUpTween: cc.Tween) => {
+            faceUpTween.stop();
         });
     }
 
@@ -84,7 +101,7 @@ export default class BaccaratCards extends cc.Component {
         });
     }
 
-    showCardsWithoutAnimation(cardData: CardData[]) {
+    showCardsWithoutAnimation(cardData: CardModel[]) {
         let point = 0;
         const countData = cardData.length;
         cardData.forEach((data, index) => {
@@ -123,7 +140,8 @@ export default class BaccaratCards extends cc.Component {
     }): Promise<void> {
         return new Promise((resolve) => {
             const cardComponent = card?.getComponent(BaccaratCard);
-            cc.tween(card)
+            const cardTween = cc
+                .tween(card)
                 .call(() => {
                     this.setInfoCardFly(cardComponent, numberTag, isReserve);
                     this.actionCardFly({
@@ -136,10 +154,11 @@ export default class BaccaratCards extends cc.Component {
                 .delay(delay)
                 .call(() => resolve())
                 .start();
+            cardTween && this.cardsFlyTween.push(cardTween);
         });
     }
 
-    stackCard(card = this.cards[OrderCard.card2], delay = this.durationStackCard): Promise<void> {
+    stackCard(card = this.cards[OrderCardIndex.card2], delay = this.durationStackCard): Promise<void> {
         return new Promise((resolve) => {
             cc.tween(card)
                 .to(0.2, { position: cc.v2(this.offset, 0), easing: "easeInOut" })
@@ -154,7 +173,7 @@ export default class BaccaratCards extends cc.Component {
         cardComponent?.setStatusInfoIndex(true);
     }
 
-    private actionCardFly({ card, start, isReserve }: any) {
+    private actionCardFly({ card, start, isReserve }: CardFlyPros) {
         const convertCardBox: cc.Vec3 = cc.v3(card.parent.convertToNodeSpaceAR(start.convertToWorldSpaceAR(cc.v2(0, 0))));
         const cardPosition = card.position;
         card.position = convertCardBox;
@@ -164,13 +183,14 @@ export default class BaccaratCards extends cc.Component {
             card.scale = 0.6;
             card.rotation = 0;
         }
-        const t = cc.tween;
-        t(card)
-            .parallel(
-                t().to(this.durationFlyCard, { scale: 1, easing: "easeInOut" }),
-                t().to(this.durationFlyCard, { position: cc.v2(cardPosition.x, cardPosition.y), easing: "easeInOut" })
+
+        card.runAction(
+            cc.spawn(
+                cc.rotateTo(this.durationFlyCard, 0).easing(cc.easeInOut(2)),
+                cc.scaleTo(this.durationFlyCard, 1).easing(cc.easeInOut(2)),
+                cc.moveTo(this.durationFlyCard, cc.v2(cardPosition.x, cardPosition.y)).easing(cc.easeInOut(2))
             )
-            .start();
+        );
     }
 
     resetCard(card: cc.Node) {
@@ -179,14 +199,16 @@ export default class BaccaratCards extends cc.Component {
             cardNode.faceDown();
             cardNode.resetHighlight();
             card.opacity = 0;
-            card.x = 0;
+            card.position = cc.v3(0);
+            card.angle = -135;
             cardNode.animation.clear();
         }
     }
 
-    faceUpCard(card: cc.Node, cardInfo: CardData): Promise<void> {
+    faceUpCard(card: cc.Node, cardInfo: CardModel): Promise<void> {
         return new Promise((resolve) => {
-            cc.tween(card)
+            const faceUpTween = cc
+                .tween(card)
                 .call(() => {
                     const cardComponent = card?.getComponent(BaccaratCard);
                     cardComponent?.setCardOldStyle({
@@ -204,10 +226,11 @@ export default class BaccaratCards extends cc.Component {
                 .delay(this.durationAwaitAnimFaceUp)
                 .call(() => resolve())
                 .start();
+            faceUpTween && this.faceUpCardsTween.push(faceUpTween);
         });
     }
 
-    private handleSetPoint(data: CardData) {
+    private handleSetPoint(data: CardModel) {
         const pointValue: number = +data.card + 1;
         this.setPoint(pointValue >= 10 ? 0 : pointValue);
     }

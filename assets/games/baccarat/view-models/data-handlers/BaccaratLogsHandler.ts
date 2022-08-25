@@ -1,33 +1,39 @@
-import { CardData, OrderCard } from "./../../components/view-models/BaccaratCards";
+import { OrderCardIndex } from "./../../components/view-models/BaccaratCards";
 import GameBaseLogsHandler from "../../../_base/handlers/GameBaseLogsHandler";
 import Baccarat from "../Baccarat";
 
 import BaccaratFinishHandler from "./BaccaratFinishHandler";
 import SocketIOMiniGameBase from "../../../_base/SocketIOMiniGameBase";
+import { FinishResult } from "../../BaccaratType";
+import BaccaratCardsUI from "../../components/view-models/BaccaratCardsUI";
 
 export default class BaccaratLogsHandler extends GameBaseLogsHandler {
     constructor(protected readonly main: SocketIOMiniGameBase) {
         super(main);
     }
 
-    handle(data: any): boolean {
+    handle(data): boolean {
         super.handle(data);
-        const cardUI = this.getOwnMain().cardsUI;
-        cardUI.reserveCards.showCardsJoinGame();
-        cardUI.playerCards.showCardsJoinGame();
-        cardUI.bankerCards.showCardsJoinGame();
+
         if (data.roundHistory && data.roundHistory[0]) {
+            const cardUI = this.getOwnMain().cardsUI;
+
             const lastLog = data.roundHistory[0];
             const settlementResult = this.getSettlementResult(lastLog);
             const finishHandler = this.getOwnFinishHandle();
+
+            cardUI.playerCards.showCardsJoinGame();
+            cardUI.bankerCards.showCardsJoinGame();
+            cardUI.reserveCards.showCardsJoinGame();
 
             if (this.main.timeHandler.isInWaitTime) {
                 const playerCards = this.getLogDataFollowTypePlayer(false, lastLog);
                 const bankerCards = this.getLogDataFollowTypePlayer(true, lastLog);
 
-                cardUI.playerCards.showCardsWithoutAnimation(playerCards as CardData[]);
-                cardUI.bankerCards.showCardsWithoutAnimation(bankerCards as CardData[]);
-                this.handleShowCardsJoinRoom(playerCards, bankerCards, cardUI);
+                cardUI.playerCards.showCardsWithoutAnimation(playerCards);
+                cardUI.bankerCards.showCardsWithoutAnimation(bankerCards);
+
+                this.handleShowCardsJoinRoom(playerCards.length, bankerCards.length, cardUI);
                 finishHandler.showWinNotice(settlementResult);
             }
 
@@ -39,21 +45,21 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
         return true;
     }
 
-    private handleShowCardsJoinRoom(playerCards, bankerCards, cardUI) {
-        if (playerCards.length === 2 && bankerCards.length === 2) {
+    private handleShowCardsJoinRoom(playerCardCount: number, bankerCardCount: number, cardUI: BaccaratCardsUI) {
+        if (playerCardCount === 2 && bankerCardCount === 2) {
             cardUI.reserveCards.showCardsJoinGame();
+            return;
         }
 
-        if (playerCards.length === 3 && bankerCards.length === 3) {
+        if (playerCardCount === 3 && bankerCardCount === 3) {
             cardUI.reserveCards.resetCards(false);
+            return;
         }
 
-        if (playerCards.length === 3 || bankerCards.length === 3) {
-            cardUI.reserveCards.resetCard(cardUI.reserveCards.cards[OrderCard.card1]);
-        }
+        cardUI.reserveCards.resetCard(cardUI.reserveCards.cards[OrderCardIndex.card1]);
     }
 
-    protected getLogDataFollowTypePlayer(isBanker: boolean, data: any) {
+    protected getLogDataFollowTypePlayer(isBanker: boolean, data: FinishResult) {
         const resultTmp = data.result;
         if (isBanker) {
             return Object.values(resultTmp.banker).filter((value) => value != null);
@@ -65,12 +71,12 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
         return this.main as Baccarat;
     }
 
-    protected getOwnFinishHandle(): any {
+    protected getOwnFinishHandle(): BaccaratFinishHandler {
         const ownMain = this.getOwnMain();
         return ownMain.finishHandler as BaccaratFinishHandler;
     }
 
-    protected getSettlementResult(lastLog: any) {
+    protected getSettlementResult(lastLog: FinishResult) {
         return lastLog.settlementResult;
     }
 

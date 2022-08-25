@@ -1,39 +1,33 @@
 import MiniRoundHistoryTip from "../../../../common/control/mini-round-history/MiniRoundHistoryTip";
 
 import GameUtils from "../../../../common/utils/GameUtils";
+import { BetTypes, CardModel, FinishResult, Settlement } from "../../BaccaratType";
 
-const { ccclass, property } = cc._decorator;
-
-type itemType = {
-    card: number;
-    type: number;
-};
+const { ccclass } = cc._decorator;
 
 @ccclass
 export default class BaccaratMiniRoundHistoryTip extends MiniRoundHistoryTip {
-    protected readonly betTypes = ["banker", "player", "tie"];
-
-    public getWinItem(settlementResult: any): number {
-        for (let i = 0; i < this.betTypes.length; i++) {
-            if (settlementResult[this.betTypes[i]]) {
+    public getWinItem(settlementResult: Settlement): number {
+        for (let i = 0; i < BetTypes.length; i++) {
+            if (settlementResult[BetTypes[i]]) {
                 return i;
             }
         }
         return -1;
     }
 
-    public setData(data: any) {
+    public setData(data: FinishResult) {
         this.roundId.string = `#${data.roundId}`;
         const player = Object.values(data.result.player);
         const banker = Object.values(data.result.banker);
 
         let totalPlayer = 0;
         let totalBanker = 0;
-        player.forEach((item: itemType) => {
+        player.forEach((item: CardModel) => {
             item && (totalPlayer += this.setValueCard(item.card + 1));
         });
 
-        banker.forEach((item: itemType) => {
+        banker.forEach((item: CardModel) => {
             item && (totalBanker += this.setValueCard(item.card + 1));
         });
 

@@ -49,7 +49,9 @@ export default class GameRoundHistory extends BaseComponent {
         this.logControl && this.logControl.setData(roundHistoryData);
     }
 
-    updateStatistic(roundHistoryData) {}
+    updateStatistic(roundHistoryData) {
+        // handle
+    }
 
     updateStatisticLabels(statisticData: any) {
         this.statisticLabels.forEach((label, index) => {

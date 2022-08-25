@@ -2,7 +2,8 @@ import Baccarat from "../Baccarat";
 import BaccaratLogsHandler from "./BaccaratLogsHandler";
 import BaccaratFinishHandler from "./BaccaratFinishHandler";
 import GameBaseTimeHandler from "../../../_base/handlers/GameBaseTimeHandler";
-import { OrderCard } from "../../components/view-models/BaccaratCards";
+import { OrderCardIndex } from "../../components/view-models/BaccaratCards";
+import { FinishResult } from "../../BaccaratType";
 
 export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
     protected dealCardsTime = 2;
@@ -67,9 +68,9 @@ export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
         }
     }
 
-    handleStartingNewGameRound() {
+    async handleStartingNewGameRound() {
         super.handleStartingNewGameRound();
-        this.handleFlyCards();
+        await this.handleFlyCards();
     }
 
     async handleFlyCards() {
@@ -81,19 +82,30 @@ export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
         cardsUI.reserveCards.resetCards();
         this.main.setGameRound(this.main.roundId);
 
-        await cardsUI.playerCards.flyCard({ card: cardsUI.playerCards.cards[OrderCard.card1], delay: cardsUI.playerCards.durationFlyCard });
-        await cardsUI.bankerCards.flyCard({ card: cardsUI.bankerCards.cards[OrderCard.card1], delay: cardsUI.playerCards.durationFlyCard });
-        await cardsUI.playerCards.flyCard({ card: cardsUI.playerCards.cards[OrderCard.card2], delay: cardsUI.playerCards.durationFlyCard });
-        await cardsUI.bankerCards.flyCard({
-            card: cardsUI.bankerCards.cards[OrderCard.card2],
-            delay: cardsUI.bankerCards.durationFlyReserveCard
-        });
         await cardsUI.playerCards.flyCard({
-            card: cardsUI.reserveCards.cards[OrderCard.card1],
+            card: cardsUI.playerCards.cards[OrderCardIndex.card1],
+            delay: cardsUI.playerCards.durationFlyCard
+        });
+        await cardsUI.bankerCards.flyCard({
+            card: cardsUI.bankerCards.cards[OrderCardIndex.card1],
+            delay: cardsUI.playerCards.durationFlyCard
+        });
+
+        await cardsUI.playerCards.flyCard({
+            card: cardsUI.playerCards.cards[OrderCardIndex.card2],
+            delay: cardsUI.playerCards.durationFlyCard
+        });
+        await cardsUI.bankerCards.flyCard({
+            card: cardsUI.bankerCards.cards[OrderCardIndex.card2],
+            delay: cardsUI.bankerCards.durationFlyReserveCard
+        });
+
+        await cardsUI.playerCards.flyCard({
+            card: cardsUI.reserveCards.cards[OrderCardIndex.card1],
             delay: cardsUI.bankerCards.durationFlyReserveCard
         });
         await cardsUI.bankerCards.flyCard({
-            card: cardsUI.reserveCards.cards[OrderCard.card2],
+            card: cardsUI.reserveCards.cards[OrderCardIndex.card2],
             delay: cardsUI.bankerCards.durationFlyReserveCard
         });
 
@@ -121,7 +133,7 @@ export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
         );
     }
 
-    protected getSettlementResult(currentData: any) {
+    protected getSettlementResult(currentData: FinishResult) {
         return currentData.settlementResult;
     }
 }

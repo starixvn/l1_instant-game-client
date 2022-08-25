@@ -149,4 +149,17 @@ export default class GameUtils {
     public static createNodeFromPrefab(prefab: cc.Prefab) {
         return cc.instantiate(prefab);
     }
+
+    public static hideNode(node: cc.Node, transitionTime = 0.3, onHidden?: () => void) {
+        cc.tween(node)
+            .to(transitionTime, { opacity: 0 })
+            .call(() => {
+                onHidden && onHidden();
+            })
+            .start();
+    }
+
+    public static showNode(node: cc.Node, transitionTime = 0.3) {
+        cc.tween(node).to(transitionTime, { opacity: 255 }).start();
+    }
 }

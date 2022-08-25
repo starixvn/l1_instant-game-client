@@ -3,6 +3,7 @@ import MiniRoundHistory from "../../../common/control/mini-round-history/MiniRou
 import GameUtils from "../../../common/utils/GameUtils";
 import { GameIds } from "../../../configs/SabaConfigs";
 import SocketIOMiniGameBase from "../../_base/SocketIOMiniGameBase";
+import { BetTypes, Settlement } from "../BaccaratType";
 import BaccaratBetOptions from "../components/view-models/BaccaratBetOptions";
 import BaccaratCardsUI from "../components/view-models/BaccaratCardsUI";
 import BaccaratConfigs from "./BaccaratConfigs";
@@ -40,7 +41,6 @@ export default class Baccarat extends SocketIOMiniGameBase {
     public betOptionsUI: BaccaratBetOptions = null;
     public cardsUI: BaccaratCardsUI = null;
     public miniRoundHistory: MiniRoundHistory;
-    protected readonly betTypes = ["player", "banker", "tie"];
 
     onLoad() {
         super.onLoad();
@@ -113,9 +113,9 @@ export default class Baccarat extends SocketIOMiniGameBase {
         }
     }
 
-    public getWinItem(settlementResult: any): number {
-        for (let i = 0; i < this.betTypes.length; i++) {
-            if (settlementResult[this.betTypes[i]]) {
+    public getWinItem(settlementResult: Settlement): number {
+        for (let i = 0; i < BetTypes.length; i++) {
+            if (settlementResult[BetTypes[i]]) {
                 return i;
             }
         }
