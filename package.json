@@ -8,7 +8,8 @@
         "test": "jest --maxWorkers --colors test",
         "format": "prettier --write ./assets",
         "test-coverage": "jest --collect-coverage",
-        "build": "javascript-obfuscator ./build --output ./build --exclude cocos2d-js-min"
+        "build": "javascript-obfuscator ./build --output ./build --exclude cocos2d-js-min",
+        "obfuscator-config-file": "node ./configs/config-obfuscator.js"
     },
     "author": "",
     "license": "ISC",

@@ -1,4 +1,4 @@
-const configs = {
+window.envConfig = {
     systemType: "SC1",
     ssl: true,
     serverDomainMapper: {
@@ -15,5 +15,3 @@ const configs = {
         secretKey: "f41dc948ed66a029406413327a68b6ae27fe4e6c"
     }
 };
-
-module.exports = configs;

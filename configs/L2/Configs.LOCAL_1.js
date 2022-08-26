@@ -1,4 +1,4 @@
-const configs = {
+window.envConfig = {
     systemType: "SC2",
     ssl: true,
     serverDomainMapper: {
@@ -13,5 +13,3 @@ const configs = {
     guideDomain: "https://l2-guide-1.lumigame.com",
     kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno"
 };
-
-module.exports = configs;

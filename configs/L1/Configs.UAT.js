@@ -1,4 +1,4 @@
-const configs = {
+window.envConfig = {
     systemType: "SC1",
     ssl: true,
     serverDomainMapper: {
@@ -22,5 +22,3 @@ const configs = {
         7: true
     }
 };
-
-module.exports = configs;

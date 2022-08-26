@@ -1,4 +1,4 @@
-const configs = {
+window.envConfig = {
     systemType: "SC2",
     ssl: true,
     disabledDirectLogin: true,
@@ -13,5 +13,3 @@ const configs = {
     },
     kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno"
 };
-
-module.exports = configs;

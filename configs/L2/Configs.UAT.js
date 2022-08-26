@@ -1,4 +1,4 @@
-const configs = {
+window.envConfig = {
     systemType: "SC2",
     ssl: true,
     disabledDirectLogin: true,
@@ -13,5 +13,3 @@ const configs = {
     },
     guideDomain: "https://guidesuat.sabagame.net"
 };
-
-module.exports = configs;

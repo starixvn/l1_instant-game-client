@@ -1,4 +1,4 @@
-const configs = {
+window.envConfig = {
     systemType: "SC1",
     ssl: true,
     serverDomainMapper: {
@@ -18,5 +18,3 @@ const configs = {
     guideDomain: "https://l1-guide.lumigame.com",
     enableMsgpackParserOnGame: {}
 };
-
-module.exports = configs;

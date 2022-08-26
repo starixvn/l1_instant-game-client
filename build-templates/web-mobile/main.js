@@ -129,8 +129,7 @@ if (window.jsb) {
 }
 
 function initGA() {
-    const hostName = window.location.hostname.toLocaleLowerCase();
-    const gaCode = hostName.includes("saba") || hostName.includes("l1") ? "G-83SN447D8K" : "G-RMDY57JTSG";
+    const gaCode = window.envConfig.systemType === "SC1" ? "G-83SN447D8K" : "G-RMDY57JTSG";
 
     loadScript(`https://www.googletagmanager.com/gtag/js?id=${gaCode}`).then(
         () => {
