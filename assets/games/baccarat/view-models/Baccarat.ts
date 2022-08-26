@@ -44,17 +44,8 @@ export default class Baccarat extends SocketIOMiniGameBase {
 
     onLoad() {
         super.onLoad();
-        this.relocationChipNode();
         this.initMiniRoundHistory();
         this.animatedTime.setAnimatedY(15, -5);
-    }
-
-    relocationChipNode() {
-        this.betItems.forEach((item) => {
-            GameUtils.moveToOtherNode(item.chipNode, this.chipContainer);
-            GameUtils.moveToOtherNode(item.totalBet.node, this.totalBetContainer);
-            GameUtils.moveToOtherNode(item.ownBet.node, this.ownBetContainer);
-        });
     }
 
     initMiniPanel(miniPanel: MiniPanel) {
@@ -84,7 +75,7 @@ export default class Baccarat extends SocketIOMiniGameBase {
         this.betOptionsUI = node.getComponent(BaccaratBetOptions);
         this.betOptionsUI.initBetOptions(this);
 
-        this.betItems?.forEach((item) => {
+        this.betItems.forEach((item) => {
             GameUtils.moveToOtherNode(item.chipNode, this.chipContainer);
             GameUtils.moveToOtherNode(item.totalBet.node, this.totalBetContainer);
             GameUtils.moveToOtherNode(item.ownBet.node, this.ownBetContainer);

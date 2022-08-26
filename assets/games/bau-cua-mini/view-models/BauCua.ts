@@ -112,7 +112,6 @@ export default class BauCua extends SocketIOMiniGameBase {
 
     resetDataAndUI() {
         super.resetDataAndUI();
-        //this.hideAllDices();
         this.node.stopAllActions();
         this.resetXTimesResult();
         this.dishNode.active = true;

@@ -15,30 +15,30 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
     handle(data): boolean {
         super.handle(data);
 
-        if (data.roundHistory && data.roundHistory[0]) {
+        if (data.roundHistory) {
             const cardUI = this.getOwnMain().cardsUI;
-
-            const lastLog = data.roundHistory[0];
-            const settlementResult = this.getSettlementResult(lastLog);
-            const finishHandler = this.getOwnFinishHandle();
-
             cardUI.playerCards.showCardsJoinGame();
             cardUI.bankerCards.showCardsJoinGame();
             cardUI.reserveCards.showCardsJoinGame();
 
-            if (this.main.timeHandler.isInWaitTime) {
-                const playerCards = this.getLogDataFollowTypePlayer(false, lastLog);
-                const bankerCards = this.getLogDataFollowTypePlayer(true, lastLog);
+            if (data.roundHistory[0]) {
+                const lastLog = data.roundHistory[0];
+                const settlementResult = this.getSettlementResult(lastLog);
+                const finishHandler = this.getOwnFinishHandle();
+                if (this.main.timeHandler.isInWaitTime) {
+                    const playerCards = this.getLogDataFollowTypePlayer(false, lastLog);
+                    const bankerCards = this.getLogDataFollowTypePlayer(true, lastLog);
 
-                cardUI.playerCards.showCardsWithoutAnimation(playerCards);
-                cardUI.bankerCards.showCardsWithoutAnimation(bankerCards);
+                    cardUI.playerCards.showCardsWithoutAnimation(playerCards);
+                    cardUI.bankerCards.showCardsWithoutAnimation(bankerCards);
 
-                this.handleShowCardsJoinRoom(playerCards.length, bankerCards.length, cardUI);
-                finishHandler.showWinNotice(settlementResult);
-            }
+                    this.handleShowCardsJoinRoom(playerCards.length, bankerCards.length, cardUI);
+                    finishHandler.showWinNotice(settlementResult);
+                }
 
-            if (this.main.currentTimeRemaining > this.main.config.stopBetTime) {
-                finishHandler.showResult(settlementResult, false);
+                if (this.main.currentTimeRemaining > this.main.config.stopBetTime) {
+                    finishHandler.showResult(settlementResult, false);
+                }
             }
         }
 

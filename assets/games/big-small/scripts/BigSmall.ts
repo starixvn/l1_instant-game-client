@@ -56,7 +56,7 @@ export default class BigSmall extends BalancedBettingPoolGameBase {
     @property(cc.Node)
     thePlate: cc.Node = null;
 
-    private dices: cc.Sprite[] = [];
+    private readonly dices: cc.Sprite[] = [];
     private miniRoundHistory: MiniRoundHistory;
 
     readonly choices = ["small", "big"];

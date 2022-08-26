@@ -16,7 +16,7 @@ export default class BaccaratFinishHandler extends GameBaseFinishHandler {
             return;
         }
 
-        this.showCards(dataFinish, baccaratMain, onFinishHandlingData);
+        cc.GameManager.GAME_IS_SHOWED && this.showCards(dataFinish, baccaratMain, onFinishHandlingData);
     }
 
     protected getOwnMain(): Baccarat {

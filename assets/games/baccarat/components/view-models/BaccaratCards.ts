@@ -1,5 +1,4 @@
 import AudioManager from "../../../../common/audio/AudioManager";
-import GameUtils from "../../../../common/utils/GameUtils";
 import { CardModel } from "../../BaccaratType";
 import { CardAnimation } from "./../../../../common/control/new-card/view-models/NewCard";
 import BaccaratCard from "./BaccaratCard";
@@ -50,7 +49,7 @@ export default class BaccaratCards extends cc.Component {
     cardAudioSource: cc.AudioSource = null;
 
     @property
-    offset: number = -50;
+    offset = -50;
 
     protected readonly setPointSecond = 0.2;
     readonly durationFlyCard = 0.4;
@@ -61,6 +60,7 @@ export default class BaccaratCards extends cc.Component {
 
     private readonly faceUpCardsTween: cc.Tween[] = [];
     private readonly cardsFlyTween: cc.Tween[] = [];
+    private readonly cardsRunActionFly: cc.Node[] = [];
 
     onDisable() {
         this.resetActions();
@@ -72,6 +72,9 @@ export default class BaccaratCards extends cc.Component {
         });
         this.faceUpCardsTween?.forEach((faceUpTween: cc.Tween) => {
             faceUpTween.stop();
+        });
+        this.cardsRunActionFly?.forEach((cardNode: cc.Node) => {
+            cardNode.stopAllActions();
         });
     }
 
@@ -191,6 +194,8 @@ export default class BaccaratCards extends cc.Component {
                 cc.moveTo(this.durationFlyCard, cc.v2(cardPosition.x, cardPosition.y)).easing(cc.easeInOut(2))
             )
         );
+
+        card && this.cardsRunActionFly.push(card);
     }
 
     resetCard(card: cc.Node) {

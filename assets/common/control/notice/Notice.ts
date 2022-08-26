@@ -1,7 +1,5 @@
 import * as i18n from "i18n/runtime-scripts/LanguageData";
 
-import AutoClearNotice from "./AutoClearNotice";
-
 const { ccclass, property } = cc._decorator;
 
 export interface NoticeData {

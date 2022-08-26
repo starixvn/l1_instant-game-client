@@ -29,7 +29,6 @@ export default class BauCuaTimeHandler extends GameBaseTimeHandler {
     }
 
     handleInRoundTime() {
-        //this.main.hideAllDices();
         this.main.setGameRound(this.main.roundId);
 
         if (this.main.currentTimeRemaining <= this.main.config.betTime) {
