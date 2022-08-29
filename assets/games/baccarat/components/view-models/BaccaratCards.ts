@@ -61,12 +61,9 @@ export default class BaccaratCards extends cc.Component {
     private readonly faceUpCardsTween: cc.Tween[] = [];
     private readonly cardsFlyTween: cc.Tween[] = [];
     private readonly cardsRunActionFly: cc.Node[] = [];
+    private pointNode: cc.Node = null;
 
-    onDisable() {
-        this.resetActions();
-    }
-
-    private resetActions() {
+    resetActions() {
         this.cardsFlyTween?.forEach((cardTween: cc.Tween) => {
             cardTween.stop();
         });
@@ -76,6 +73,7 @@ export default class BaccaratCards extends cc.Component {
         this.cardsRunActionFly?.forEach((cardNode: cc.Node) => {
             cardNode.stopAllActions();
         });
+        this.pointNode && this.pointNode.stopAllActions();
     }
 
     resetCards(isResetPoint = true) {
@@ -85,10 +83,24 @@ export default class BaccaratCards extends cc.Component {
         });
     }
 
-    showCardsJoinGame() {
+    handleJoinGame() {
         this.cards.forEach((card: cc.Node, index: number) => {
-            index < 2 && (card.opacity = 255);
+            const cardComponent = card.getComponent(BaccaratCard);
+            if (index < 2) {
+                card.opacity = 255;
+            }
+            if (index === 2) {
+                card.opacity = 0;
+            }
+
+            card.angle = 0;
+            card.position = cc.v3(0);
+            cardComponent.faceDown();
+            cardComponent.resetHighlight();
+            cardComponent.setStatusInfoIndex(true);
         });
+        this.resetPoint();
+        this.resetActions();
     }
 
     private resetPoint() {
@@ -246,6 +258,7 @@ export default class BaccaratCards extends cc.Component {
 
         const currentPoint = parseInt(this.point.string);
         this.point.node.parent.runAction(cc.sequence(cc.scaleTo(this.setPointSecond, 1.1, 1.1), cc.scaleTo(this.setPointSecond, 1, 1)));
+        this.pointNode = this.point.node.parent;
 
         this.point.string = ((currentPoint + point) % 10).toString();
     }

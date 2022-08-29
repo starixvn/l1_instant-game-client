@@ -41,6 +41,7 @@ export default class Baccarat extends SocketIOMiniGameBase {
     public betOptionsUI: BaccaratBetOptions = null;
     public cardsUI: BaccaratCardsUI = null;
     public miniRoundHistory: MiniRoundHistory;
+    showScoreBoardNextDot = false;
 
     onLoad() {
         super.onLoad();

@@ -1,9 +1,20 @@
 import GameRoundHistory from "../../../_base/view-models/GameRoundHistory";
+import Baccarat from "../../view-models/Baccarat";
 
 const { ccclass } = cc._decorator;
 
 @ccclass
 export default class BaccaratRoundHistory extends GameRoundHistory {
+    protected main: Baccarat = null;
+    public init(main: Baccarat) {
+        this.main = main;
+
+        const condition = () => {
+            return this.main.currentTimeRemaining < this.main.config.stopBetTime || this.main.showScoreBoardNextDot;
+        };
+        this.logControl && this.logControl.init(condition);
+    }
+
     updateStatistic(roundHistoryData) {
         const total = roundHistoryData.length;
 

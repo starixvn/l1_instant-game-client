@@ -24,12 +24,14 @@ export default class BaccaratFinishHandler extends GameBaseFinishHandler {
     }
 
     protected async showCards(dataFinish: FinishResult, baccaratMain: Baccarat, onFinishHandlingData: () => void) {
+        baccaratMain.showScoreBoardNextDot = true;
         const cardUI = baccaratMain.cardsUI;
         const result = dataFinish.result;
         const settlementResult = dataFinish.settlementResult;
         const playerCards = this.getDataFollowTypePlayer(result, false);
         const bankerCards = this.getDataFollowTypePlayer(result, true);
         const showResultFunc = () => {
+            baccaratMain.showScoreBoardNextDot = false;
             this.showResult(settlementResult);
             this.showWinNotice(settlementResult);
             onFinishHandlingData && onFinishHandlingData();

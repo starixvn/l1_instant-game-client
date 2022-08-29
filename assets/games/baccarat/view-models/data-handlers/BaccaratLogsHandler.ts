@@ -17,9 +17,9 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
 
         if (data.roundHistory) {
             const cardUI = this.getOwnMain().cardsUI;
-            cardUI.playerCards.showCardsJoinGame();
-            cardUI.bankerCards.showCardsJoinGame();
-            cardUI.reserveCards.showCardsJoinGame();
+            cardUI.playerCards.handleJoinGame();
+            cardUI.bankerCards.handleJoinGame();
+            cardUI.reserveCards.handleJoinGame();
 
             if (data.roundHistory[0]) {
                 const lastLog = data.roundHistory[0];
@@ -47,7 +47,6 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
 
     private handleShowCardsJoinRoom(playerCardCount: number, bankerCardCount: number, cardUI: BaccaratCardsUI) {
         if (playerCardCount === 2 && bankerCardCount === 2) {
-            cardUI.reserveCards.showCardsJoinGame();
             return;
         }
 
