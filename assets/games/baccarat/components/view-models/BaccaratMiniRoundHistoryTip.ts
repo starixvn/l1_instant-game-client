@@ -3,10 +3,16 @@ import MiniRoundHistoryTip from "../../../../common/control/mini-round-history/M
 import GameUtils from "../../../../common/utils/GameUtils";
 import { BetTypes, CardModel, FinishResult, Settlement } from "../../BaccaratType";
 
-const { ccclass } = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class BaccaratMiniRoundHistoryTip extends MiniRoundHistoryTip {
+    @property(cc.Label)
+    player: cc.Label = null;
+
+    @property(cc.Label)
+    banker: cc.Label = null;
+
     public getWinItem(settlementResult: Settlement): number {
         for (let i = 0; i < BetTypes.length; i++) {
             if (settlementResult[BetTypes[i]]) {
@@ -33,7 +39,8 @@ export default class BaccaratMiniRoundHistoryTip extends MiniRoundHistoryTip {
 
         const playerText = GameUtils.getBetChoiceString("player");
         const bankerText = GameUtils.getBetChoiceString("banker");
-        this.result.string = `${playerText}: ${this.setPoint(totalPlayer)} - ${bankerText}: ${this.setPoint(totalBanker)}`;
+        this.player.string = `${playerText}: ${this.setPoint(totalPlayer)}`;
+        this.banker.string = `${bankerText}: ${this.setPoint(totalBanker)}`;
     }
 
     private setPoint(point) {

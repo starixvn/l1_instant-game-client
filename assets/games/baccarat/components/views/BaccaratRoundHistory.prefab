@@ -2036,7 +2036,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        351.3909090909091,
+        356.59090909090907,
         0.4,
         0,
         0,
@@ -2596,8 +2596,8 @@
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
-    "_alignFlags": 1,
-    "_left": 0,
+    "_alignFlags": 41,
+    "_left": -84.81818181818187,
     "_right": 0,
     "_top": -0.4,
     "_bottom": 0,
@@ -2609,7 +2609,7 @@
     "_isAbsBottom": true,
     "_isAbsHorizontalCenter": true,
     "_isAbsVerticalCenter": true,
-    "_originalWidth": 0,
+    "_originalWidth": 798,
     "_originalHeight": 0,
     "_id": ""
   },

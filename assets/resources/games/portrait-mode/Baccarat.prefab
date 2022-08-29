@@ -990,8 +990,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 99,
-      "height": 22
+      "width": 198,
+      "height": 45
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1009,8 +1009,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        0.5,
+        0.5,
         1
       ]
     },
@@ -1044,8 +1044,8 @@
     "_dstBlendFactor": 771,
     "_string": "#1234567",
     "_N$string": "#1234567",
-    "_fontSize": 22,
-    "_lineHeight": 22,
+    "_fontSize": 44,
+    "_lineHeight": 45,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "30018d00-207b-441b-bb83-ea6fe20b0da1"

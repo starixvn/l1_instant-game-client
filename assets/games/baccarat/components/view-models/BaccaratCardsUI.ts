@@ -34,7 +34,7 @@ export default class BaccaratCardsUI extends cc.Component {
         component.faceDown();
         node.opacity = 0;
         if (isReserve) {
-            component.index.node.parent.position = cc.v3(1, 0, 0);
+            component.index.node.parent.scale = 1.3;
         }
 
         switch (node.parent.name) {

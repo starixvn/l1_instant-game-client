@@ -1681,8 +1681,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 122,
-      "height": 29
+      "width": 127,
+      "height": 31
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1693,7 +1693,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -56.15300000000002,
+        -68.15300000000002,
         7,
         0,
         0,
@@ -1805,8 +1805,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 34,
-      "height": 14
+      "width": 68,
+      "height": 50
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1824,8 +1824,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        0.5,
+        0.5,
         1
       ]
     },
@@ -1859,8 +1859,8 @@
     "_dstBlendFactor": 771,
     "_string": "1:2",
     "_N$string": "1:2",
-    "_fontSize": 24,
-    "_lineHeight": 14,
+    "_fontSize": 48,
+    "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "30018d00-207b-441b-bb83-ea6fe20b0da1"
@@ -2043,7 +2043,7 @@
     "_dstBlendFactor": 771,
     "_string": "",
     "_N$string": "",
-    "_fontSize": 20,
+    "_fontSize": 26,
     "_lineHeight": 26,
     "_enableWrapText": true,
     "_N$file": {
@@ -2176,7 +2176,7 @@
     "_dstBlendFactor": 771,
     "_string": "",
     "_N$string": "",
-    "_fontSize": 20,
+    "_fontSize": 30,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": {
@@ -3926,8 +3926,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 63,
-      "height": 29
+      "width": 70,
+      "height": 31
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3997,7 +3997,7 @@
       "__uuid__": "36f01df7-df37-4689-afd3-8f7da978273f"
     },
     "_type": 0,
-    "_sizeMode": 2,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -4050,8 +4050,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 34,
-      "height": 14
+      "width": 68,
+      "height": 50
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4069,8 +4069,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        0.5,
+        0.5,
         1
       ]
     },
@@ -4104,8 +4104,8 @@
     "_dstBlendFactor": 771,
     "_string": "1:2",
     "_N$string": "1:2",
-    "_fontSize": 24,
-    "_lineHeight": 14,
+    "_fontSize": 48,
+    "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "30018d00-207b-441b-bb83-ea6fe20b0da1"
@@ -4288,7 +4288,7 @@
     "_dstBlendFactor": 771,
     "_string": "",
     "_N$string": "",
-    "_fontSize": 20,
+    "_fontSize": 26,
     "_lineHeight": 26,
     "_enableWrapText": true,
     "_N$file": {
@@ -4421,7 +4421,7 @@
     "_dstBlendFactor": 771,
     "_string": "",
     "_N$string": "",
-    "_fontSize": 20,
+    "_fontSize": 30,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": {
@@ -6171,8 +6171,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 112,
-      "height": 29
+      "width": 139,
+      "height": 31
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6183,7 +6183,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -63.15300000000002,
+        -67.15300000000002,
         7,
         0,
         0,
@@ -6295,8 +6295,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 34,
-      "height": 14
+      "width": 68,
+      "height": 50
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6314,8 +6314,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        0.5,
+        0.5,
         1
       ]
     },
@@ -6349,8 +6349,8 @@
     "_dstBlendFactor": 771,
     "_string": "1:2",
     "_N$string": "1:2",
-    "_fontSize": 24,
-    "_lineHeight": 14,
+    "_fontSize": 48,
+    "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "30018d00-207b-441b-bb83-ea6fe20b0da1"
@@ -6533,7 +6533,7 @@
     "_dstBlendFactor": 771,
     "_string": "",
     "_N$string": "",
-    "_fontSize": 20,
+    "_fontSize": 26,
     "_lineHeight": 26,
     "_enableWrapText": true,
     "_N$file": {
@@ -6666,7 +6666,7 @@
     "_dstBlendFactor": 771,
     "_string": "",
     "_N$string": "",
-    "_fontSize": 20,
+    "_fontSize": 30,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": {
