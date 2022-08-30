@@ -1,4 +1,4 @@
-FROM registry.nexdev.net:5050/docker/nginx:brotli-1.20.2
+FROM registry.nexdev.net:5050/docker/nginx:1.19.5
 
 ## Add user permissions
 RUN chown -R nginx:nginx /usr/share/nginx && chmod -R 755 /usr/share/nginx && \

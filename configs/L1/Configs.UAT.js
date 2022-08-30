@@ -19,6 +19,7 @@ window.envConfig = {
         1: true,
         9: true,
         3: true,
-        7: true
+        7: true,
+        10: true
     }
 };

@@ -8,3 +8,4 @@ export const gameAnalytics: { [key: string]: string };
 export const guideDomain: string;
 export const enableMsgpackParserAllGames: boolean;
 export const enableMsgpackParserOnNotification: boolean;
+export const enableMsgpackParserOnGame: object;

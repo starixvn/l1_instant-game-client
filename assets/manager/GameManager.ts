@@ -1,5 +1,6 @@
 import MiniPanel from "../common/control/mini-panel/MiniPanel";
-import { GameIds } from "../configs/SabaConfigs";
+import configs = require("../configs/Configs");
+import { GAME_OFFER } from "./GamesOffer";
 
 const { ccclass, property } = cc._decorator;
 
@@ -30,7 +31,8 @@ export default class GameManager extends cc.Component {
     supportGames: number[] = [];
 
     onLoad() {
-        this.supportGames.push(...[GameIds.MiniSedie, GameIds.BigSmall, GameIds.DragonTiger, GameIds.FishPrawnCrab, GameIds.HiLo, GameIds.Baccarat]);
+        this.supportGames.push(...GAME_OFFER[configs.systemType]);
+
         GameManager.Instance = this;
         cc.game.on(cc.game.EVENT_HIDE, () => {
             this.GAME_IS_SHOWED = false;
