@@ -1681,8 +1681,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 142,
-      "height": 32
+      "width": 119,
+      "height": 26
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1693,7 +1693,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -128.15300000000002,
+        -130.15300000000002,
         3,
         0,
         0,
@@ -1749,7 +1749,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "22d26ce5-cb0d-4693-bcc4-cc3abb252ccd"
+      "__uuid__": "28705116-08d6-41a3-b40e-bbf73f5f17e7"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -3926,8 +3926,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 72,
-      "height": 32
+      "width": 53,
+      "height": 26
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3994,10 +3994,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "6402e3ff-109d-436c-bb13-54f98b179b81"
+      "__uuid__": "898cf1b0-1e11-4300-a36c-af77fddb62c2"
     },
     "_type": 0,
-    "_sizeMode": 2,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -6171,8 +6171,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 130,
-      "height": 32
+      "width": 127,
+      "height": 26
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6183,8 +6183,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -132,
-        4,
+        -130,
+        3,
         0,
         0,
         0,
@@ -6239,10 +6239,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "579d60b3-00ee-444b-89b3-af61bc63a5b7"
+      "__uuid__": "7c47466b-dc64-4f8f-8fb9-59e0d6bde309"
     },
     "_type": 0,
-    "_sizeMode": 2,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
