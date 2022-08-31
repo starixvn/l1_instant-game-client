@@ -53,4 +53,46 @@ export default class BaccaratCardsUI extends cc.Component {
                 break;
         }
     }
+
+    resetUI() {
+        this.playerCards.handleJoinGame();
+        this.bankerCards.handleJoinGame();
+        this.reserveCards.handleJoinGame();
+    }
+
+    resetCards() {
+        this.bankerCards.resetCards();
+        this.playerCards.resetCards();
+        this.reserveCards.resetCards();
+    }
+
+    async handleFlyCards() {
+        await this.playerCards.flyCard({
+            card: this.playerCards.cards[OrderCardIndex.card1],
+            delay: this.playerCards.durationFlyCard
+        });
+
+        await this.bankerCards.flyCard({
+            card: this.bankerCards.cards[OrderCardIndex.card1],
+            delay: this.playerCards.durationFlyCard
+        });
+
+        await this.playerCards.flyCard({
+            card: this.playerCards.cards[OrderCardIndex.card2],
+            delay: this.playerCards.durationFlyCard
+        });
+        await this.bankerCards.flyCard({
+            card: this.bankerCards.cards[OrderCardIndex.card2],
+            delay: this.bankerCards.durationFlyReserveCard
+        });
+
+        await this.playerCards.flyCard({
+            card: this.reserveCards.cards[OrderCardIndex.card1],
+            delay: this.bankerCards.durationFlyReserveCard
+        });
+        await this.bankerCards.flyCard({
+            card: this.reserveCards.cards[OrderCardIndex.card2],
+            delay: this.bankerCards.durationFlyReserveCard
+        });
+    }
 }

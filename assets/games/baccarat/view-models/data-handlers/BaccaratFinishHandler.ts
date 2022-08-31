@@ -8,19 +8,18 @@ import BaccaratLogsHandler from "./BaccaratLogsHandler";
 import { FinishResult, Result, Settlement } from "../../BaccaratType";
 
 export default class BaccaratFinishHandler extends GameBaseFinishHandler {
+    constructor(protected readonly main: Baccarat, protected readonly playResultAnimationTime = 0) {
+        super(main, playResultAnimationTime);
+    }
+
     handleFinishData(dataFinish: FinishResult, onFinishHandlingData: () => void = null) {
         super.handleFinishData(dataFinish, onFinishHandlingData);
 
-        const baccaratMain = this.getOwnMain();
         if (!dataFinish.result) {
             return;
         }
 
-        cc.GameManager.GAME_IS_SHOWED && this.showCards(dataFinish, baccaratMain, onFinishHandlingData);
-    }
-
-    protected getOwnMain(): Baccarat {
-        return this.main as Baccarat;
+        cc.GameManager.GAME_IS_SHOWED && this.showCards(dataFinish, this.main, onFinishHandlingData);
     }
 
     protected async showCards(dataFinish: FinishResult, baccaratMain: Baccarat, onFinishHandlingData: () => void) {
@@ -93,21 +92,20 @@ export default class BaccaratFinishHandler extends GameBaseFinishHandler {
     }
 
     showWinNotice(result: Settlement) {
-        const baccaratMain = this.getOwnMain();
-        const winNoticeNode = baccaratMain.cardsUI.winningText.node.parent;
+        const winNoticeNode = this.main.cardsUI.winningText.node.parent;
         let key = "";
 
         if (result.banker) {
             key = "banker_win";
-            baccaratMain.cardsUI.bankerCards.showHighlightCards();
+            this.main.cardsUI.bankerCards.showHighlightCards();
         } else if (result.player) {
             key = "player_win";
-            baccaratMain.cardsUI.playerCards.showHighlightCards();
+            this.main.cardsUI.playerCards.showHighlightCards();
         } else {
             key = "tie_win";
         }
 
-        baccaratMain.cardsUI.winningText.string = i18n.t(`ui.${key}`).toUpperCase();
+        this.main.cardsUI.winningText.string = i18n.t(`ui.${key}`).toUpperCase();
         winNoticeNode.active = true;
     }
 }

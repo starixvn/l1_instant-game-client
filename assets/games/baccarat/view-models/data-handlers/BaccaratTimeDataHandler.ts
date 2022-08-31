@@ -2,11 +2,14 @@ import Baccarat from "../Baccarat";
 import BaccaratLogsHandler from "./BaccaratLogsHandler";
 import BaccaratFinishHandler from "./BaccaratFinishHandler";
 import GameBaseTimeHandler from "../../../_base/handlers/GameBaseTimeHandler";
-import { OrderCardIndex } from "../../components/view-models/BaccaratCards";
 import { FinishResult } from "../../BaccaratType";
 
 export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
     protected dealCardsTime = 2;
+
+    constructor(protected readonly main: Baccarat) {
+        super(main);
+    }
 
     get isInWaitTime() {
         return this.main.currentTimeRemaining > this.main.config.betTime + this.dealCardsTime;
@@ -29,10 +32,6 @@ export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
             this.main.currentTimeRemaining >= this.main.config.betTime &&
             this.main.currentTimeRemaining < this.main.config.betTime + this.dealCardsTime
         );
-    }
-
-    protected getOwnMain(): Baccarat {
-        return this.main as Baccarat;
     }
 
     gameUpdate(): void {
@@ -74,40 +73,11 @@ export default class BaccaratTimeDataHandler extends GameBaseTimeHandler {
     }
 
     async handleFlyCards() {
-        const baccarat = this.getOwnMain();
-        const cardsUI = baccarat.cardsUI;
+        const cardsUI = this.main.cardsUI;
 
-        cardsUI.bankerCards.resetCards();
-        cardsUI.playerCards.resetCards();
-        cardsUI.reserveCards.resetCards();
         this.main.setGameRound(this.main.roundId);
-
-        await cardsUI.playerCards.flyCard({
-            card: cardsUI.playerCards.cards[OrderCardIndex.card1],
-            delay: cardsUI.playerCards.durationFlyCard
-        });
-        await cardsUI.bankerCards.flyCard({
-            card: cardsUI.bankerCards.cards[OrderCardIndex.card1],
-            delay: cardsUI.playerCards.durationFlyCard
-        });
-
-        await cardsUI.playerCards.flyCard({
-            card: cardsUI.playerCards.cards[OrderCardIndex.card2],
-            delay: cardsUI.playerCards.durationFlyCard
-        });
-        await cardsUI.bankerCards.flyCard({
-            card: cardsUI.bankerCards.cards[OrderCardIndex.card2],
-            delay: cardsUI.bankerCards.durationFlyReserveCard
-        });
-
-        await cardsUI.playerCards.flyCard({
-            card: cardsUI.reserveCards.cards[OrderCardIndex.card1],
-            delay: cardsUI.bankerCards.durationFlyReserveCard
-        });
-        await cardsUI.bankerCards.flyCard({
-            card: cardsUI.reserveCards.cards[OrderCardIndex.card2],
-            delay: cardsUI.bankerCards.durationFlyReserveCard
-        });
+        cardsUI.resetCards();
+        await cardsUI.handleFlyCards();
 
         if (this.main.currentDataLogs[0]) {
             const currentData = this.main.currentDataLogs[0];

@@ -3,12 +3,11 @@ import GameBaseLogsHandler from "../../../_base/handlers/GameBaseLogsHandler";
 import Baccarat from "../Baccarat";
 
 import BaccaratFinishHandler from "./BaccaratFinishHandler";
-import SocketIOMiniGameBase from "../../../_base/SocketIOMiniGameBase";
 import { FinishResult } from "../../BaccaratType";
 import BaccaratCardsUI from "../../components/view-models/BaccaratCardsUI";
 
 export default class BaccaratLogsHandler extends GameBaseLogsHandler {
-    constructor(protected readonly main: SocketIOMiniGameBase) {
+    constructor(protected readonly main: Baccarat) {
         super(main);
     }
 
@@ -16,11 +15,8 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
         super.handle(data);
 
         if (data.roundHistory) {
-            const cardUI = this.getOwnMain().cardsUI;
-            cardUI.playerCards.handleJoinGame();
-            cardUI.bankerCards.handleJoinGame();
-            cardUI.reserveCards.handleJoinGame();
-
+            const cardsUI = this.main.cardsUI;
+            cardsUI.resetUI();
             if (data.roundHistory[0]) {
                 const lastLog = data.roundHistory[0];
                 const settlementResult = this.getSettlementResult(lastLog);
@@ -29,10 +25,10 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
                     const playerCards = this.getLogDataFollowTypePlayer(false, lastLog);
                     const bankerCards = this.getLogDataFollowTypePlayer(true, lastLog);
 
-                    cardUI.playerCards.showCardsWithoutAnimation(playerCards);
-                    cardUI.bankerCards.showCardsWithoutAnimation(bankerCards);
+                    cardsUI.playerCards.showCardsWithoutAnimation(playerCards);
+                    cardsUI.bankerCards.showCardsWithoutAnimation(bankerCards);
 
-                    this.handleShowCardsJoinRoom(playerCards.length, bankerCards.length, cardUI);
+                    this.handleShowCardsJoinRoom(playerCards.length, bankerCards.length, cardsUI);
                     finishHandler.showWinNotice(settlementResult);
                 }
 
@@ -66,13 +62,8 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
         return Object.values(resultTmp.player).filter((value) => value != null);
     }
 
-    protected getOwnMain(): Baccarat {
-        return this.main as Baccarat;
-    }
-
     protected getOwnFinishHandle(): BaccaratFinishHandler {
-        const ownMain = this.getOwnMain();
-        return ownMain.finishHandler as BaccaratFinishHandler;
+        return this.main.finishHandler as BaccaratFinishHandler;
     }
 
     protected getSettlementResult(lastLog: FinishResult) {
@@ -80,6 +71,6 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
     }
 
     buildLogs() {
-        this.getOwnMain().updateRoundHistory();
+        this.main.updateRoundHistory();
     }
 }
