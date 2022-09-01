@@ -64,7 +64,7 @@ export class Promotions extends EventEmitter {
                             (currentPromotion) =>
                                 newPromotion._id === currentPromotion._id &&
                                 newPromotion.startDateTime === currentPromotion.startDateTime &&
-                                currentPromotion.endDateTime === currentPromotion.endDateTime
+                                newPromotion.endDateTime === currentPromotion.endDateTime
                         )
                 );
                 haveNewPromotion = filterNewPromotion.length > 0;
