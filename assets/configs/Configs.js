@@ -3,7 +3,7 @@ const defaultConfig = {
     ssl: true,
     serverDomainMapper: {
         "localhost": "lumigame.com",
-        "l1-mini1.lumigame.com": "lumigame.com"
+        "l1-mini3.lumigame.com": "lumigame.com"
     },
     subDomain: "l1-proxy3",
     env: "",

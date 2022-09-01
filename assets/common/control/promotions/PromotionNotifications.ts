@@ -1,12 +1,14 @@
-import NotificationService from "../../../manager/auth/NotificationService";
+import PromotionNotificationsHandler, { PromotionNotification, PromotionNotificationsEvent } from "./PromotionNotificationsHandler";
 
 const { ccclass, property } = cc._decorator;
 
-const PromotionNotificationsStorageKey = "PROMOTION_NOTIFICATIONS";
 @ccclass
 export default class PromotionNotifications extends cc.Component {
+    @property(cc.Node)
+    icon: cc.Node = null;
+
     @property(cc.Label)
-    count: cc.Label = null;
+    countNode: cc.Label = null;
 
     @property(cc.Prefab)
     announcementPrefab: cc.Prefab = null;
@@ -14,22 +16,22 @@ export default class PromotionNotifications extends cc.Component {
     @property(cc.Node)
     announcementContainer: cc.Node = null;
 
-    private readonly dataKey = "promotionNotifications";
-
-    onLoad(): void {
-        NotificationService.getInstance().addDataObserver(this.dataKey, this.dataKey, this.receivedData.bind(this));
+    start(): void {
+        PromotionNotificationsHandler.getInstance().on(PromotionNotificationsEvent.NEW_PROMOTION, (data) => {
+            this.showNotification(data);
+        });
     }
 
     onDestroy() {
-        NotificationService.getInstance().removeDataObserver(this.dataKey, this.dataKey);
+        PromotionNotificationsHandler.getInstance().removeAllListeners();
     }
 
-    receivedData(data) {
+    showNotification(data: PromotionNotification[]) {
+        this.icon.active = false;
+        console.log(data.length);
         if (data.length > 0) {
-            console.log("promotionNotifications", data);
-            cc.sys.localStorage.setItem(PromotionNotificationsStorageKey, JSON.stringify(data));
-            this.count.string = data.length.toString();
-            this.count.node.parent.active = true;
+            this.countNode.string = data.length.toString();
+            this.icon.active = true;
         }
     }
 

@@ -7,8 +7,9 @@ export default class CommonDialog extends BounceInEffect {
     @property({ override: true })
     time = 0.4;
 
-    onDidHide = () => {};
+    //onDidHide = () => {};
     onWillShow = () => {};
+    private readonly onDidHideActions = [];
 
     closeDialog(enableSound = true) {
         this.node.runAction(
@@ -27,5 +28,13 @@ export default class CommonDialog extends BounceInEffect {
     showDialog() {
         this.onWillShow();
         this.node.active = true;
+    }
+
+    addOnDidHide(action: () => void) {
+        this.onDidHideActions.push(action);
+    }
+
+    private onDidHide() {
+        this.onDidHideActions.forEach((action) => action());
     }
 }

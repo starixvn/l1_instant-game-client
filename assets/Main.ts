@@ -9,6 +9,7 @@ import GameManager from "./manager/GameManager";
 import GameCategoryList from "./common/control/category/GameCategoryList";
 import NotificationService from "./manager/auth/NotificationService";
 import { Promotions } from "./common/control/promotions/Promotions";
+import PromotionNotificationsHandler from "./common/control/promotions/PromotionNotificationsHandler";
 
 const { ccclass, property } = cc._decorator;
 
@@ -71,6 +72,7 @@ export default class Main extends cc.Component {
 
     initPromotions() {
         Promotions.getInstance().addDataObserver();
+        PromotionNotificationsHandler.getInstance().addDataObserver();
     }
     
     initLanguage() {
