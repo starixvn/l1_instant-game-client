@@ -39,12 +39,6 @@ export default class Notice extends cc.Component {
     public handleClose: () => void;
     private canNotClose = false;
 
-    onEnable() {
-        this.scheduleOnce(() => {
-            this.close();
-        }, this.duration);
-    }
-
     onDisable() {
         this.node.destroyAllChildren();
         this.node.destroy();
@@ -67,6 +61,7 @@ export default class Notice extends cc.Component {
     }
 
     private updateAutoClearDuration(duration: number) {
+        this.handleClearDuration();
         this.duration = duration;
     }
 
@@ -116,5 +111,11 @@ export default class Notice extends cc.Component {
         } else {
             this.buttonNode.active = false;
         }
+    }
+
+    private handleClearDuration() {
+        this.scheduleOnce(() => {
+            this.close();
+        }, this.duration);
     }
 }
