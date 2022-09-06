@@ -57,7 +57,6 @@ export default class BaccaratCards extends cc.Component {
     private readonly durationAnimFaceUp = 0.5;
     private readonly durationAwaitAnimFaceUp = 0.8;
     private readonly durationStackCard = 0.3;
-
     private readonly faceUpCardsTween: cc.Tween[] = [];
     private readonly cardsFlyTween: cc.Tween[] = [];
     private readonly cardsRunActionFly: cc.Node[] = [];
@@ -77,6 +76,7 @@ export default class BaccaratCards extends cc.Component {
         this.cardsRunActionFly.forEach((cardNode: cc.Node) => {
             cardNode.stopAllActions();
         });
+
         this.pointNode && this.pointNode.stopAllActions();
     }
 
@@ -88,22 +88,19 @@ export default class BaccaratCards extends cc.Component {
     }
 
     handleJoinGame() {
-        this.resetPoint();
         this.resetActions();
+        this.resetPoint();
         this.cards.forEach((card: cc.Node, index: number) => {
-            const cardComponent = card.getComponent(BaccaratCard);
             if (index < 2) {
                 card.opacity = 255;
             }
             if (index === 2) {
                 card.opacity = 0;
             }
-
+            this.resetComponentCard(card.getComponent(BaccaratCard));
+            card.rotation = 0;
             card.angle = 0;
             card.position = cc.v3(0);
-            cardComponent.faceDown();
-            cardComponent.resetHighlight();
-            cardComponent.setStatusInfoIndex(true);
         });
     }
 
@@ -216,15 +213,18 @@ export default class BaccaratCards extends cc.Component {
     }
 
     resetCard(card: cc.Node) {
-        const cardNode = card.getComponent(BaccaratCard);
-        if (cardNode) {
-            cardNode.faceDown();
-            cardNode.resetHighlight();
-            card.opacity = 0;
-            card.position = cc.v3(0);
-            card.angle = -135;
-            cardNode.animation.clear();
-        }
+        this.resetComponentCard(card.getComponent(BaccaratCard));
+        card.opacity = 0;
+        card.position = cc.v3(0);
+        card.angle = -135;
+    }
+
+    resetComponentCard(cardComponent: BaccaratCard) {
+        cardComponent.faceDown();
+        cardComponent.resetHighlight();
+        cardComponent.animation.clear();
+        cardComponent.setStatusInfoIndex(true);
+        cardComponent.stopAnimation();
     }
 
     faceUpCard(card: cc.Node, cardInfo: CardModel): Promise<void> {

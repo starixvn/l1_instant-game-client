@@ -129,4 +129,8 @@ export default class NewCard extends cc.Component {
         const state = this.animation.playAdditive(type);
         state.speed = state.duration / duration;
     }
+
+    stopAnimation() {
+        this.animation.stop();
+    }
 }
