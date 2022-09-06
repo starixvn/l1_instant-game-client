@@ -133,4 +133,11 @@ export default class NewCard extends cc.Component {
     stopAnimation() {
         this.animation.stop();
     }
+
+    resetCardNode() {
+        const cardContainer = this.animation.node.getChildByName("card");
+        cardContainer.position = cc.v3(0, 0, 0);
+        cardContainer.eulerAngles = cc.v3(0, 0, 0);
+        cardContainer.scaleX = 0.5;
+    }
 }

@@ -98,7 +98,6 @@ export default class BaccaratCards extends cc.Component {
                 card.opacity = 0;
             }
             this.resetComponentCard(card.getComponent(BaccaratCard));
-            card.rotation = 0;
             card.angle = 0;
             card.position = cc.v3(0);
         });
@@ -225,6 +224,7 @@ export default class BaccaratCards extends cc.Component {
         cardComponent.animation.clear();
         cardComponent.setStatusInfoIndex(true);
         cardComponent.stopAnimation();
+        cardComponent.resetCardNode();
     }
 
     faceUpCard(card: cc.Node, cardInfo: CardModel): Promise<void> {

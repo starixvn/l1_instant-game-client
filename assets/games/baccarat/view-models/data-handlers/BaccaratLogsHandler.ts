@@ -30,6 +30,7 @@ export default class BaccaratLogsHandler extends GameBaseLogsHandler {
 
                     this.handleShowCardsJoinRoom(playerCards.length, bankerCards.length, cardsUI);
                     finishHandler.showWinNotice(settlementResult);
+                    this.main.finishShowResult = true;
                 }
 
                 if (this.main.currentTimeRemaining > this.main.config.stopBetTime) {
