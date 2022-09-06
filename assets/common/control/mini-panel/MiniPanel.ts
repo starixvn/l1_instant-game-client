@@ -267,6 +267,7 @@ export default class MiniPanel extends BaseComponent {
             return;
         }
         this.removeAllDialogs();
+        this.currentGame = null;
         this.showLostConnection(
             {
                 title: gameName,

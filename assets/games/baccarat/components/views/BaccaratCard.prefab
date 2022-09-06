@@ -1065,8 +1065,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 15.75,
-      "height": 24
+      "width": 18,
+      "height": 30
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1078,7 +1078,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -7,
+        1,
         0,
         0,
         0,
@@ -1120,10 +1120,10 @@
     "_string": "3",
     "_N$string": "3",
     "_fontSize": 28,
-    "_lineHeight": 24,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "30018d00-207b-441b-bb83-ea6fe20b0da1"
+      "__uuid__": "5dbdd3ad-0a40-49b1-af57-794ff0644e36"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,

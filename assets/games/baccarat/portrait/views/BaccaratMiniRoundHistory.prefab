@@ -2027,7 +2027,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 193.285,
+      "width": 193.28,
       "height": 50
     },
     "_anchorPoint": {
@@ -2101,7 +2101,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 183.285,
+      "width": 183.28,
       "height": 50
     },
     "_anchorPoint": {
@@ -2113,7 +2113,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -3.665700000000001,
+        -3.6655999999999977,
         -31.428,
         0,
         0,
@@ -2165,8 +2165,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 177.43,
-      "height": 35
+      "width": 88.71,
+      "height": 20
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2177,15 +2177,15 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -87.9768,
+        -87.9744,
         22,
         0,
         0,
         0,
         0,
         1,
-        0.5,
-        0.5,
+        1,
+        1,
         0.5
       ]
     },
@@ -2219,11 +2219,11 @@
     "_dstBlendFactor": 771,
     "_string": "Nhà con: 8",
     "_N$string": "Nhà con: 8",
-    "_fontSize": 36,
-    "_lineHeight": 35,
+    "_fontSize": 18,
+    "_lineHeight": 20,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "5dbdd3ad-0a40-49b1-af57-794ff0644e36"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -2275,8 +2275,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 14.14,
-      "height": 35
+      "width": 7.07,
+      "height": 20
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2287,15 +2287,15 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        1.7382000000000062,
+        1.735599999999991,
         22,
         0,
         0,
         0,
         0,
         1,
-        0.5,
-        0.5,
+        1,
+        1,
         0.5
       ]
     },
@@ -2329,11 +2329,11 @@
     "_dstBlendFactor": 771,
     "_string": "-",
     "_N$string": "-",
-    "_fontSize": 36,
-    "_lineHeight": 35,
+    "_fontSize": 18,
+    "_lineHeight": 20,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "5dbdd3ad-0a40-49b1-af57-794ff0644e36"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -2385,8 +2385,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 171,
-      "height": 35
+      "width": 85.5,
+      "height": 20
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2397,15 +2397,15 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        9.808200000000006,
+        9.805599999999991,
         22,
         0,
         0,
         0,
         0,
         1,
-        0.5,
-        0.5,
+        1,
+        1,
         0.5
       ]
     },
@@ -2439,11 +2439,11 @@
     "_dstBlendFactor": 771,
     "_string": "Nhà Cái: 9",
     "_N$string": "Nhà Cái: 9",
-    "_fontSize": 36,
-    "_lineHeight": 35,
+    "_fontSize": 18,
+    "_lineHeight": 20,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "5dbdd3ad-0a40-49b1-af57-794ff0644e36"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -2478,7 +2478,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 183.285,
+      "width": 183.28,
       "height": 50
     },
     "_resize": 1,
@@ -2555,7 +2555,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 193.285,
+      "width": 193.28,
       "height": 50
     },
     "_resize": 1,
@@ -2700,7 +2700,7 @@
     "_lineHeight": 36,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "5dbdd3ad-0a40-49b1-af57-794ff0644e36"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
