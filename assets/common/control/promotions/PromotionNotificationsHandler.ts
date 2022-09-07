@@ -19,6 +19,7 @@ export class PromotionNotification {
     endTime: string;
     startTime: string;
 }
+
 const PromotionNotificationsStorageKey = "PROMOTION_NOTIFICATIONS";
 export default class PromotionNotificationsHandler extends EventEmitter {
     constructor() {
@@ -29,6 +30,8 @@ export default class PromotionNotificationsHandler extends EventEmitter {
     private static instance: PromotionNotificationsHandler;
 
     private readonly dataKey = "promotionNotifications";
+
+    private readonly supportNotificationPromotion = ["minisedie", "taixiu"];
 
     public static getInstance(): PromotionNotificationsHandler {
         if (!this.instance) {
@@ -46,7 +49,10 @@ export default class PromotionNotificationsHandler extends EventEmitter {
     }
 
     receivedData(data: PromotionNotification[]) {
-        cc.sys.localStorage.setItem(PromotionNotificationsStorageKey, JSON.stringify(data));
-        this.emit(PromotionNotificationsEvent.NEW_PROMOTION, data);
+        const newPromotionNotification = data.filter((promotionNotification) =>
+            this.supportNotificationPromotion.includes(promotionNotification.gameName)
+        );
+        cc.sys.localStorage.setItem(PromotionNotificationsStorageKey, JSON.stringify(newPromotionNotification));
+        this.emit(PromotionNotificationsEvent.NEW_PROMOTION, newPromotionNotification);
     }
 }

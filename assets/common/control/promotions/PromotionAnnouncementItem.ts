@@ -1,12 +1,10 @@
-import GameUtils from "../../utils/GameUtils";
 import NoticeUtil from "../../utils/NoticeUtil";
 import MiniPanel from "../mini-panel/MiniPanel";
 const { ccclass, property } = cc._decorator;
 
 export const PromotionAnnouncementItemEvent = {
-    CLOSE_PROMOTIONS: "CLOSE_PROMOTIONS"
+    JOIN_GAME: "JOIN_GAME"
 };
-export const JoinGameByGameId = "JOIN_GAME_BY_GAME_ID";
 
 @ccclass
 export default class PromotionAnnouncementItem extends cc.Component {
@@ -25,22 +23,18 @@ export default class PromotionAnnouncementItem extends cc.Component {
     // @property(cc.Node)
     // content: cc.Node = null;
 
-    public miniPanel: MiniPanel;
-
     public setData(data: any) {
         this.title.string = NoticeUtil.getMessageByLocale(data.title);
         //this.title.node.getComponent(cc.LabelShadow).enabled = true;
         this.message.string = NoticeUtil.getMessageByLocale(data.messages);
-        //this.joinButton.interactable = data.isActive;
+        this.joinButton.interactable = data.isActive;
         //this.bgDisable.active = data.isActive ? false : true;
         //const text = this.joinButton.node.getChildByName("text");
         // text.color = data.isActive ? cc.color(209, 42, 33) : cc.color(83, 78, 78);
-        //this.joinButton.node.on("click", this.onClickJoinGame.bind(this, data.gameId));
+        this.joinButton.node.on("click", this.onClickJoinGame.bind(this, data.gameId));
     }
 
-    // onClickJoinGame(gameId) {
-    //     GameUtils.openGame(gameId, this.miniPanel);
-    //     cc.sys.localStorage.setItem(JoinGameByGameId, gameId);
-    //     this.node.emit(PromotionAnnouncementItemEvent.CLOSE_PROMOTIONS);
-    // }
+    onClickJoinGame(gameId: number) {
+        this.node.emit(PromotionAnnouncementItemEvent.JOIN_GAME, gameId);
+    }
 }

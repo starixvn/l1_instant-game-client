@@ -43,7 +43,7 @@ export default class Main extends cc.Component {
                 };
             })
         );
-        console.log("autoGenerateUserName", window?.authData);
+
         this.category.itemClickCallback = (itemId) => {
             if (itemId !== this.currentGameId) {
                 this.onGameChanged(itemId);
@@ -60,8 +60,12 @@ export default class Main extends cc.Component {
             selecAndOpenGame: (gameId) => {
                 this.updateSelectedHeader(gameId);
                 this.openGame(gameId);
+            },
+            joinGameCallback: (gameId) => {
+                this.handleJoinGame(gameId);
             }
         };
+
         GameManager.Instance.miniPanel = this.miniPanel;
         this.splash.active = true;
         this.checkSSO();
@@ -70,11 +74,23 @@ export default class Main extends cc.Component {
         this.initPromotions();
     }
 
+    onDestroy() {
+        PromotionNotificationsHandler.getInstance().removeDataObserver();
+        Promotions.getInstance().removeDataObserver();
+    }
     initPromotions() {
         Promotions.getInstance().addDataObserver();
         PromotionNotificationsHandler.getInstance().addDataObserver();
     }
-    
+
+    handleJoinGame(gameId: number) {
+        if (gameId !== this.currentGameId) {
+            this.onGameChanged(gameId);
+            this.currentGameId = gameId;
+            this.updateSelectedHeader(gameId);
+        }
+    }
+
     initLanguage() {
         let language = getCacheLanguage();
         const urlParams = new URLSearchParams(window.location.search);

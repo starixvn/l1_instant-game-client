@@ -28,7 +28,6 @@ export default class PromotionNotifications extends cc.Component {
 
     showNotification(data: PromotionNotification[]) {
         this.icon.active = false;
-        console.log(data.length);
         if (data.length > 0) {
             this.countNode.string = data.length.toString();
             this.icon.active = true;

@@ -2,9 +2,13 @@ import CommonDialog from "../CommonDialog";
 import MiniPanel from "../mini-panel/MiniPanel";
 import PromotionAnnouncementItem, { PromotionAnnouncementItemEvent } from "./PromotionAnnouncementItem";
 import PromotionNotificationsHandler, { PromotionNotificationsEvent } from "./PromotionNotificationsHandler";
+import { Promotions, PromotionsEvent } from "./Promotions";
 
 const { ccclass, property } = cc._decorator;
 
+export const PromotionAnnouncementEvent = {
+    OPEN_GAME: "OPEN_GAME"
+};
 @ccclass
 export default class PromotionAnnouncements extends cc.Component {
     @property(cc.Node)
@@ -34,7 +38,6 @@ export default class PromotionAnnouncements extends cc.Component {
     // @property(cc.Label)
     // text: cc.Label = null;
 
-    public miniPanel: MiniPanel;
     public announcementItems: cc.Node[] = [];
 
     onPromotionClick() {
@@ -57,7 +60,6 @@ export default class PromotionAnnouncements extends cc.Component {
     onLoad(): void {
         PromotionNotificationsHandler.getInstance().on(PromotionNotificationsEvent.NEW_PROMOTION, this.setData.bind(this));
         this.dialog.addOnDidHide(() => this.node.destroy());
-
         this.setData();
     }
 
@@ -67,7 +69,6 @@ export default class PromotionAnnouncements extends cc.Component {
 
     public setData() {
         const promotion = JSON.parse(cc.sys.localStorage.getItem("PROMOTION_NOTIFICATIONS"));
-
         if (promotion.length < 1) {
             this.dialog.closeDialog();
         } else {
@@ -79,10 +80,15 @@ export default class PromotionAnnouncements extends cc.Component {
                 const node = cc.instantiate(this.promoItemPrefab);
                 this.content.addChild(node);
                 const item = node.getComponent(PromotionAnnouncementItem);
-                item.node.on(PromotionAnnouncementItemEvent.CLOSE_PROMOTIONS, () => this.dialog.closeDialog());
+                item.node.on(PromotionAnnouncementItemEvent.JOIN_GAME, (gameId) => this.handleClosePromotion(gameId));
                 item.setData(detail);
                 this.announcementItems.push(node);
             });
         }
+    }
+
+    handleClosePromotion(gameId) {
+        Promotions.getInstance().emit(PromotionsEvent.OPEN_GAME, gameId);
+        this.dialog.closeDialog();
     }
 }

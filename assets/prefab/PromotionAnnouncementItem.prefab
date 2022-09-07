@@ -341,8 +341,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        264,
-        -11,
+        134,
+        -9,
         0,
         0,
         0,
@@ -495,8 +495,6 @@
     "joinButton": {
       "__id__": 10
     },
-    "bgDisable": null,
-    "content": null,
     "_id": ""
   },
   {

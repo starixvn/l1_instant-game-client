@@ -11,7 +11,7 @@ import Loading from "../Loading";
 import Notice, { NoticeData } from "../notice/Notice";
 import MiniPanelDataHandlers from "./MiniPanelDataHandlers";
 import MiniPanelMiniGameInitializers from "./MiniPanelMiniGameInitializers";
-import PromotionAnnouncements from "../promotions/PromotionAnnouncements";
+import PromotionAnnouncements, { PromotionAnnouncementEvent } from "../promotions/PromotionAnnouncements";
 import BoostedOdds, { BoostedOddsEvent } from "../promotions/BoostedOdds";
 import { Promotions, PromotionsEvent } from "../promotions/Promotions";
 
@@ -56,7 +56,9 @@ export default class MiniPanel extends BaseComponent {
         showNoticeNotPermitToPlay: () => void;
         updateOfferGameHeaders: () => void;
         selecAndOpenGame: (gameId: number) => void;
+        joinGameCallback: (gameId: number) => void;
     };
+
     public promotions: BoostedOdds;
     public promotionAnnouncement: PromotionAnnouncements;
 
@@ -127,15 +129,15 @@ export default class MiniPanel extends BaseComponent {
         this.promotions = promotionsNode.getComponent(BoostedOdds);
         promotionsNode.on(BoostedOddsEvent.SHOW_PROMOTION_ANNOUNCEMENT, this.showAnnouncement.bind(this));
         Promotions.getInstance().on(PromotionsEvent.SHOW_BOOSTED_ODDS, () => this.promotions?.handleBoostedOdds());
+        Promotions.getInstance().on(PromotionsEvent.OPEN_GAME, (gameId) => {
+            this.mainCallback.joinGameCallback(gameId);
+        });
         this.dialog.addChild(promotionsNode);
     }
 
     showAnnouncement() {
         const node = cc.instantiate(this.announcementPrefab);
         this.promotionAnnouncement = node.getComponent(PromotionAnnouncements);
-        if (this.promotionAnnouncement) {
-            this.promotionAnnouncement.miniPanel = this;
-        }
         this.announcementContainer.addChild(node);
     }
 

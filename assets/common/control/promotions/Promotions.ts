@@ -1,8 +1,10 @@
 import NotificationService from "../../../manager/auth/NotificationService";
 import { EventEmitter } from "events";
+import { GameIds } from "../../../configs/SabaConfigs";
 
 export const PromotionsEvent = {
-    SHOW_BOOSTED_ODDS: "SHOW_BOOSTED_ODDS"
+    SHOW_BOOSTED_ODDS: "SHOW_BOOSTED_ODDS",
+    OPEN_GAME: "OPEN_GAME"
 };
 
 export class Promotion {
@@ -36,6 +38,7 @@ export class Promotions extends EventEmitter {
     private readonly minutesToMillisecond = 60 * 1000;
     private readonly delayTime = 1 * this.minutesToMillisecond;
     protected promotions: Promotion[] = [promotion];
+    private readonly supportPromotion = [GameIds.BigSmall, GameIds.MiniSedie];
 
     public static getInstance(): Promotions {
         if (!this.instance) {
@@ -55,8 +58,9 @@ export class Promotions extends EventEmitter {
     }
 
     receivedData(data) {
-        if (data.length > 0) {
-            let haveNewPromotion = data.length > this.promotions.length;
+        const newPromotion = data.filter((promotion) => this.supportPromotion.includes(promotion.gameId));
+        if (newPromotion.length > 0) {
+            let haveNewPromotion = newPromotion.length > this.promotions.length;
             if (!haveNewPromotion) {
                 const filterNewPromotion = data.filter(
                     (newPromotion) =>
@@ -75,7 +79,7 @@ export class Promotions extends EventEmitter {
 
             this.isShowBoostedOdds = false;
 
-            this.promotions = data;
+            this.promotions = newPromotion;
         }
     }
 
