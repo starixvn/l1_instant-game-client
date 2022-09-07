@@ -2465,8 +2465,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 35.71,
-      "height": 40
+      "width": 108.83,
+      "height": 75.6
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2484,8 +2484,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        0.5,
+        0.5,
         1
       ]
     },
@@ -2517,13 +2517,13 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "",
-    "_N$string": "",
-    "_fontSize": 20,
-    "_lineHeight": 25,
+    "_string": "HÒA!",
+    "_N$string": "HÒA!",
+    "_fontSize": 40,
+    "_lineHeight": 60,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "5dbdd3ad-0a40-49b1-af57-794ff0644e36"
+      "__uuid__": "80bd500f-2fe2-4b96-a6ab-762b6f3d291d"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,

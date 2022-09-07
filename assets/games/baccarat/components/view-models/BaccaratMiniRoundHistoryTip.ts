@@ -37,8 +37,8 @@ export default class BaccaratMiniRoundHistoryTip extends MiniRoundHistoryTip {
             item && (totalBanker += this.setValueCard(item.card + 1));
         });
 
-        const playerText = GameUtils.getBetChoiceString("player");
-        const bankerText = GameUtils.getBetChoiceString("banker");
+        const playerText = GameUtils.getBetChoiceString("player").toUpperCase();
+        const bankerText = GameUtils.getBetChoiceString("banker").toUpperCase();
         this.player.string = `${playerText}: ${this.setPoint(totalPlayer)}`;
         this.banker.string = `${bankerText}: ${this.setPoint(totalBanker)}`;
     }

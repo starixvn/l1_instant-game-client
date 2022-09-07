@@ -3902,8 +3902,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 195,
-      "height": 50
+      "width": 210,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3915,7 +3915,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        0,
+        4,
         0,
         0,
         0,
@@ -3979,7 +3979,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        5.986,
+        8.986,
         0,
         0,
         0,
@@ -4086,7 +4086,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 180.71,
+      "width": 200.57,
       "height": 50
     },
     "_anchorPoint": {
@@ -4098,7 +4098,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -3.434,
+        -3.5,
         -33.428,
         0,
         0,
@@ -4150,8 +4150,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 88.71,
-      "height": 28
+      "width": 100.93,
+      "height": 25
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4162,8 +4162,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -86.74080000000001,
-        25,
+        -96.27359999999999,
+        24,
         0,
         0,
         0,
@@ -4202,10 +4202,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Nhà con: 8",
-    "_N$string": "Nhà con: 8",
+    "_string": "NHÀ CON: 8",
+    "_N$string": "NHÀ CON: 8",
     "_fontSize": 18,
-    "_lineHeight": 28,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "5dbdd3ad-0a40-49b1-af57-794ff0644e36"
@@ -4272,8 +4272,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        2.9691999999999865,
-        25,
+        4.656400000000019,
+        24,
         0,
         0,
         0,
@@ -4370,8 +4370,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 82.93,
-      "height": 28
+      "width": 92.57,
+      "height": 25
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4382,8 +4382,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        11.039199999999987,
-        25,
+        11.72640000000002,
+        24,
         0,
         0,
         0,
@@ -4422,10 +4422,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Nhà cái: 9",
-    "_N$string": "Nhà cái: 9",
+    "_string": "NHÀ CÁI: 9",
+    "_N$string": "NHÀ CÁI: 9",
     "_fontSize": 18,
-    "_lineHeight": 28,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "5dbdd3ad-0a40-49b1-af57-794ff0644e36"
@@ -4463,7 +4463,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 180.71,
+      "width": 200.57,
       "height": 50
     },
     "_resize": 1,
@@ -4478,7 +4478,7 @@
     "_N$paddingRight": 0,
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
-    "_N$spacingX": 1,
+    "_N$spacingX": 0,
     "_N$spacingY": 0,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
