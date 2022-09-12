@@ -26,10 +26,6 @@ export default class MiniPanelDataHandlers {
             this.main.onForceReload();
         }
 
-        if (data.toGame) {
-            this.main.loadGameRoom(data.toGame);
-        }
-
         if (data.notice) {
             this.handleNoticeData(data.notice);
         }
