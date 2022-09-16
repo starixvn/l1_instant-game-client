@@ -6,6 +6,6 @@ include:
       ref: master
       file: "gitlab-ci.yml"
 
-    - project: "ci/repos-ci/pentagon_l2_vg2_instant_game_client"
-      ref: update_build_cocos_web
+    - project: "ci/repos-ci/pentagon_l2_instant_game_client"
+      ref: master
       file: "gitlab-ci-mixing.yml"
