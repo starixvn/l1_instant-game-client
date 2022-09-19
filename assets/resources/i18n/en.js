@@ -326,7 +326,10 @@ window.i18n.languages.en = {
         uncheck: "Uncheck",
         undo: "Undo",
         win: "Win",
-        you_win: "YOU WIN"
+        you_win: "YOU WIN",
+        promotions: "Promotions",
+        terms: "Terms and\n Conditions",
+        joinGame: "Join Game"
     },
     hiLo: {
         collect: "Collect",
@@ -339,5 +342,10 @@ window.i18n.languages.en = {
         endRound: "End Round",
         high: "High",
         low: "Low"
-    }
+    },
+    termsPromotion: {
+        first: "- All new and existing punters are eligible to join the promotions and take the chance to win bigger prizes.",
+        second: "- The winning amount is paid according to the promotion rules and payouts.",
+        third: "- Promotion is applied for a certain period ruled by the House. When the promotion expires, the game rules and payouts ratio will be back to normal."
+    },
 };

@@ -45,6 +45,9 @@ export default class MiniPanel extends BaseComponent {
     @property(cc.Prefab)
     promotionIconPrefab: cc.Prefab = null;
 
+    @property(cc.Node)
+    promotionIconContainer: cc.Node = null;
+
     public dataHandlers: MiniPanelDataHandlers;
     public currentGameRoomId: number;
     public skipShowApiErrorGameIds: number[] = [];
@@ -132,7 +135,7 @@ export default class MiniPanel extends BaseComponent {
         Promotions.getInstance().on(PromotionsEvent.OPEN_GAME, (gameId) => {
             this.mainCallback.joinGameCallback(gameId);
         });
-        this.dialog.addChild(promotionsNode);
+        this.promotionIconContainer.addChild(promotionsNode);
     }
 
     showAnnouncement() {

@@ -31,6 +31,10 @@ export default class PromotionNotificationsHandler extends EventEmitter {
 
     private readonly dataKey = "promotionNotifications";
 
+    public _reloadAnnouncementPopup = false;
+
+    public _promotionNotifications: PromotionNotification[];
+
     private readonly supportNotificationPromotion = ["minisedie", "taixiu"];
 
     public static getInstance(): PromotionNotificationsHandler {
@@ -38,6 +42,14 @@ export default class PromotionNotificationsHandler extends EventEmitter {
             this.instance = new PromotionNotificationsHandler();
         }
         return this.instance;
+    }
+
+    get reloadAnnouncementPopup() {
+        return this._reloadAnnouncementPopup;
+    }
+
+    get promotionNotifications() {
+        return this._promotionNotifications;
     }
 
     addDataObserver() {
@@ -52,6 +64,10 @@ export default class PromotionNotificationsHandler extends EventEmitter {
         const newPromotionNotification = data.filter((promotionNotification) =>
             this.supportNotificationPromotion.includes(promotionNotification.gameName)
         );
+        if (JSON.stringify(this._promotionNotifications) === JSON.stringify(data)) {
+            this._reloadAnnouncementPopup = false;
+        } else this._reloadAnnouncementPopup = true;
+        this._promotionNotifications = data;
         cc.sys.localStorage.setItem(PromotionNotificationsStorageKey, JSON.stringify(newPromotionNotification));
         this.emit(PromotionNotificationsEvent.NEW_PROMOTION, newPromotionNotification);
     }

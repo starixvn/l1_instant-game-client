@@ -33,10 +33,7 @@ export default class PromotionAnnouncements extends cc.Component {
     promoHeader: cc.Label = null;
 
     @property(cc.Label)
-    termHeader: cc.Label = null;
-
-    // @property(cc.Label)
-    // text: cc.Label = null;
+    termHeader: cc.Label = null;    
 
     public announcementItems: cc.Node[] = [];
 
@@ -53,8 +50,8 @@ export default class PromotionAnnouncements extends cc.Component {
         this.promoHeader.node.color = enabled ? cc.color(254, 246, 0) : cc.Color.WHITE;
         this.promotionBoard.active = enabled;
         this.termConditionBoard.active = !enabled;
-        //this.promoHeader.node.getComponent(cc.LabelShadow).enabled = enabled;
-        //this.termHeader.node.getComponent(cc.LabelShadow).enabled = !enabled;
+        this.promoHeader.node.getComponent(cc.LabelShadow).enabled = enabled;
+        this.termHeader.node.getComponent(cc.LabelShadow).enabled = !enabled;
     }
 
     onLoad(): void {
@@ -69,9 +66,12 @@ export default class PromotionAnnouncements extends cc.Component {
 
     public setData() {
         const promotion = JSON.parse(cc.sys.localStorage.getItem("PROMOTION_NOTIFICATIONS"));
+        const isRenderItem = PromotionNotificationsHandler.getInstance()._reloadAnnouncementPopup;
         if (promotion.length < 1) {
             this.dialog.closeDialog();
-        } else {
+            return;
+        }
+        if (isRenderItem || this.announcementItems.length < 1) {
             this.announcementItems?.forEach((item) => item.destroy());
             this.announcementItems = [];
             this.count.string = promotion.length.toString();
