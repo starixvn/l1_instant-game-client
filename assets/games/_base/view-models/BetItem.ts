@@ -31,6 +31,17 @@ export default class BetItem extends cc.Component {
     @property(cc.Node)
     normalBorder: cc.Node = null;
 
+    @property
+    enabledHighlightOdds = false;
+
+    @property({
+        type: cc.Node,
+        visible: function () {
+            return this.enabledHighlightOdds;
+        }
+    })
+    highlightOddsBackground: cc.Node = null;
+
     public betCallback = (e) => {};
 
     private _ownBetValue: number;
@@ -80,9 +91,11 @@ export default class BetItem extends cc.Component {
     }
 
     public highLightOdds(boostedChoice) {
-        if (boostedChoice) {
-            this.odds.node.color = cc.Color.CYAN;
-        } else this.odds.node.color = cc.Color.WHITE;
+        const color = cc.Color.WHITE;
+        if (boostedChoice && this.enabledHighlightOdds) {
+            this.odds.node.color = color.fromHEX("#FA3A35");
+            this.highlightOddsBackground.active = true;
+        } else this.odds.node.color = color;
     }
 
     public clearChips() {
