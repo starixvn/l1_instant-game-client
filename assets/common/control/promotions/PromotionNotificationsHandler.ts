@@ -8,7 +8,7 @@ export const PromotionNotificationsEvent = {
 export class PromotionNotification {
     displayKind: number;
     enabled: boolean;
-    gameId?: number;
+    gameId: number;
     gameName: string;
     _id: string;
     isActive: boolean;
@@ -19,8 +19,6 @@ export class PromotionNotification {
     endTime: string;
     startTime: string;
 }
-
-const PromotionNotificationsStorageKey = "PROMOTION_NOTIFICATIONS";
 export default class PromotionNotificationsHandler extends EventEmitter {
     constructor() {
         super();
@@ -41,6 +39,7 @@ export default class PromotionNotificationsHandler extends EventEmitter {
         if (!this.instance) {
             this.instance = new PromotionNotificationsHandler();
         }
+
         return this.instance;
     }
 
@@ -61,14 +60,18 @@ export default class PromotionNotificationsHandler extends EventEmitter {
     }
 
     receivedData(data: PromotionNotification[]) {
-        const newPromotionNotification = data.filter((promotionNotification) =>
-            this.supportNotificationPromotion.includes(promotionNotification.gameName)
+        const offerGames = [...cc.GameManager.user.offerGames];
+        const newPromotionNotification = data.filter(
+            (promotionNotification) =>
+                this.supportNotificationPromotion.includes(promotionNotification.gameName) &&
+                offerGames?.includes(promotionNotification.gameId)
         );
-        if (JSON.stringify(this._promotionNotifications) === JSON.stringify(data)) {
+        if (JSON.stringify(this._promotionNotifications) === JSON.stringify(newPromotionNotification)) {
             this._reloadAnnouncementPopup = false;
-        } else this._reloadAnnouncementPopup = true;
-        this._promotionNotifications = data;
-        cc.sys.localStorage.setItem(PromotionNotificationsStorageKey, JSON.stringify(newPromotionNotification));
+        } else {
+            this._reloadAnnouncementPopup = true;
+        }
+        this._promotionNotifications = newPromotionNotification;
         this.emit(PromotionNotificationsEvent.NEW_PROMOTION, newPromotionNotification);
     }
 }

@@ -94,8 +94,15 @@ export default class BetItem extends cc.Component {
         const color = cc.Color.WHITE;
         if (boostedChoice && this.enabledHighlightOdds) {
             this.odds.node.color = color.fromHEX("#FA3A35");
-            this.highlightOddsBackground.active = true;
-        } else this.odds.node.color = color;
+            this.enableHighLightOddsBackground(true);
+        } else {
+            this.odds.node.color = color;
+            this.enabledHighlightOdds && this.enableHighLightOddsBackground(false);
+        }
+    }
+
+    private enableHighLightOddsBackground(enabled = false) {
+        this.highlightOddsBackground.active = enabled;
     }
 
     public clearChips() {

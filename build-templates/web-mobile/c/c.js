@@ -16,7 +16,8 @@ window.envConfig = {
         secretKey: "f41dc948ed66a029406413327a68b6ae27fe4e6c"
     },
     guideDomain: "https://l1-guide-1.lumigame.com",
-    enableMsgpackParserOnGame: {}
+    enableMsgpackParserOnGame: {},
+    enableMsgpackParserOnNotification: false
 };
 
 console.error("Wrong mapping config, please check your deployment");

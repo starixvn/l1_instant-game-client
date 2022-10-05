@@ -2737,7 +2737,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 10.01,
+      "width": 0,
       "height": 22.68
     },
     "_anchorPoint": {
@@ -2789,8 +2789,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "4",
-    "_N$string": "4",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 18,
     "_lineHeight": 18,
     "_enableWrapText": true,

@@ -54,11 +54,13 @@ export class Promotions extends EventEmitter {
 
     removeDataObserver() {
         NotificationService.getInstance().removeDataObserver(this.dataKey, this.dataKey);
-        this.timeout && clearInterval(this.timeout);
     }
 
     receivedData(data) {
-        const newPromotion = data.filter((promotion) => this.supportPromotion.includes(promotion.gameId));
+        const offerGames = [...cc.GameManager.user.offerGames];
+        const newPromotion = data.filter(
+            (promotion) => this.supportPromotion.includes(promotion.gameId) && offerGames?.includes(promotion.gameId)
+        );
         if (newPromotion.length > 0) {
             let haveNewPromotion = newPromotion.length > this.promotions.length;
             if (!haveNewPromotion) {
@@ -90,7 +92,7 @@ export class Promotions extends EventEmitter {
     }
 
     setTimeoutShowBoostedOdds(): void {
-        this.timeout && clearInterval(this.timeout);
+        this.timeout && clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
             this.isShowBoostedOdds = true;
         }, this.delayTime);

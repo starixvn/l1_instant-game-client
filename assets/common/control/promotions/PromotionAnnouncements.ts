@@ -65,13 +65,13 @@ export default class PromotionAnnouncements extends cc.Component {
     }
 
     public setData() {
-        const promotion = JSON.parse(cc.sys.localStorage.getItem("PROMOTION_NOTIFICATIONS"));
+        const promotion = PromotionNotificationsHandler.getInstance()._promotionNotifications;
         const isRenderItem = PromotionNotificationsHandler.getInstance()._reloadAnnouncementPopup;
         if (promotion.length < 1) {
             this.dialog.closeDialog();
             return;
         }
-        if (isRenderItem || this.announcementItems.length < 1) {
+        if (isRenderItem || this.announcementItems?.length < 1) {
             this.announcementItems?.forEach((item) => item.destroy());
             this.announcementItems = [];
             this.count.string = promotion.length.toString();
