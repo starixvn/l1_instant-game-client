@@ -69,9 +69,6 @@ export default class Main extends cc.Component {
         GameManager.Instance.miniPanel = this.miniPanel;
         this.splash.active = true;
         this.checkSSO();
-        NotificationService.getInstance().connect();
-        NotificationService.getInstance().emitEvent("promotionNotifications", {});
-        this.initPromotions();
     }
 
     onDestroy() {
@@ -113,6 +110,9 @@ export default class Main extends cc.Component {
             }, 60 * 1000);
 
             this.signIn();
+            NotificationService.getInstance().connect();
+            NotificationService.getInstance().emitEvent("promotionNotifications", {});
+            this.initPromotions();
         });
         // });
     }
