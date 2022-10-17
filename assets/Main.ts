@@ -75,6 +75,7 @@ export default class Main extends cc.Component {
         PromotionNotificationsHandler.getInstance().removeDataObserver();
         Promotions.getInstance().removeDataObserver();
     }
+
     initPromotions() {
         Promotions.getInstance().addDataObserver();
         PromotionNotificationsHandler.getInstance().addDataObserver();
@@ -112,7 +113,6 @@ export default class Main extends cc.Component {
             this.signIn();
             NotificationService.getInstance().connect();
             NotificationService.getInstance().emitEvent("promotionNotifications", {});
-            this.initPromotions();
         });
         // });
     }
@@ -175,6 +175,8 @@ export default class Main extends cc.Component {
             this.currentGameId = gameId;
             this.openGame(gameId);
         }
+
+        this.initPromotions();
     }
 
     updateOfferGameHeaders(needShowGameId?: number) {
