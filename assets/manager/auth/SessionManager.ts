@@ -30,7 +30,9 @@ export function removeSession() {
 }
 
 export function getSession(): Session {
+    console.log("getSessionKeyg", getSessionKey());
     const storage = cc.sys.localStorage.getItem(getSessionKey());
+    console.log("storage", storage);
     return storage !== "" ? JSON.parse(storage) : null;
 }
 
