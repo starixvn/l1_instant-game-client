@@ -1,13 +1,17 @@
-export function getTokenKey() {
+import { getCookie, isLocalStorageAvailable, setCookie } from "../../common/helper/CookieHelper";
+
+export function getTokenKey(): string {
     return "SSO_TOKEN";
 }
 
 export const getSSOToken = () => {
-    return cc.sys.localStorage.getItem(getTokenKey());
+    return isLocalStorageAvailable() ? cc.sys.localStorage.getItem(getTokenKey()) : getCookie(getTokenKey());
 };
 
 export function storeToken(token: string) {
-    token && cc.sys.localStorage.setItem(getTokenKey(), token);
+    if (token) {
+        isLocalStorageAvailable() ? cc.sys.localStorage.setItem(getTokenKey(), token) : setCookie(getTokenKey(), token);
+    }
 }
 
 export function isDifferentWithStoredToken(token: string) {

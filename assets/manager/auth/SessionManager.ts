@@ -1,4 +1,5 @@
 import * as i18n from "i18n/runtime-scripts/LanguageData";
+import { getCookie, isLocalStorageAvailable, removeCookie, setCookie } from "../../common/helper/CookieHelper";
 declare global {
     export interface Window {
         i18n: {
@@ -26,19 +27,19 @@ export function getSessionKey() {
 }
 
 export function removeSession() {
-    cc.sys.localStorage.removeItem(getSessionKey());
+    isLocalStorageAvailable() ? cc.sys.localStorage.removeItem(getSessionKey()) : removeCookie(getSessionKey());
 }
 
 export function getSession(): Session {
-    console.log("getSessionKeyg", getSessionKey());
-    const storage = cc.sys.localStorage.getItem(getSessionKey());
-    console.log("storage", storage);
-    return storage !== "" ? JSON.parse(storage) : null;
+    const storage = isLocalStorageAvailable() ? cc.sys.localStorage.getItem(getSessionKey()) : getCookie(getSessionKey());
+    return storage ? JSON.parse(storage) : null;
 }
 
 export function storeSessionData(data) {
     updateLanguage(data);
-    cc.sys.localStorage.setItem(getSessionKey(), JSON.stringify(data));
+    isLocalStorageAvailable()
+        ? cc.sys.localStorage.setItem(getSessionKey(), JSON.stringify(data))
+        : setCookie(getSessionKey(), JSON.stringify(data));
 }
 
 function getLanguage(data) {
