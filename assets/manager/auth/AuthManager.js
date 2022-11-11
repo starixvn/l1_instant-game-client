@@ -10,6 +10,7 @@ import NoticeUtil from "../../common/utils/NoticeUtil";
 import * as sessionManager from "./SessionManager";
 import { isDifferentWithStoredToken, storeToken } from "./TokenManager";
 import UserService from "./UserService";
+import NotificationService from "./NotificationService";
 
 const sentryLogger = logger();
 const sessionExpiredTimeoutMinutes = 19.8;
@@ -141,7 +142,6 @@ export function clearTokenOnUrl() {
 export function signOut() {
     loadSessionTimeoutScene();
     sessionManager.removeSession();
-    cc.GameManager.miniPanel?.disconnectNotificationService();
 }
 
 function loadSessionTimeoutScene() {
@@ -276,4 +276,5 @@ export function showMessageForExpiredToken(errorCode, autoClearDuration) {
 function showMessageAndAutoSignOut(noticeData, autoClearDuration) {
     setTimeout(signOut, autoClearDuration * 1000);
     cc.GameManager.miniPanel && cc.GameManager.miniPanel.showNotice(noticeData, signOut, signOut);
+    NotificationService.getInstance().forceKickedOut();
 }
