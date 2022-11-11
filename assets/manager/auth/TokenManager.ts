@@ -1,16 +1,16 @@
-import { getCookie, isLocalStorageAvailable, setCookie } from "../../common/helper/CookieHelper";
+import { StorageManager } from "../StorageManager";
 
 export function getTokenKey(): string {
     return "SSO_TOKEN";
 }
 
 export const getSSOToken = () => {
-    return isLocalStorageAvailable() ? cc.sys.localStorage.getItem(getTokenKey()) : getCookie(getTokenKey());
+    return StorageManager.get().get(getTokenKey());
 };
 
 export function storeToken(token: string) {
     if (token) {
-        isLocalStorageAvailable() ? cc.sys.localStorage.setItem(getTokenKey(), token) : setCookie(getTokenKey(), token);
+        StorageManager.get().set(getTokenKey(), token);
     }
 }
 
