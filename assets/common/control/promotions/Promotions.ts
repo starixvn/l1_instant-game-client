@@ -36,7 +36,7 @@ export class Promotions extends EventEmitter {
     public isShowBoostedOdds = true;
     protected timeout: any;
     private readonly minutesToMillisecond = 60 * 1000;
-    private readonly delayTime = 15 * this.minutesToMillisecond;
+    private readonly delayTime = 2 * this.minutesToMillisecond;
     protected promotions: Promotion[] = [promotion];
     private readonly supportPromotion = [GameIds.BigSmall, GameIds.MiniSedie];
 
