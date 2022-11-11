@@ -141,6 +141,7 @@ export function clearTokenOnUrl() {
 export function signOut() {
     loadSessionTimeoutScene();
     sessionManager.removeSession();
+    cc.GameManager.miniPanel?.disconnectNotificationService();
 }
 
 function loadSessionTimeoutScene() {

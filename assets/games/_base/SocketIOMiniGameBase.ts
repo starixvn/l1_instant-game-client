@@ -89,4 +89,9 @@ export default abstract class SocketIOMiniGameBase extends GameBase {
             this.socket.emit("retry");
         }
     }
+
+    onDestroy() {
+        super.onDestroy();
+        this.socketIOController.closeSocket(this.gameId);
+    }
 }
