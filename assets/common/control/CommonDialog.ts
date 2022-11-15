@@ -7,7 +7,6 @@ export default class CommonDialog extends BounceInEffect {
     @property({ override: true })
     time = 0.4;
 
-    //onDidHide = () => {};
     onWillShow = () => {};
     private readonly onDidHideActions = [];
 

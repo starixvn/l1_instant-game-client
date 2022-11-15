@@ -1,5 +1,4 @@
 import CommonDialog from "../CommonDialog";
-import MiniPanel from "../mini-panel/MiniPanel";
 import PromotionAnnouncementItem, { PromotionAnnouncementItemEvent } from "./PromotionAnnouncementItem";
 import PromotionNotificationsHandler, { PromotionNotificationsEvent } from "./PromotionNotificationsHandler";
 import { Promotions, PromotionsEvent } from "./Promotions";

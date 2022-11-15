@@ -11,7 +11,7 @@ import Loading from "../Loading";
 import Notice, { NoticeData } from "../notice/Notice";
 import MiniPanelDataHandlers from "./MiniPanelDataHandlers";
 import MiniPanelMiniGameInitializers from "./MiniPanelMiniGameInitializers";
-import PromotionAnnouncements, { PromotionAnnouncementEvent } from "../promotions/PromotionAnnouncements";
+import PromotionAnnouncements from "../promotions/PromotionAnnouncements";
 import BoostedOdds, { BoostedOddsEvent } from "../promotions/BoostedOdds";
 import { Promotions, PromotionsEvent } from "../promotions/Promotions";
 
