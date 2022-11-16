@@ -47,7 +47,9 @@ class Cookie implements ActionStorage {
         const cArr = cDecoded.split("; ");
         let result;
         cArr.forEach((val) => {
-            if (val.indexOf(name) === 0) result = val.substring(name.length);
+            if (val.indexOf(name) === 0) {
+                result = val.substring(name.length);
+            }
         });
 
         return result;
@@ -56,8 +58,8 @@ class Cookie implements ActionStorage {
     set(name: string, value: string, expiresDay = 1) {
         const date = new Date();
         date.setTime(date.getTime() + expiresDay * 24 * 60 * 60 * 1000);
-        let expires = "expires=" + date.toUTCString();
-        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = `${name}=${value};${expires};path=/`;
     }
 
     isAvailable() {
