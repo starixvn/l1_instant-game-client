@@ -63,6 +63,76 @@ class Cookie implements ActionStorage {
     }
 
     isAvailable() {
+        return false;
+    }
+}
+
+class Session implements ActionStorage {
+    remove(name: string) {
+        sessionStorage.removeItem(name);
+    }
+
+    get(name: string) {
+        const storage = sessionStorage.getItem(name);
+        return storage ? JSON.parse(storage) : null;
+    }
+
+    set(name: string, value: string) {
+        sessionStorage.setItem(name, JSON.stringify(value));
+    }
+
+    isAvailable() {
+        return false;
+    }
+}
+
+class URLParams implements ActionStorage {
+    remove(name: string) {
+        const currentUrl = new URL(location.href);
+        const urlParams = new URLSearchParams(currentUrl.search);
+        urlParams.delete(name);
+        try {
+            history.pushState("", "", currentUrl);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    get(name: string) {
+        const urlParams = new URLSearchParams(location.search);
+        const value = urlParams.get(name);
+        return value ? JSON.parse(value) : null;
+    }
+
+    set(name: string, value: string) {
+        const urlParams = new URLSearchParams(location.search);
+        urlParams.set(name, JSON.stringify(value));
+        try {
+            window.parent.history.pushState("", "", `${location.pathname}?${urlParams.toString()}`);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    isAvailable() {
+        return false;
+    }
+}
+
+class Memory implements ActionStorage {
+    remove(name: string) {
+        window[name] = "";
+    }
+
+    get(name: string) {
+        return window[name] ? JSON.parse(window[name]) : null;
+    }
+
+    set(name: string, value: string) {
+        window[name] = JSON.stringify(value);
+    }
+
+    isAvailable() {
         return true;
     }
 }
@@ -72,9 +142,9 @@ class StorageManager {
 
     static get() {
         if (!StorageManager.supportStorage) {
-            const allStorage = [new LocalStorage(), new Cookie()];
+            const allStorage = [new LocalStorage(), new Memory()];
 
-            // default Cookie storage always is available.
+            // default Memory storage always is available.
             StorageManager.supportStorage = allStorage.filter((storage) => storage.isAvailable())[0];
         }
 
