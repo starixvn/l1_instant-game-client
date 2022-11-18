@@ -1,6 +1,7 @@
 import MiniPanel from "../common/control/mini-panel/MiniPanel";
 import configs = require("../configs/Configs");
 import { GAME_OFFER } from "./GamesOffer";
+import { StorageManager } from "./StorageManager";
 
 const { ccclass, property } = cc._decorator;
 
@@ -68,7 +69,7 @@ export default class GameManager extends cc.Component {
     sendToMainSocket(data: any) {}
 
     isSoundGame(): boolean {
-        const check = cc.sys.localStorage.getItem("SOUND_GAME");
+        const check = StorageManager.get().get("SOUND_GAME");
 
         if (check === null || check === undefined) {
             this.setSoundGame(true);
@@ -79,7 +80,7 @@ export default class GameManager extends cc.Component {
     }
 
     setSoundGame(bool: boolean) {
-        cc.sys.localStorage.setItem("SOUND_GAME", bool);
+        StorageManager.get().set("SOUND_GAME", bool.toString());
 
         Object.keys(this.soundObservers).forEach((key) => {
             var observer = this.soundObservers[key];

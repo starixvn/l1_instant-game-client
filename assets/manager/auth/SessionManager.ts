@@ -69,11 +69,11 @@ export function updateLanguage(data) {
 
 export function setLanguage(language: string) {
     i18n.init(language);
-    cc.sys.localStorage.setItem(`current_language`, language);
+    StorageManager.get().set("current_language", language);
 }
 
 export function getCacheLanguage(): string {
-    return cc.sys.localStorage.getItem(`current_language`) || "vi";
+    return StorageManager.get().get("current_language") || "vi";
 }
 
 export function getInRoomGameIdKey() {

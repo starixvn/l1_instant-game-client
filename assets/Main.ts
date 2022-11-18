@@ -10,6 +10,7 @@ import GameCategoryList from "./common/control/category/GameCategoryList";
 import NotificationService from "./manager/auth/NotificationService";
 import { Promotions } from "./common/control/promotions/Promotions";
 import PromotionNotificationsHandler from "./common/control/promotions/PromotionNotificationsHandler";
+import { StorageManager } from "./manager/StorageManager";
 
 const { ccclass, property } = cc._decorator;
 
@@ -202,11 +203,11 @@ export default class Main extends cc.Component {
     }
 
     saveCacheCurrrentGameId(gameId: number) {
-        cc.sys.localStorage.setItem("instant_current_game", gameId);
+        StorageManager.get().set("instant_current_game", gameId.toString());
     }
 
     getCacheCurrentGameId(): number {
-        const cacheId = cc.sys.localStorage.getItem("instant_current_game");
+        const cacheId = StorageManager.get().get("instant_current_game");
         return cacheId ? +cacheId : GameIds.MiniSedie;
     }
 

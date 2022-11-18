@@ -1,3 +1,5 @@
+import { StorageManager } from "../../manager/StorageManager";
+
 export default class AudioManager {
     public clickAudio: cc.AudioClip = null;
 
@@ -45,12 +47,12 @@ export default class AudioManager {
     }
 
     private initDefaultStorage() {
-        const background = cc.sys.localStorage.getItem("SOUND_BACKGROUND");
+        const background = StorageManager.get().get("SOUND_BACKGROUND");
         if (background === null || background === undefined) {
             this.musicEnabled = true;
         }
 
-        const sfx = cc.sys.localStorage.getItem("SOUND_GAME");
+        const sfx = StorageManager.get().get("SOUND_GAME");
         if (sfx === null || sfx === undefined) {
             this.sfxEnabled = true;
         }
@@ -90,22 +92,23 @@ export default class AudioManager {
     }
 
     get musicEnabled(): boolean {
-        const check = cc.sys.localStorage.getItem("SOUND_BACKGROUND");
+        const check = StorageManager.get().get("SOUND_BACKGROUND");
+
         return check === "true";
     }
 
     set musicEnabled(value: boolean) {
-        cc.sys.localStorage.setItem("SOUND_BACKGROUND", value);
+        StorageManager.get().set("SOUND_BACKGROUND", value.toString());
         this.onMusicChanged(value);
     }
 
     get sfxEnabled(): boolean {
-        const check = cc.sys.localStorage.getItem("SOUND_GAME");
+        const check = StorageManager.get().get("SOUND_GAME");
         return check === "true";
     }
 
     set sfxEnabled(value: boolean) {
-        cc.sys.localStorage.setItem("SOUND_GAME", value);
+        StorageManager.get().set("SOUND_GAME", value.toString());
         this.onSfxChanged(value);
     }
 }
