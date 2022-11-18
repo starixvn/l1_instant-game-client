@@ -1,13 +1,12 @@
 const numberWithCommas = (number, toFixed = 1, noZeroSuffix = true) => {
     if (number) {
-        const result = parseFloat(number).toFixed(toFixed).toString().split(".");
-        result[0] = result[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
+        let trimZeroNumber;
         if (noZeroSuffix) {
-            return +result[1] !== 0 ? result.join(".") : result[0];
+            trimZeroNumber = `${+(+number).toFixed(toFixed)}`;
         } else {
-            return result.join(".");
+            trimZeroNumber = (+number).toFixed(toFixed);
         }
+        return trimZeroNumber.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
     return "0";
 };
@@ -86,8 +85,8 @@ const zeroPad = (num: number, places: number) => {
     return Array(+(zero > 0 && zero)).join("0") + num;
 };
 
-export function getInternationalFractionalOdds(value: number) {
-    return `1:${value}`;
-}
+export const formatOdds = (value: number | string | undefined, isFractionalFormat: boolean | undefined) => {
+    return isFractionalFormat ? `${numberWithCommas(+value - 1, 2)}:1` : `1:${value}`;
+};
 
 export { numberWithCommas, getOnlyNumberInString, numberPad, numberTo, zeroPad, nFormatter };

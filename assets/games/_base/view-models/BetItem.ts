@@ -1,5 +1,5 @@
 import BlinkNode from "../../../common/control/BlinkNode";
-import { numberWithCommas } from "../../../common/helper/NumberHelper";
+import { formatOdds, numberWithCommas } from "../../../common/helper/NumberHelper";
 import { getLowercaseObjectKeys } from "../../../common/helper/ObjectHelper";
 import GameUtils from "../../../common/utils/GameUtils";
 
@@ -86,7 +86,7 @@ export default class BetItem extends cc.Component {
 
     public setOdd(value: string) {
         if (this.odds) {
-            this.odds.string = `1:${value}`;
+            this.odds.string = formatOdds(value, cc.GameManager.user?.fractionalOddsFormat);
         }
     }
 
