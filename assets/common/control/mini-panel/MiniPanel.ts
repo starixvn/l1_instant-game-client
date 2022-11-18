@@ -14,6 +14,7 @@ import MiniPanelMiniGameInitializers from "./MiniPanelMiniGameInitializers";
 import PromotionAnnouncements from "../promotions/PromotionAnnouncements";
 import BoostedOdds, { BoostedOddsEvent } from "../promotions/BoostedOdds";
 import { Promotions, PromotionsEvent } from "../promotions/Promotions";
+import NotificationService from "../../../manager/auth/NotificationService";
 
 const { ccclass, property } = cc._decorator;
 @ccclass
@@ -209,6 +210,7 @@ export default class MiniPanel extends BaseComponent {
     }
 
     forceKickedOut() {
+        NotificationService.getInstance().forceKickedOut();
         authManager.signOut();
     }
 
