@@ -53,7 +53,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 385,
-      "height": 128
+      "height": 163.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -119,8 +119,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
+      "width": 28.92,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -189,20 +189,20 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 30.92,
-      "height": 37.28
+      "width": 313,
+      "height": 58.49999999999999
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0.5
+      "y": 1
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -135.409,
-        7,
+        -135,
+        33,
         0,
         0,
         0,
@@ -241,10 +241,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "aa",
-    "_N$string": "aa",
-    "_fontSize": 26,
-    "_lineHeight": 28,
+    "_string": "",
+    "_N$string": "",
+    "_fontSize": 23,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -252,10 +252,10 @@
     "_batchAsBitmap": false,
     "_styleFlags": 0,
     "_underlineHeight": 0,
-    "_N$horizontalAlign": 1,
+    "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
+    "_N$overflow": 3,
     "_N$cacheMode": 0,
     "_id": ""
   },
@@ -471,7 +471,7 @@
       "ctor": "Float64Array",
       "array": [
         -133.5,
-        24,
+        6.359999999999999,
         0,
         0,
         0,
@@ -510,8 +510,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "aa",
-    "_N$string": "aa",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 22,
     "_lineHeight": 24,
     "_enableWrapText": true,
@@ -592,7 +592,7 @@
       "ctor": "Float64Array",
       "array": [
         107.5,
-        -32,
+        -49.64,
         0,
         0,
         0,
@@ -1077,7 +1077,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 385,
-      "height": 128
+      "height": 163.28
     },
     "_resize": 1,
     "_N$layoutType": 2,
