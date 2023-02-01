@@ -9,7 +9,6 @@ import ProcessingWarning from "../../common/control/notice/ProcessingWarning";
 import UmWarning from "../../common/control/notice/UmWarning";
 import TypingLabel from "../../common/control/TypingLabel";
 import GameUtils from "../../common/utils/GameUtils";
-import NoticeUtil from "../../common/utils/NoticeUtil";
 import { FeatureConfig } from "../../configs/FeatureConfigs";
 import { GameInfos } from "../../configs/SabaConfigs";
 import DataHandler from "./handlers/DataHandler";
@@ -25,10 +24,11 @@ import GameBaseUmDataHandler from "./handlers/GameBaseUmDataHandler";
 import BetItem from "./view-models/BetItem";
 import GameAudios from "./view-models/GameAudios";
 import { GameConfigBase } from "./view-models/GameConfigBase";
-import GameGuideBase from "./view-models/GameGuideBase";
 import GameRoundHistory from "./view-models/GameRoundHistory";
 import AudioManager from "../../common/audio/AudioManager";
 import GameBaseOddsHandler from "./handlers/GameBaseOddsHandler";
+import WebViewGuide from "../../common/webview-guide/WebViewGuide";
+import { getLanguage, getLocale } from "../../manager/auth/SessionManager";
 
 const { ccclass, property } = cc._decorator;
 
@@ -135,6 +135,7 @@ export default class GameBase extends BaseComponent {
     public currentMiniPanel: MiniPanel;
     public gameConfigs: any;
     public finishShowResult = true;
+    public boostedChoices: string[];
     public isGoingToDisabled = false;
 
     public umHandler: DataHandler;
@@ -464,6 +465,7 @@ export default class GameBase extends BaseComponent {
 
     setBoostedChoices(boostedChoices: any) {
         if (boostedChoices) {
+            this.boostedChoices = boostedChoices;
             this.betItems.forEach((item) => item.highLightOdds(boostedChoices.includes(item.node.name)));
         }
     }
@@ -524,14 +526,24 @@ export default class GameBase extends BaseComponent {
         if (!this.gameConfigs) {
             return;
         }
-        const lang = NoticeUtil.getCurrentLanguage();
-        const gameName = GameInfos[this.gameId].key;
-        GameUtils.loadResource(`guides/${gameName}_${lang}`).then((prefab) => {
-            const node = cc.instantiate(prefab);
-            const guide = node.getComponent(GameGuideBase);
-            guide.init(this.gameConfigs);
-            this.currentMiniPanel.addDialog(node);
-        });
+
+        console.log("this.gameConfigs: ", this.gameConfigs);
+        const dialog = cc.instantiate(this.guidePrefab);
+        const guide = dialog.getComponent(WebViewGuide);
+        const { minBet, maxBet } = this.getBetRange();
+        const locale = getLocale();
+        const isInPromotionTime = this.boostedChoices?.length > 0;
+        const language = getLanguage(locale);
+        guide.initURL(
+            this.gameId,
+            language,
+            { minBet, maxBet, used: this.isUsingMaxStakeLevel() },
+            isInPromotionTime,
+            cc.RedT?.user.fractionalOddsFormat
+        );
+        guide.sendDataToIframe(this.gameConfigs);
+        this.currentMiniPanel.addDialog(dialog);
+        guide.loadWebView();
     }
 
     openScoreBoard() {

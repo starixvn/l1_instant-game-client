@@ -8200,7 +8200,9 @@
     "gameAudiosPrefab": {
       "__uuid__": "2731b1c8-5ac7-4d96-ae81-c860121f2526"
     },
-    "guidePrefab": null,
+    "guidePrefab": {
+      "__uuid__": "08a7c619-5457-47c0-9e31-a61d54cee86f"
+    },
     "bettingAreas": [
       {
         "__id__": 129

@@ -3109,6 +3109,8 @@
       "__id__": 52
     },
     "normalBorder": null,
+    "enabledHighlightOdds": false,
+    "highlightOddsBackground": null,
     "xSprite": {
       "__id__": 68
     },
@@ -4814,6 +4816,8 @@
       "__id__": 96
     },
     "normalBorder": null,
+    "enabledHighlightOdds": false,
+    "highlightOddsBackground": null,
     "xSprite": {
       "__id__": 112
     },
@@ -6519,6 +6523,8 @@
       "__id__": 140
     },
     "normalBorder": null,
+    "enabledHighlightOdds": false,
+    "highlightOddsBackground": null,
     "xSprite": {
       "__id__": 156
     },
@@ -8224,6 +8230,8 @@
       "__id__": 184
     },
     "normalBorder": null,
+    "enabledHighlightOdds": false,
+    "highlightOddsBackground": null,
     "xSprite": {
       "__id__": 200
     },
@@ -9929,6 +9937,8 @@
       "__id__": 228
     },
     "normalBorder": null,
+    "enabledHighlightOdds": false,
+    "highlightOddsBackground": null,
     "xSprite": {
       "__id__": 244
     },
@@ -11634,6 +11644,8 @@
       "__id__": 272
     },
     "normalBorder": null,
+    "enabledHighlightOdds": false,
+    "highlightOddsBackground": null,
     "xSprite": {
       "__id__": 288
     },
@@ -15896,7 +15908,9 @@
     "gameAudiosPrefab": {
       "__uuid__": "2731b1c8-5ac7-4d96-ae81-c860121f2526"
     },
-    "guidePrefab": null,
+    "guidePrefab": {
+      "__uuid__": "32f393a0-65ca-442b-aa57-1246855a126c"
+    },
     "iconLV": [
       {
         "__uuid__": "93f0ec4d-8f2e-4cc8-a430-fc761e5fcee1"

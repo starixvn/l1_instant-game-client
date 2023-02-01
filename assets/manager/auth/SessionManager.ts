@@ -39,27 +39,23 @@ export function storeSessionData(data) {
     StorageManager.get().set(getSessionKey(), data);
 }
 
-function getLanguage(data) {
-    let language = "";
+export function getLanguage(data) {
     const locale = data.language;
-    switch (locale) {
-        case "vi-VN":
-            language = "vi";
-            break;
-        case "en-US":
-        case "en-UK":
-            language = "en";
-            break;
-        default:
-            language = "en";
-            break;
-    }
-    return language;
+    const dict = {
+        "vi-VN": "vi",
+        "en-US": "en",
+        "en-UK": "en",
+        "th-TH": "th",
+        "id-ID": "id",
+        "zh-CN": "zh_cn",
+        "zh-TW": "zh_tw"
+    };
+    return dict[locale] || "en";
 }
 
-export function getLocale() {
+export function getLocale(): string {
     const data = getSession();
-    return data.language;
+    return data.language ?? "en";
 }
 
 export function updateLanguage(data) {

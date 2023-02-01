@@ -162,4 +162,9 @@ export default class GameUtils {
     public static showNode(node: cc.Node, transitionTime = 0.3) {
         cc.tween(node).to(transitionTime, { opacity: 255 }).start();
     }
+
+    public static isIpad(): boolean {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        return /ipad/.test(userAgent);
+    }
 }

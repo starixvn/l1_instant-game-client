@@ -2179,6 +2179,8 @@
     "highlightBackground": null,
     "highlightBorder": null,
     "normalBorder": null,
+    "enabledHighlightOdds": false,
+    "highlightOddsBackground": null,
     "inActive": {
       "__id__": 41
     },
@@ -3607,6 +3609,8 @@
     "highlightBackground": null,
     "highlightBorder": null,
     "normalBorder": null,
+    "enabledHighlightOdds": false,
+    "highlightOddsBackground": null,
     "inActive": {
       "__id__": 79
     },
@@ -5002,6 +5006,8 @@
     "highlightBackground": null,
     "highlightBorder": null,
     "normalBorder": null,
+    "enabledHighlightOdds": false,
+    "highlightOddsBackground": null,
     "inActive": {
       "__id__": 114
     },
@@ -11681,7 +11687,9 @@
     "gameAudiosPrefab": {
       "__uuid__": "2731b1c8-5ac7-4d96-ae81-c860121f2526"
     },
-    "guidePrefab": null,
+    "guidePrefab": {
+      "__uuid__": "32f393a0-65ca-442b-aa57-1246855a126c"
+    },
     "resultAnimation": {
       "__id__": 223
     },

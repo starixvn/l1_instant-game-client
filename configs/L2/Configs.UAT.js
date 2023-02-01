@@ -11,7 +11,7 @@ window.envConfig = {
         url: "https://df0ce89a96b045e4ae626c16a143d8f9@sentryuat.sabagame.com/51",
         env: "INSTANT_UAT"
     },
-    guideDomain: "https://guidesuat.sabagame.net",
+    guideDomain: "https://l2guidesuat.sgamesuat.com",
     enableMsgpackParserOnGame: {
         45: true,
         1: true,
