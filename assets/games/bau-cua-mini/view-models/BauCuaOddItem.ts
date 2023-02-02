@@ -1,4 +1,4 @@
-import { formatOdds, numberWithCommas } from "../../../common/helper/NumberHelper";
+import { formatOdds } from "../../../common/helper/NumberHelper";
 
 const { ccclass, property } = cc._decorator;
 

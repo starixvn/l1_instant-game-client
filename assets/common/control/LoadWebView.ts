@@ -1,4 +1,3 @@
-import { guideDomain } from "./../../configs/Configs";
 import CustomWebView from "./CustomWebView";
 
 const { ccclass, property } = cc._decorator;

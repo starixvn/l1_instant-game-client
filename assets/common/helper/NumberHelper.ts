@@ -85,7 +85,7 @@ const zeroPad = (num: number, places: number) => {
     return Array(+(zero > 0 && zero)).join("0") + num;
 };
 
-export const formatOdds = (value: number | string | undefined, isFractionalFormat: boolean | undefined) => {
+export const formatOdds = (value: number | string | undefined, isFractionalFormat: boolean | undefined = false) => {
     return isFractionalFormat ? `${numberWithCommas(+value - 1, 2)}:1` : `1:${value}`;
 };
 
