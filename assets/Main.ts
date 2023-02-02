@@ -3,7 +3,7 @@ import { sentryLogger } from "./common/logger.js";
 import NameGenerator from "./common/name-generator/NameGenerator";
 import { GameIds } from "./configs/SabaConfigs";
 import * as authManager from "./manager/auth/AuthManager";
-import { getCacheLanguage, setLanguage } from "./manager/auth/SessionManager";
+import { getCacheLanguage, getLanguage, setLanguage } from "./manager/auth/SessionManager";
 import UserService from "./manager/auth/UserService";
 import GameManager from "./manager/GameManager";
 import GameCategoryList from "./common/control/category/GameCategoryList";
@@ -95,7 +95,7 @@ export default class Main extends cc.Component {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has("lang")) {
             const lang = urlParams.get("lang");
-            language = lang === "vi-VN" ? "vi" : "en";
+            language = getLanguage(lang);
         }
         setLanguage(language);
     }

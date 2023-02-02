@@ -39,8 +39,7 @@ export function storeSessionData(data) {
     StorageManager.get().set(getSessionKey(), data);
 }
 
-export function getLanguage(data) {
-    const locale = data.language;
+export function getLanguage(locale: string) {
     const dict = {
         "vi-VN": "vi",
         "en-US": "en",
@@ -59,7 +58,7 @@ export function getLocale(): string {
 }
 
 export function updateLanguage(data) {
-    const language = getLanguage(data);
+    const language = getLanguage(data.language);
     setLanguage(language);
 }
 
@@ -69,7 +68,7 @@ export function setLanguage(language: string) {
 }
 
 export function getCacheLanguage(): string {
-    return StorageManager.get().get("current_language") || "vi";
+    return StorageManager.get().get("current_language") || "en";
 }
 
 export function getInRoomGameIdKey() {

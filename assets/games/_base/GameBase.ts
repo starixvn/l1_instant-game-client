@@ -503,11 +503,7 @@ export default class GameBase extends BaseComponent {
     }
 
     protected getVipBetRange() {
-        const { minBet, maxBet } = this.gameConfigs;
-        return {
-            minBet: minBet,
-            maxBet: Math.min(cc.GameManager.userStakeLevel.maxBet, maxBet)
-        };
+        return cc.GameManager.userStakeLevel;
     }
 
     showMiniWarningLimitBetChanged() {
@@ -527,13 +523,11 @@ export default class GameBase extends BaseComponent {
             return;
         }
 
-        console.log("this.gameConfigs: ", this.gameConfigs);
         const dialog = cc.instantiate(this.guidePrefab);
         const guide = dialog.getComponent(WebViewGuide);
         const { minBet, maxBet } = this.getBetRange();
-        const locale = getLocale();
         const isInPromotionTime = this.boostedChoices?.length > 0;
-        const language = getLanguage(locale);
+        const language = getLanguage(getLocale());
         guide.initURL(
             this.gameId,
             language,
