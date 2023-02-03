@@ -440,6 +440,10 @@
     "target": {
       "__id__": 12
     },
+    "syncWidth": true,
+    "syncHeight": true,
+    "ratioWidth": 1,
+    "ratioHeight": 1,
     "_id": ""
   },
   {
@@ -474,7 +478,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 770,
-      "height": 98
+      "height": 105.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -540,8 +544,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 341.14,
-      "height": 28
+      "width": 284.11,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -592,13 +596,13 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "MESSAGES.BALANCEBETTING",
-    "_N$string": "MESSAGES.BALANCEBETTING",
+    "_string": "messages.balanceBetting",
+    "_N$string": "messages.balanceBetting",
     "_fontSize": 24,
     "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "3e95cdb1-0fed-4fe5-a8e7-a067d10e2510"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -647,7 +651,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 770,
-      "height": 98
+      "height": 105.28
     },
     "_resize": 1,
     "_N$layoutType": 2,

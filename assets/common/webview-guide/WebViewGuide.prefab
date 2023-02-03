@@ -52,8 +52,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 448,
-      "height": 740
+      "width": 812,
+      "height": 456
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -64,8 +64,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        224,
-        370,
+        406,
+        228,
         0,
         0,
         0,
@@ -122,8 +122,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 448,
-      "height": 740
+      "width": 812,
+      "height": 456
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -441,9 +441,9 @@
         0,
         0,
         1,
-        0.5517241379310345,
-        0.5517241379310345,
-        0.5517241379310345
+        1,
+        1,
+        1
       ]
     },
     "_eulerAngles": {
@@ -874,8 +874,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 166,
-      "height": 28
+      "width": 221.36,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -926,13 +926,13 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "HƯỚNG DẪN",
-    "_N$string": "HƯỚNG DẪN",
+    "_string": "UI.GAMERULES",
+    "_N$string": "UI.GAMERULES",
     "_fontSize": 28,
     "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "80bd500f-2fe2-4b96-a6ab-762b6f3d291d"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,

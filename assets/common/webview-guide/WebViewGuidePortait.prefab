@@ -55,8 +55,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 448,
-      "height": 740
+      "width": 812,
+      "height": 456
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -67,8 +67,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        224,
-        370,
+        406,
+        228,
         0,
         0,
         0,
@@ -125,8 +125,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 448,
-      "height": 740
+      "width": 812,
+      "height": 456
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -438,9 +438,9 @@
         0,
         0,
         1,
-        1.0980392156862746,
-        1.0980392156862746,
-        1.0980392156862746
+        0.912,
+        0.912,
+        0.912
       ]
     },
     "_eulerAngles": {
@@ -647,8 +647,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 166,
-      "height": 28
+      "width": 221.36,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -660,7 +660,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        287.585,
+        281.585,
         0,
         0,
         0,
@@ -699,13 +699,13 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "HƯỚNG DẪN",
-    "_N$string": "HƯỚNG DẪN",
+    "_string": "UI.GAMERULES",
+    "_N$string": "UI.GAMERULES",
     "_fontSize": 28,
     "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "80bd500f-2fe2-4b96-a6ab-762b6f3d291d"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1105,8 +1105,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        168.593,
-        287.00299999999993,
+        350.59299999999996,
+        178.813,
         0,
         0,
         0,
@@ -1177,7 +1177,7 @@
     "_alignFlags": 33,
     "_left": 0,
     "_right": 33.16300000000001,
-    "_top": 60.75300000000007,
+    "_top": 26.943000000000012,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,

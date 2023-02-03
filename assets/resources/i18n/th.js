@@ -44,24 +44,17 @@ window.i18n.languages.th = {
         sysMaintenance: "เกมอยู่ระหว่างการบำรุงรักษา",
         networkError: "เกิดการผิดพลาดของเครือข่าย (%{errorCode})",
         userInsufficientFund: "บัญชีของคุณมีเงินไม่เพียงพอ (%{errorCode})",
-        limitBetExceeded:
-            "เกม %{gameName} (#%{gameRoundId})\n\nการวางเดิมพันล้มเหลว! เงินเดิมพันของคุณเกินการตั้งค่าขีดจำกัดการเดิมพันของคุณ โปรดลองอีกครั้ง (%{errorCode})",
-        playerNotPermittedPlay:
-            "เกม %{gameName} (#%{gameRoundId})\n\nเกมถูกปิดการใช้งาน กรุณาติดต่อทีมงานของคุณสำหรับรายละเอียดเพิ่มเติม ขอบคุณค่ะ (%{errorCode})",
-        winLimitHit:
-            "เกม %{gameName} (#%{gameRoundId})\n\nการเดิมพันล้มเหลว! ชนะขีดจำกัดแล้ว กรุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
-        loseLimitHit:
-            "เกม %{gameName} (#%{gameRoundId})\n\nการเดิมพันล้มเหลว! แพ้ขีดจำกัดแล้ว กรุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
-        limitBetUpdated:
-            "เกม %{gameName} (#%{gameRoundId})\n\nการเดิมพันล้มเหลว! อัปเดตวงเงินเดิมพันของคุณใหม่แล้ว โปรดลองอีกครั้ง (%{errorCode})",
+        limitBetExceeded: "การวางเดิมพันล้มเหลว! เงินเดิมพันของคุณเกินการตั้งค่าขีดจำกัดการเดิมพันของคุณ โปรดลองอีกครั้ง (%{errorCode})",
+        playerNotPermittedPlay: "เกมถูกปิดการใช้งาน กรุณาติดต่อทีมงานของคุณสำหรับรายละเอียดเพิ่มเติม ขอบคุณค่ะ (%{errorCode})",
+        winLimitHit: "การเดิมพันล้มเหลว! ชนะขีดจำกัดแล้ว กรุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
+        loseLimitHit: "การเดิมพันล้มเหลว! แพ้ขีดจำกัดแล้ว กรุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
+        limitBetUpdated: "การเดิมพันล้มเหลว! อัปเดตวงเงินเดิมพันของคุณใหม่แล้ว โปรดลองอีกครั้ง (%{errorCode})",
         limitBetNotDefined:
-            "เกม %{gameName} (#%{gameRoundId})\n\nการเดิมพันล้มเหลว! ยังไม่ได้กำหนดวงเงินเดิมพันของคุณสำหรับเกมนี้ กรุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
-        accountSuspended:
-            "เกม %{gameName} (#%{gameRoundId})\n\nการเดิมพันล้มเหลว! บัญชีถูกระงับ รุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
-        unavailableGame:
-            "เกม %{gameName} (#%{gameRoundId})\n\n  เกมไม่สามารถใช้งานได้ในขณะนี้ กรุณาติดต่อแอดมินสำหรับรายละเอียดขอบคุณ (%{errorCode})",
+            "การเดิมพันล้มเหลว! ยังไม่ได้กำหนดวงเงินเดิมพันของคุณสำหรับเกมนี้ กรุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
+        accountSuspended: "การเดิมพันล้มเหลว! บัญชีถูกระงับ รุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
+        unavailableGame: "เกมไม่สามารถใช้งานได้ในขณะนี้ กรุณาติดต่อแอดมินสำหรับรายละเอียดขอบคุณ (%{errorCode})",
         errorOccurred: "เกิดข้อผิดพลาด โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
-        errorOccurredFull: "เกม %{gameName} (#%{gameRoundId})\n\nเกิดข้อผิดพลาด โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
+        errorOccurredFull: "เกิดข้อผิดพลาด โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
         sessionTimeout: "เซสชั่นของคุณหมดเวลาหรือคุณยังไม่ได้เข้าสู่ระบบ กรุณาปิดหน้าต่างปัจจุบันและลองเข้าสู่ระบบอีกครั้ง",
         playOnOtherDevice: "บัญชีของคุณถูกใช้เพื่อเล่น [game] บนเบราว์เซอร์หรืออุปกรณ์อื่น",
         serverError: "เซิร์ฟเวอร์พบข้อผิดพลาด",
@@ -76,8 +69,8 @@ window.i18n.languages.th = {
         nickNameCharacter: "ชื่อเล่นต้องไม่มีการเว้นวรรค อักขระพิเศษ และตัวอักษรที่ไม่ใช่ภาษาอังกฤษ",
         nickDifferentUserName: "Nickname must be different from your username.",
         existNickName: "ชื่อเล่นถูกใช้ไปแล้ว โปรดลองชื่ออื่น",
-        placeBetFailed: "เกม %{gameName} (#%{gameRoundId})\n\nล้มเหลวในการวางเดิมพัน! (%{errorCode})",
-        endGameFailed: "เกม %{gameName} (#%{gameRoundId})\n\nเกิดข้อผิดพลาด. โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
+        placeBetFailed: "ล้มเหลวในการวางเดิมพัน! (%{errorCode})",
+        endGameFailed: "เกิดข้อผิดพลาด. โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
         getBalanceFailed: "ไม่สามารถอัปเดตยอดเงินในบัญชี (%{errorCode})",
         enterPortalFailed: "เกิดข้อผิดพลาด โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
         jackpotProcessing: "กำลังประมวลผลข้อมูล จำนวนเงินที่ชนะแจ็คพอตจะถูกเพิ่มไปยังบัญชีของเร็วๆนี้",
@@ -111,7 +104,7 @@ window.i18n.languages.th = {
         invalidStakeLevel: "ระดับเงินเดิมพันไม่ถูกต้อง",
         invalidBonus: "โบนัสเกมไม่ถูกต้อง",
         openedBonus: "โบนัสเกมไม่ถูกต้อง",
-        gameExcluded: "%{gameName}\n\nบัญชีของคุณไม่ได้รับอนุญาตให้เล่นเกมนี้อีกต่อไป โปรดลองเกมอื่น",
+        gameExcluded: "บัญชีของคุณไม่ได้รับอนุญาตให้เล่นเกมนี้อีกต่อไป โปรดลองเกมอื่น",
         notEnoughSpin: "สปินไม่พอเล่น",
         invalidBet: "เดิมพันไม่ถูกต้อง",
         newRoundNotice: "เริ่มรอบใหม่",
@@ -121,31 +114,28 @@ window.i18n.languages.th = {
         noMoreBets: "ไม่มีการเดิมพันอีกต่อไป",
         askConfirmBet: "คุณต้องการยืนยันการเดิมพันหรือไม่?",
         newUpdateAvailable: "มีการปรับปรุงใหม่ โปรดรีเฟรชหน้าเว็บไซต์",
-        lostGameConnection: "%{gameName}\n\nการเชื่อมต่อไม่เสถียร โปรดตรวจสอบอีกครั้ง",
+        lostGameConnection: "การเชื่อมต่อไม่เสถียร โปรดตรวจสอบอีกครั้ง",
         betProcessing: "กำลังประมวลผลข้อมูล โปรดรอสักครู่...",
         maxStakeHand: "เดิมพันรวมสูงสุดในมือคือ %{maxBet}",
         limitBetChanged: "วงเงินเดิมพันของคุณเพิ่งมีการเปลี่ยนแปลง",
         enableTurboMode: 'โหมดเทอร์โบ "เปิด"',
         disableTurboMode: 'โหมดเทอร์โบ "ปิด"',
+        disallowHedgeBet: "สามารถเดิมพันได้ทั้ง %{betChoice1} หรือ %{betChoice2}",
         noticeTitle: "ประกาศ",
         accountClosed:
             "บัญชีถูกปิดระงับใช้งาน เซสชั่นของคุณจะหมดอายุหลังจาก 10 วินาที โปรดติดต่อแดมมินสำหรับรายละเอียดเพิ่มเติม (%{errorCode})",
         disabledGame: "เกมอยู่ระหว่างการปรับปรุง โปรดกลับมาใหม่ในอีก 10 นาที",
-        errorOccurredPlaceBet:
-            "เกม %{gameName} (#%{gameRoundId})\n\nการวางเดิมพันล้มเหลว! เกิดข้อผิดพลาด โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
+        errorOccurredPlaceBet: "การวางเดิมพันล้มเหลว! เกิดข้อผิดพลาด โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
         sessionTimeoutPlaceBet:
-            "เกม %{gameName} (#%{gameRoundId})\n\nการวางเดิมพันล้มเหลว! เซสชั่นของคุณหมดเวลาหรือคุณยังไม่ได้เข้าสู่ระบบ กรุณาปิดหน้าต่างปัจจุบันและลองเข้าสู่ระบบอีกครั้ง",
-        loginFailedPlaceBet: "เกม %{gameName} (#%{gameRoundId})\n\nการวางเดิมพันล้มเหลว! ชื่อเข้าสู่ระบบหรือรหัสผ่านไม่ถูกต้อง",
-        accountLockedPlaceBet:
-            "เกม %{gameName} (#%{gameRoundId})\n\nการวางเดิมพันล้มเหลว! บัญชีถูกปิด กรุณาติดต่อเจ้าหน้าที่ของคุณสำหรับรายละเอียดเพิ่มเติม ขอบคุณค่ะ",
-        accountNotExistPlaceBet:
-            "เกม %{gameName} (#%{gameRoundId})\n\nการวางเดิมพันล้มเหลว! เกิดข้อผิดพลาด กรุณาติดต่อแอดมินสำหรับรายละเอียดเพิ่มเติม ขอบคุณค่ะ (%{errorCode})",
-        ipRestrictedPlaceBet: "เกม %{gameName} (#%{gameRoundId})\n\nการวางเดิมพันล้มเหลว! ที่อยู่ IP ของคุณถูกจำกัด (%{errorCode})",
-        accountBlacklistedPlaceBet:
-            "เกม %{gameName} (#%{gameRoundId})\n\nการวางเดิมพันล้มเหลว! บัญชีถูกปิด โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
-        userNotFoundPlaceBet: "เกม %{gameName} (#%{gameRoundId})\n\nการวางเดิมพันล้มเหลว! ไม่พบชื่อผู้ใช้ (%{errorCode})",
-        sysMaintenancePlaceBet: "เกม %{gameName} (#%{gameRoundId})\n\nการวางเดิมพันล้มเหลว! เกมอยู่ระหว่างการบำรุงรักษา ",
-        networkErrorPlaceBet: "เกม %{gameName} (#%{gameRoundId})\n\nการวางเดิมพันล้มเหลว! เกิดข้อผิดพลาดของเครือข่าย (%{errorCode})",
+            "การวางเดิมพันล้มเหลว! เซสชั่นของคุณหมดเวลาหรือคุณยังไม่ได้เข้าสู่ระบบ กรุณาปิดหน้าต่างปัจจุบันและลองเข้าสู่ระบบอีกครั้ง",
+        loginFailedPlaceBet: "การวางเดิมพันล้มเหลว! ชื่อเข้าสู่ระบบหรือรหัสผ่านไม่ถูกต้อง",
+        accountLockedPlaceBet: "การวางเดิมพันล้มเหลว! บัญชีถูกปิด กรุณาติดต่อเจ้าหน้าที่ของคุณสำหรับรายละเอียดเพิ่มเติม ขอบคุณค่ะ",
+        accountNotExistPlaceBet: "การวางเดิมพันล้มเหลว! เกิดข้อผิดพลาด กรุณาติดต่อแอดมินสำหรับรายละเอียดเพิ่มเติม ขอบคุณค่ะ (%{errorCode})",
+        ipRestrictedPlaceBet: "การวางเดิมพันล้มเหลว! ที่อยู่ IP ของคุณถูกจำกัด (%{errorCode})",
+        accountBlacklistedPlaceBet: "การวางเดิมพันล้มเหลว! บัญชีถูกปิด โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
+        userNotFoundPlaceBet: "การวางเดิมพันล้มเหลว! ไม่พบชื่อผู้ใช้ (%{errorCode})",
+        sysMaintenancePlaceBet: "การวางเดิมพันล้มเหลว! เกมอยู่ระหว่างการบำรุงรักษา ",
+        networkErrorPlaceBet: "การวางเดิมพันล้มเหลว! เกิดข้อผิดพลาดของเครือข่าย (%{errorCode})",
         login_failed: "การดาวน์โหลดล้มเหลว กรุณาลองปิดหน้าต่างแล้วลองใหม่อีกครั้ง"
     },
     ui: {

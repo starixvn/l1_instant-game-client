@@ -331,15 +331,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 254,
+      "g": 243,
+      "b": 158,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 178.5,
-      "height": 76
+      "width": 215.93,
+      "height": 95.76
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -396,7 +396,7 @@
     "_lineHeight": 76,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "9e7ac3a8-1678-4d14-a342-8f83f12d752b"
+      "__uuid__": "80bd500f-2fe2-4b96-a6ab-762b6f3d291d"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -423,8 +423,8 @@
     "_alignFlags": 5,
     "_left": 0,
     "_right": 0,
-    "_top": 190,
-    "_bottom": 190,
+    "_top": 180.12,
+    "_bottom": 180.12,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,
