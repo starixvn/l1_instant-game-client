@@ -1172,7 +1172,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 408,
-      "height": 30
+      "height": 37.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1229,7 +1229,7 @@
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "3e95cdb1-0fed-4fe5-a8e7-a067d10e2510"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,

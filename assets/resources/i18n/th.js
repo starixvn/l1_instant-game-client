@@ -46,16 +46,16 @@ window.i18n.languages.th = {
         userInsufficientFund: "บัญชีของคุณมีเงินไม่เพียงพอ (%{errorCode})",
         limitBetExceeded: "การวางเดิมพันล้มเหลว! เงินเดิมพันของคุณเกินการตั้งค่าขีดจำกัดการเดิมพันของคุณ โปรดลองอีกครั้ง (%{errorCode})",
         playerNotPermittedPlay: "เกมถูกปิดการใช้งาน กรุณาติดต่อทีมงานของคุณสำหรับรายละเอียดเพิ่มเติม ขอบคุณค่ะ (%{errorCode})",
-        winLimitHit: "การเดิมพันล้มเหลว! ชนะขีดจำกัดแล้ว กรุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
-        loseLimitHit: "การเดิมพันล้มเหลว! แพ้ขีดจำกัดแล้ว กรุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
+        winLimitHit: "การเดิมพันล้มเหลว! ชนะขีดจำกัดแล้ว กรุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ\n (%{errorCode})",
+        loseLimitHit: "การเดิมพันล้มเหลว! แพ้ขีดจำกัดแล้ว กรุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ\n (%{errorCode})",
         limitBetUpdated: "การเดิมพันล้มเหลว! อัปเดตวงเงินเดิมพันของคุณใหม่แล้ว โปรดลองอีกครั้ง (%{errorCode})",
         limitBetNotDefined:
             "การเดิมพันล้มเหลว! ยังไม่ได้กำหนดวงเงินเดิมพันของคุณสำหรับเกมนี้ กรุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
         accountSuspended: "การเดิมพันล้มเหลว! บัญชีถูกระงับ รุณาติดต่อทีมงานของคุณ ขอบคุณค่ะ (%{errorCode})",
-        unavailableGame: "เกมไม่สามารถใช้งานได้ในขณะนี้ กรุณาติดต่อแอดมินสำหรับรายละเอียดขอบคุณ (%{errorCode})",
+        unavailableGame: "เกมไม่สามารถใช้งานได้ในขณะนี้ กรุณาติดต่อแอดมินสำหรับรายละเอียดขอบคุณ\n (%{errorCode})",
         errorOccurred: "เกิดข้อผิดพลาด โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
         errorOccurredFull: "เกิดข้อผิดพลาด โปรดติดต่อแอดมินเพื่อขอรายละเอียดเพิ่มเติม (%{errorCode})",
-        sessionTimeout: "เซสชั่นของคุณหมดเวลาหรือคุณยังไม่ได้เข้าสู่ระบบ กรุณาปิดหน้าต่างปัจจุบันและลองเข้าสู่ระบบอีกครั้ง",
+        sessionTimeout: "เซสซั่นของคุณหมดอายุ กรุณารีเฟชรหน้าจอ",
         playOnOtherDevice: "บัญชีของคุณถูกใช้เพื่อเล่น [game] บนเบราว์เซอร์หรืออุปกรณ์อื่น",
         serverError: "เซิร์ฟเวอร์พบข้อผิดพลาด",
         invalidData: "ข้อมูลไม่ถูกต้อง",
@@ -414,9 +414,9 @@ window.i18n.languages.th = {
         turboMode: "โหมด Turbo",
         start: "เริ่ม",
         table: "โต๊ะ",
-        joinGame: "Join Game",
-        promotion: "Promotions",
-        terms: "Terms and\n Conditions",
+        joinGame: "เข้าเกมส์",
+        promotions: "โปรโมชั่น",
+        terms: "ข้อกำหนด\nและเงื่อนไข",
         totalBet: "Total Bet",
         totalWin: "Total Win"
     },
@@ -433,6 +433,6 @@ window.i18n.languages.th = {
         low: "ต่ำ"
     },
     termsPromotion: {
-        first: "- All new and existing punters are eligible to join the promotions and take the chance to win bigger prizes. \n- The winning amount is paid according to the promotion rules and payouts. \n- The Promotion is applied for a certain period ruled by the Company. When the promotion expires, the betting odds will be set back to the previous values.\n- The Company reserves the right to vary any of the terms of entry applying to this promotion or to modify, terminate, suspend, or reschedule this promotion at any time.\n- Any dispute arising from or in the connection with this promotion shall be decided by the Company."
+        first: "-ผู้เล่นทั้งใหม่และเก่ามีสิทธิ์เข้าร่วมโปรโมชั่น และมีโอกาสชนะรางวัลใหญ่ \n-จำนวนเงินที่ชนะจะจ่ายตามกฎโปรโมชั่น และการจ่ายเงิน \n-โปรโมชั่นจะนำไปใช้ตามช่วงเวลาเงื่อนไขที่บริษัทกำหนด เมื่อโปรโมชั่นหมดเขตลง อัตราการเดิมพันจะถูกตั้งค่ากลับไปเป็นค่าก่อนหน้านี้\n-บริษัทขอสงวนสิทธิ์ในการเปลี่ยนแปลงข้อกำหนดในการเข้าร่วมโปรโมชั่นหรือแก้ไขยุติระงับหรือสามารถทำการแก้ไขโปรโมชั่นนี้ได้ตลอดเวลา\n-ข้อพิพาทใดๆที่เกิดขึ้นจากหรือที่เกี่ยวข้องกับโปรโมชั่นนี้จะถูกตัดสินโดยบริษัท"
     }
 };

@@ -15,19 +15,22 @@ export default class ColorAssembler2D extends cc.Component {
     }
     public set colors(colors) {
         this._colors = colors;
-        this._updateColors();
+        this.updateColors();
+    }
+    onLoad() {
+        this.node.on(cc.Node.EventType.SCALE_CHANGED, this.updateColors, this);
     }
 
     onEnable() {
-        cc.director.once(cc.Director.EVENT_AFTER_DRAW, this._updateColors, this);
+        cc.director.once(cc.Director.EVENT_AFTER_DRAW, this.updateColors, this);
     }
 
     onDisable() {
-        cc.director.off(cc.Director.EVENT_AFTER_DRAW, this._updateColors, this);
+        cc.director.off(cc.Director.EVENT_AFTER_DRAW, this.updateColors, this);
         this.node["_renderFlag"] |= cc["RenderFlow"].FLAG_COLOR;
     }
 
-    private _updateColors() {
+    updateColors() {
         const cmp = this.getComponent(cc.RenderComponent);
         if (!cmp) {
             return;

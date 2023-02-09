@@ -54,7 +54,7 @@ window.i18n.languages.zh_tw = {
         unavailableGame: "該遊戲暫時無法使用。詳情請聯繫CSD，謝謝。       (%{errorCode})",
         errorOccurred: "發生錯誤，請聯繫 CSD 了解詳情。(%{errorCode})",
         errorOccurredFull: "發生錯誤，請聯繫 CSD 了解詳情。(%{errorCode})",
-        sessionTimeout: "您的會話已超時或您尚未登錄。請關閉當前窗口並再次嘗試登錄。",
+        sessionTimeout: "您的會期已過期。請重新加載",
         playOnOtherDevice: "您的帳戶正被用於在其他瀏覽器或設備上玩 [game]。",
         serverError: "服務器遇到錯誤。",
         invalidData: "無效數據。",
@@ -124,7 +124,7 @@ window.i18n.languages.zh_tw = {
         accountClosed: "帳戶已關閉。您的會話將在 10 秒後過期，詳情請聯繫 CSD。(%{errorCode})",
         disabledGame: "遊戲正在維護中，請在10分鐘後回來。",
         errorOccurredPlaceBet: "下注失敗！發生錯誤，請聯繫 CSD 了解詳情。(%{errorCode})",
-        sessionTimeoutPlaceBet: "下注失敗！您的會話已超時或您尚未登錄。請關閉當前窗口並再次嘗試登錄。",
+        sessionTimeoutPlaceBet: "您的會期已過期。請重新加載",
         loginFailedPlaceBet: "下注失敗！登錄名或密碼不正確。",
         accountLockedPlaceBet: "下注失敗！帳戶已關閉。詳情請聯絡您的上線，謝謝。",
         accountNotExistPlaceBet: "下注失敗！發生了錯誤。詳情請聯繫CSD，謝謝。(%{errorCode})",
@@ -409,9 +409,9 @@ window.i18n.languages.zh_tw = {
         turboMode: "渦輪模式",
         start: "開始",
         table: "桌子",
-        joinGame: "Join Game",
-        promotion: "Promotions",
-        terms: "Terms and\n Conditions",
+        joinGame: "加入遊戲",
+        promotions: "促銷活動",
+        terms: "條款和條件",
         totalBet: "Total Bet",
         totalWin: "Total Win"
     },
@@ -428,6 +428,6 @@ window.i18n.languages.zh_tw = {
         low: "低"
     },
     termsPromotion: {
-        first: "- All new and existing punters are eligible to join the promotions and take the chance to win bigger prizes. \n- The winning amount is paid according to the promotion rules and payouts. \n- The Promotion is applied for a certain period ruled by the Company. When the promotion expires, the betting odds will be set back to the previous values.\n- The Company reserves the right to vary any of the terms of entry applying to this promotion or to modify, terminate, suspend, or reschedule this promotion at any time.\n- Any dispute arising from or in the connection with this promotion shall be decided by the Company."
+        first: "- 所有新的和現有的投注者都有資格參加促銷活動並抓住機會贏得更大的獎品。 \n- 中獎金額根據促銷規則和獎金支付。 \n- 促銷適用於公司規定的特定時期。促銷期滿後，投注賠率將恢復為之前的值。\n- 促銷適用於公司規定的特定時期。促銷期滿後，投注賠率將恢復為之前的值。\n- 因本推廣活動引起或與之相關的任何爭議均由本公司決定。"
     }
 };

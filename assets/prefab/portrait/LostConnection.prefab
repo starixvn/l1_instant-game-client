@@ -36,20 +36,20 @@
         "__id__": 20
       },
       {
-        "__id__": 24
+        "__id__": 25
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 37
+        "__id__": 38
       },
       {
-        "__id__": 38
+        "__id__": 39
       }
     ],
     "_prefab": {
-      "__id__": 39
+      "__id__": 40
     },
     "_opacity": 255,
     "_color": {
@@ -610,8 +610,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 217,
-      "height": 44
+      "width": 274.89,
+      "height": 55.44
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -668,7 +668,7 @@
     "_lineHeight": 44,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "72f17939-1190-4e1d-b8d0-2520ac44dd7e"
+      "__uuid__": "80bd500f-2fe2-4b96-a6ab-762b6f3d291d"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -708,10 +708,13 @@
       },
       {
         "__id__": 22
+      },
+      {
+        "__id__": 23
       }
     ],
     "_prefab": {
-      "__id__": 23
+      "__id__": 24
     },
     "_opacity": 255,
     "_color": {
@@ -781,7 +784,7 @@
     "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "1132047a-a0be-46cc-8bf7-7112725c63b4"
+      "__uuid__": "3e95cdb1-0fed-4fe5-a8e7-a067d10e2510"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -809,6 +812,18 @@
     "_id": ""
   },
   {
+    "__type__": "9d111BXqVFGDaGVTrJZHlRP",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 20
+    },
+    "_enabled": true,
+    "overrideFonts": [],
+    "enableCacheMode": true,
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -828,26 +843,26 @@
     },
     "_children": [
       {
-        "__id__": 25
+        "__id__": 26
       },
       {
-        "__id__": 28
+        "__id__": 29
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 32
-      },
-      {
         "__id__": 33
       },
       {
-        "__id__": 35
+        "__id__": 34
+      },
+      {
+        "__id__": 36
       }
     ],
     "_prefab": {
-      "__id__": 36
+      "__id__": 37
     },
     "_opacity": 255,
     "_color": {
@@ -901,17 +916,17 @@
     "_name": "icon_reconnect",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 24
+      "__id__": 25
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 26
+        "__id__": 27
       }
     ],
     "_prefab": {
-      "__id__": 27
+      "__id__": 28
     },
     "_opacity": 255,
     "_color": {
@@ -965,7 +980,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 25
+      "__id__": 26
     },
     "_enabled": true,
     "_materials": [
@@ -1010,20 +1025,20 @@
     "_name": "label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 24
+      "__id__": 25
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 29
+        "__id__": 30
       },
       {
-        "__id__": 30
+        "__id__": 31
       }
     ],
     "_prefab": {
-      "__id__": 31
+      "__id__": 32
     },
     "_opacity": 255,
     "_color": {
@@ -1077,7 +1092,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 28
+      "__id__": 29
     },
     "_enabled": true,
     "_materials": [
@@ -1112,7 +1127,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 28
+      "__id__": 29
     },
     "_enabled": true,
     "_dataId": "ui.reconnect",
@@ -1134,7 +1149,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 24
+      "__id__": 25
     },
     "_enabled": true,
     "_materials": [
@@ -1168,7 +1183,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 24
+      "__id__": 25
     },
     "_enabled": true,
     "_normalMaterial": null,
@@ -1177,7 +1192,7 @@
     "zoomScale": 1.1,
     "clickEvents": [
       {
-        "__id__": 34
+        "__id__": 35
       }
     ],
     "_N$interactable": true,
@@ -1250,7 +1265,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 24
+      "__id__": 25
     },
     "_enabled": true,
     "_layoutSize": {
@@ -1326,17 +1341,15 @@
     "popupNode": {
       "__id__": 1
     },
-    "title": {
-      "__id__": 18
-    },
+    "title": null,
     "message": {
       "__id__": 21
     },
     "buttonNode": {
-      "__id__": 24
+      "__id__": 25
     },
     "buttonLabel": {
-      "__id__": 29
+      "__id__": 30
     },
     "duration": 3,
     "_id": ""

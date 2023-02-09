@@ -27,14 +27,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 134
+        "__id__": 136
       },
       {
-        "__id__": 135
+        "__id__": 137
       }
     ],
     "_prefab": {
-      "__id__": 136
+      "__id__": 138
     },
     "_opacity": 255,
     "_color": {
@@ -3806,20 +3806,20 @@
         "__id__": 110
       },
       {
-        "__id__": 128
+        "__id__": 130
       }
     ],
     "_active": false,
     "_components": [
       {
-        "__id__": 131
+        "__id__": 133
       },
       {
-        "__id__": 132
+        "__id__": 134
       }
     ],
     "_prefab": {
-      "__id__": 133
+      "__id__": 135
     },
     "_opacity": 255,
     "_color": {
@@ -3886,11 +3886,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 126
+        "__id__": 128
       }
     ],
     "_prefab": {
-      "__id__": 127
+      "__id__": 129
     },
     "_opacity": 255,
     "_color": {
@@ -3966,7 +3966,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 84.86,
+      "width": 81,
       "height": 28
     },
     "_anchorPoint": {
@@ -4024,7 +4024,7 @@
     "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "5dbdd3ad-0a40-49b1-af57-794ff0644e36"
+      "__uuid__": "0ab99514-df1e-4b3a-9e14-854b36a53b05"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -4061,20 +4061,20 @@
         "__id__": 115
       },
       {
-        "__id__": 118
+        "__id__": 119
       },
       {
-        "__id__": 121
+        "__id__": 122
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 124
+        "__id__": 126
       }
     ],
     "_prefab": {
-      "__id__": 125
+      "__id__": 127
     },
     "_opacity": 255,
     "_color": {
@@ -4086,7 +4086,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200.57,
+      "width": 206.1,
       "height": 50
     },
     "_anchorPoint": {
@@ -4135,10 +4135,13 @@
     "_components": [
       {
         "__id__": 116
+      },
+      {
+        "__id__": 117
       }
     ],
     "_prefab": {
-      "__id__": 117
+      "__id__": 118
     },
     "_opacity": 255,
     "_color": {
@@ -4150,8 +4153,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100.93,
-      "height": 25
+      "width": 103.41,
+      "height": 31.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4162,7 +4165,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -96.27359999999999,
+        -98.928,
         24,
         0,
         0,
@@ -4208,7 +4211,7 @@
     "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "5dbdd3ad-0a40-49b1-af57-794ff0644e36"
+      "__uuid__": "3e95cdb1-0fed-4fe5-a8e7-a067d10e2510"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -4220,6 +4223,18 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "9d111BXqVFGDaGVTrJZHlRP",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 115
+    },
+    "_enabled": true,
+    "overrideFonts": [],
+    "enableCacheMode": true,
     "_id": ""
   },
   {
@@ -4244,11 +4259,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 119
+        "__id__": 120
       }
     ],
     "_prefab": {
-      "__id__": 120
+      "__id__": 121
     },
     "_opacity": 255,
     "_color": {
@@ -4272,7 +4287,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        4.656400000000019,
+        4.481999999999999,
         24,
         0,
         0,
@@ -4302,7 +4317,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 118
+      "__id__": 119
     },
     "_enabled": true,
     "_materials": [
@@ -4354,11 +4369,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 122
+        "__id__": 123
+      },
+      {
+        "__id__": 124
       }
     ],
     "_prefab": {
-      "__id__": 123
+      "__id__": 125
     },
     "_opacity": 255,
     "_color": {
@@ -4370,8 +4388,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 92.57,
-      "height": 25
+      "width": 95.62,
+      "height": 31.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4382,7 +4400,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        11.72640000000002,
+        11.552,
         24,
         0,
         0,
@@ -4412,7 +4430,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 121
+      "__id__": 122
     },
     "_enabled": true,
     "_materials": [
@@ -4428,7 +4446,7 @@
     "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "5dbdd3ad-0a40-49b1-af57-794ff0644e36"
+      "__uuid__": "3e95cdb1-0fed-4fe5-a8e7-a067d10e2510"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -4440,6 +4458,18 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "9d111BXqVFGDaGVTrJZHlRP",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 122
+    },
+    "_enabled": true,
+    "overrideFonts": [],
+    "enableCacheMode": true,
     "_id": ""
   },
   {
@@ -4463,7 +4493,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 200.57,
+      "width": 206.1,
       "height": 50
     },
     "_resize": 1,
@@ -4552,11 +4582,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 129
+        "__id__": 131
       }
     ],
     "_prefab": {
-      "__id__": 130
+      "__id__": 132
     },
     "_opacity": 255,
     "_color": {
@@ -4610,7 +4640,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 128
+      "__id__": 130
     },
     "_enabled": true,
     "_materials": [
@@ -4696,7 +4726,7 @@
       "__id__": 110
     },
     "result": {
-      "__id__": 119
+      "__id__": 120
     },
     "roundId": {
       "__id__": 112
@@ -4706,7 +4736,7 @@
       "__id__": 116
     },
     "banker": {
-      "__id__": 122
+      "__id__": 123
     },
     "_id": ""
   },
@@ -4733,7 +4763,7 @@
       "__id__": 2
     },
     "tip": {
-      "__id__": 132
+      "__id__": 134
     },
     "nodeNext": null,
     "offsetBorderCount": 2,

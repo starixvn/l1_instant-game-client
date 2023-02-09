@@ -49,12 +49,12 @@ window.i18n.languages.zh_cn = {
         winLimitHit: "下注失败！ 赢限制命中。 请联系您的上线，谢谢。(%{errorCode})",
         loseLimitHit: "下注失败！ 输限制命中。 请联系您的上线，谢谢。(%{errorCode})",
         limitBetUpdated: "下注失败！ 您的投注限额已更新，请重试。(%{errorCode})",
-        limitBetNotDefined: "下注失败！ 您对此游戏的投注限额尚未设置。 请联系您的上线，谢谢。(%{errorCode})",
+        limitBetNotDefined: "下注失败！ 您对此游戏的投注限额尚未设置。 请联系您的上线，谢谢。\n(%{errorCode})",
         accountSuspended: "下注失败！ 帐户已被暂停。 详情请联络您的上线，谢谢。(%{errorCode})",
         unavailableGame: "该游戏暂时无法使用。 详情请联系CSD，谢谢。      (%{errorCode})",
         errorOccurred: "发生错误，请联系 CSD 了解详情。(%{errorCode})",
         errorOccurredFull: "发生错误，请联系 CSD 了解详情。(%{errorCode})",
-        sessionTimeout: "您的会话已超时或您尚未登录。 请关闭当前窗口并再次尝试登录。",
+        sessionTimeout: "您的会期已过期。 请重新加载",
         playOnOtherDevice: "您的帐户正被用于在其他浏览器或设备上玩 [game]。",
         serverError: "服务器遇到错误。",
         invalidData: "无效数据。",
@@ -124,7 +124,7 @@ window.i18n.languages.zh_cn = {
         accountClosed: "帐户已关闭。 您的会话将在 10 秒后过期，详情请联系 CSD。(%{errorCode})",
         disabledGame: "游戏正在维护中，请在10分钟后回来。",
         errorOccurredPlaceBet: "下注失败！ 发生错误，请联系 CSD 了解详情。(%{errorCode})",
-        sessionTimeoutPlaceBet: "下注失败！ 您的会话已超时或您尚未登录。 请关闭当前窗口并再次尝试登录。",
+        sessionTimeoutPlaceBet: "您的会期已过期。 请重新加载",
         loginFailedPlaceBet: "下注失败！ 登录名或密码不正确。",
         accountLockedPlaceBet: "下注失败！ 帐户已关闭。 详情请联络您的上线，谢谢。",
         accountNotExistPlaceBet: "下注失败！ 发生了错误。 详情请联系CSD，谢谢。(%{errorCode})",
@@ -409,9 +409,9 @@ window.i18n.languages.zh_cn = {
         turboMode: "涡轮模式",
         start: "开始",
         table: "桌子",
-        joinGame: "Join Game",
-        promotion: "Promotions",
-        terms: "Terms and\n Conditions",
+        joinGame: "加入游戏",
+        promotions: "促销活动",
+        terms: "条款和条件",
         totalBet: "Total Bet",
         totalWin: "Total Win"
     },
@@ -428,6 +428,6 @@ window.i18n.languages.zh_cn = {
         low: "低"
     },
     termsPromotion: {
-        first: "- All new and existing punters are eligible to join the promotions and take the chance to win bigger prizes. \n- The winning amount is paid according to the promotion rules and payouts. \n- The Promotion is applied for a certain period ruled by the Company. When the promotion expires, the betting odds will be set back to the previous values.\n- The Company reserves the right to vary any of the terms of entry applying to this promotion or to modify, terminate, suspend, or reschedule this promotion at any time.\n- Any dispute arising from or in the connection with this promotion shall be decided by the Company."
+        first: "- 所有新的和现有的投注者都有资格参加促销活动并抓住机会赢得更大的奖品。 \n- 中奖金额根据促销规则和奖金支付。 \n- 促销适用于公司规定的特定时期。 促销期满后，投注赔率将恢复为之前的值。\n- 公司保留随时更改适用于此促销活动的任何参赛条款或修改、终止、暂停或重新安排此促销活动的权利。\n- 因本推广活动引起或与之相关的任何争议均由本公司决定。"
     }
 };

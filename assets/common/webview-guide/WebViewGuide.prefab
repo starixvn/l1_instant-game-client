@@ -875,7 +875,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 221.36,
-      "height": 35.28
+      "height": 44.1
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -929,7 +929,7 @@
     "_string": "UI.GAMERULES",
     "_N$string": "UI.GAMERULES",
     "_fontSize": 28,
-    "_lineHeight": 28,
+    "_lineHeight": 35,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "80bd500f-2fe2-4b96-a6ab-762b6f3d291d"
