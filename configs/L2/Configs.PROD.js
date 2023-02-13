@@ -3,8 +3,11 @@ window.envConfig = {
     ssl: true,
     disabledDirectLogin: true,
     serverDomainMapper: {
-        "www.mini.v-gaming.net": "v-gaming.net",
-        "mini.v-gaming.net": "v-gaming.net"
+        "mini.v-gaming.net": "v-gaming.net",
+        "v-gaming.net": "v-gaming.net",
+        "mini.vgaming.win": "vgaming.win",
+        "mini2.vgaming.win": "vgaming.win",
+        "vgaming.win": "vgaming.win"
     },
     subDomain: "proxy",
     env: "",
@@ -12,7 +15,7 @@ window.envConfig = {
         url: "https://eb5f1c92d1da4cb6a059fa40c1276a9d@sentry.sabagame.com/48",
         env: "INSTANT_PRO"
     },
-    guideDomain: "https://guides.sabagame.net",
+    guideDomain: "https://guides.vgaming.win",
     enableMsgpackParserOnGame: {
         45: true,
         1: true,
