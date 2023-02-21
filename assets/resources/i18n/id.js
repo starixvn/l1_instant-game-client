@@ -137,7 +137,7 @@ window.i18n.languages.id = {
         userNotFoundPlaceBet: "Gagal memasang taruhan! Pengguna tidak ditemukan. (%{errorCode})",
         sysMaintenancePlaceBet: "Gagal memasang taruhan! Permainan sedang dalam pemeliharaan.",
         networkErrorPlaceBet: "Gagal memasang taruhan! Kesalahan jaringan. (%{errorCode})",
-        login_failed: "Gagal memuat data game. Harap tutup jendela saat ini dan coba lagi."
+        login_failed: "Gagal memuat permainan. Silakan coba lagi."
     },
     ui: {
         choice_red2: "2 Merah",

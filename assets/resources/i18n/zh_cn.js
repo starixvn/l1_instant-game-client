@@ -37,7 +37,7 @@ window.i18n.languages.zh_cn = {
     messages: {
         loginFailed: "登录名或密码不正确。",
         accountLocked: "帐户已关闭。 详情请联络您的上线，谢谢。",
-        accountNotExist: "发生了错误。 详情请联系CSD，谢谢。(%{errorCode})",
+        accountNotExist: "发生了错误。 详情请联系CSD，谢谢。\n(%{errorCode})",
         ipRestricted: "您的 IP 地址受到限制。(%{errorCode})",
         accountBlacklisted: "帐户已关闭。 详情请联络 CSD。(%{errorCode})",
         userNotFound: "未找到用户。(%{errorCode})",
@@ -52,8 +52,8 @@ window.i18n.languages.zh_cn = {
         limitBetNotDefined: "下注失败！ 您对此游戏的投注限额尚未设置。 请联系您的上线，谢谢。\n(%{errorCode})",
         accountSuspended: "下注失败！ 帐户已被暂停。 详情请联络您的上线，谢谢。(%{errorCode})",
         unavailableGame: "该游戏暂时无法使用。 详情请联系CSD，谢谢。\n(%{errorCode})",
-        errorOccurred: "发生错误，请联系 CSD 了解详情。(%{errorCode})",
-        errorOccurredFull: "发生错误，请联系 CSD 了解详情。(%{errorCode})",
+        errorOccurred: "发生错误，请联系 CSD 了解详情。\n(%{errorCode})",
+        errorOccurredFull: "发生错误，请联系 CSD 了解详情。\n(%{errorCode})",
         sessionTimeout: "您的会期已过期。 请重新加载",
         playOnOtherDevice: "您的帐户正被用于在其他浏览器或设备上玩 [game]。",
         serverError: "服务器遇到错误。",
@@ -127,13 +127,13 @@ window.i18n.languages.zh_cn = {
         sessionTimeoutPlaceBet: "您的会期已过期。 请重新加载",
         loginFailedPlaceBet: "下注失败！ 登录名或密码不正确。",
         accountLockedPlaceBet: "下注失败！ 帐户已关闭。 详情请联络您的上线，谢谢。",
-        accountNotExistPlaceBet: "下注失败！ 发生了错误。 详情请联系CSD，谢谢。(%{errorCode})",
+        accountNotExistPlaceBet: "下注失败！ 发生了错误。 详情请联系CSD，谢谢。\n(%{errorCode})",
         ipRestrictedPlaceBet: "下注失败！ 您的 IP 地址受到限制。(%{errorCode})",
         accountBlacklistedPlaceBet: "下注失败！ 帐户已关闭。 详情请联络 CSD。(%{errorCode})",
         userNotFoundPlaceBet: "下注失败！ 未找到用户。(%{errorCode})",
         sysMaintenancePlaceBet: "下注失败！ 游戏正在维护中。",
         networkErrorPlaceBet: "下注失败！ 网络错误。(%{errorCode})",
-        login_failed: "无法加载游戏数据。\n 请关闭当前窗口并重试。"
+        login_failed: "加载游戏失败。 请再试一次。"
     },
     ui: {
         choice_red2: "2 红",

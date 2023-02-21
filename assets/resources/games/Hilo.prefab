@@ -6830,7 +6830,7 @@
     },
     "_enabled": true,
     "overrideFonts": [],
-    "enableCacheMode": true,
+    "enableCacheMode": false,
     "_id": ""
   },
   {

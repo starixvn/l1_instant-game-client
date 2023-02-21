@@ -37,7 +37,7 @@ window.i18n.languages.en = {
     messages: {
         loginFailed: "Incorrect login name or password",
         accountLocked: "Account has been closed. Please contact your upline for details, thank you.",
-        accountNotExist: "An error has occurred. Please contact CSD for details.(%{errorCode})",
+        accountNotExist: "An error has occurred. Please contact CSD for details. (%{errorCode})",
         ipRestricted: "Your IP address is restricted.(%{errorCode})",
         accountBlacklisted: "Account has been closed. Please contact CSD for details.(%{errorCode})",
         userNotFound: "User was not found.(%{errorCode})",
@@ -127,7 +127,7 @@ window.i18n.languages.en = {
         sessionTimeoutPlaceBet: "Your session has expired. Please reload.",
         loginFailedPlaceBet: "Failed to place bet! Incorrect login name or password.",
         accountLockedPlaceBet: "Account has been closed. Please contact your upline for details.",
-        accountNotExistPlaceBet: "An error has occurred. Please contact CSD for details.(%{errorCode})",
+        accountNotExistPlaceBet: "An error has occurred. Please contact CSD for details. (%{errorCode})",
         ipRestrictedPlaceBet: "Failed to place bet! Your IP address is restricted.(%{errorCode})",
         accountBlacklistedPlaceBet: "Account has been closed. Please contact CSD for details.(%{errorCode})",
         userNotFoundPlaceBet: "Failed to place bet! User was not found.(%{errorCode})",

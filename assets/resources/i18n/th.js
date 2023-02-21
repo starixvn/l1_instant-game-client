@@ -136,7 +136,7 @@ window.i18n.languages.th = {
         userNotFoundPlaceBet: "การวางเดิมพันล้มเหลว! ไม่พบชื่อผู้ใช้ (%{errorCode})",
         sysMaintenancePlaceBet: "การวางเดิมพันล้มเหลว! เกมอยู่ระหว่างการบำรุงรักษา ",
         networkErrorPlaceBet: "การวางเดิมพันล้มเหลว! เกิดข้อผิดพลาดของเครือข่าย (%{errorCode})",
-        login_failed: "การดาวน์โหลดล้มเหลว กรุณาลองปิดหน้าต่างแล้วลองใหม่อีกครั้ง"
+        login_failed: "โหลดเกมไม่สำเร็จ กรุณาลองอีกครั้ง."
     },
     ui: {
         choice_red2: "2 แดง",
