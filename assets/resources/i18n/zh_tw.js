@@ -46,12 +46,12 @@ window.i18n.languages.zh_tw = {
         userInsufficientFund: "您的賬戶資金不足。(%{errorCode})",
         limitBetExceeded: "下注失敗！您的本金已超出您的投注限額設置，請重試。(%{errorCode})",
         playerNotPermittedPlay: "遊戲禁用。詳情請聯絡您的上線，謝謝。(%{errorCode})",
-        winLimitHit: "下注失敗！贏限制命中。請聯繫您的上線，謝謝。    (%{errorCode})",
-        loseLimitHit: "下注失敗！輸限制命中。請聯繫您的上線，謝謝。    (%{errorCode})",
+        winLimitHit: "下注失敗！贏限制命中。請聯繫您的上線，謝謝。\n(%{errorCode})",
+        loseLimitHit: "下注失敗！輸限制命中。請聯繫您的上線，謝謝。\n(%{errorCode})",
         limitBetUpdated: "下注失敗！您的投注限額已更新，請重試。(%{errorCode})",
-        limitBetNotDefined: "下注失敗！您對此遊戲的投注限額尚未設置。請聯繫您的上線，謝謝。(%{errorCode})",
+        limitBetNotDefined: "下注失敗！您對此遊戲的投注限額尚未設置。請聯繫您的上線，謝謝。\n(%{errorCode})",
         accountSuspended: "下注失敗！帳戶已被暫停。詳情請聯絡您的上線，謝謝。(%{errorCode})",
-        unavailableGame: "該遊戲暫時無法使用。詳情請聯繫CSD，謝謝。       (%{errorCode})",
+        unavailableGame: "該遊戲暫時無法使用。詳情請聯繫CSD，謝謝。\n(%{errorCode})",
         errorOccurred: "發生錯誤，請聯繫 CSD 了解詳情。(%{errorCode})",
         errorOccurredFull: "發生錯誤，請聯繫 CSD 了解詳情。(%{errorCode})",
         sessionTimeout: "您的會期已過期。請重新加載",
@@ -133,7 +133,7 @@ window.i18n.languages.zh_tw = {
         userNotFoundPlaceBet: "下注失敗！未找到用戶。(%{errorCode})",
         sysMaintenancePlaceBet: "下注失敗！遊戲正在維護中。",
         networkErrorPlaceBet: "下注失敗！網絡錯誤。(%{errorCode})",
-        login_failed: "無法加載遊戲數據。請關閉當前窗口並重試。"
+        login_failed: "無法加載遊戲數據。\n請關閉當前窗口並重試。"
     },
     ui: {
         choice_red2: "2 紅",

@@ -49,7 +49,7 @@ window.i18n.languages.en = {
         winLimitHit: "Win limit hit. Please contact your upline.\n(%{errorCode})",
         loseLimitHit: "Lose limit hit. Please contact your upline, thank you.\n(%{errorCode})",
         limitBetUpdated: "Your bet limit has been updated, please try again.(%{errorCode})",
-        limitBetNotDefined: "Your bet limit for this game has not been set. Please contact your upline.(%{errorCode})",
+        limitBetNotDefined: "Your bet limit for this game has not been set. Please contact your upline. (%{errorCode})",
         accountSuspended: "Account has been suspended. Please contact your upline for details. (%{errorCode})",
         unavailableGame: "The game is unavailable at the moment. Please contact CSD for details. (%{errorCode})",
         errorOccurred: "An error has occurred, please contact CSD for details.(%{errorCode})",
@@ -133,7 +133,7 @@ window.i18n.languages.en = {
         userNotFoundPlaceBet: "Failed to place bet! User was not found.(%{errorCode})",
         sysMaintenancePlaceBet: "The game is under maintenance.",
         networkErrorPlaceBet: "Failed to place bet! Network error.(%{errorCode})",
-        login_failed: "Failed to load game. Please try again."
+        login_failed: "Failed to load game.\n Please try again."
     },
     ui: {
         choice_red2: "2 Red",

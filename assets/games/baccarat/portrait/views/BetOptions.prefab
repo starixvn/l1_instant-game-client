@@ -1687,7 +1687,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 559.76,
+      "width": 520.06,
       "height": 67
     },
     "_anchorPoint": {
@@ -1699,7 +1699,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        9,
+        2,
         11,
         0,
         0,
@@ -1741,7 +1741,7 @@
     "_dstBlendFactor": 771,
     "_string": "UI.CHOICE_PLAYER",
     "_N$string": "UI.CHOICE_PLAYER",
-    "_fontSize": 56,
+    "_fontSize": 52,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
@@ -1799,7 +1799,7 @@
     },
     "_enabled": true,
     "overrideFonts": [],
-    "enableCacheMode": true,
+    "enableCacheMode": false,
     "_id": ""
   },
   {
@@ -4396,7 +4396,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 429.77,
+      "width": 399.36,
       "height": 67
     },
     "_anchorPoint": {
@@ -4450,7 +4450,7 @@
     "_dstBlendFactor": 771,
     "_string": "UI.CHOICE_TIE",
     "_N$string": "UI.CHOICE_TIE",
-    "_fontSize": 56,
+    "_fontSize": 52,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
@@ -6251,7 +6251,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 574.25,
+      "width": 533.52,
       "height": 67
     },
     "_anchorPoint": {
@@ -6305,7 +6305,7 @@
     "_dstBlendFactor": 771,
     "_string": "UI.CHOICE_BANKER",
     "_N$string": "UI.CHOICE_BANKER",
-    "_fontSize": 56,
+    "_fontSize": 52,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
