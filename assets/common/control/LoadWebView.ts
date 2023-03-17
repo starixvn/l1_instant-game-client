@@ -24,13 +24,13 @@ export default class LoadWebView extends cc.Component {
                     .delay(paddingTime)
                     .call(() => {
                         this.hideLoading();
+                        this.showWebView();
                     })
                     .start();
 
                 if (this.needDisableDivScroll) {
                     this.webView.disableDivScroll();
                 }
-                this.showWebView();
             },
             this
         );
