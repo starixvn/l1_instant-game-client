@@ -3,13 +3,31 @@ import { GameInfos } from "../../configs/SabaConfigs";
 
 export function buildUrl(protocol = "http", path = "/") {
     const ssl = configs.ssl;
-    const hostName = configs.serverDomainMapper[window.location.hostname];
+    const domain = getRootDomain();
     const subDomain = configs.subDomain;
     const subDomainText = `${subDomain}.`;
-    return `${protocol}${ssl ? "s" : ""}://${subDomain === "" ? "" : subDomainText}${hostName}${path}`;
+    return `${protocol}${ssl ? "s" : ""}://${subDomain === "" ? "" : subDomainText}${domain}${path}`;
 }
 
-export function getUserServiceURL() {
+export function getRootDomain() {
+    const hostName = window.location.hostname;
+    return (!!configs.serverDomainMapper && configs.serverDomainMapper[hostName]) || extractDomainFromHostName(hostName);
+}
+
+export function extractDomainFromHostName(hostName) {
+    const domainParts = hostName.split(".").reverse();
+    return `${domainParts[1]}.${domainParts[0]}`;
+}
+
+export function buildGameGuideUrl() {
+    const ssl = configs.ssl;
+    const rootDomain = getRootDomain();
+    const subGuideDomainText = `${configs.subGuideDomain}.`;
+
+    return `${"http"}${ssl ? "s" : ""}://${subGuideDomainText}${rootDomain}`;
+}
+
+export function getUserServiceUrl() {
     const path = configs.env === "" ? "/user" : `/${configs.env}/user`;
     return buildUrlWithPath(path);
 }

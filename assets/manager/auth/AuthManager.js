@@ -4,7 +4,7 @@ import i18n from "i18n/runtime-scripts/LanguageData";
 import ChipConfig from "../../common/control/bet-chip/ChipConfig";
 import httpHelper from "../../common/helper/httpHelper";
 import { FeatureConfig } from "../../configs/FeatureConfigs";
-import { buildServerUrl, getUserServiceURL } from "../../common/helper/UrlHelper";
+import { buildServerUrl, getUserServiceUrl } from "../../common/helper/UrlHelper";
 import logger from "../../common/logger";
 import NoticeUtil from "../../common/utils/NoticeUtil";
 import * as sessionManager from "./SessionManager";
@@ -72,7 +72,7 @@ export function getChipSetting() {
         username: window.authData.username,
         browserUserAgent: window.navigator.userAgent
     };
-    const userServiceUrl = getUserServiceURL();
+    const userServiceUrl = getUserServiceUrl();
     axios.post(`${userServiceUrl}/settings`, request).then((response) => {
         if (response.data.chips) {
             ChipConfig.getInstance().setData(response.data.chips);

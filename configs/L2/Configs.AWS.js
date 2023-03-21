@@ -2,9 +2,6 @@ window.envConfig = {
     systemType: "SC2",
     ssl: true,
     disabledDirectLogin: true,
-    serverDomainMapper: {
-        "sc2-games.sportsfun.app": "sportsfun.app"
-    },
     subDomain: "sc2-proxy",
     envRoute: "",
     sentry: {
