@@ -167,4 +167,8 @@ export default class GameUtils {
         const userAgent = window.navigator.userAgent.toLowerCase();
         return /ipad/.test(userAgent);
     }
+
+    public static getText(key: string, opt: any = {}) {
+        return i18n.t(key, opt);
+    }
 }

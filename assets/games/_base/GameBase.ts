@@ -1,6 +1,7 @@
 import * as i18n from "i18n/runtime-scripts/LanguageData";
 import * as _ from "lodash";
 
+import AudioManager from "../../common/audio/AudioManager";
 import AnimatedTime from "../../common/control/animated-time/AnimatedTime";
 import BaseComponent from "../../common/control/BaseComponent";
 import BetChips from "../../common/control/bet-chip/BetChips";
@@ -9,8 +10,10 @@ import ProcessingWarning from "../../common/control/notice/ProcessingWarning";
 import UmWarning from "../../common/control/notice/UmWarning";
 import TypingLabel from "../../common/control/TypingLabel";
 import GameUtils from "../../common/utils/GameUtils";
+import WebViewGuide from "../../common/webview-guide/WebViewGuide";
 import { FeatureConfig } from "../../configs/FeatureConfigs";
 import { GameInfos } from "../../configs/SabaConfigs";
+import { getLanguage, getLocale } from "../../manager/auth/SessionManager";
 import DataHandler from "./handlers/DataHandler";
 import GameBaseBetHandler from "./handlers/GameBaseBetHandler";
 import GameBaseConfigsHandler from "./handlers/GameBaseConfigsHandler";
@@ -18,6 +21,7 @@ import GameBaseErrorHandler from "./handlers/GameBaseErrorHandler";
 import GameBaseFinishHandler from "./handlers/GameBaseFinishHandler";
 import GameBaseLogsHandler from "./handlers/GameBaseLogsHandler";
 import GameBaseNoticeHandler from "./handlers/GameBaseNoticeHandler";
+import GameBaseOddsHandler from "./handlers/GameBaseOddsHandler";
 import { GameBaseStatusHandler } from "./handlers/GameBaseStatusHandler";
 import GameBaseTimeHandler from "./handlers/GameBaseTimeHandler";
 import GameBaseUmDataHandler from "./handlers/GameBaseUmDataHandler";
@@ -25,10 +29,6 @@ import BetItem from "./view-models/BetItem";
 import GameAudios from "./view-models/GameAudios";
 import { GameConfigBase } from "./view-models/GameConfigBase";
 import GameRoundHistory from "./view-models/GameRoundHistory";
-import AudioManager from "../../common/audio/AudioManager";
-import GameBaseOddsHandler from "./handlers/GameBaseOddsHandler";
-import WebViewGuide from "../../common/webview-guide/WebViewGuide";
-import { getLanguage, getLocale } from "../../manager/auth/SessionManager";
 
 const { ccclass, property } = cc._decorator;
 
@@ -533,7 +533,7 @@ export default class GameBase extends BaseComponent {
             language,
             { minBet, maxBet, used: this.isUsingMaxStakeLevel() },
             isInPromotionTime,
-            cc.RedT?.user.fractionalOddsFormat
+            cc.GameManager?.user.fractionalOddsFormat
         );
         guide.sendDataToIframe(this.gameConfigs);
         this.currentMiniPanel.addDialog(dialog);
