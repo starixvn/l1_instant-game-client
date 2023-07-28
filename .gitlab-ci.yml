@@ -1,15 +1,8 @@
-variables:
-    COCOS_VERSION: 2.4.6
-
 include:
-    - project: "ci/repos-ci/pentagon_l1_instant_game_client"
-      ref: master
-      file: "gitlab-ci.yml"
+  - project: "ci/core-cicd"
+    ref: main
+    file: "luminet.gitlab-ci.yml"
 
-    - project: "ci/repos-ci/pentagon_l2_instant_game_client"
-      ref: master
-      file: "gitlab-ci-mixing.yml"
-
-unit-test-js:
-  image: hub.lumigame.com/base/node:16.15-slim
-
+variables:
+  COCOS_VERSION: 2.4.6
+  NODEJS_IMAGE: hub.lumigame.com/base/node:16.15-slim
