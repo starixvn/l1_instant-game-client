@@ -11,8 +11,6 @@ import SicBoLogsHandler from "./handlers/SicBoLogsHandler";
 import SicBoTimeHandler from "./handlers/SicBoTimeHandler";
 import SicBoBetItem from "./SicBoBetItem";
 import SicBoConfigs from "./SicBoConfigs";
-import SicBoDicesStatistic from "./SicBoDicesStatistic";
-import SicBoMajorChoicesStatistic from "./SicBoMajorChoicesStatistic";
 import SicBoOddsItem from "./SicBoOddsItem";
 import SicBoResult from "./SicBoResult";
 
@@ -53,23 +51,8 @@ export default class SicBo extends SocketIOMiniGameBase {
     @property(cc.SpriteAtlas)
     sicboAtlas: cc.SpriteAtlas = null;
 
-    @property(cc.Prefab)
-    roundHistoryPrefab: cc.Prefab = null;
-
     @property(cc.Node)
     roundHistoryContainer: cc.Node = null;
-
-    @property(cc.Node)
-    dicesStatisticContainer: cc.Node = null;
-
-    @property(cc.Prefab)
-    dicesStatisticPrefab: cc.Prefab = null;
-
-    @property(cc.Node)
-    majorChoicesStatisticContainer: cc.Node = null;
-
-    @property(cc.Prefab)
-    majorChoicesStatisticPrefab: cc.Prefab = null;
 
     @property(SicBoResult)
     resultNode: SicBoResult = null;
@@ -100,16 +83,11 @@ export default class SicBo extends SocketIOMiniGameBase {
     Md5IsShowTooltip = false;
     Md5NodeWidth = 395;
 
-    private dicesStatisticComponent: SicBoDicesStatistic;
-    private majorChoicesStatisticComponent: SicBoMajorChoicesStatistic;
-
     onLoad() {
         super.onLoad();
         this.relocationChipNode();
         this.shakeAnimation.node.active = false;
         this.animatedTime.setAnimatedY(30, -5);
-        // this.initDicesStatistic();
-        // this.initMajorChoicesStatistic();
     }
 
     relocationChipNode() {
@@ -130,22 +108,6 @@ export default class SicBo extends SocketIOMiniGameBase {
         super.resetDataAndUI();
 
         this.openDiskAnimation.node.active = false;
-    }
-
-    initDicesStatistic() {
-        const dicesStatistic = cc.instantiate(this.dicesStatisticPrefab);
-        this.dicesStatisticComponent = dicesStatistic.getComponent(SicBoDicesStatistic);
-        this.dicesStatisticComponent.init(this.currentDataLogs);
-
-        this.dicesStatisticContainer.addChild(dicesStatistic);
-    }
-
-    initMajorChoicesStatistic() {
-        const majorChoicesStatistic = cc.instantiate(this.majorChoicesStatisticPrefab);
-        this.majorChoicesStatisticComponent = majorChoicesStatistic.getComponent(SicBoMajorChoicesStatistic);
-        this.majorChoicesStatisticComponent.init(this);
-
-        this.majorChoicesStatisticContainer.addChild(majorChoicesStatistic);
     }
 
     initHandlers() {
@@ -215,9 +177,12 @@ export default class SicBo extends SocketIOMiniGameBase {
         this.specific6Statistic = 0;
     }
 
-    updateStatistic(data: any) {
-        // this.dicesStatisticComponent.updateData(data);
-        // this.majorChoicesStatisticComponent.updateData(data);
+    updateStatistic(data: any) {}
+
+    public updateRoundHistory() {
+        if (this.roundHistory && this.roundHistory.isAlive()) {
+            this.roundHistory.setData(this.currentDataLogs);
+        }
     }
 
     checkConditionUpdateRoundHistory() {

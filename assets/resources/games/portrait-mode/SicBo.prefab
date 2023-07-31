@@ -28918,7 +28918,9 @@
     "gameRound": {
       "__id__": 3
     },
-    "roundHistoryPrefab": null,
+    "roundHistoryPrefab": {
+      "__uuid__": "3c40b85c-3532-46a7-827b-1a0b5edb4137"
+    },
     "enableChips": true,
     "betChipsContainer": {
       "__id__": 755
