@@ -13,6 +13,7 @@ import SicBoBetItem from "./SicBoBetItem";
 import SicBoConfigs from "./SicBoConfigs";
 import SicBoOddsItem from "./SicBoOddsItem";
 import SicBoResult from "./SicBoResult";
+import MiniRoundHistory from "../../../common/control/mini-round-history/MiniRoundHistory";
 
 const { ccclass, property } = cc._decorator;
 
@@ -45,14 +46,14 @@ export default class SicBo extends SocketIOMiniGameBase {
     @property(cc.Node)
     randomResult: cc.Node = null;
 
-    @property(cc.Node)
-    betChoiceStatistic: cc.Node = null;
-
     @property(cc.SpriteAtlas)
     sicboAtlas: cc.SpriteAtlas = null;
 
     @property(cc.Node)
-    roundHistoryContainer: cc.Node = null;
+    miniRoundHistoryContainer: cc.Node = null;
+
+    @property(cc.Prefab)
+    miniRoundHistoryPrefab: cc.Prefab = null;
 
     @property(SicBoResult)
     resultNode: SicBoResult = null;
@@ -83,9 +84,15 @@ export default class SicBo extends SocketIOMiniGameBase {
     Md5IsShowTooltip = false;
     Md5NodeWidth = 395;
 
+    public miniRoundHistory: MiniRoundHistory = null;
+
     onLoad() {
         super.onLoad();
         this.relocationChipNode();
+        const mini = cc.instantiate(this.miniRoundHistoryPrefab);
+        this.miniRoundHistory = mini.getComponent(MiniRoundHistory);
+        this.miniRoundHistoryContainer.addChild(mini);
+        //GameUtils.moveToOtherNode(this.miniRoundHistory.tip.node, this.tipContainer);
         this.shakeAnimation.node.active = false;
         this.animatedTime.setAnimatedY(30, -5);
     }
@@ -165,21 +172,10 @@ export default class SicBo extends SocketIOMiniGameBase {
         }
     }
 
-    resetStatistic() {
-        this.bigStatistic = 0;
-        this.smallStatistic = 0;
-        this.anyTripleStatistic = 0;
-        this.specific1Statistic = 0;
-        this.specific2Statistic = 0;
-        this.specific3Statistic = 0;
-        this.specific4Statistic = 0;
-        this.specific5Statistic = 0;
-        this.specific6Statistic = 0;
-    }
-
     updateStatistic(data: any) {}
 
     public updateRoundHistory() {
+        this.miniRoundHistory.setData(this.currentDataLogs);
         if (this.roundHistory && this.roundHistory.isAlive()) {
             this.roundHistory.setData(this.currentDataLogs);
         }
