@@ -1,0 +1,155 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "instant-sicbo-winning-animation-desktop-o-nho",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.3333333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "paths": {
+      "Round1/left": {
+        "props": {
+          "scaleY": [
+            {
+              "frame": 0,
+              "value": 2.4
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "Round1/right": {
+        "props": {
+          "scaleY": [
+            {
+              "frame": 0,
+              "value": 2.4
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "Round1/bottom": {
+        "props": {
+          "scaleX": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": 3
+            }
+          ]
+        }
+      },
+      "Round1/top": {
+        "props": {
+          "scaleX": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": 3
+            }
+          ]
+        }
+      },
+      "Round2/left": {
+        "props": {
+          "scaleY": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            },
+            {
+              "frame": 1.3333333333333333,
+              "value": 2.4
+            }
+          ]
+        }
+      },
+      "Round2/right": {
+        "props": {
+          "scaleY": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            },
+            {
+              "frame": 1.3333333333333333,
+              "value": 2.4
+            }
+          ]
+        }
+      },
+      "Round2/bottom": {
+        "props": {
+          "scaleX": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 3
+            },
+            {
+              "frame": 1.3333333333333333,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "Round2/top": {
+        "props": {
+          "scaleX": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 3
+            },
+            {
+              "frame": 1.3333333333333333,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "Round2": {
+        "props": {
+          "opacity": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            },
+            {
+              "frame": 0.6833333333333333,
+              "value": 255
+            }
+          ]
+        }
+      },
+      "Round1": {
+        "props": {
+          "opacity": [
+            {
+              "frame": 0.6666666666666666,
+              "value": 255
+            },
+            {
+              "frame": 0.6833333333333333,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}
