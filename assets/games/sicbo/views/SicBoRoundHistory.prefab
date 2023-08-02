@@ -49,8 +49,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 448,
-      "height": 740
+      "width": 812,
+      "height": 456
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -61,8 +61,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        224,
-        370,
+        406,
+        228,
         0,
         0,
         0,
@@ -119,8 +119,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 448,
-      "height": 740
+      "width": 812,
+      "height": 456
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -348,7 +348,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 428,
+      "width": 792,
       "height": 330
     },
     "_anchorPoint": {
@@ -361,7 +361,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -169.673,
+        -27.673000000000002,
         0,
         0,
         0,
@@ -415,7 +415,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 424,
+      "width": 788,
       "height": 216
     },
     "_anchorPoint": {
@@ -555,7 +555,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 374,
+      "width": 738,
       "height": 50
     },
     "_anchorPoint": {
@@ -2829,7 +2829,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        185.5,
+        367.5,
         136.5,
         0,
         0,
@@ -3048,7 +3048,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 423,
+      "width": 787,
       "height": 250
     },
     "_anchorPoint": {
@@ -3119,7 +3119,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 389,
+      "width": 753,
       "height": 250
     },
     "_anchorPoint": {
@@ -3198,7 +3198,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        195,
+        377,
         -125.613,
         0,
         0,
@@ -3542,7 +3542,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 402.20000000000005,
+      "width": 766.2,
       "height": 12
     },
     "_anchorPoint": {
