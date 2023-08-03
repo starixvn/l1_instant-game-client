@@ -25517,7 +25517,7 @@
       "__id__": 1
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 707
@@ -26860,6 +26860,9 @@
     },
     "ownBetContainer": {
       "__id__": 594
+    },
+    "tipContainer": {
+      "__id__": 706
     },
     "_id": ""
   },

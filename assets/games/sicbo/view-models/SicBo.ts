@@ -67,6 +67,9 @@ export default class SicBo extends SocketIOMiniGameBase {
     @property(cc.Node)
     ownBetContainer: cc.Node = null;
 
+    @property(cc.Node)
+    tipContainer: cc.Node = null;
+
     public finishShakeThePlate = false;
 
     bigStatistic = 0;
@@ -92,7 +95,7 @@ export default class SicBo extends SocketIOMiniGameBase {
         const mini = cc.instantiate(this.miniRoundHistoryPrefab);
         this.miniRoundHistory = mini.getComponent(MiniRoundHistory);
         this.miniRoundHistoryContainer.addChild(mini);
-        //GameUtils.moveToOtherNode(this.miniRoundHistory.tip.node, this.tipContainer);
+        GameUtils.moveToOtherNode(this.miniRoundHistory.tip.node, this.tipContainer);
         this.shakeAnimation.node.active = false;
         this.animatedTime.setAnimatedY(30, -5);
     }
@@ -171,8 +174,6 @@ export default class SicBo extends SocketIOMiniGameBase {
             });
         }
     }
-
-    updateStatistic(data: any) {}
 
     public updateRoundHistory() {
         this.miniRoundHistory.setData(this.currentDataLogs);
