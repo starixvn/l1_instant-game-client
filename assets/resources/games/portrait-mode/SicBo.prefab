@@ -25605,8 +25605,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 382,
-      "height": 514
+      "width": 232,
+      "height": 312
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -25805,11 +25805,11 @@
     },
     "_enabled": true,
     "_defaultClip": {
-      "__uuid__": "0874256b-38d0-448a-a63a-7dd6a01e9f05"
+      "__uuid__": "8b4dc029-85ae-4694-ad88-9e5bae79f89c"
     },
     "_clips": [
       {
-        "__uuid__": "0874256b-38d0-448a-a63a-7dd6a01e9f05"
+        "__uuid__": "8b4dc029-85ae-4694-ad88-9e5bae79f89c"
       }
     ],
     "playOnLoad": false,
