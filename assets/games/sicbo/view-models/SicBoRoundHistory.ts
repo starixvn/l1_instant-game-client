@@ -51,10 +51,6 @@ export default class SicBoRoundHistory extends GameRoundHistory {
             const dice4Percentage = Math.round((dice4Total / (length * 3)) * 100);
             const dice5Percentage = Math.round((dice5Total / (length * 3)) * 100);
             const dice6Percentage = 100 - (dice1Percentage + dice2Percentage + dice3Percentage + dice4Percentage + dice5Percentage);
-            // this.statisticLabels.forEach((label, index) => {
-            //     const value = `dice${index + 1}Percentage`;
-            //     label.string = value;
-            // });
 
             this.statisticLabels[0].string = `${dice1Percentage}%`;
             this.statisticLabels[1].string = `${dice2Percentage}%`;
