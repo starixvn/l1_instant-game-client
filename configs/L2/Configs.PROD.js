@@ -15,7 +15,8 @@ window.envConfig = {
         9: true,
         3: true,
         7: true,
-        10: true
+        10: true,
+        25: true
     },
     enableMsgpackParserOnNotification: true
 };
