@@ -1,5 +1,4 @@
 import MiniRoundHistoryItem from "../../../common/control/mini-round-history/MiniRoundHistoryItem";
-import GameUtils from "../../../common/utils/GameUtils";
 import { SicBoBetType } from "./SicBoCommon";
 
 const { ccclass, property } = cc._decorator;
@@ -10,7 +9,6 @@ export default class SicBoMiniRoundHistoryItem extends MiniRoundHistoryItem {
         const { settlementResult } = data;
         this.data = data;
         const color = cc.Color.WHITE;
-        let choiceResult = "";
         if (settlementResult[SicBoBetType.anyTriple]) {
             this.node.color = color.fromHEX("#F3BC0F");
         } else {
