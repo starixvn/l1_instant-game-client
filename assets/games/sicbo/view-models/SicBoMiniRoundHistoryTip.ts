@@ -12,7 +12,7 @@ export default class SicBoMiniRoundHistoryTip extends MiniRoundHistoryTip {
         this.roundId.string = `#${data.roundId}`;
         let choiceResult = "";
         if (settlementResult[SicBoBetType.anyTriple]) {
-            choiceResult = GameUtils.getText("ui.any_triple");
+            choiceResult = GameUtils.getText("ui.triple");
         } else {
             choiceResult = settlementResult[SicBoBetType.big] ? GameUtils.getText("ui.choice_big") : GameUtils.getText("ui.choice_small");
         }
