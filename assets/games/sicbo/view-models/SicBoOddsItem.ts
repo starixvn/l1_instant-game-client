@@ -8,6 +8,6 @@ export default class SicBoOddsItem extends cc.Component {
     odds: cc.Label = null;
 
     setValue(value: string) {
-        this.odds.string = formatOdds(value);
+        this.odds.string = formatOdds(value, cc.GameManager.user?.fractionalOddsFormat);
     }
 }
