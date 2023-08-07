@@ -1709,7 +1709,7 @@
         "__id__": 68
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 71
@@ -1873,7 +1873,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 158,
+      "width": 167.02,
       "height": 55.7
     },
     "_anchorPoint": {
@@ -2061,10 +2061,10 @@
     "node": {
       "__id__": 55
     },
-    "_enabled": false,
+    "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 155.36,
+      "width": 167.02,
       "height": 55.7
     },
     "_resize": 1,
@@ -2075,8 +2075,8 @@
       "height": 40
     },
     "_N$startAxis": 0,
-    "_N$paddingLeft": 5,
-    "_N$paddingRight": 5,
+    "_N$paddingLeft": 10,
+    "_N$paddingRight": 10,
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
     "_N$spacingX": 2,
