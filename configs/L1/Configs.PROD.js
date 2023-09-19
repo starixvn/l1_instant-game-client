@@ -21,5 +21,6 @@ window.envConfig = {
         10: true,
         25: true
     },
-    enableMsgpackParserOnNotification: true
+    enableMsgpackParserOnNotification: true,
+    clientSubDomain: "client"
 };

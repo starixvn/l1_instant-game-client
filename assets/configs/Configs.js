@@ -16,7 +16,8 @@ const defaultConfig = {
     },
     subGuideDomain: "l1-guide",
     enableMsgpackParserOnGame: {},
-    enableMsgpackParserOnNotification: false
+    enableMsgpackParserOnNotification: false,
+    clientSubDomain: "l1-client"
 };
 
 const domainMapper = window.envConfig ? undefined : defaultConfig.serverDomainMapper;

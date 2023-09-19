@@ -15,6 +15,9 @@ import PromotionAnnouncements from "../promotions/PromotionAnnouncements";
 import BoostedOdds, { BoostedOddsEvent } from "../promotions/BoostedOdds";
 import { Promotions, PromotionsEvent } from "../promotions/Promotions";
 import NotificationService from "../../../manager/auth/NotificationService";
+import { isMicrositeGame } from "../../../configs/GameConfigurations";
+import MicrositeGameBase from "../../../games/_base/MicrositeGameBase";
+import { FeatureConfig } from "../../../configs/FeatureConfigs";
 
 const { ccclass, property } = cc._decorator;
 @ccclass
@@ -55,6 +58,7 @@ export default class MiniPanel extends BaseComponent {
     private gameMiniInitializers: MiniPanelMiniGameInitializers;
     private miniGamesCache = {};
     private currentGame: GameBase;
+    private currentMicrositeGame: MicrositeGameBase;
     public currentGameId: number;
     public mainCallback: {
         showNoticeNotPermitToPlay: () => void;
@@ -123,8 +127,18 @@ export default class MiniPanel extends BaseComponent {
     }
 
     openGuide() {
+        if (isMicrositeGame(this.currentGameId)) {
+            this.currentMicrositeGame?.openGuide();
+            return;
+        }
         if (this.currentGame) {
             this.currentGame.openGuide();
+        }
+    }
+
+    setSoundGame(bool: boolean) {
+        if (isMicrositeGame(this.currentGameId) && !FeatureConfig.PortraitMode) {
+            this.currentMicrositeGame?.setSound(bool);
         }
     }
 
@@ -146,15 +160,24 @@ export default class MiniPanel extends BaseComponent {
     }
 
     addMiniGame(game: any, gameId: number) {
-        this.miniGames && this.miniGames.addChild(game.node);
-        this.miniGamesCache[gameId] = game;
+        this.addGame(game.node, gameId);
         this.currentGame = game;
+    }
+
+    addMicrositeGame(game: MicrositeGameBase, gameId: number) {
+        this.addGame(game.node, gameId);
+        this.currentMicrositeGame = game;
+    }
+
+    addGame(game: cc.Node, gameId: number) {
+        this.miniGames?.addChild(game);
+        this.miniGamesCache[gameId] = game;
     }
 
     removeGame(gameId: number) {
         delete this.miniGamesCache[gameId];
         this.miniGames.destroyAllChildren();
-        this.gameMiniInitializers.closeSocketGame(gameId);
+        !isMicrositeGame(gameId) && this.gameMiniInitializers.closeSocketGame(gameId);
     }
 
     getGameMini(gameId): any {
@@ -230,7 +253,13 @@ export default class MiniPanel extends BaseComponent {
 
         this.currentGameId = id;
         this.currentGame = null;
-        this.gameMiniInitializers.openNewSocket(id);
+        this.currentMicrositeGame = null;
+
+        if (isMicrositeGame(id)) {
+            GameUtils.openMicrositeGame(id, this);
+        } else {
+            this.gameMiniInitializers.openNewSocket(id);
+        }
     }
 
     loadGameRoom(name) {
@@ -307,6 +336,7 @@ export default class MiniPanel extends BaseComponent {
         }
         this.removeAllDialogs();
         this.currentGame = null;
+        this.currentMicrositeGame = null;
         this.showLostConnection(
             {
                 title: gameName,

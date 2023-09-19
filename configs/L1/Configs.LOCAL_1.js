@@ -13,5 +13,6 @@ window.envConfig = {
     },
     subGuideDomain: "l1-guide-1",
     enableMsgpackParserOnGame: {},
-    enableMsgpackParserOnNotification: false
+    enableMsgpackParserOnNotification: false,
+    clientSubDomain: ""
 };

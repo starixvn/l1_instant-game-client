@@ -8,5 +8,6 @@ window.envConfig = {
         env: "INSTANT_LOCAL_1"
     },
     subGuideDomain: "l2-guide-1",
-    kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno"
+    kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno",
+    clientSubDomain: ""
 };

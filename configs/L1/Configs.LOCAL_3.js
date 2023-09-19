@@ -14,5 +14,6 @@ window.envConfig = {
     subGuideDomain: "l1-guide-3",
     kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno",
     enableMsgpackParserOnGame: {},
-    enableMsgpackParserOnNotification: false
+    enableMsgpackParserOnNotification: false,
+    clientSubDomain: ""
 };

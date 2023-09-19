@@ -1,12 +1,23 @@
 import * as configs from "../../configs/Configs";
 import { GameInfos } from "../../configs/SabaConfigs";
 
-export function buildUrl(protocol = "http", path = "/") {
+export function buildUrl(protocol = "http", path = "/", overrideSubDomain = "") {
     const ssl = configs.ssl;
     const domain = getRootDomain();
-    const subDomain = configs.subDomain;
+    const subDomain = overrideSubDomain !== "" ? overrideSubDomain : configs.subDomain;
     const subDomainText = `${subDomain}.`;
     return `${protocol}${ssl ? "s" : ""}://${subDomain === "" ? "" : subDomainText}${domain}${path}`;
+}
+
+export function buildClientUrl(path: string) {
+    const envPath = configs.env === "" ? "" : `/${configs.env}`;
+    const fullPath = `${envPath}${path}`;
+
+    return buildUrl("http", fullPath, configs.clientSubDomain);
+}
+
+export function buildMicrositeGameUrl(gameId) {
+    return buildClientUrl(`/site-instant-${gameId}`);
 }
 
 export function getRootDomain() {

@@ -11,6 +11,8 @@ export default class GameCategoryList extends CategoryList {
         const item = this.items.find((i) => i.itemId === itemId);
         const current = Math.abs(this.scrollView.getScrollOffset().x);
         const delta = item.node.convertToWorldSpaceAR(cc.v2(0, 0)).x - this.scrollView.node.convertToWorldSpaceAR(cc.v2(0, 0)).x;
-        this.scrollView.scrollToOffset(cc.v2(current + delta, 0), 0.3);
+        setTimeout(() => {
+            this.scrollView.scrollToOffset(cc.v2(current + delta, 0), 0.5);
+        }, 100);
     }
 }

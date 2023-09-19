@@ -1,5 +1,6 @@
 import MiniPanel from "../common/control/mini-panel/MiniPanel";
 import configs = require("../configs/Configs");
+import { getMicrositeGameIds } from "../configs/GameConfigurations";
 import { GAME_OFFER } from "./GamesOffer";
 import { StorageManager } from "./StorageManager";
 
@@ -29,11 +30,8 @@ export default class GameManager extends cc.Component {
     userStakeLevel: any = {};
     // sleepTime: number;
     user: any = {};
-    supportGames: number[] = [];
 
     onLoad() {
-        this.supportGames.push(...GAME_OFFER[configs.systemType]);
-
         GameManager.Instance = this;
         cc.game.on(cc.game.EVENT_HIDE, () => {
             this.GAME_IS_SHOWED = false;
@@ -42,6 +40,10 @@ export default class GameManager extends cc.Component {
         cc.game.on(cc.game.EVENT_SHOW, () => {
             this.GAME_IS_SHOWED = true;
         });
+    }
+
+    get supportGames() {
+        return [...GAME_OFFER[configs.systemType], ...getMicrositeGameIds()];
     }
 
     userStakeLevelData(data) {
@@ -81,6 +83,7 @@ export default class GameManager extends cc.Component {
 
     setSoundGame(bool: boolean) {
         StorageManager.get().set("SOUND_GAME", bool.toString());
+        this.miniPanel?.setSoundGame(bool);
 
         Object.keys(this.soundObservers).forEach((key) => {
             var observer = this.soundObservers[key];

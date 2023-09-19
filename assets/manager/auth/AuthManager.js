@@ -139,6 +139,19 @@ export function clearTokenOnUrl() {
     }
 }
 
+export function setRecheckInInterval() {
+    removeRecheckInInterval();
+    window.reCheckInId = setInterval(() => {
+        reCheckIn();
+    }, 60 * 1000);
+}
+
+export function removeRecheckInInterval() {
+    if (window.reCheckInId) {
+        clearInterval(window.reCheckInId);
+    }
+}
+
 export function signOut() {
     loadSessionTimeoutScene();
     sessionManager.removeSession();

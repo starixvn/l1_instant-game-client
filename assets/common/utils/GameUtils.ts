@@ -1,9 +1,130 @@
 import * as i18n from "i18n/runtime-scripts/LanguageData";
-
+import { Base64 } from "base64-string";
 import GameManager from "../../manager/GameManager";
 import { numberWithCommas } from "../helper/NumberHelper";
+import { buildMicrositeGameUrl } from "../helper/UrlHelper";
+import axios from "axios";
+import { FeatureConfig } from "../../configs/FeatureConfigs";
+import MiniPanel from "../control/mini-panel/MiniPanel";
+import MicrositeGameBase from "../../games/_base/MicrositeGameBase";
 
 export default class GameUtils {
+    static base64: Base64;
+
+    public static base64Decode(data: string): string {
+        if (!this.base64) {
+            this.base64 = new Base64();
+        }
+        return this.base64.decode(data);
+    }
+
+    public static base64Encode(data: string): string {
+        if (!this.base64) {
+            this.base64 = new Base64();
+        }
+        return this.base64.encode(data);
+    }
+    static remoteLocalization = {};
+
+    public static async loadRemoteLocalization(gameId: number) {
+        if (!this.remoteLocalization[gameId]) {
+            const localization = await this.loadRemoteGameResource<cc.JsonAsset>(gameId, "localization.json");
+            this.remoteLocalization[gameId] = localization.json;
+        }
+    }
+
+    public static loadRemoteGameResource<T>(gameId: number, pathResource: string) {
+        return this.loadRemote<T>(this.remoteGameResourceUrl(gameId, pathResource));
+    }
+
+    public static remoteGameResourceUrl(gameId: number, pathResource: string) {
+        const url = buildMicrositeGameUrl(gameId);
+        return `${url}/remote/${pathResource}`;
+    }
+
+    public static loadRemote<T>(url: string): Promise<T> {
+        return new Promise((resolve, reject) => {
+            cc.assetManager.loadRemote(url, (err, asset: any) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+                resolve(asset);
+            });
+        });
+    }
+
+    private static getRemoteTranslation(gameId: number, key: string, language: string) {
+        return this.remoteLocalization[gameId]?.[key]?.[language];
+    }
+
+    public static async getRemoteDisplayGameName(gameId, breakline = false) {
+        await this.loadRemoteLocalization(gameId);
+        const list = ["generalGameNames", "gameNames"];
+        breakline && list.unshift("lobbyNames");
+
+        const currentLanguage = window.i18n?.curLang;
+        const key = list.find((key) => this.getRemoteTranslation(gameId, key, currentLanguage));
+        if (!key) {
+            this.getRemoteTranslation(gameId, "gameNames", "en");
+        }
+        return this.getRemoteTranslation(gameId, key, currentLanguage);
+    }
+
+    public static async healthCheckMicrositeGame(gameId: number) {
+        const url = `${buildMicrositeGameUrl(gameId)}/health`;
+        try {
+            const response = await axios.get(url);
+            if (response.data?.toString().trim() === "healthy") {
+                return true;
+            }
+            return false;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    public static async openMicrositeGame(gameId: number, miniPanel: MiniPanel) {
+        miniPanel?.showLoading(true);
+        miniPanel?.loading?.setDefaultPercent();
+        const available = await this.healthCheckMicrositeGame(gameId);
+        if (available) {
+            window.micrositeGameId = gameId;
+            const prefix = FeatureConfig.PortraitMode ? "portrait-mode/" : "";
+            const prefabName = "MicrositeGame";
+            const prefabPath = `games/${prefix}${prefabName}`;
+            cc.loader.loadRes(
+                prefabPath,
+                (completedCount, total, item) => {
+                    miniPanel?.loading?.onProgress(completedCount, total, item);
+                },
+                (error, prefab) => {
+                    this.handleCompleteLoadMicrositePrefab({ gameId, prefab, error }, miniPanel);
+                }
+            );
+        } else {
+            const gameName = await this.getRemoteDisplayGameName(gameId);
+            miniPanel?.onConnectSocketFailed(gameName);
+        }
+    }
+
+    private static handleCompleteLoadMicrositePrefab({ gameId, prefab, error }, miniPanel: MiniPanel) {
+        if (!miniPanel?.isAlive()) {
+            return;
+        }
+        if (error || prefab === null) {
+            miniPanel?.onForceReload();
+            return;
+        }
+
+        if (miniPanel.currentGameId === gameId) {
+            const node = cc.instantiate<cc.Node>(prefab);
+            const microsite = node.getComponent(MicrositeGameBase);
+            microsite.miniPanel = miniPanel;
+            miniPanel.addMicrositeGame(microsite, gameId);
+        }
+    }
+
     public static addFlyingText(parent: cc.Node, win: boolean, value: number, duration = 1, startY = 0, destY = 100) {
         const temp = new cc.Node().addComponent(cc.Label);
         temp.string = (win ? "+" : "-") + numberWithCommas(value, 2);

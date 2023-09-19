@@ -11,6 +11,7 @@ import NotificationService from "./manager/auth/NotificationService";
 import { Promotions } from "./common/control/promotions/Promotions";
 import PromotionNotificationsHandler from "./common/control/promotions/PromotionNotificationsHandler";
 import { StorageManager } from "./manager/StorageManager";
+import { initialize as initGameConfiguration } from "./configs/GameConfigurations";
 
 const { ccclass, property } = cc._decorator;
 
@@ -37,39 +38,43 @@ export default class Main extends cc.Component {
         cc.GameManager = GameManager.Instance;
         this.initLanguage();
 
-        this.category.setItems(
-            cc.GameManager.supportGames.map((id) => {
-                return {
-                    itemId: id
+        initGameConfiguration()
+            .then(() => {
+                this.category.setItems(
+                    cc.GameManager.supportGames.map((id) => {
+                        return {
+                            itemId: id
+                        };
+                    })
+                );
+
+                this.category.itemClickCallback = (itemId) => {
+                    if (itemId !== this.currentGameId) {
+                        this.onGameChanged(itemId);
+                        this.currentGameId = itemId;
+                    }
                 };
+
+                this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
+                this.miniPanel.mainCallback = {
+                    showNoticeNotPermitToPlay: () => {
+                        this.showingNoticeNotPermitToPlay = true;
+                    },
+                    updateOfferGameHeaders: () => this.updateOfferGameHeaders(),
+                    selecAndOpenGame: (gameId) => {
+                        this.updateSelectedHeader(gameId);
+                        this.openGame(gameId);
+                    },
+                    joinGameCallback: (gameId) => {
+                        this.handleJoinGame(gameId);
+                    }
+                };
+
+                GameManager.Instance.miniPanel = this.miniPanel;
+                this.splash.active = true;
+                this.checkSSO();
             })
-        );
-
-        this.category.itemClickCallback = (itemId) => {
-            if (itemId !== this.currentGameId) {
-                this.onGameChanged(itemId);
-                this.currentGameId = itemId;
-            }
-        };
-
-        this.miniPanel = this.miniPanelNode.getComponent(MiniPanel);
-        this.miniPanel.mainCallback = {
-            showNoticeNotPermitToPlay: () => {
-                this.showingNoticeNotPermitToPlay = true;
-            },
-            updateOfferGameHeaders: () => this.updateOfferGameHeaders(),
-            selecAndOpenGame: (gameId) => {
-                this.updateSelectedHeader(gameId);
-                this.openGame(gameId);
-            },
-            joinGameCallback: (gameId) => {
-                this.handleJoinGame(gameId);
-            }
-        };
-
-        GameManager.Instance.miniPanel = this.miniPanel;
-        this.splash.active = true;
-        this.checkSSO();
+            .catch((e) => console.log(e));
     }
 
     onDestroy() {
@@ -104,12 +109,7 @@ export default class Main extends cc.Component {
         // authManager.preChecking(() => {
         this.splashMessage.string = "";
         authManager.checkSSO(this.splashMessage, () => {
-            if (window.reCheckInId) {
-                clearInterval(window.reCheckInId);
-            }
-            window.reCheckInId = setInterval(() => {
-                authManager.reCheckIn();
-            }, 60 * 1000);
+            authManager.setRecheckInInterval();
 
             this.signIn();
             NotificationService.getInstance().connect();
