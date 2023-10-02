@@ -124,9 +124,11 @@ export default class MicrositeGameBase extends cc.Component {
     }
 
     private async handleDisconnect() {
-        const gameName = await GameUtils.getRemoteDisplayGameName(window.micrositeGameId);
-        this.node.destroy();
-        this.miniPanel?.onConnectSocketFailed(gameName);
+        if (this.node?.isValid) {
+            const gameName = await GameUtils.getRemoteDisplayGameName(window.micrositeGameId);
+            this.node.destroy();
+            this.miniPanel?.onConnectSocketFailed(gameName);
+        }
     }
 
     private postMessageToMicrosite(data: any) {
