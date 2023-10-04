@@ -320,7 +320,9 @@ export default class MiniPanel extends BaseComponent {
     reloadCurrentGame() {
         const currentGameId = this.currentGameId;
         this.removeGame(currentGameId);
-        this.openNewSocketMiniGame(currentGameId);
+        setTimeout(() => {
+            this.openNewSocketMiniGame(currentGameId);
+        }, 100);
     }
 
     addDialog(dialogNode: cc.Node) {
