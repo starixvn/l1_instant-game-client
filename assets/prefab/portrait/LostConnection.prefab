@@ -61,8 +61,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 812,
-      "height": 456
+      "width": 448,
+      "height": 740
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -73,8 +73,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        406,
-        228,
+        224,
+        370,
         0,
         0,
         0,
@@ -128,8 +128,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 812,
-      "height": 456
+      "width": 448,
+      "height": 740
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -246,8 +246,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 812,
-      "height": 456
+      "width": 448,
+      "height": 740
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -610,8 +610,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 274.89,
-      "height": 55.44
+      "width": 448,
+      "height": 120
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -623,7 +623,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        258.314,
+        284,
         0,
         0,
         0,
@@ -662,10 +662,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "THÔNG BÁO",
-    "_N$string": "THÔNG BÁO",
+    "_string": " THÔNG BÁO",
+    "_N$string": " THÔNG BÁO",
     "_fontSize": 44,
-    "_lineHeight": 44,
+    "_lineHeight": 46,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "80bd500f-2fe2-4b96-a6ab-762b6f3d291d"
@@ -676,9 +676,9 @@
     "_styleFlags": 0,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
+    "_N$verticalAlign": 2,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": ""
   },
