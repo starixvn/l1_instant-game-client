@@ -1,12 +1,12 @@
-import * as i18n from "i18n/runtime-scripts/LanguageData";
+import axios from "axios";
 import { Base64 } from "base64-string";
+import * as i18n from "i18n/runtime-scripts/LanguageData";
+import { FeatureConfig } from "../../configs/FeatureConfigs";
+import MicrositeGameBase from "../../games/_base/MicrositeGameBase";
 import GameManager from "../../manager/GameManager";
+import MiniPanel from "../control/mini-panel/MiniPanel";
 import { numberWithCommas } from "../helper/NumberHelper";
 import { buildMicrositeGameUrl } from "../helper/UrlHelper";
-import axios from "axios";
-import { FeatureConfig } from "../../configs/FeatureConfigs";
-import MiniPanel from "../control/mini-panel/MiniPanel";
-import MicrositeGameBase from "../../games/_base/MicrositeGameBase";
 
 export default class GameUtils {
     static base64: Base64;
@@ -150,7 +150,7 @@ export default class GameUtils {
 
     public static capitalizeWords(str: string) {
         return str.replace(/\w\S*/g, function (txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            return txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase();
         });
     }
 
