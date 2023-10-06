@@ -1,12 +1,12 @@
-import CustomWebView from "../../common/control/CustomWebView";
-import { buildMicrositeGameUrl } from "../../common/helper/UrlHelper";
-import { FeatureConfig } from "../../configs/FeatureConfigs";
-import * as sessionManager from "../../manager/auth/SessionManager";
 import { SSOResponse } from "sc-user-service-client/dist/auth";
-import GameUtils from "../../common/utils/GameUtils";
-import * as AuthManager from "../../manager/auth/AuthManager";
+import CustomWebView from "../../common/control/CustomWebView";
 import MiniPanel from "../../common/control/mini-panel/MiniPanel";
 import { Promotions, PromotionsEvent } from "../../common/control/promotions/Promotions";
+import { buildMicrositeGameUrl } from "../../common/helper/UrlHelper";
+import GameUtils from "../../common/utils/GameUtils";
+import { FeatureConfig } from "../../configs/FeatureConfigs";
+import * as AuthManager from "../../manager/auth/AuthManager";
+import * as sessionManager from "../../manager/auth/SessionManager";
 
 const { ccclass, property } = cc._decorator;
 
@@ -25,6 +25,7 @@ export type MicrositeGameParams = {
     splashEnabled?: boolean;
     isUserGesture?: boolean;
     isDisconnect?: boolean;
+    isNotPermittedToPlay?: boolean;
 };
 
 const WebviewEventType = {
@@ -108,6 +109,7 @@ export default class MicrositeGameBase extends cc.Component {
             this.handleDisconnect();
             return;
         }
+
         if (data.backLobby && !this.isLoadingOtherGame) {
             this.isLoadingOtherGame = true;
             this.onClickJoinGame(data.gameId);
@@ -115,6 +117,11 @@ export default class MicrositeGameBase extends cc.Component {
         }
         if (data.sfxEnable !== undefined && FeatureConfig.PortraitMode) {
             cc.GameManager.setSoundGame(data.sfxEnable);
+        }
+
+        if (data.isNotPermittedToPlay) {
+            this.handleNotPermittedToPlay();
+            return;
         }
     }
 
@@ -149,5 +156,9 @@ export default class MicrositeGameBase extends cc.Component {
 
     setSound(bool: boolean) {
         this.postMessageToMicrosite({ sfxEnable: bool });
+    }
+
+    handleNotPermittedToPlay() {
+        this.miniPanel.callBackNotPermittedToPlay();
     }
 }

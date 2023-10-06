@@ -1,7 +1,11 @@
 import * as i18n from "i18n/runtime-scripts/LanguageData";
 
+import { FeatureConfig } from "../../../configs/FeatureConfigs";
+import { isMicrositeGame } from "../../../configs/GameConfigurations";
 import GameBase from "../../../games/_base/GameBase";
+import MicrositeGameBase from "../../../games/_base/MicrositeGameBase";
 import * as authManager from "../../../manager/auth/AuthManager";
+import NotificationService from "../../../manager/auth/NotificationService";
 import * as sessionManager from "../../../manager/auth/SessionManager";
 import { numberWithCommas } from "../../helper/NumberHelper";
 import GameUtils from "../../utils/GameUtils";
@@ -9,15 +13,11 @@ import NoticeUtil from "../../utils/NoticeUtil";
 import BaseComponent from "../BaseComponent";
 import Loading from "../Loading";
 import Notice, { NoticeData } from "../notice/Notice";
+import BoostedOdds, { BoostedOddsEvent } from "../promotions/BoostedOdds";
+import PromotionAnnouncements from "../promotions/PromotionAnnouncements";
+import { Promotions, PromotionsEvent } from "../promotions/Promotions";
 import MiniPanelDataHandlers from "./MiniPanelDataHandlers";
 import MiniPanelMiniGameInitializers from "./MiniPanelMiniGameInitializers";
-import PromotionAnnouncements from "../promotions/PromotionAnnouncements";
-import BoostedOdds, { BoostedOddsEvent } from "../promotions/BoostedOdds";
-import { Promotions, PromotionsEvent } from "../promotions/Promotions";
-import NotificationService from "../../../manager/auth/NotificationService";
-import { isMicrositeGame } from "../../../configs/GameConfigurations";
-import MicrositeGameBase from "../../../games/_base/MicrositeGameBase";
-import { FeatureConfig } from "../../../configs/FeatureConfigs";
 
 const { ccclass, property } = cc._decorator;
 @ccclass
@@ -220,16 +220,21 @@ export default class MiniPanel extends BaseComponent {
             isInfo: true,
             canNotClose
         } as NoticeData;
-        const callback = () => {
-            if (this.mainCallback.updateOfferGameHeaders) {
-                this.mainCallback.updateOfferGameHeaders();
-            }
-            if (switchGame) {
-                const firstGameId = cc.GameManager.getFirstOfferGame();
-                this.mainCallback.selecAndOpenGame(firstGameId);
-            }
-        };
-        this.showNotice(noticeData, callback, callback);
+
+        this.showNotice(
+            noticeData,
+            () => this.callBackNotPermittedToPlay(),
+            () => this.callBackNotPermittedToPlay()
+        );
+    }
+
+    callBackNotPermittedToPlay() {
+        if (this.mainCallback.updateOfferGameHeaders) {
+            this.mainCallback.updateOfferGameHeaders();
+        }
+
+        const firstGameId = cc.GameManager.getFirstOfferGame();
+        this.mainCallback.selecAndOpenGame(firstGameId);
     }
 
     forceKickedOut() {
