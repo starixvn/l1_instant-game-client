@@ -121,7 +121,6 @@ export default class MicrositeGameBase extends cc.Component {
 
         if (data.isNotPermittedToPlay) {
             this.handleNotPermittedToPlay();
-            return;
         }
     }
 
@@ -159,6 +158,8 @@ export default class MicrositeGameBase extends cc.Component {
     }
 
     handleNotPermittedToPlay() {
+        cc.GameManager.removeGameOffer(this.miniPanel?.currentGameId);
+        this.miniPanel.mainCallback.showNoticeNotPermitToPlay();
         this.miniPanel.callBackNotPermittedToPlay();
     }
 }

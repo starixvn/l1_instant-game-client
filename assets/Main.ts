@@ -1,17 +1,17 @@
+import GameCategoryList from "./common/control/category/GameCategoryList";
 import MiniPanel from "./common/control/mini-panel/MiniPanel";
+import PromotionNotificationsHandler from "./common/control/promotions/PromotionNotificationsHandler";
+import { Promotions } from "./common/control/promotions/Promotions";
 import { sentryLogger } from "./common/logger.js";
 import NameGenerator from "./common/name-generator/NameGenerator";
+import { initialize as initGameConfiguration } from "./configs/GameConfigurations";
 import { GameIds } from "./configs/SabaConfigs";
+import GameManager from "./manager/GameManager";
+import { StorageManager } from "./manager/StorageManager";
 import * as authManager from "./manager/auth/AuthManager";
+import NotificationService from "./manager/auth/NotificationService";
 import { getCacheLanguage, getLanguage, setLanguage } from "./manager/auth/SessionManager";
 import UserService from "./manager/auth/UserService";
-import GameManager from "./manager/GameManager";
-import GameCategoryList from "./common/control/category/GameCategoryList";
-import NotificationService from "./manager/auth/NotificationService";
-import { Promotions } from "./common/control/promotions/Promotions";
-import PromotionNotificationsHandler from "./common/control/promotions/PromotionNotificationsHandler";
-import { StorageManager } from "./manager/StorageManager";
-import { initialize as initGameConfiguration } from "./configs/GameConfigurations";
 
 const { ccclass, property } = cc._decorator;
 
