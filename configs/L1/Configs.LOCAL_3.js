@@ -15,5 +15,7 @@ window.envConfig = {
     kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno",
     enableMsgpackParserOnGame: {},
     enableMsgpackParserOnNotification: false,
-    clientSubDomain: ""
+    clientSubDomain: "",
+    gameIdsSupportBoostedOddsForInstantSite: "1,9",
+    boostedOddsDelayTimeByMinutes: 2
 };

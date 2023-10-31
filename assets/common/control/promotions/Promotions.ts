@@ -1,6 +1,6 @@
 import NotificationService from "../../../manager/auth/NotificationService";
 import { EventEmitter } from "events";
-import { GameIds } from "../../../configs/SabaConfigs";
+import { boostedOddsDelayTimeByMinutes, gameIdsSupportBoostedOddsForInstantSite } from "../../../configs/Configs";
 
 export const PromotionsEvent = {
     SHOW_BOOSTED_ODDS: "SHOW_BOOSTED_ODDS",
@@ -36,9 +36,8 @@ export class Promotions extends EventEmitter {
     public isShowBoostedOdds = true;
     protected timeout: any;
     private readonly minutesToMillisecond = 60 * 1000;
-    private readonly delayTime = 15 * this.minutesToMillisecond;
+    private readonly defaultDelayTimeByMinutes = 15;
     protected promotions: Promotion[] = [promotion];
-    private readonly supportPromotion = [GameIds.BigSmall, GameIds.MiniSedie];
 
     public static getInstance(): Promotions {
         if (!this.instance) {
@@ -58,8 +57,12 @@ export class Promotions extends EventEmitter {
 
     receivedData(data) {
         const offerGames = [...cc.GameManager.user.offerGames];
+        const offerGamesConfigs = gameIdsSupportBoostedOddsForInstantSite.split(",");
         const newPromotion = data.filter(
-            (promotion) => this.supportPromotion.includes(promotion.gameId) && offerGames?.includes(promotion.gameId)
+            (promotion) =>
+                offerGamesConfigs.some((gameId) => {
+                    return parseInt(gameId) === promotion.gameId;
+                }) && offerGames?.includes(promotion.gameId)
         );
         if (newPromotion.length > 0) {
             let haveNewPromotion = newPromotion.length > this.promotions.length;
@@ -93,8 +96,11 @@ export class Promotions extends EventEmitter {
 
     setTimeoutShowBoostedOdds(): void {
         this.timeout && clearTimeout(this.timeout);
+        console.log(`main boostedOddsDelayTimeByMinutes: ${boostedOddsDelayTimeByMinutes}`);
+        const delayTime = (boostedOddsDelayTimeByMinutes || this.defaultDelayTimeByMinutes) * this.minutesToMillisecond;
+
         this.timeout = setTimeout(() => {
             this.isShowBoostedOdds = true;
-        }, this.delayTime);
+        }, delayTime);
     }
 }

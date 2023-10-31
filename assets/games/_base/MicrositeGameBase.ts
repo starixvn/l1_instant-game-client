@@ -7,6 +7,7 @@ import GameUtils from "../../common/utils/GameUtils";
 import { FeatureConfig } from "../../configs/FeatureConfigs";
 import * as AuthManager from "../../manager/auth/AuthManager";
 import * as sessionManager from "../../manager/auth/SessionManager";
+import configs = require("../../configs/Configs");
 
 const { ccclass, property } = cc._decorator;
 
@@ -88,7 +89,8 @@ export default class MicrositeGameBase extends cc.Component {
             lang: session.language,
             appType: 3, // instant game
             sfxEnable: cc.GameManager?.isSoundGame(),
-            purl: GameUtils.base64Encode(window.location.href)
+            purl: GameUtils.base64Encode(window.location.href),
+            gameIdsSupportBoostedOddsForInstantSite: configs.gameIdsSupportBoostedOddsForInstantSite
         };
         const searchParams = new URLSearchParams();
         Object.keys(params).forEach((key) => params[key] !== undefined && searchParams.append(key, params[key]));

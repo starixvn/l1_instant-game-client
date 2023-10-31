@@ -10,3 +10,5 @@ export const enableMsgpackParserAllGames: boolean;
 export const enableMsgpackParserOnNotification: boolean;
 export const enableMsgpackParserOnGame: object;
 export const clientSubDomain: string;
+export const gameIdsSupportBoostedOddsForInstantSite: string;
+export const boostedOddsDelayTimeByMinutes: number;

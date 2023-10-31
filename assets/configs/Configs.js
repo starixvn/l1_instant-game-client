@@ -17,7 +17,9 @@ const defaultConfig = {
     subGuideDomain: "l1-guide",
     enableMsgpackParserOnGame: {},
     enableMsgpackParserOnNotification: false,
-    clientSubDomain: "l1-client"
+    clientSubDomain: "l1-client",
+    gameIdsSupportBoostedOddsForInstantSite: "1,9",
+    boostedOddsDelayTimeByMinutes: 2
 };
 
 const domainMapper = window.envConfig ? undefined : defaultConfig.serverDomainMapper;

@@ -9,5 +9,7 @@ window.envConfig = {
         env: "INSTANT_LOCAL"
     },
     subGuideDomain: "l2-guide",
-    clientSubDomain: ""
+    clientSubDomain: "",
+    gameIdsSupportBoostedOddsForInstantSite: "1,9",
+    boostedOddsDelayTimeByMinutes: 2
 };

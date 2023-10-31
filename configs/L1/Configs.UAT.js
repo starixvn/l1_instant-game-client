@@ -22,5 +22,7 @@ window.envConfig = {
         25: true
     },
     enableMsgpackParserOnNotification: true,
-    clientSubDomain: "l1uatclient"
+    clientSubDomain: "l1uatclient",
+    gameIdsSupportBoostedOddsForInstantSite: "1,9",
+    boostedOddsDelayTimeByMinutes: 15
 };

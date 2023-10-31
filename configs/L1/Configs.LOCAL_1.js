@@ -14,5 +14,7 @@ window.envConfig = {
     subGuideDomain: "l1-guide-1",
     enableMsgpackParserOnGame: {},
     enableMsgpackParserOnNotification: false,
-    clientSubDomain: ""
+    clientSubDomain: "",
+    gameIdsSupportBoostedOddsForInstantSite: "1,9",
+    boostedOddsDelayTimeByMinutes: 2
 };

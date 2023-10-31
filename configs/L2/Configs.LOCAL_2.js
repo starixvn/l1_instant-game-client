@@ -9,5 +9,7 @@ window.envConfig = {
     },
     subGuideDomain: "l2-guide-2",
     kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno",
-    clientSubDomain: ""
+    clientSubDomain: "",
+    gameIdsSupportBoostedOddsForInstantSite: "1,9",
+    boostedOddsDelayTimeByMinutes: 2
 };

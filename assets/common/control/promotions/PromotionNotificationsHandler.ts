@@ -1,5 +1,6 @@
 import { EventEmitter } from "events";
 import NotificationService from "../../../manager/auth/NotificationService";
+import { gameIdsSupportBoostedOddsForInstantSite } from "../../../configs/Configs";
 
 export const PromotionNotificationsEvent = {
     NEW_PROMOTION: "NEW_PROMOTION"
@@ -33,8 +34,6 @@ export default class PromotionNotificationsHandler extends EventEmitter {
 
     public _promotionNotifications: PromotionNotification[];
 
-    private readonly supportNotificationPromotion = ["minisedie", "taixiu"];
-
     public static getInstance(): PromotionNotificationsHandler {
         if (!this.instance) {
             this.instance = new PromotionNotificationsHandler();
@@ -61,10 +60,13 @@ export default class PromotionNotificationsHandler extends EventEmitter {
 
     receivedData(data: PromotionNotification[]) {
         const offerGames = [...cc.GameManager.user.offerGames];
+        console.log(`main gameIdsSupportBoostedOddsForInstantSite: ${gameIdsSupportBoostedOddsForInstantSite}`);
+        const offerGamesConfigs = gameIdsSupportBoostedOddsForInstantSite.split(",");
         const newPromotionNotification = data.filter(
             (promotionNotification) =>
-                this.supportNotificationPromotion.includes(promotionNotification.gameName) &&
-                offerGames?.includes(promotionNotification.gameId)
+                offerGamesConfigs.some((gameId) => {
+                    return parseInt(gameId) === promotionNotification.gameId;
+                }) && offerGames?.includes(promotionNotification.gameId)
         );
         if (JSON.stringify(this._promotionNotifications) === JSON.stringify(newPromotionNotification)) {
             this._reloadAnnouncementPopup = false;

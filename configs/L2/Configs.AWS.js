@@ -9,5 +9,7 @@ window.envConfig = {
         env: "AWS"
     },
     kenoVietLotUrl: "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-keno",
-    clientSubDomain: ""
+    clientSubDomain: "",
+    gameIdsSupportBoostedOddsForInstantSite: "1,9",
+    boostedOddsDelayTimeByMinutes: 2
 };
