@@ -60,7 +60,6 @@ export default class PromotionNotificationsHandler extends EventEmitter {
 
     receivedData(data: PromotionNotification[]) {
         const offerGames = [...cc.GameManager.user.offerGames];
-        console.log(`main gameIdsSupportBoostedOddsForInstantSite: ${gameIdsSupportBoostedOddsForInstantSite}`);
         const offerGamesConfigs = gameIdsSupportBoostedOddsForInstantSite.split(",");
         const newPromotionNotification = data.filter(
             (promotionNotification) =>
